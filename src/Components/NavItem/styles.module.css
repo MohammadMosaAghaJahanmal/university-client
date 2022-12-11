@@ -1,0 +1,25 @@
+
+.item
+{
+    display: block;
+    padding: 0;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+.item:hover, .active
+{
+    color: rgba(154, 154, 240, 1);
+    border-color: rgba(154, 154, 240, 1);
+    
+}
+

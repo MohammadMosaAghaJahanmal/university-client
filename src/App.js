@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import 'aos/dist/aos.css'
+import './styles.css'
+import AOS from 'aos';
+import AuthProvider from './authContext';
+import AppWrapper from './Containers/AppWrapper'
 
 function App() {
+  useEffect(() =>
+  {
+
+    AOS.init({
+      duration: 600,
+      debounceDelay: 100,
+      mirror: true,
+      easing: "ease",
+    });
+    
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <AuthProvider>
+        <AppWrapper />
+      </AuthProvider>
     </div>
   );
 }

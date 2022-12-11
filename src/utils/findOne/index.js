@@ -1,0 +1,1 @@
+export default (data, id) => data.find(per => per?._id === id);
