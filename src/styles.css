@@ -1,9 +1,55 @@
+
+*
+{
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-drag: none;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+
+.w-controller
+{
+  max-width: 1366px !important;
+  width: 100% !important;
+  margin: 0 auto;
+}
+
+
+
+
+@keyframes shaper {
+  0%
+  {
+    clip-path: polygon(52% 0, 81% 11%, 100% 1%, 100% 99%, 68% 86%, 41% 99%, 16% 90%, 0 100%, 0 0, 26% 9%);
+  }
+  20%
+  {
+    clip-path: polygon(68% 0, 81% 17%, 100% 1%, 100% 99%, 55% 96%, 22% 100%, 6% 89%, 0 100%, 0 0, 45% 6%);
+
+  }
+  40%
+  {
+    clip-path: polygon(68% 0, 98% 3%, 97% 20%, 100% 99%, 55% 96%, 22% 100%, 3% 100%, 2% 54%, 0 0, 45% 6%);
+  }
+  60%
+  {
+    clip-path: polygon(79% 0, 100% 6%, 98% 64%, 95% 100%, 41% 98%, 20% 95%, 0 100%, 0 43%, 8% 2%, 49% 0);
+  }
+  80%
+  {
+    clip-path: polygon(88% 1%, 100% 14%, 98% 93%, 78% 95%, 41% 98%, 2% 98%, 2% 79%, 0 5%, 23% 0, 51% 4%);
+  }
+  100%
+  {
+    clip-path: polygon(100% 0, 99% 57%, 96% 99%, 51% 100%, 17% 93%, 0 100%, 7% 50%, 0 5%, 61% 0, 84% 6%);
+  }
   
 }

@@ -1,10 +1,12 @@
 export const Colors = {
   white: "#ffffff",
-  dark: "#090909",
-  orange: "#f26440",
-  blue: '#2e6260',
-  brown: "#251c1d",
-  text: "rgba(154, 154, 240, 1)"
+  black: "#000000",
+  green: "#8ac53a",
+  blue: "#0080d6",
+  yellow: "#facc07",
+  darkGreen: "#007600",
+  darkBlue: "#002060",
+  textColor: "#3e4958"
 }
 
 export const headHeight = 65;
