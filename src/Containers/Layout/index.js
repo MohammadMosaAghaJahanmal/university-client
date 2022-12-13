@@ -23,7 +23,7 @@ class Layout extends PureComponent
         <Suspense fallback={<Loader />}>
             <Navbar />
         </Suspense>
-        {/* <main>
+        <main>
           <Routes>
             {
               screens.map((per, index) => {
@@ -37,7 +37,7 @@ class Layout extends PureComponent
                     <PageNotFound />
                 </Suspense>} />
           </Routes>
-        </main> */}
+        </main>
         {/* <Suspense fallback={<Loader />}>
             <Footer />
         </Suspense> */}

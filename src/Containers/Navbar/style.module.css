@@ -171,8 +171,13 @@
 /* ///////////////////////////////////////// NAVBAR */
 .nav
 {
+  display: grid;
   background-color: #0080d6;
-  /* background-image: linear-gradient(to right, #0080d6, rgba(0, 128, 214,.9)); */
+  border-bottom: 18px solid #0863a0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
 }
 
 .navShaper
@@ -268,6 +273,7 @@
   object-fit: contain;
   position: absolute;
   top: -40px;
+  transition: 300ms;
 }
 
 .menuItems
@@ -280,7 +286,9 @@
 .menuItems > div
 {
   padding: 27px 20px;
-  color: rgba(255, 255, 255, 0.9);
+  color: white;
+  text-shadow: 1px 1px 0 black;
+  font-weight: 600;
   cursor: pointer;
   text-transform: uppercase;
   border-radius: 5px;
@@ -307,8 +315,8 @@
   content: '';
   display: inline-block;
   position: absolute;
-  width:  60px;
-  height: 60px;
+  width:  50px;
+  height: 50px;
   background-image: linear-gradient(to top right, #045283, rgba(0, 60, 97, 0.3));
   background-color: #009dff;
   transition: 300ms;
@@ -324,8 +332,8 @@
   content: "";
   display: inline-block;
   position: absolute;
-  width:  40px;
-  height: 40px;
+  width:  37px;
+  height: 37px;
   /* background-color: rgba(3, 67, 110, 0.5); */
   background-color: white;
   background-image: linear-gradient(to top right, #25CCF7, rgba(37, 204, 247, 0.3));
@@ -362,15 +370,141 @@
   background-color: #363333;
 
 }
-.crossLine
+
+.menuItems > div:hover .menuHintIcon
 {
-  height: 15px;
-  background-color: #0863a0;
+  scale: 1.5;
+  z-index: 11;
+  bottom: -10px;
 }
+
+.menuHintIcon
+{
+  bottom: -20px;
+  transform: rotate(45deg);
+}
+.menuHintIcon2
+{
+  bottom: -22px;
+  opacity: 0;
+  animation-name: fade-down;
+  animation-duration: 3000ms;
+  animation-delay: 1000ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+
+}
+.menuHintIcon svg
+{
+  transform: rotate(-45deg);
+}
+.dropDown
+{
+  position: absolute;
+  width: 0;
+  display: grid;
+  z-index: 10;
+  top: 77px;
+  right: 0;
+  row-gap: 1px;
+  border-radius: 5px;
+  overflow: hidden;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  box-shadow: 1px 1px 5px rgba(62, 73, 88, 0.3);
+  clip-path: polygon(98% 34%, 100% 50%, 97% 68%, 99% 99%, 2% 100%, 4% 76%, 1% 52%, 1% 33%, 2% 16%, 0 0, 98% 0, 100% 14%);
+  /* clip-path: polygon(100% 0, 98% 12%, 100% 23%, 98% 32%, 100% 45%, 98% 63%, 100% 74%, 97% 89%, 100% 100%, 84% 100%, 62% 100%, 32% 100%, 13% 98%, 3% 99%, 0 82%, 2% 64%, 0 42%, 3% 33%, 0 25%, 2% 11%, 0 0, 19% 2%, 35% 1%, 68% 0, 83% 3%); */
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms;
+  border-radius: 50%;
+
+}
+.menuItems > div:hover .dropDown
+{
+  visibility: visible;
+  width: 200px;
+  opacity: 1;
+  border-radius: 0%;
+}
+.dropDownLink
+{
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #0080d6;
+  text-shadow: 1px 1px 0px transparent;
+  transition: 300ms;
+  font-size: 16px;
+  text-transform: capitalize;
+  position: relative;
+  overflow: hidden;
+}
+.dropDownLink span
+{
+  position: relative !important;
+  display: inline-block !important;
+  z-index: 9;
+  transition: 300ms !important;
+}
+.dropDownLink:hover
+{
+  color: rgb(41, 37, 37);
+}
+.dropDownLink::before, .dropDownLink::after
+{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 10%;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: linear-gradient(to top right, #25CCF7, rgba(37, 204, 247, 0.3));
+  top: 0;
+  transition: 500ms;
+
+}
+.dropDownLink::before
+{
+  clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 100%);
+  left: 0;
+}
+.dropDownLink::after
+{
+  clip-path: polygon(50% 0, 100% 0%, 100% 100%, 50% 100%, 0% 50%);
+  right: 0;
+
+}
+.dropDownLink:hover::after, .dropDownLink:hover::before 
+{
+  width: 100%; 
+}
+.dropDownLink:hover
+{
+  background-color: #009dff;
+}
+
+
 
 @keyframes rotate {
   100%
   {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-down {
+  0%
+  {
+    transform: translateY(0px) rotate(45deg);
+    opacity: 1;
+    scale: 1.2;
+  }
+  100%
+  {
+    transform: translateY(10px) rotate(45deg);
+    scale: 1;
   }
 }
