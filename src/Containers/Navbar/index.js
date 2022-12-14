@@ -20,6 +20,7 @@ import AFG_FLAG from '../../Assets/af-flag.png';
 import US_FLAG from '../../Assets/us-flag.png';
 import LOGO from '../../Assets/logo.png';
 import language from '../../utils/localization';
+import {menus} from '../../Constants'
 const Navbar = (props) =>
 {
 
@@ -42,64 +43,6 @@ const Navbar = (props) =>
     } 
   }, []);
 
-  const menus = [
-    {
-      name: "About", 
-      mainLink: "/about", 
-      nested: false 
-    },
-    {
-      name: "Qec", 
-      mainLink: undefined, 
-      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
-      nested: false 
-    },
-    {
-      name: "Programs", 
-      mainLink: undefined, 
-      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
-      nested: false 
-    },
-    {
-      name: "Admission", 
-      mainLink: undefined, 
-      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
-      nested: false 
-    },
-    {
-      name: "R&D", 
-      mainLink: undefined, 
-      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
-      nested: false 
-    },
-    {
-      name: "Events", 
-      mainLink: undefined, 
-      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
-      nested: false 
-    },
-    {
-      name: "News", 
-      mainLink: undefined, 
-      links: [{name: "Some Text", link: "/firstNews"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
-      nested: false 
-    },
-    {
-      name: "Contact", 
-      mainLink: "#", 
-      nested: false 
-    },
-    {
-      name: "OneOther", 
-      mainLink: "#", 
-      nested: false 
-    },
-    {
-      name: "OtherToo", 
-      mainLink: "#", 
-      nested: false 
-    },
-  ]
 
   return (
     <>
@@ -164,35 +107,87 @@ const Navbar = (props) =>
           <span>
             <FaChartLine size={30} color={"#009dff"} />
           </span>
+          <div className={styles.mobileShaperRight}></div>
+          <div className={styles.mobileShaperLeft}></div>
         </div>
         <div className={[styles.navMenu, "w-controller"].join(" ")}>
           <div className={styles.logo} data-aos="fade-down-right" data-aos-delay={500}>
             <img src={LOGO} ref={logo} alt="Page logo"/>
           </div>
           <div className={styles.menuItems}>
-          {menus.map((menu, index) => (menu.mainLink) ? 
-          (
-            <NavLink data-aos="fade-down-left" data-aos-delay={(index + 1) * 200} className={styles.menuItem} key={(menu.name + index)} to={menu.mainLink}>
-              <span className={styles.menuText}>{menu.name}</span>
-              <span className={styles.shaper}></span>
-            </NavLink>
-          ):(
-            <div data-aos="fade-down-left" data-aos-delay={(index + 1) * 200} className={styles.menuItem} key={(menu.name + index)}>
-              <span className={styles.menuText}>{menu.name}</span>
-              <span className={styles.shaper}></span>
-              <span className={styles.menuHintIcon}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <div className={styles.dropDown}>
-                {menu.links?.map((link, ndx )=> (
-                  <NavLink className={styles.dropDownLink} key={(link.name + ndx)}><span>{link.name}</span></NavLink>
-                ))}
+            {menus.map((menu, index) => (menu.mainLink) ? 
+            (
+              <div data-aos="fade-down-left" data-aos-delay={(index + 1) * 200} key={(menu.name + index)}>
+                <NavLink  className={({isActive}) => [styles.menuItem, isActive ? styles.active : null].join(" ")}  to={menu.mainLink || "#"}>
+                  <span className={styles.menuText}>{menu.name}</span>
+                  <span className={styles.shaper}></span>
+                </NavLink>
               </div>
-            </div>
-          ))}
+
+            ):(
+              <div data-aos="fade-down-left" data-aos-delay={(index + 1) * 200} className={styles.menuItem} key={(menu.name + index)}>
+                <span className={styles.menuText}>{menu.name}</span>
+                <span className={styles.shaper}></span>
+                <span className={styles.menuHintIcon}>
+                  <ArrowDown  size={20} color={"#25CCF7"}/>
+                </span>
+                <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
+                  <ArrowDown  size={20} color={"#25CCF7"}/>
+                </span>
+                <div className={styles.dropDown}>
+                  {menu.links?.map((link, ndx )=> (
+                    <NavLink className={({isActive}) => [styles.dropDownLink, (isActive ? styles.active : null)].join(" ")} key={(link.name + ndx)} to={link.link}><span>{link.name}</span></NavLink>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.mobileMenu}>
+              <input type={'checkbox'} style={{display: "none"}} className={styles.input} id="menuToggler" />
+              <label htmlFor="menuToggler" className={styles.menuToggler}>
+                <span className={[styles.togglerItem, styles.hide].join(" ")}></span>
+                <span className={[styles.togglerItem, styles.cross, styles.cross1].join(" ")}></span>
+                <span className={[styles.togglerItem, styles.hide].join(" ")}></span>
+                <span className={styles.togglerItem}></span>
+                <span className={[styles.togglerItem, styles.hide].join(" ")}></span>
+                <span className={[styles.togglerItem, styles.center].join(' ')}></span>
+                <span className={[[styles.togglerItem, styles.cross, styles.cross2].join(" ")].join(" ")}></span>
+                <span className={styles.togglerItem}></span>
+                <span className={[styles.togglerItem, styles.hide].join(" ")}></span>
+              </label>
+              <div className={styles.mobileDropDown}>
+                <div className={styles.menuTitle}>
+                    <p>MENU</p>
+                </div>
+                <div className={styles.mobileItem}>
+                  <label className={styles.mobileLink}>
+                    LABEL ONE
+                    <span className={styles.mobileLinkShape} style={{animationDuration: "10s"}}></span>
+                  </label>
+                </div>
+                <div className={styles.mobileItem}>
+                  <label className={styles.mobileLink}>
+                    LABEL ONE
+                    <span className={styles.mobileLinkShape} style={{animationDuration: "20s"}}></span>
+                  </label>
+                </div>
+                <div className={styles.mobileItem}>
+                  <label className={styles.mobileLink}>
+                    LABEL ONE
+                    <span className={styles.mobileLinkShape} style={{animationDuration: "15s"}}></span>
+                  </label>
+                </div>
+                <div className={styles.mobileLangs}>
+                <button className={[styles.mobileLang, (lang === "af" && styles.mobileActive)].join(" ")}>
+                  <img src={AFG_FLAG} className={styles.flags} alt="Afg Flag"/>
+                  <span>PS</span>
+                </button>
+                <button className={[styles.mobileLang, (lang === "en" && styles.mobileActive)].join(" ")}>
+                  <img src={US_FLAG} className={styles.flags} alt="Usa Flag"/>
+                  <span>EN</span>
+                </button>
+                </div>
+              </div>
           </div>
         </div>
       </nav>

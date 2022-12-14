@@ -205,7 +205,7 @@
   animation-duration: 15000ms;
 }
 
-.navShaper > span:last-child
+.navShaper > span:nth-child(10)
 {
   top: 10px;
   right: 140px;
@@ -360,18 +360,20 @@
 {
   transform: rotate(90deg);
 }
-.menuItem:hover span.shaper::before, .menuItem:hover span.shaper::after 
+.menuItem:hover span.shaper::before, 
+.menuItem:hover span.shaper::after , 
+.menuItem.active span.shaper::before,
+.menuItem.active span.shaper::after
 {
-  background-color: #03436e;
+  /* background-color: #03436e; */
   border-radius: 0%;
   
 }
-.menuItem:hover:before
+.menuItem:hover:before, .menuItem.active::before
 {
   clip-path: polygon(100% 0, 99% 57%, 96% 99%, 51% 100%, 17% 93%, 0 100%, 7% 50%, 0 5%, 61% 0, 84% 6%);
   border-radius: 0%;
-  background-color: #363333;
-
+  background-image: linear-gradient(to top right, #045283, rgb(0, 157, 255));
 }
 
 .menuItem:hover .menuHintIcon
@@ -417,7 +419,6 @@
   border-bottom: 2px solid white;
   box-shadow: 1px 1px 5px rgba(62, 73, 88, 0.3);
   clip-path: polygon(98% 34%, 100% 50%, 97% 68%, 99% 99%, 2% 100%, 4% 76%, 1% 52%, 1% 33%, 2% 16%, 0 0, 98% 0, 100% 14%);
-  /* clip-path: polygon(100% 0, 98% 12%, 100% 23%, 98% 32%, 100% 45%, 98% 63%, 100% 74%, 97% 89%, 100% 100%, 84% 100%, 62% 100%, 32% 100%, 13% 98%, 3% 99%, 0 82%, 2% 64%, 0 42%, 3% 33%, 0 25%, 2% 11%, 0 0, 19% 2%, 35% 1%, 68% 0, 83% 3%); */
   opacity: 0;
   visibility: hidden;
   transition: 300ms;
@@ -448,6 +449,7 @@
   outline: 0;
   border: unset;
   cursor: pointer;
+  white-space: nowrap;
 }
 .dropDownLink span
 {
@@ -456,9 +458,9 @@
   z-index: 9;
   transition: 300ms !important;
 }
-.dropDownLink:hover
+.dropDownLink:hover, .dropDownLink.active
 {
-  color: rgb(41, 37, 37);
+  color: #0080d6;
 }
 .dropDownLink::before, .dropDownLink::after
 {
@@ -484,7 +486,7 @@
   right: 0;
 
 }
-.dropDownLink:hover::after, .dropDownLink:hover::before 
+.dropDownLink:hover::after, .dropDownLink:hover::before , .dropDownLink.active::after, .dropDownLink.active::before
 {
   width: 100%; 
 }
@@ -493,6 +495,16 @@
   background-color: #009dff;
 }
 
+.mobileShaperRight, .mobileShaperLeft
+{
+  display: none;
+  position: absolute;
+}
+
+.mobileDropDown
+{
+  display: none;
+}
 
 
 @keyframes rotate {
@@ -601,6 +613,11 @@
   }
 }
 
+.menuToggler
+{
+  display: none;
+}
+
 @media all and (max-width: 1097px) {
   .logo img
   {
@@ -609,3 +626,380 @@
   }
 }
 
+
+@media all and (max-width: 992px) {
+  .logo
+  {
+    position: relative;
+    z-index: 999;
+  }
+  .logo img
+  {
+    height: 40px !important;
+    position: static;
+  }
+  .upperMenuContainer, .menuItems
+  {
+    display: none;
+  }
+  .navShaper > span
+  {
+    display: none;
+  }
+  .navShaper
+  {
+    z-index: 99;
+  }
+  .nav
+  {
+    border-bottom: unset;
+    height: 44px;
+    padding: 0 30px;
+  }
+  .navMenu
+  {
+    padding: 0;
+    align-items: center;
+  }
+  .input:checked + .menuToggler .togglerItem:not(.cross, .center)
+  {
+    opacity: 0;
+    scale: 2;
+  }
+  .input:checked + .menuToggler .cross
+  {
+    width: 21px;
+    border-radius: 2px;
+    height: 1px;
+    scale: 0.8;
+  }
+  .input:checked + .menuToggler .cross1
+  {
+    transform: rotate(-45deg);
+    left: 0px !important;
+    top: 10px !important;
+  }
+  .input:checked + .menuToggler .cross2
+  {
+    transform: rotate(45deg);
+    right: 0px !important;
+    bottom: 10px !important;
+  }
+  .menuToggler
+  {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 3px;
+    row-gap: 3px;
+    cursor: pointer;
+    transition: 300ms;
+    position: relative;
+    width: 21px;
+    height: 21px;
+    position: relative;
+    z-index: 999;
+  }
+  .menuToggler:hover
+  /* .input:checked + .menuToggler */
+  {
+      animation-name: rotate;
+      animation-duration: 5000ms;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+  }
+  .togglerItem
+  {
+    display: inline-block;
+    background-color: #0080d6;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    transition: 300ms;
+    position: absolute;
+    border: 1px solid transparent;
+  }
+  .togglerItem:nth-child(2)
+  {
+    left: 8px;
+    top: 0;
+  }
+  .menuToggler:hover .togglerItem:nth-child(2),
+  .input:checked + .menuToggler .togglerItem:nth-child(2)
+  {
+    left: 8px;
+    top: 3px;
+  }
+  .togglerItem:nth-child(3)
+  {
+    right: 0;
+    top: 0;
+  }
+  .togglerItem:nth-child(4)
+  {
+    left: 0;
+    top: 8px;
+  }
+  .menuToggler:hover .togglerItem:nth-child(4),
+  .input:checked + .menuToggler .togglerItem:nth-child(4)
+  {
+    left: 3px;
+    top: 8px;
+  }
+  .togglerItem:nth-child(5)
+  {
+    left: 0;
+    bottom: 0;
+  }
+  .togglerItem:nth-child(6)
+  {
+    left: 8px;
+    bottom: 8px;
+  }
+  .togglerItem:nth-child(7)
+  {
+    right: 0;
+    bottom: 8px;
+  }
+  .menuToggler:hover .togglerItem:nth-child(7),
+  .input:checked + .menuToggler .togglerItem:nth-child(7)
+  {
+    right: 3px;
+    bottom: 8px;
+  }
+  .togglerItem:nth-child(8)
+  {
+    right: 8px;
+    bottom: 0;
+  }
+  .menuToggler:hover .togglerItem:nth-child(8),
+  .input:checked + .menuToggler .togglerItem:nth-child(8)
+  {
+    right: 8px;
+    bottom: 3px;
+  }
+  .togglerItem:nth-child(9)
+  {
+    right: 0;
+    bottom: 0;
+  }
+  .menuToggler:hover .hide,
+  .input:checked + .menuToggler .hide
+  {
+    opacity: 0;
+  }
+  .menuToggler .center
+  {
+    border: 1px solid #0080d6;
+  }
+  .menuToggler:hover .center,
+  .input:checked + .menuToggler .center
+  {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: transparent;
+    left: 0;
+    bottom: 0;
+  }
+  .input:checked ~ .mobileDropDown
+  {
+    display: grid;
+    height: 100vh;
+    visibility: visible;
+    clip-path: polygon(0 0, 100% 0, 100% 14%, 100% 100%, 0 100%, 0 16%);
+  }
+
+  .mobileShaperRight, .mobileShaperLeft
+  {
+    display: block;
+    width: 180px;
+    height: 180px;
+    background-color: #dff9fb;
+    top: -100px;
+    border-radius: 50%;
+  }
+  .mobileShaperRight
+  {
+    right: -100px;
+  }
+  .mobileShaperLeft
+  {
+    left: -100px;
+  }
+  .mobileDropDown
+  {
+    width: 100%;
+    height: 0;
+    display: grid;
+    position: fixed;
+    right: 0;
+    top: 43px;
+    z-index: 9999;
+    background-color: #dff9fb;
+    text-align: center;
+    border-top: 2px solid #dff9fb;
+    row-gap: 1px;
+    transition: 300ms;
+    overflow: hidden;
+    align-content: start;
+    visibility: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 14%, 49% 100%, 47% 100%, 0 16%);
+  }
+  .mobileLink
+  {
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: #0080d6;
+    color: #dff9fb;
+    text-shadow: 0px 0px 2px #0080d6;
+    transition: 300ms;
+    font-size: 10px;
+  }
+  .mobileLink:hover
+  {
+    background-color: #dff9fb;
+    color: #0080d6;
+    text-shadow: 0px 0px 2px #dff9fb;
+  }
+  .mobileLink:hover::before,.mobileLink:hover::after
+  {
+    background-color: #0080d6;
+    border-color: #dff9fb;
+  }
+  .mobileLink::before, .mobileLink::after
+  {
+    content: '';
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #dff9fb;
+    position: absolute;
+    top: -100px;
+    transition: 1000ms;
+  }
+  .mobileLink::before
+  {
+    right: -140px;
+  } 
+  .mobileLink::after
+  {
+    left: -140px;
+  }
+  .mobileLinkShape
+  {
+    left: 40%;
+    top: -80px;
+    position: absolute;
+    background-color: rgba(223, 249, 251, 0.1);
+    z-index: 9;
+    display: flex;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms;
+    clip-path: polygon(50% 8%, 78% 18%, 90% 42%, 90% 70%, 69% 91%, 35% 89%, 13% 75%, 10% 44%, 22% 18%);
+    animation-name: shaper;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    font-weight: 100;
+  }
+  .mobileLink:hover .mobileLinkShape
+  {
+    background-color: rgba(0, 128, 214, 0.1);
+  }
+  .menuTitle
+  {
+    padding: 3px;
+    color: #0080d6;
+    /* font-size: 20px; */
+  }
+  .mobileLangs
+  {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    column-gap: 5px;
+    background-color: #0885d9;
+    padding: 2px;
+  }
+  .mobileLang
+  {
+    display: flex;
+    border: unset;
+    cursor: pointer;
+    background-color: transparent;
+    box-shadow: 0px 0px 1px white;
+    color: white;
+    margin-bottom: 1px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 10px;
+    transition: 300ms;
+    position: relative;
+    overflow: hidden;
+  }
+  .mobileLang::before
+  {
+    content: '';
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    left: -60px;
+    bottom: -60px;
+    transition: 300ms;
+  }
+  .mobileActive, .mobileLang:hover
+  {
+    background-color: white;
+    color: #0080d6;
+    box-shadow: 0 0 0 transparent;
+    border-radius: 0px 10px 0px 5px;
+
+  }
+  .mobileActive::before, .mobileLang:hover::before
+  {
+    background-color: #009dff;
+    left: -30px;
+    bottom: -30px;
+  }
+}
+
+
+
+@keyframes shaper {
+  0%
+  {
+    clip-path: polygon(50% 8%, 78% 18%, 90% 42%, 90% 70%, 69% 91%, 35% 89%, 13% 75%, 10% 44%, 22% 18%);
+    
+  }
+  20%
+  {
+    clip-path: polygon(40% 7%, 63% 22%, 92% 30%, 80% 57%, 81% 85%, 40% 95%, 13% 86%, 6% 56%, 11% 15%);
+  }
+  40%
+  {
+    clip-path: polygon(7% 23%, 54% 6%, 73% 25%, 90% 34%, 93% 63%, 76% 85%, 45% 91%, 13% 82%, 3% 53%);
+  }
+  60%
+  {
+    clip-path: polygon(21% 34%, 30% 8%, 66% 15%, 90% 25%, 94% 48%, 86% 75%, 61% 90%, 30% 82%, 9% 58%);
+  }
+  80%
+  {
+    clip-path: polygon(4% 46%, 16% 12%, 55% 4%, 84% 18%, 83% 42%, 93% 65%, 83% 78%, 52% 89%, 10% 78%);
+  }
+  100%
+  {
+    clip-path: polygon(8% 70%, 11% 36%, 21% 15%, 58% 11%, 85% 20%, 97% 51%, 93% 89%, 56% 91%, 25% 90%);
+    rotate: 360deg;
+  }
+  
+}
