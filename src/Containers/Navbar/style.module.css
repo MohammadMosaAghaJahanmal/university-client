@@ -173,7 +173,8 @@
 {
   display: grid;
   background-color: #0080d6;
-  border-bottom: 18px solid #0863a0;
+  border-bottom: 18px solid #0885d9;
+  /* border-bottom: 18px solid #008eed; */
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
@@ -259,7 +260,8 @@
   justify-content: space-between;
   padding: 10px;
   border-radius: 5px;
-  /* background-color: #0080d6; */
+  background-color: #0080d6;
+
 }
 
 .logo
@@ -283,9 +285,9 @@
   /* column-gap: 3px; */
 }
 
-.menuItems > div
+.menuItem
 {
-  padding: 27px 20px;
+  padding: 25px 5px;
   color: white;
   text-shadow: 1px 1px 0 black;
   font-weight: 600;
@@ -297,20 +299,21 @@
   align-items: center;
   justify-content: center;
   transition: 300ms;
+  text-decoration: none;
 }
-.menuItems > div span
+.menuItem span
 {
   transition: 300ms;
   position: absolute;
   display: flex;
 
 }
-.menuItems > div span.menuText
+.menuItem span.menuText
 {
   position: relative;
   z-index: 9;
 }
-.menuItems > div::before
+.menuItem::before
 {
   content: '';
   display: inline-block;
@@ -327,7 +330,7 @@
   z-index: 3;
 }
 
-.menuItems > div span.shaper::before, .menuItems > div span.shaper::after 
+.menuItem span.shaper::before, .menuItem span.shaper::after 
 {
   content: "";
   display: inline-block;
@@ -346,24 +349,24 @@
 
 }
 
-.menuItems > div span.shaper::after
+.menuItem span.shaper::after
 {
   top: unset;
   right: unset;
   bottom: 0;
   left: 0;
 }
-.menuItems > div:hover span.shaper
+.menuItem:hover span.shaper, .menuItem.active span.shaper 
 {
   transform: rotate(90deg);
 }
-.menuItems > div:hover span.shaper::before, .menuItems > div:hover span.shaper::after 
+.menuItem:hover span.shaper::before, .menuItem:hover span.shaper::after 
 {
   background-color: #03436e;
   border-radius: 0%;
   
 }
-.menuItems > div:hover:before
+.menuItem:hover:before
 {
   clip-path: polygon(100% 0, 99% 57%, 96% 99%, 51% 100%, 17% 93%, 0 100%, 7% 50%, 0 5%, 61% 0, 84% 6%);
   border-radius: 0%;
@@ -371,9 +374,9 @@
 
 }
 
-.menuItems > div:hover .menuHintIcon
+.menuItem:hover .menuHintIcon
 {
-  scale: 1.5;
+  scale: 1.3;
   z-index: 11;
   bottom: -10px;
 }
@@ -382,6 +385,7 @@
 {
   bottom: -20px;
   transform: rotate(45deg);
+  opacity: 0.5;
 }
 .menuHintIcon2
 {
@@ -420,7 +424,7 @@
   border-radius: 50%;
 
 }
-.menuItems > div:hover .dropDown
+.menuItem:hover .dropDown
 {
   visibility: visible;
   width: 200px;
@@ -441,6 +445,9 @@
   text-transform: capitalize;
   position: relative;
   overflow: hidden;
+  outline: 0;
+  border: unset;
+  cursor: pointer;
 }
 .dropDownLink span
 {
@@ -508,3 +515,97 @@
     scale: 1;
   }
 }
+
+
+@media all and (max-width: 1280px) {
+
+  .upperMenu
+  {
+    max-width: 800px;
+  }
+  .nav
+  {
+    border-bottom-width: 10px;
+  }
+  
+  .menuItems
+  {
+    grid-template-columns: repeat(10, minmax(81px, auto));
+
+  }
+  .menuItem
+  {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0 rgb(37, 36, 36);
+    padding: 20px 0;
+  }
+  .menuItem::before
+  {
+    width:  43px;
+    height: 43px;
+  }
+  .menuItem span.shaper::before, .menuItem span.shaper::after 
+  {
+    width:  30px;
+    height: 30px;
+  }
+  .menuHintIcon
+  {
+    bottom: -13px;
+  }
+  .menuHintIcon svg
+  {
+    height: 14px;
+    width: 14px;
+  }
+  .dropDownLink
+  {
+    font-size: 12px;
+  }
+  .dropDown
+  {
+    top: 60px;
+    right: 0;
+  }
+  .menuItem:hover .dropDown
+  {
+    width: 150px;
+  }
+  .menuLeft a
+  {
+    font-size: 12px;
+    padding: 5px 7px;
+  }
+  
+  .menuLeft a::before
+  {
+    width: 77px;
+    height: 77px;
+  }
+  .menuRight button::before
+  {
+    width: 71px;
+    height: 71px;
+  }
+  
+  .menuRight button
+  {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+  .flags
+  {
+    height: 18px;
+    margin-right: 7px;
+  }
+}
+
+@media all and (max-width: 1097px) {
+  .logo img
+  {
+    height: 100%;
+    top: 0;
+  }
+}
+

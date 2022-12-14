@@ -40,10 +40,70 @@ const Navbar = (props) =>
         logo.current.removeAttribute("style");
       
     } 
-  }, [])
+  }, []);
+
+  const menus = [
+    {
+      name: "About", 
+      mainLink: "/about", 
+      nested: false 
+    },
+    {
+      name: "Qec", 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
+      nested: false 
+    },
+    {
+      name: "Programs", 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
+      nested: false 
+    },
+    {
+      name: "Admission", 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
+      nested: false 
+    },
+    {
+      name: "R&D", 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
+      nested: false 
+    },
+    {
+      name: "Events", 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "#"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
+      nested: false 
+    },
+    {
+      name: "News", 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "/firstNews"}, {name: "Some Two", link: "#"}, {name: "Some Text", link: "#"}, {name: "Some Text", link: "#"}],
+      nested: false 
+    },
+    {
+      name: "Contact", 
+      mainLink: "#", 
+      nested: false 
+    },
+    {
+      name: "OneOther", 
+      mainLink: "#", 
+      nested: false 
+    },
+    {
+      name: "OtherToo", 
+      mainLink: "#", 
+      nested: false 
+    },
+  ]
 
   return (
     <>
+      
       <div className={styles.upperMenuContainer}>
         <div className={[styles.upperMenu].join(" ")} data-aos="fade-down" data-aos-delay={500}>
           <div className={styles.menuLeft}>
@@ -62,11 +122,11 @@ const Navbar = (props) =>
           </div>
           <div className={styles.menuRight}>
             <button className={[styles.lang, (lang === "af" && styles.active)].join(" ")}>
-              <img src={AFG_FLAG} className={styles.flags}/>
+              <img src={AFG_FLAG} className={styles.flags} alt="Afg Flag"/>
               <span>PS</span>
             </button>
             <button className={[styles.lang, (lang === "en" && styles.active)].join(" ")}>
-              <img src={US_FLAG} className={styles.flags}/>
+              <img src={US_FLAG} className={styles.flags} alt="Usa Flag"/>
               <span>EN</span>
             </button>
           </div>
@@ -107,30 +167,18 @@ const Navbar = (props) =>
         </div>
         <div className={[styles.navMenu, "w-controller"].join(" ")}>
           <div className={styles.logo} data-aos="fade-down-right" data-aos-delay={500}>
-            <img src={LOGO} ref={logo}/>
+            <img src={LOGO} ref={logo} alt="Page logo"/>
           </div>
           <div className={styles.menuItems}>
-            <div data-aos="fade-down-left" data-aos-delay={200}>
-              <span className={styles.menuText}>About</span>
+          {menus.map((menu, index) => (menu.mainLink) ? 
+          (
+            <NavLink data-aos="fade-down-left" data-aos-delay={(index + 1) * 200} className={styles.menuItem} key={(menu.name + index)} to={menu.mainLink}>
+              <span className={styles.menuText}>{menu.name}</span>
               <span className={styles.shaper}></span>
-            </div>
-            <div data-aos="fade-down-left" data-aos-delay={400}>
-              <span className={styles.menuText}>QEC</span>
-              <span className={styles.shaper}></span>
-              <span className={styles.menuHintIcon}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <div className={styles.dropDown}>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
-              </div>
-            </div>
-            <div data-aos="fade-down-left" data-aos-delay={600}>
-              <span className={styles.menuText}>Programs</span>
+            </NavLink>
+          ):(
+            <div data-aos="fade-down-left" data-aos-delay={(index + 1) * 200} className={styles.menuItem} key={(menu.name + index)}>
+              <span className={styles.menuText}>{menu.name}</span>
               <span className={styles.shaper}></span>
               <span className={styles.menuHintIcon}>
                 <ArrowDown  size={20} color={"#25CCF7"}/>
@@ -139,103 +187,12 @@ const Navbar = (props) =>
                 <ArrowDown  size={20} color={"#25CCF7"}/>
               </span>
               <div className={styles.dropDown}>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
+                {menu.links?.map((link, ndx )=> (
+                  <NavLink className={styles.dropDownLink} key={(link.name + ndx)}><span>{link.name}</span></NavLink>
+                ))}
               </div>
             </div>
-            <div data-aos="fade-down-left" data-aos-delay={800}>
-              <span className={styles.menuText}>Admission</span>
-              <span className={styles.shaper}></span>
-              <span className={styles.menuHintIcon}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <div className={styles.dropDown}>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-              </div>
-            </div>
-            <div data-aos="fade-down-left" data-aos-delay={1000}>
-              <span className={styles.menuText}>R&D</span>
-              <span className={styles.shaper}></span>
-              <span className={styles.menuHintIcon}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <div className={styles.dropDown}>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-              </div>
-            </div>
-            <div data-aos="fade-down-left" data-aos-delay={1200}>
-              <span className={styles.menuText}>Events</span>
-              <span className={styles.shaper}></span>
-              <span className={styles.menuHintIcon}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <div className={styles.dropDown}>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
-              </div>
-            </div>
-            <div data-aos="fade-down-left" data-aos-delay={1400}>
-              <span className={styles.menuText}>News</span>
-              <span className={styles.shaper}></span>
-              <span className={styles.menuHintIcon}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <div className={styles.dropDown}>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-              </div>
-            </div>
-            <div data-aos="fade-down-left" data-aos-delay={1600}>
-              <span className={styles.menuText}>Contact</span>
-              <span className={styles.shaper}></span>
-            </div>
-            <div data-aos="fade-down-left" data-aos-delay={1800}>
-              <span className={styles.menuText}>OneOther</span>
-              <span className={styles.shaper}></span>
-              <span className={styles.menuHintIcon}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
-                <ArrowDown  size={20} color={"#25CCF7"}/>
-              </span>
-              <div className={styles.dropDown}>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-                <a href="#" className={styles.dropDownLink}><span>One</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Two</span></a>
-                <a href="#" className={styles.dropDownLink}><span>Three</span></a>
-              </div>
-            </div>
-            <div data-aos="fade-down-left" data-aos-delay={2000}>
-              <span className={styles.menuText}>OtherTwo</span>
-              <span className={styles.shaper}></span>
-            </div>
+          ))}
           </div>
         </div>
       </nav>
