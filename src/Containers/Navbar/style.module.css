@@ -5,6 +5,13 @@
   /* background-image: linear-gradient(to top, rgba(250, 204, 7, 0.8), #facc07, #e4bc0c); */
   /* background-color: #363333; */
   --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
   position: relative;
 }
 .upperMenu
@@ -85,11 +92,11 @@
   background-color: transparent;
 
 }
-.menuLeft a i *
+.menuLeft a i svg
 {
   transition: 300ms;
 }
-.menuLeft a:hover i *
+.menuLeft a:hover i svg
 {
   color: white;
 }
@@ -172,9 +179,8 @@
 .nav
 {
   display: grid;
-  background-color: #0080d6;
-  border-bottom: 18px solid #0885d9;
-  /* border-bottom: 18px solid #008eed; */
+  border-bottom: 18px solid #0080d6;
+  background-color: #dff9fb;
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
@@ -260,7 +266,7 @@
   justify-content: space-between;
   padding: 10px;
   border-radius: 5px;
-  background-color: #0080d6;
+  background-color: #dff9fb;
 
 }
 
@@ -282,14 +288,11 @@
 {
   display: grid;
   grid-template-columns: repeat(10, minmax(100px, auto));
-  /* column-gap: 3px; */
 }
 
 .menuItem
 {
-  padding: 25px 5px;
-  color: white;
-  text-shadow: 1px 1px 0 black;
+  padding: 23px 3px;
   font-weight: 600;
   cursor: pointer;
   text-transform: uppercase;
@@ -310,8 +313,14 @@
 }
 .menuItem span.menuText
 {
+  padding: 2px;
+  text-shadow: 1px 1px 0 #002060, 2px 2px 3px rgba(0, 4, 255, 0.3);
   position: relative;
   z-index: 9;
+  background-color: #0080d6;
+  background-image: linear-gradient(to top right, #25CCF7, rgba(37, 204, 247, 0.3));
+  color: white;
+  border-radius: 5px;
 }
 .menuItem::before
 {
@@ -320,8 +329,8 @@
   position: absolute;
   width:  50px;
   height: 50px;
-  background-image: linear-gradient(to top right, #045283, rgba(0, 60, 97, 0.3));
-  background-color: #009dff;
+  background-color: #0080d6;
+  background-image: linear-gradient(to top right, #25CCF7, rgba(37, 204, 247, 0.3));
   transition: 300ms;
   border-radius: 50%;
   border-top-right-radius: 40%;
@@ -355,6 +364,10 @@
   right: unset;
   bottom: 0;
   left: 0;
+}
+.menuItem:hover span.menuText, .menuItem.active span.menuText
+{
+  background-image: linear-gradient(to top right, #045283, rgb(0, 157, 255));
 }
 .menuItem:hover span.shaper, .menuItem.active span.shaper 
 {
@@ -415,22 +428,25 @@
   row-gap: 1px;
   border-radius: 5px;
   overflow: hidden;
-  border-top: 2px solid white;
-  border-bottom: 2px solid white;
+  border-top: 1px solid #dff9fb;
   box-shadow: 1px 1px 5px rgba(62, 73, 88, 0.3);
-  clip-path: polygon(98% 34%, 100% 50%, 97% 68%, 99% 99%, 2% 100%, 4% 76%, 1% 52%, 1% 33%, 2% 16%, 0 0, 98% 0, 100% 14%);
   opacity: 0;
   visibility: hidden;
   transition: 300ms;
-  border-radius: 50%;
+  width: 220px;
+  transform: scaleY(0);
+  transform-origin: top;
+  clip-path: polygon(98% 34%, 100% 50%, 97% 68%, 99% 99%, 2% 100%, 4% 76%, 1% 52%, 1% 33%, 2% 16%, 0 0, 98% 0, 100% 14%);
 
 }
 .menuItem:hover .dropDown
 {
   visibility: visible;
-  width: 200px;
   opacity: 1;
-  border-radius: 0%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transform: scaleY(1);
+  clip-path: none;
 }
 .dropDownLink
 {
@@ -635,7 +651,7 @@
   }
   .logo img
   {
-    height: 40px !important;
+    height: 45px !important;
     position: static;
   }
   .upperMenuContainer, .menuItems
@@ -653,13 +669,14 @@
   .nav
   {
     border-bottom: unset;
-    height: 44px;
+    height: 50px;
     padding: 0 30px;
   }
   .navMenu
   {
     padding: 0;
     align-items: center;
+    background-color: #0080d6;
   }
   .input:checked + .menuToggler .togglerItem:not(.cross, .center)
   {
@@ -668,9 +685,9 @@
   }
   .input:checked + .menuToggler .cross
   {
-    width: 21px;
+    width: 24px;
     border-radius: 2px;
-    height: 1px;
+    height: 2px;
     scale: 0.8;
   }
   .input:checked + .menuToggler .cross1
@@ -694,8 +711,8 @@
     cursor: pointer;
     transition: 300ms;
     position: relative;
-    width: 21px;
-    height: 21px;
+    width: 24px;
+    height: 24px;
     position: relative;
     z-index: 999;
   }
@@ -711,8 +728,8 @@
   {
     display: inline-block;
     background-color: #0080d6;
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     transition: 300ms;
     position: absolute;
@@ -720,13 +737,13 @@
   }
   .togglerItem:nth-child(2)
   {
-    left: 8px;
+    left: 9px;
     top: 0;
   }
   .menuToggler:hover .togglerItem:nth-child(2),
   .input:checked + .menuToggler .togglerItem:nth-child(2)
   {
-    left: 8px;
+    left: 9px;
     top: 3px;
   }
   .togglerItem:nth-child(3)
@@ -737,13 +754,13 @@
   .togglerItem:nth-child(4)
   {
     left: 0;
-    top: 8px;
+    top: 9px;
   }
   .menuToggler:hover .togglerItem:nth-child(4),
   .input:checked + .menuToggler .togglerItem:nth-child(4)
   {
     left: 3px;
-    top: 8px;
+    top: 9px;
   }
   .togglerItem:nth-child(5)
   {
@@ -752,29 +769,29 @@
   }
   .togglerItem:nth-child(6)
   {
-    left: 8px;
-    bottom: 8px;
+    left: 9px;
+    bottom: 9px;
   }
   .togglerItem:nth-child(7)
   {
     right: 0;
-    bottom: 8px;
+    bottom: 9px;
   }
   .menuToggler:hover .togglerItem:nth-child(7),
   .input:checked + .menuToggler .togglerItem:nth-child(7)
   {
     right: 3px;
-    bottom: 8px;
+    bottom: 9px;
   }
   .togglerItem:nth-child(8)
   {
-    right: 8px;
+    right: 9px;
     bottom: 0;
   }
   .menuToggler:hover .togglerItem:nth-child(8),
   .input:checked + .menuToggler .togglerItem:nth-child(8)
   {
-    right: 8px;
+    right: 9px;
     bottom: 3px;
   }
   .togglerItem:nth-child(9)
@@ -794,26 +811,19 @@
   .menuToggler:hover .center,
   .input:checked + .menuToggler .center
   {
-    width: 21px;
-    height: 21px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background-color: transparent;
     left: 0;
     bottom: 0;
   }
-  .input:checked ~ .mobileDropDown
-  {
-    display: grid;
-    height: 100vh;
-    visibility: visible;
-    clip-path: polygon(0 0, 100% 0, 100% 14%, 100% 100%, 0 100%, 0 16%);
-  }
 
   .mobileShaperRight, .mobileShaperLeft
   {
     display: block;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     background-color: #dff9fb;
     top: -100px;
     border-radius: 50%;
@@ -826,24 +836,43 @@
   {
     left: -100px;
   }
+  .input:checked ~ .mobileDropDown
+  {
+    display: grid;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    max-height: 550px;
+    transform: scaleY(1);
+  }
+
   .mobileDropDown
   {
     width: 100%;
-    height: 0;
     display: grid;
     position: fixed;
     right: 0;
-    top: 43px;
+    overflow-x: hidden;
+    top: 48px;
     z-index: 9999;
     background-color: #dff9fb;
     text-align: center;
     border-top: 2px solid #dff9fb;
-    row-gap: 1px;
+    row-gap: 2px;
     transition: 300ms;
-    overflow: hidden;
     align-content: start;
+    opacity: 0;
     visibility: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 14%, 49% 100%, 47% 100%, 0 16%);
+    border: 1px solid #0080d6;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    max-height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  .mobileItem
+  {
+    text-decoration: none;
   }
   .mobileLink
   {
@@ -853,41 +882,61 @@
     position: relative;
     overflow: hidden;
     background-color: #0080d6;
+    background-image: linear-gradient(to bottom, #0080d6, rgba(37, 204, 247, 0.2) ,#0080d6);
     color: #dff9fb;
     text-shadow: 0px 0px 2px #0080d6;
     transition: 300ms;
-    font-size: 10px;
+    font-size: 14px;
+    box-shadow: 0px 0px 2px rgba(0, 128, 214, 1);
+    text-decoration: none;
   }
-  .mobileLink:hover
+
+  .mobileLink:hover,
+  .mobileLink.active,
+  .chekcBox:checked + .mobileLink
   {
-    background-color: #dff9fb;
+    background-color: #0080d6;
+    background-image: linear-gradient(to bottom, white, #dff9fb, white);
     color: #0080d6;
     text-shadow: 0px 0px 2px #dff9fb;
   }
-  .mobileLink:hover::before,.mobileLink:hover::after
+
+  .mobileLink:hover::before,
+  .mobileLink:hover::after,
+  .mobileLink.active::before,
+  .mobileLink.active::after,
+  .chekcBox:checked + .mobileLink::after,
+  .chekcBox:checked + .mobileLink::before
   {
     background-color: #0080d6;
+    background-image: linear-gradient(to bottom, #0080d6, rgba(37, 204, 247, 0.7) ,#0080d6);
     border-color: #dff9fb;
   }
-  .mobileLink::before, .mobileLink::after
+
+  .mobileLink::before, 
+  .mobileLink::after
   {
     content: '';
     width: 200px;
     height: 200px;
     border-radius: 50%;
     background-color: #dff9fb;
+    background-image: linear-gradient(to bottom, #dff9fb, white, #dff9fb);
     position: absolute;
     top: -100px;
     transition: 1000ms;
   }
+
   .mobileLink::before
   {
     right: -140px;
   } 
+
   .mobileLink::after
   {
     left: -140px;
   }
+
   .mobileLinkShape
   {
     left: 40%;
@@ -908,7 +957,10 @@
     animation-direction: alternate;
     font-weight: 100;
   }
-  .mobileLink:hover .mobileLinkShape
+
+  .mobileLink:hover .mobileLinkShape,
+  .mobileLink.active .mobileLinkShape,
+  .chekcBox:checked + .mobileLink .mobileLinkShape
   {
     background-color: rgba(0, 128, 214, 0.1);
   }
@@ -939,10 +991,12 @@
     align-items: center;
     justify-content: center;
     border-radius: 3px;
-    font-size: 10px;
+    font-size: 12px;
     transition: 300ms;
     position: relative;
     overflow: hidden;
+    padding: 5px;
+    margin-top: 3px;
   }
   .mobileLang::before
   {
@@ -956,7 +1010,8 @@
     bottom: -60px;
     transition: 300ms;
   }
-  .mobileActive, .mobileLang:hover
+  .mobileActive, 
+  .mobileLang:hover
   {
     background-color: white;
     color: #0080d6;
@@ -964,11 +1019,120 @@
     border-radius: 0px 10px 0px 5px;
 
   }
-  .mobileActive::before, .mobileLang:hover::before
+  .mobileActive::before, 
+  .mobileLang:hover::before
   {
     background-color: #009dff;
     left: -30px;
     bottom: -30px;
+  }
+  .mobileLink:hover .icon svg, 
+  .chekcBox:checked + .mobileLink .icon svg
+  {
+    color: #dff9fb ;
+  }
+  .icon
+  {
+    display: inline-block;
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    transition: 300ms;
+    z-index: 1;
+    top: 6px;
+    right: 10px;
+  }
+  .icon svg
+  {
+    color: #0080d6 ;
+    transition: 300ms;
+  }
+  label .icon svg:first-child
+  {
+    display: inline;
+  }
+  label .icon svg:last-child
+  {
+    display: none;
+  }
+  .chekcBox:checked + label .icon svg:first-child
+  {
+    display: none;
+  }
+  .chekcBox:checked + label .icon svg:last-child
+  {
+    display: inline;
+  }
+  .chekcBox:checked ~ .mobileNestedMenu
+  {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+    max-height: 1000px;
+    height: auto;
+  }
+  .mobileNestedMenu
+  {
+    opacity: 1;
+    row-gap: 1px;
+    justify-items: center;
+    display: grid;
+    visibility: hidden;
+    padding-top: 1px;
+    transition: 300ms;
+    overflow: hidden;
+    position: relative;
+    max-height: 0;
+    left: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transform-style: preserve-3d;
+    perspective: 800px;
+  }
+  .mobileNestedLink
+  {
+    display: inline-block;
+    background-color: #009dff;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    width: 80%;
+    font-size: 13px;
+    transition: 300ms;
+    border-radius: 0px 0 20px 20px;
+    position: relative;
+    overflow: hidden;
+
+  }
+  .mobileNestedLink > span
+  {
+    position: relative;
+    z-index: 2;
+  }
+  .mobileNestedLink::before
+  {
+    content: '';
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translateX(50%) translateY(-50%);
+    transition: 300ms;
+    clip-path: polygon(50% 100%, 100% 0, 100% 100%, 50% 0, 0 100%, 0 0);
+  }
+  .mobileNestedLink:hover::before,
+  .mobileNestedLink.active::before
+  {
+    clip-path: polygon(56% 0, 100% 0, 100% 100%, 48% 100%, 0 100%, 0 0);
+  }
+  .mobileNestedLink:hover,
+  .mobileNestedLink.active
+  {
+    background-color: rgb(0, 112, 182);
   }
 }
 
@@ -978,7 +1142,6 @@
   0%
   {
     clip-path: polygon(50% 8%, 78% 18%, 90% 42%, 90% 70%, 69% 91%, 35% 89%, 13% 75%, 10% 44%, 22% 18%);
-    
   }
   20%
   {

@@ -14,16 +14,77 @@ import {
   FaTrophy,
   FaChartLine,
   FaChevronDown as ArrowDown,
+  FaRegEye,
+  FaRegEyeSlash,
 } from 'react-icons/fa';
 import {IoMailUnreadSharp as Mail} from 'react-icons/io5';
 import AFG_FLAG from '../../Assets/af-flag.png';
 import US_FLAG from '../../Assets/us-flag.png';
 import LOGO from '../../Assets/logo.png';
 import language from '../../utils/localization';
-import {menus} from '../../Constants'
+import {AuthContext} from '../../authContext';
+import languages from "../../utils/localization";
+styles.abcd = {
+  backgroundColor: "red"
+};
 const Navbar = (props) =>
 {
 
+  const menus = [
+    {
+      name: languages.about, 
+      mainLink: "/", 
+      nested: false 
+    },
+    {
+      name: languages.academics, 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "/blah"}, {name: "Some Two", link: "/a1"}, {name: "Some Text", link: "/a2"}, {name: "Some Text", link: "/a3"}],
+      nested: false 
+    },
+    {
+      name: languages.research, 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "/a4"}, {name: "Some Two", link: "/a5"}, {name: "Some Text", link: "/a6"}, {name: "Some Text", link: "/a7"}],
+      nested: false 
+    },
+    {
+      name: languages.students, 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "/a12"}, {name: "Some Two", link: "/a23"}, {name: "Some Text", link: "/a13"}, {name: "Some Text", link: "/a14"}],
+      nested: false 
+    },
+    {
+      name: languages.online_libraries, 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "/a15"}, {name: "Some Two", link: "/a21"}, {name: "Some Text", link: "/a23"}, {name: "Some Text", link: "/a24"}],
+      nested: false 
+    },
+    {
+      name: languages.events, 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "/a42"}, {name: "Some Two", link: "/a124"}, {name: "Some Text", link: "/a132"}, {name: "Some Text", link: "/a432"}],
+      nested: false 
+    },
+    {
+      name: languages.job_opportunity, 
+      mainLink: undefined, 
+      links: [{name: "Some Text", link: "/firstNews"}, {name: "Some Two", link: "/a123"}, {name: "Some Text", link: "/a435"}, {name: "Some Text", link: "/a1223"}],
+      nested: false 
+    },
+    {
+      name: languages.contact, 
+      mainLink: "/contact", 
+      nested: false 
+    },
+    {
+      name: languages.kankor, 
+      mainLink: "other", 
+      nested: false 
+    },
+  ]
+
+  const {setLanguage} = useContext(AuthContext);
   const lang = language.getLanguage();
   const logo = useRef()
   useEffect(() =>
@@ -47,7 +108,7 @@ const Navbar = (props) =>
   return (
     <>
       
-      <div className={styles.upperMenuContainer}>
+      <div className={[styles.upperMenuContainer].join(" ")}>
         <div className={[styles.upperMenu].join(" ")} data-aos="fade-down" data-aos-delay={500}>
           <div className={styles.menuLeft}>
             <a href="tel:+93744488816" data-aos="fade-left" data-aos-delay={700} >
@@ -64,11 +125,11 @@ const Navbar = (props) =>
             </a>
           </div>
           <div className={styles.menuRight}>
-            <button className={[styles.lang, (lang === "af" && styles.active)].join(" ")}>
+            <button className={[styles.lang, (lang === "ps" && styles.active)].join(" ")} onClick={()=>setLanguage("ps")}>
               <img src={AFG_FLAG} className={styles.flags} alt="Afg Flag"/>
               <span>PS</span>
             </button>
-            <button className={[styles.lang, (lang === "en" && styles.active)].join(" ")}>
+            <button className={[styles.lang, (lang === "en" && styles.active)].join(" ")} onClick={()=>setLanguage("en")}>
               <img src={US_FLAG} className={styles.flags} alt="Usa Flag"/>
               <span>EN</span>
             </button>
@@ -159,30 +220,41 @@ const Navbar = (props) =>
                 <div className={styles.menuTitle}>
                     <p>MENU</p>
                 </div>
-                <div className={styles.mobileItem}>
-                  <label className={styles.mobileLink}>
-                    LABEL ONE
-                    <span className={styles.mobileLinkShape} style={{animationDuration: "10s"}}></span>
-                  </label>
-                </div>
-                <div className={styles.mobileItem}>
-                  <label className={styles.mobileLink}>
-                    LABEL ONE
-                    <span className={styles.mobileLinkShape} style={{animationDuration: "20s"}}></span>
-                  </label>
-                </div>
-                <div className={styles.mobileItem}>
-                  <label className={styles.mobileLink}>
-                    LABEL ONE
-                    <span className={styles.mobileLinkShape} style={{animationDuration: "15s"}}></span>
-                  </label>
-                </div>
+                {menus.map((menu, index) => (menu.mainLink) ? 
+                (
+                  <div className={styles.mobileItem} key={(menu.name + index)}>
+                    <input type={"checkbox"} id="one"  style={{display: "none"}} className={styles.chekcBox}/>
+                    <NavLink className={({isActive}) => [styles.mobileLink, (isActive ? styles.active : null)].join(' ')} htmlFor="one"  to={menu.mainLink || "#"}>
+                      {menu.name}
+                      <span className={styles.mobileLinkShape} style={{animationDuration: ((index + 1) * 10) + "s"}}></span>
+                    </NavLink>
+                  </div>
+
+                ):(
+                  <div className={styles.mobileItem} key={(menu.name + index)}>
+                    <input type={"checkbox"} id={(menu.name + index)}  style={{display: "none"}} className={styles.chekcBox}/>
+                    <label className={styles.mobileLink} htmlFor={(menu.name + index)}>
+                      {menu.name}
+                      <span className={styles.mobileLinkShape} style={{animationDuration: ((index + 1) * 10) + "s"}}></span>
+                      <span className={[styles.icon].join(' ')}>
+                        <FaRegEye size={26} />
+                        <FaRegEyeSlash size={26} />
+                      </span>
+                    </label>
+                    <div className={styles.mobileNestedMenu}>
+                    {menu.links?.map((link, ndx )=> (
+                        <NavLink className={({isActive}) => [styles.mobileNestedLink, (isActive ? styles.active : null)].join(" ")} key={(link.name + ndx)} to={link.link}><span>{link.name}</span></NavLink>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+
                 <div className={styles.mobileLangs}>
-                <button className={[styles.mobileLang, (lang === "af" && styles.mobileActive)].join(" ")}>
+                <button className={[styles.mobileLang, (lang === "ps" && styles.mobileActive)].join(" ")} onClick={()=>setLanguage("ps")}>
                   <img src={AFG_FLAG} className={styles.flags} alt="Afg Flag"/>
                   <span>PS</span>
                 </button>
-                <button className={[styles.mobileLang, (lang === "en" && styles.mobileActive)].join(" ")}>
+                <button className={[styles.mobileLang, (lang === "en" && styles.mobileActive)].join(" ")} onClick={()=>setLanguage("en")}>
                   <img src={US_FLAG} className={styles.flags} alt="Usa Flag"/>
                   <span>EN</span>
                 </button>
