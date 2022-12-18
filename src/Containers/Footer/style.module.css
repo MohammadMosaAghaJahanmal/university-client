@@ -1,0 +1,217 @@
+.footer
+{
+  background-color: #0080d6;
+  color: #dff9fb;
+}
+
+.footerContent
+{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto, 400px));
+  justify-content: space-between;
+}
+
+.footerContent > div
+{
+  border-left: 1px dotted white;
+  padding: 60px 30px;
+  padding-bottom: 80px;
+}
+
+.title
+{
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+
+.links
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, auto));
+  column-gap: 10px;
+}
+
+
+.aboutUni
+{
+  display: grid;
+  row-gap: 15px;
+  font-size: 16px;
+  align-content: start;
+}
+
+.footerIcon
+{
+  padding: 5px;
+  border: 1px solid #dff9fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  transition: 300ms;
+}
+
+.footerIcon span
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(223, 249, 251, 1);
+  background-image: linear-gradient(to bottom, #dff9fb, white ,#dff9fb);
+  width: 37px;
+  position: absolute;
+  border-radius: 5px;
+  padding: 2px 0;
+  transition: 300ms;
+}
+
+.footerIcon span svg
+{
+  /* color: #0080d6; */
+  color: #0080d6;
+  transition: 300ms;
+}
+
+.footerIcon:hover
+{
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.footerIcon:hover span
+{
+  background-color: rgba(223, 249, 251, 0.4);
+  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
+}
+
+.footerIcon:hover span.youtube
+{
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
+}
+.footerIcon:hover span.youtube svg
+{
+  color: #f00;
+}
+.footerIcon:hover span.map
+{
+  background-color: rgba(0, 128, 214, 0.6);
+  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
+}
+.footerIcon:hover span.map svg
+{
+  color: #dff9fb;
+}
+.footerIcon:hover span.facebook
+{
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
+}
+.footerIcon:hover span.facebook svg
+{
+  color: #385898;
+}
+
+.moreInfo
+{
+  display: grid;
+  row-gap: 15px;
+  align-content: start;
+}
+/* .contact
+{
+  grid-template-rows: repeat(auto-fit, minmax(auto, 40px));
+  justify-content: start;
+} */
+.moreInfo > div
+{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 10px;
+}
+
+
+.copyRight
+{
+  background-color: #dff9fb;
+  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
+}
+
+.copyContent
+{
+  grid-template-columns: repeat(2, auto);
+  color: #0080d6;
+  padding: 10px;
+}
+
+.copyText
+{
+  text-align: center;
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 100;
+}
+
+
+
+@media all and (max-width: 1280px) {
+  .footerContent
+  {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);;
+    justify-content: start;
+  }
+}
+
+
+@media all and (max-width: 992px) {
+  .footerContent
+  {
+    grid-template-columns: minmax(auto, 400px);
+    padding: 20px;
+  }
+  .footerContent > div
+  {
+    padding: 30px;
+    border: unset;
+  }
+}
+
+@media all and (max-width: 425px) {
+  .footerContent
+  {
+    grid-template-columns: auto;
+    padding: 10px;
+  }
+  .footerContent > div
+  {
+    padding: 30px 10px;
+    border: unset;
+    row-gap: 10px;
+  }
+  .title
+  {
+    font-size: 19px;
+    margin-bottom: 5px;
+  }
+
+}
+@media all and (max-width: 320px) {
+  .footerContent
+  {
+    grid-template-columns: auto;
+    padding: 5px;
+  }
+  .footerContent > div
+  {
+    padding: 15px 5px;
+    border: unset;
+  }
+}

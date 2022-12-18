@@ -38,9 +38,9 @@ class Layout extends PureComponent
                 </Suspense>} />
           </Routes>
         </main>
-        {/* <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader />}>
             <Footer />
-        </Suspense> */}
+        </Suspense>
       </div>
 
     )
