@@ -16,6 +16,7 @@
   border-left: 1px dotted white;
   padding: 60px 30px;
   padding-bottom: 80px;
+  overflow: hidden;
 }
 
 .title
@@ -56,6 +57,7 @@
   width: 30px;
   height: 30px;
   transition: 300ms;
+  background-color: #dff9fb;
 }
 
 .footerIcon span
@@ -99,15 +101,15 @@
 {
   color: #f00;
 }
-.footerIcon:hover span.map
+/* .footerIcon:hover span.map
 {
   background-color: rgba(0, 128, 214, 0.6);
   background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
-}
-.footerIcon:hover span.map svg
+} */
+/* .footerIcon:hover span.map svg
 {
   color: #dff9fb;
-}
+} */
 .footerIcon:hover span.facebook
 {
   background-color: rgba(255, 255, 255, 0.6);
@@ -164,9 +166,12 @@
 @media all and (max-width: 1280px) {
   .footerContent
   {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 33%));
     justify-content: start;
+  }
+  .footerContent > div
+  {
+    padding: 50px 20px;
   }
 }
 

@@ -14,6 +14,8 @@ function App() {
       debounceDelay: 100,
       mirror: true,
       easing: "ease",
+      once: true,
+      offset: 35
     });
     
   }, [])
