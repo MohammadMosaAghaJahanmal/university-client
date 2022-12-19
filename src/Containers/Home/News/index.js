@@ -2,15 +2,19 @@ import React, {useEffect, useState} from "react";
 import Title from "../../../Components/Title";
 import styles from './style.module.css';
 import A from '../../../Assets/a.jpg'
+import { useNavigate } from "react-router-dom";
 const News = (props) =>
 {
+
+  const navigate = useNavigate();
+  const newsCardHandler = (id) => navigate(`/news/${id}`);
 
   return (
       <div className={styles.news}>
         <div className={[styles.newsWrapper, "w-controller"].join(' ')}>
           <Title text="Latest News" className={styles.title}  />
           <div className={styles.newsCards}>
-            <div className={styles.newsCard}>
+            <div className={styles.newsCard} onClick={() => newsCardHandler("12345677891230123")}>
               <div className={styles.newsImage}>
                 <img src={A}  alt="news image"/>
                 <div className={styles.date}>
@@ -25,7 +29,7 @@ const News = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.newsCard}>
+            <div className={styles.newsCard} onClick={() => newsCardHandler("12345677891230123")}>
               <div className={styles.newsImage}>
                 <img src={A}  alt="news image"/>
                 <div className={styles.date}>
@@ -40,7 +44,7 @@ const News = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.newsCard}>
+            <div className={styles.newsCard} onClick={() => newsCardHandler("12345677891230123")}>
               <div className={styles.newsImage}>
                 <img src={A}  alt="news image"/>
                 <div className={styles.date}>
@@ -55,7 +59,7 @@ const News = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.newsCard}>
+            <div className={styles.newsCard} onClick={() => newsCardHandler("12345677891230123")}>
               <div className={styles.newsImage}>
                 <img src={A}  alt="news image"/>
                 <div className={styles.date}>

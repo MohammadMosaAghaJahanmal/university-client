@@ -6,6 +6,8 @@ import styles from './style.css';
 const Navbar = lazy(() => import('../Navbar'));
 const Footer = lazy(() => import('../Footer'));
 const Home = lazy(() => import('../Home'));
+const News = lazy(() => import('../News'));
+const Contact = lazy(() => import('../Contact'));
 const PageNotFound = lazy(() => import('../404'));
 
 
@@ -17,6 +19,8 @@ class Layout extends PureComponent
   {
     const screens = [
         {screen: '/', Component: Home},
+        {screen: '/news/:id', Component: News},
+        {screen: '/contact', Component: Contact},
     ]
     return (
       <div className={styles.mainContainer}>

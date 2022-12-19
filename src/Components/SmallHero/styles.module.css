@@ -1,0 +1,78 @@
+
+.hero
+{
+  display: grid;
+  height: 350px;
+  align-content: center;
+  font-size: 32px;
+  color: white;
+  background-image:  url(../../Assets/news.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+}
+
+
+
+
+@media all and (max-width: 1366px) {
+
+	.hero > div
+	{
+		max-width: 1024px !important;
+	}
+  .hero
+  {
+    background-size: cover;
+  }
+}
+  
+
+@media all and (max-width: 992px) {
+
+	.hero > div
+	{
+		padding: 20px;
+	}
+	.hero
+	{
+		height: 250px;
+		font-size: 25px;
+	}
+}
+
+
+@media all and (max-width: 768px) {
+  .hero > div
+  {
+    padding: 10px;
+  }
+  .hero
+  {
+    height: 200px;
+  }
+}
+  
+
+
+@media all and (max-width: 425px) {
+  .hero > div
+  {
+    padding: 5px;
+  }
+  .hero
+  {
+    height: 150px;
+  }
+}
+
+@media all and (max-width: 425px) {
+  .hero > div
+  {
+    padding: 3px;
+  }
+  .hero
+  {
+    height: 120px;
+  }
+}
