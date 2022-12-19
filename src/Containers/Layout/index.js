@@ -1,5 +1,6 @@
 import React, { PureComponent, Suspense, lazy } from 'react';
 import {Route, Routes} from 'react-router-dom';
+import { AuthContext } from '../../authContext';
 import Loader from '../../Components/Loader';
 import styles from './style.css';
 
@@ -15,6 +16,7 @@ const PageNotFound = lazy(() => import('../404'));
 class Layout extends PureComponent
 {
 
+  static contextType = AuthContext;
   render()
   {
     const screens = [
@@ -22,12 +24,14 @@ class Layout extends PureComponent
         {screen: '/news/:id', Component: News},
         {screen: '/contact', Component: Contact},
     ]
+    
+  const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})
     return (
       <div className={styles.mainContainer}>
         <Suspense fallback={<Loader />}>
             <Navbar />
         </Suspense>
-        <main>
+        <main {...direction}>
           <Routes>
             {
               screens.map((per, index) => {
@@ -43,7 +47,7 @@ class Layout extends PureComponent
           </Routes>
         </main>
         <Suspense fallback={<Loader />}>
-            <Footer />
+            <Footer {...direction}/>
         </Suspense>
       </div>
 

@@ -1,15 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from './style.module.css';
 import A from '../../Assets/news2.jpg';
 import B from '../../Assets/news.jpg';
 import C from '../../Assets/b.jpg';
 import SmallHero from "../../Components/SmallHero";
-import HeroImage from '../../Assets/news.jpg'
+import HeroImage from '../../Assets/news.jpg';
+import language from '../../utils/localization';
+import {AuthContext} from '../../authContext';
 const News = (props) =>
 {
 
+
   return (
-    <div className={styles.news}>
+    <div className={styles.news} >
       <SmallHero title="News" image={HeroImage} />
       <div className={[styles.newsWrapper, "w-controller"].join(" ")}>
         <div className={styles.newsTitle}>

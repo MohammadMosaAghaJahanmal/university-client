@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './style.module.css'
 import {FaCopyright, FaEnvelope, FaFacebookF, FaMapMarkedAlt, FaMapMarkerAlt, FaPhoneAlt, FaYoutube} from 'react-icons/fa';
-const Footer = () =>
+const Footer = (props) =>
 {
   return (
-      <footer className={styles.footer}>
+      <footer className={styles.footer} {...props}>
         <div className={[styles.footerContent, 'w-controller'].join(" ")}>
           <div className={styles.aboutUni}>
             <p className={styles.title} data-aos="fade-right" data-aos-delay={300}>Saba Institute of Higher Education</p>

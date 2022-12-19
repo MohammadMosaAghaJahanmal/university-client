@@ -23,7 +23,6 @@ import US_FLAG from '../../Assets/us-flag.png';
 import LOGO from '../../Assets/logo.png';
 import language from '../../utils/localization';
 import {AuthContext} from '../../authContext';
-import languages from "../../utils/localization";
 styles.abcd = {
   backgroundColor: "red"
 };
@@ -32,53 +31,53 @@ const Navbar = (props) =>
 
   const menus = [
     {
-      name: languages.about, 
+      name: language.about, 
       mainLink: "/", 
       nested: false 
     },
     {
-      name: languages.academics, 
+      name: language.academics, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/blah"}, {name: "Some Two", link: "/a1"}, {name: "Some Text", link: "/a2"}, {name: "Some Text", link: "/a3"}],
       nested: false 
     },
     {
-      name: languages.research, 
+      name: language.research, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/a4"}, {name: "Some Two", link: "/a5"}, {name: "Some Text", link: "/a6"}, {name: "Some Text", link: "/a7"}],
       nested: false 
     },
     {
-      name: languages.students, 
+      name: language.students, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/a12"}, {name: "Some Two", link: "/a23"}, {name: "Some Text", link: "/a13"}, {name: "Some Text", link: "/a14"}],
       nested: false 
     },
     {
-      name: languages.online_libraries, 
+      name: language.online_libraries, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/a15"}, {name: "Some Two", link: "/a21"}, {name: "Some Text", link: "/a23"}, {name: "Some Text", link: "/a24"}],
       nested: false 
     },
     {
-      name: languages.events, 
+      name: language.events, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/a42"}, {name: "Some Two", link: "/a124"}, {name: "Some Text", link: "/a132"}, {name: "Some Text", link: "/a432"}],
       nested: false 
     },
     {
-      name: languages.job_opportunity, 
+      name: language.job_opportunity, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/firstNews"}, {name: "Some Two", link: "/a123"}, {name: "Some Text", link: "/a435"}, {name: "Some Text", link: "/a1223"}],
       nested: false 
     },
     {
-      name: languages.contact, 
+      name: language.contact, 
       mainLink: "/contact", 
       nested: false 
     },
     {
-      name: languages.kankor, 
+      name: language.kankor, 
       mainLink: "other", 
       nested: false 
     },

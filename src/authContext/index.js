@@ -8,7 +8,8 @@ export const AuthContext = React.createContext({
     ...initialState,
     initialState: initialState,
     setAuth: (prev) => {},
-    setLanguage: (langCode) => {}
+    setLanguage: (langCode) => {},
+    languageCode: "en" || "af"
 });
 
 
@@ -53,7 +54,8 @@ const AuthProvider = (props) =>
             ...auth,
             initialState,
             setAuth,
-            setLanguage
+            setLanguage,
+            languageCode
          }}>
             {props.children}
         </AuthContext.Provider>
