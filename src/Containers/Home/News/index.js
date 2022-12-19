@@ -8,7 +8,7 @@ const News = (props) =>
   return (
       <div className={styles.news}>
         <div className={[styles.newsWrapper, "w-controller"].join(' ')}>
-          <Title text="NEWS" className={styles.title}  />
+          <Title text="Latest News" className={styles.title}  />
           <div className={styles.newsCards}>
             <div className={styles.newsCard}>
               <div className={styles.newsImage}>
