@@ -432,11 +432,12 @@
   box-shadow: 1px 1px 5px rgba(62, 73, 88, 0.3);
   opacity: 0;
   visibility: hidden;
-  transition: 300ms;
+  transition: 300ms 80ms;
   width: 220px;
   transform: scaleY(0);
   transform-origin: top;
   clip-path: polygon(98% 34%, 100% 50%, 97% 68%, 99% 99%, 2% 100%, 4% 76%, 1% 52%, 1% 33%, 2% 16%, 0 0, 98% 0, 100% 14%);
+  background-color: #dff9fb;
 
 }
 .menuItem:hover .dropDown

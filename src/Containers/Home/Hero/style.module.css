@@ -9,15 +9,16 @@
 
 .leftSider
 {
-  width: 60%;
+  width: 70%;
   height: 100%;
   display: grid;
   justify-content: center;
   align-content: center;
   row-gap: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
-  clip-path: polygon(100% 0, 69% 100%, 0 100%, 0 0);
+  background-color: transparent;
   position: relative;
+  background-image: linear-gradient(to right, rgba(0, 128, 214, 0),rgba(0, 128, 214, .1), rgba(0, 128, 214, .2), rgba(0, 128, 214, .2), rgba(0, 128, 214, .2), rgba(0, 128, 214, .1), rgba(0, 128, 214, 0));
+  text-align: center;
 }
 
 .headText
@@ -40,5 +41,46 @@
 
 
 @media all and (max-width: 1536px) {
-  
+  .hero
+  {
+    height: 600px;
+  }
+}
+
+
+@media all and (max-width: 1280px) {
+  .hero
+  {
+    height: 500px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .hero
+  {
+    height: 400px;
+  }
+  .leftSider
+  {
+    display: flex;
+    width: 100%;
+    background-image: unset;
+    flex-direction: column;
+    row-gap: 0;
+  }
+  .leftSider > p
+  {
+    clip-path: none;
+    /* background-color: rgba(0, 0, 0, .6); */
+    background-color: rgba(0, 128, 214, .6);
+    font-size: 14px;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 5px black;
+  }
+  .headText
+  {
+    margin-top: auto;
+    font-size: 20px !important;
+  }
 }
