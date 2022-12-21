@@ -18,7 +18,7 @@ let languages = new LocalizedStrings({
    
    students: "Students",
    
-   online_libraries: "Online Libraries",
+   online_library: "Online Library",
    events: "Events",
    job_opportunity: "Job Opportunity",
    kankor: "Kankor",
@@ -76,7 +76,7 @@ students: "محصلان",
 //   Penalties: "د ډسپلین خلاف کړنې او مجازات",
 
 
-online_libraries: "آنلاین کتابتون",
+online_library: "آنلاین کتابتون",
 events: "خبرونه",
 contact: "اړیکه",
 job_opportunity: "کاري فرصت",

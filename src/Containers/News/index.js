@@ -5,7 +5,7 @@ import B from '../../Assets/news.jpg';
 import C from '../../Assets/b.jpg';
 import SmallHero from "../../Components/SmallHero";
 import HeroImage from '../../Assets/news.jpg';
-import language from '../../utils/localization';
+import language from '../../localization';
 import {AuthContext} from '../../authContext';
 const News = (props) =>
 {

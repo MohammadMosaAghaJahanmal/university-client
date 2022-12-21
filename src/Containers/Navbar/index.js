@@ -21,7 +21,7 @@ import {IoMailUnreadSharp as Mail} from 'react-icons/io5';
 import AFG_FLAG from '../../Assets/af-flag.png';
 import US_FLAG from '../../Assets/us-flag.png';
 import LOGO from '../../Assets/logo.png';
-import language from '../../utils/localization';
+import language from '../../localization';
 import {AuthContext} from '../../authContext';
 styles.abcd = {
   backgroundColor: "red"
@@ -54,9 +54,8 @@ const Navbar = (props) =>
       nested: false 
     },
     {
-      name: language.online_libraries, 
-      mainLink: undefined, 
-      links: [{name: "Some Text", link: "/a15"}, {name: "Some Two", link: "/a21"}, {name: "Some Text", link: "/a23"}, {name: "Some Text", link: "/a24"}],
+      name: language.online_library, 
+      mainLink: '/library', 
       nested: false 
     },
     {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import languages from '../utils/localization';
+import languages from '../localization';
 const initialState = {
     loading: true,
 };
