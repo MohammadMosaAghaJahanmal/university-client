@@ -17,7 +17,6 @@
   row-gap: 10px;
   background-color: transparent;
   position: relative;
-  background-image: linear-gradient(to right, rgba(0, 128, 214, 0),rgba(0, 128, 214, .1), rgba(0, 128, 214, .2), rgba(0, 128, 214, .2), rgba(0, 128, 214, .2), rgba(0, 128, 214, .1), rgba(0, 128, 214, 0));
   text-align: center;
 }
 

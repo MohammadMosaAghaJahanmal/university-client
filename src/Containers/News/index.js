@@ -13,7 +13,7 @@ const News = (props) =>
 
   return (
     <div className={styles.news} >
-      <SmallHero title="News" image={HeroImage} />
+      <SmallHero title={language.events} image={HeroImage} />
       <div className={[styles.newsWrapper, "w-controller"].join(" ")}>
         <div className={styles.newsTitle}>
           <p>

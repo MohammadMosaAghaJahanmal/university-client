@@ -9,6 +9,7 @@ const Footer = lazy(() => import('../Footer'));
 const Home = lazy(() => import('../Home'));
 const News = lazy(() => import('../News'));
 const Contact = lazy(() => import('../Contact'));
+const Library = lazy(() => import('../Library'));
 const PageNotFound = lazy(() => import('../404'));
 
 
@@ -23,6 +24,7 @@ class Layout extends PureComponent
         {screen: '/', Component: Home},
         {screen: '/news/:id', Component: News},
         {screen: '/contact', Component: Contact},
+        {screen: '/library', Component: Library},
     ]
     
   const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})

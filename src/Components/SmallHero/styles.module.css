@@ -6,10 +6,10 @@
   align-content: center;
   font-size: 32px;
   color: white;
-  background-image:  url(../../Assets/news.jpg);
   background-size: cover;
   background-position: center;
   padding: 10px;
+  background-color: lightblue;
 }
 
 

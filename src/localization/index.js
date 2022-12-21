@@ -19,7 +19,7 @@ let languages = new LocalizedStrings({
    students: "Students",
    
    online_library: "Online Library",
-   events: "Events",
+   events: "News",
    job_opportunity: "Job Opportunity",
    kankor: "Kankor",
    
