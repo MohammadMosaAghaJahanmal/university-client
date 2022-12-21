@@ -23,9 +23,8 @@ import US_FLAG from '../../Assets/us-flag.png';
 import LOGO from '../../Assets/logo.png';
 import language from '../../localization';
 import {AuthContext} from '../../authContext';
-styles.abcd = {
-  backgroundColor: "red"
-};
+
+
 const Navbar = (props) =>
 {
 
