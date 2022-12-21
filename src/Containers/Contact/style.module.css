@@ -1,4 +1,4 @@
-.news
+.contact
 {
   --TextColor: #3e4958;
   --white:#ffffff;
@@ -9,16 +9,22 @@
   --darkGreen:#007600;
   --darkBlue:#002060;
   --lightBlue:#dff9fb;
-  background-color: #dff9fb;
+  background-color: white;
 
 }
 
-.newsWrapper
+.contactWrapper
 {
   margin-top: 20px;
   display: grid;
   row-gap: 10px;
-  padding: 10px;
+  padding: 30px 10px;
+  /* background-image: conic-gradient( #dff9fb 0 25%, white 25% 50%, #dff9fb 50% 75%, white 75% 100%); */
+  background-size: 50%;
+  grid-template-columns: repeat(2, 40%);
+  column-gap: 40px;
+  height: 600px;
+  align-content: center;
 }
 
 .mainNews
@@ -31,76 +37,180 @@
   background-color: rgba(0, 128, 214, 0.1);
 }
 
-.newsTitle
-{
-  font-size: 30px;
-  width: 50%;
-}
-
-.newsImage
-{
-  width: 100%;
-}
-
-.newsImage img
-{
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.newsContent
+.contactFormWrapper
 {
   display: grid;
-  grid-template-columns: 60% 25%;
-  justify-content: start;
-  margin: 0 auto;
-  column-gap: 30px;
+  row-gap: 20px;
 }
 
-
-.latestNews
+.contactForm
 {
   display: grid;
-  align-content: start;
-  /* background-color: white; */
-  border-radius: 10px;
-  overflow: hidden;
-  padding: 5px;
-  border: 2px solid rgba(0, 128, 214, 0.3);
+  grid-template-columns: repeat(2, auto);
+  row-gap: 15px;
+  column-gap: 10px;
+}
+.textarea
+{
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+.textarea textarea
+{
+  height: 100px !important;
+}
+.contactInfo
+{
+  display: grid;
   row-gap: 10px;
+  align-content: start;
+}
+.formTitle
+{
+  font-size: 25px;
+  color: #0080d6;
+  font-weight: 600;
 }
 
-.latestNewsCard
+.addresses
+{
+  font-size: 20px;
+  color: #0080d6;
+  font-weight: 600;
+}
+
+.addressValue
+{
+  text-indent: 10px;
+  font-weight: 400;
+}
+
+.footerIcon
+{
+  padding: 5px;
+  border: 1px solid #dff9fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  transition: 300ms;
+  background-color: #dff9fb;
+}
+
+.footerIcon span
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(223, 249, 251, 1);
+  background-image: linear-gradient(to bottom, rgba(0, 128, 214, 0.1), rgba(0, 128, 214, 0.2) ,rgba(0, 128, 214, 0.1));
+  width: 37px;
+  position: absolute;
+  border-radius: 5px;
+  padding: 2px 0;
+  transition: 300ms;
+}
+
+.footerIcon span svg
+{
+  /* color: #0080d6; */
+  color: #0080d6;
+  transition: 300ms;
+}
+
+.footerIcon:hover
+{
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.footerIcon:hover span
+{
+  background-color: rgba(223, 249, 251, 1);
+  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.4) ,rgba(223, 249, 251, 0.4));
+}
+
+.footerIcon:hover span.youtube
+{
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
+}
+.footerIcon:hover span.youtube svg
+{
+  color: #f00;
+}
+
+.footerIcon:hover span.facebook
+{
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
+}
+.footerIcon:hover span.facebook svg
+{
+  color: #385898;
+}
+
+.links
 {
   display: grid;
-  background-color: #dff9fb;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 300ms;
-  border: 2px solid rgba(0, 128, 214, 0.3);
-
-}
-.latestNewsCard:hover
-{
-  text-decoration: underline;
+  grid-template-columns: repeat(auto-fill, minmax(30px, auto));
+  column-gap: 10px;
 }
 
-.latestNewsImage
-{
-  width: 100%;
+
+
+@media all and (max-width: 1366px) {
+  .contactWrapper
+  {
+    grid-template-columns: repeat(2, 45%);
+    justify-content: center;
+  }
+
 }
 
-.latestNewsImage img
-{
-  width: 100%;
-  border-radius: 5px;
-  object-fit: cover;
+
+@media all and (max-width: 992px) {
+  .contactWrapper
+  {
+    grid-template-columns: repeat(2, 48%);
+    column-gap: 30px;
+    height: 500px;
+  }
+  .addresses
+  {
+    font-size: 18px;
+  }
 }
 
-.newsDesc
-{
-  font-size: 18px;
-  line-height: 22px;
+
+@media all and (max-width: 768px) {
+  .contactWrapper
+  {
+    grid-template-columns: 90%;
+    height: fit-content;
+    row-gap: 20px;
+  }
+  .addresses
+  {
+    font-size: 20px;
+  }
+  .contactFormWrapper
+  {
+    order: 2;
+  }
+  .contactInfo
+  {
+    order: 1;
+  }
+}
+
+@media all and (max-width: 425px) {
+  .contactWrapper
+  {
+    grid-template-columns: 1fr;
+  }
 }

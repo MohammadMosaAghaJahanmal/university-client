@@ -1,0 +1,37 @@
+
+
+
+.input
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+  border: none;
+  outline: none;
+  padding: 12px 15px;
+  border-radius: 5px;
+  background-color: #0080d6;
+  color: #dff9fb;
+  transition: 300ms;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  resize: vertical;
+  width: 100%;
+  border-bottom-color: #006fb9;
+}
+
+.input::placeholder
+{
+  color: rgba(255, 255, 255, 0.4);
+}
+.input:focus
+{
+  border-bottom-color: #facc07;
+  box-shadow: 0px 0px 0px rgba(0, 128, 214, 0.5);
+}

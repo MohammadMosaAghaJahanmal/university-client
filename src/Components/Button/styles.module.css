@@ -1,0 +1,36 @@
+
+
+
+.btn
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0080d6; 
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 5px;
+  color: #dff9fb;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px rgba(0, 128, 214, 0.5);
+  transition: 50ms linear;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.btn:active
+{
+  box-shadow: 0px 0px 0px rgba(0, 128, 214, 0.7);
+  top: 2px;
+  left: 2px;
+}
