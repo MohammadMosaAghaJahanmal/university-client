@@ -10,9 +10,9 @@
   --darkBlue:#002060;
   --lightBlue:#dff9fb;
   background-color: white;
-  background-image:  linear-gradient(to right, rgba(0, 128, 214, .4), rgba(0, 128, 214, .1)), url(../../../Assets/b.jpg);
+  background-image: url(../../../Assets/c.jpg);
   background-color: #0080d6;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   /* background-attachment: fixed; */
   /* background-blend-mode: darken; */
@@ -28,9 +28,11 @@
   min-height: 400px;
   background-size: 50%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: rgba(0, 128, 214, 0.4);
   display: grid;  
   align-content: center;
+  overflow: hidden;
 }
 
 .features
@@ -41,10 +43,10 @@
 .featureCard
 {
   display: grid;
-  color: #dff9fb;
+  color: white;
   padding: 10px;
   width: 70%;
-  text-shadow: 0px 0px 3px black;
+  text-shadow: 1px 1px 3px black;
   row-gap: 5px;
   border-bottom: 1px dashed rgba(223, 249, 251, 0.5);
 }

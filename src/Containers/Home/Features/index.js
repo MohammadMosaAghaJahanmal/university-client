@@ -9,15 +9,15 @@ const Feature = (props) =>
       <div className={styles.feature}>
         <div className={[styles.featureWrapper, "w-controller"].join(' ')}>
           <div className={styles.features}>
-            <div className={styles.featureCard}>
+            <div className={styles.featureCard} data-aos="fade-right" data-aos-delay={300}>
               <p className={styles.featureTitle}>Lorem ipsum dolor sit amet</p>
               <p className={styles.featureDesc}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti repudiandae odit enim repellat incidunt, natus dignissimos nemo aperiam voluptate reprehenderit!</p>
             </div>
-            <div className={styles.featureCard}>
+            <div className={styles.featureCard} data-aos="fade-right" data-aos-delay={600}>
               <p className={styles.featureTitle}>Lorem ipsum dolor sit amet</p>
               <p className={styles.featureDesc}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti repudiandae odit enim repellat incidunt, natus dignissimos nemo aperiam voluptate reprehenderit!</p>
             </div>
-            <div className={styles.featureCard}>
+            <div className={styles.featureCard} data-aos="fade-right" data-aos-delay={900}>
               <p className={styles.featureTitle}>Lorem ipsum dolor sit amet</p>
               <p className={styles.featureDesc}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti repudiandae odit enim repellat incidunt, natus dignissimos nemo aperiam voluptate reprehenderit!</p>
             </div>

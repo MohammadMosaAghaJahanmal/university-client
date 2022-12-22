@@ -3,6 +3,7 @@ import styles from './style.module.css';
 import A from '../../Assets/news2.jpg';
 import B from '../../Assets/news.jpg';
 import C from '../../Assets/b.jpg';
+import D from '../../Assets/a.jpg';
 import SmallHero from "../../Components/SmallHero";
 import HeroImage from '../../Assets/news.jpg';
 import language from '../../localization';
@@ -26,7 +27,7 @@ const News = (props) =>
         <div className={styles.newsContent}>
           <div className={styles.mainNews}>
             <div className={styles.newsImage}>
-              <img src={A} alt="image about news"/>
+              <img src={D} alt="image about news"/>
             </div>
             <div className={styles.newsDesc}>
               On January 3, 2022, Saba University hosted a high-level delegation of the Ministry of Higher Education and the Association of Private Universities and Institutions of Higher Education (APUIHE). The delegation comprised of Honorable Sheikh Shakirullah Wahdat and respected Mawlawi Shah Mohammad, members of the Advisory Board of MoHE, Professor Ataullah Kamran, Head of Public Oversight over Private Institutes of Higher Education, and other members of APUIHE and MoHE. <br />

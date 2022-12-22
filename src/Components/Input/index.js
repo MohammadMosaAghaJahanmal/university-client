@@ -7,18 +7,15 @@ function Input(props) {
     return (
         (props.type === "textarea") ? 
         <textarea 
-            type={props.type} 
-            placeholder={props.placeholder}
+            {...props}
             className={[styles.input, props.className].join(" ")}
             value={props.value}
         ></textarea>
         :
         <input 
-            type={props.type} 
-            placeholder={props.placeholder} 
+            {...props}
             onChange={props.onChange} 
             className={[styles.input, props.className].join(" ")}
-            value={props.value}
         />
     )
 } 
