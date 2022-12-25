@@ -11,3 +11,8 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+
+// window.oncontextmenu = (e) => {
+//   e.preventDefault();
+// }

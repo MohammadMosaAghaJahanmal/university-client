@@ -23,6 +23,8 @@
   margin-bottom: 40px;
   transition: 300ms;
   text-shadow: 2px 2px 0px rgba(0, 32, 96, 0.2);
+  text-align: center;
+
 }
 
 .newsWrapper

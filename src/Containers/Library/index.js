@@ -6,7 +6,7 @@ import Input from '../../Components/Input';
 import Button from "../../Components/Button";
 import language from '../../localization';
 import FREQ from '../../Assets/freq.jpg';
-import {IoCloudDownload as Download} from 'react-icons/io5'
+import {IoCloudDownload as Download} from 'react-icons/io5';
 const Library = (props) =>
 {
 
@@ -16,7 +16,7 @@ const Library = (props) =>
 
   return (
     <div className={styles.library}>
-      <SmallHero title={language.online_library} image={HeroImage} style={{backgroundPosition: "bottom", textShadow: "1px 1px 3px black"}}/>
+      <SmallHero title={language.online_library} image={HeroImage} style={{backgroundPosition: "bottom", textShadow: "1px 1px 3px black"}} bgAnimation={true}/>
       <div className={[styles.libraryWrapper, "w-controller"].join(" ")}>
         <div className={styles.libraryTitle}>
           <p>You can search Book by it's name or id</p>

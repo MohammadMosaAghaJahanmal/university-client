@@ -1,0 +1,109 @@
+.chancellorMessage
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+  background-color: #dff9fb;
+  background-image: linear-gradient(to right, #ffffff, #dff9fb, #dff9fb, #ffffff);
+}
+
+
+.cmWrapper
+{
+  display: grid;
+  position: relative;
+  padding: 5px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #0a446b;
+  box-shadow: 0 0 2px #0080d6;
+}
+
+.cmContent
+{
+  display: grid;
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  margin: 30px auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cmTextContent, .cmImg
+{
+  position: relative;
+  z-index: 2;
+}
+
+.cmTextContent
+{
+  border-radius: 10px;
+  padding: 14px;
+}
+.text
+{
+  margin-top: 30px;
+}
+
+.text::before
+{
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.cmImg
+{
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.cmImg img
+{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.title
+{
+  padding: 5px 0 ;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+}
+
+.textData
+{
+  display: grid;
+  row-gap: 15px;
+  font-size: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+
+@media all and (max-width: 768px){
+  .title
+  {
+    font-size: 18px;
+  }
+  
+  .textData
+  {
+    font-size: 18px;
+  }
+  
+}

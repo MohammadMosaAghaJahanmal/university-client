@@ -273,6 +273,7 @@
 .logo
 {
   display: flex;
+  cursor: pointer;
 }
 
 .logo img
@@ -365,31 +366,40 @@
   bottom: 0;
   left: 0;
 }
-.menuItem:hover span.menuText, .menuItem.active span.menuText
+.menuItem:hover span.menuText, 
+.menuItem.active span.menuText, 
+.menuItem:focus span.menuText
 {
   background-image: linear-gradient(to top right, #045283, rgb(0, 157, 255));
 }
-.menuItem:hover span.shaper, .menuItem.active span.shaper 
+.menuItem:hover span.shaper, 
+.menuItem.active span.shaper,
+.menuItem:focus span.shaper
 {
   transform: rotate(90deg);
 }
 .menuItem:hover span.shaper::before, 
 .menuItem:hover span.shaper::after , 
 .menuItem.active span.shaper::before,
-.menuItem.active span.shaper::after
+.menuItem.active span.shaper::after,
+.menuItem:focus span.shaper::before, 
+.menuItem:focus span.shaper::after
 {
   /* background-color: #03436e; */
   border-radius: 0%;
   
 }
-.menuItem:hover:before, .menuItem.active::before
+.menuItem:hover:before, 
+.menuItem.active::before,
+.menuItem:focus:before
 {
   clip-path: polygon(100% 0, 99% 57%, 96% 99%, 51% 100%, 17% 93%, 0 100%, 7% 50%, 0 5%, 61% 0, 84% 6%);
   border-radius: 0%;
   background-image: linear-gradient(to top right, #045283, rgb(0, 157, 255));
 }
 
-.menuItem:hover .menuHintIcon
+.menuItem:hover .menuHintIcon,
+.menuItem:focus .menuHintIcon
 {
   scale: 1.3;
   z-index: 11;
@@ -440,7 +450,8 @@
   background-color: #dff9fb;
 
 }
-.menuItem:hover .dropDown
+.menuItem:hover .dropDown,
+.menuItem:focus .dropDown
 {
   visibility: visible;
   opacity: 1;
@@ -599,7 +610,7 @@
   }
   .menuItem:hover .dropDown
   {
-    width: 150px;
+    width: 205px;
   }
   .menuLeft a
   {
@@ -883,7 +894,7 @@
     position: relative;
     overflow: hidden;
     background-color: #0080d6;
-    background-image: linear-gradient(to bottom, #0080d6, rgba(37, 204, 247, 0.2) ,#0080d6);
+    /* background-image: linear-gradient(to bottom, #0080d6, rgba(37, 204, 247, 0.2) ,#0080d6); */
     color: #dff9fb;
     text-shadow: 0px 0px 2px #0080d6;
     transition: 300ms;
@@ -896,8 +907,8 @@
   .mobileLink.active,
   .chekcBox:checked + .mobileLink
   {
-    background-color: #0080d6;
-    background-image: linear-gradient(to bottom, white, #dff9fb, white);
+    background-color: #dff9fb;
+    /* background-image: linear-gradient(to bottom, white, #dff9fb, white); */
     color: #0080d6;
     text-shadow: 0px 0px 2px #dff9fb;
   }
@@ -943,7 +954,6 @@
     left: 40%;
     top: -80px;
     position: absolute;
-    background-color: rgba(223, 249, 251, 0.1);
     z-index: 9;
     display: flex;
     width: 200px;

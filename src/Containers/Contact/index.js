@@ -5,12 +5,15 @@ import HeroImage from '../../Assets/contact1.jpg';
 import Input from '../../Components/Input';
 import Button from "../../Components/Button";
 import { FaFacebookF, FaMapMarkedAlt, FaYoutube } from "react-icons/fa";
+import languages from "../../localization";
 const Contact = (props) =>
 {
 
+  const isRTL = (languages.getLanguage() === 'ps')
+
   return (
     <div className={styles.contact}>
-      <SmallHero title="Contact Us" image={HeroImage}/>
+      <SmallHero title={languages.contact} image={HeroImage} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.contactWrapper, "w-controller"].join(" ")}>
         <div className={styles.contactFormWrapper}>
           <div className={styles.formTitle} data-aos="fade-up-right" data-aos-delay={100}>

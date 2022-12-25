@@ -11,10 +11,11 @@ import {AuthContext} from '../../authContext';
 const News = (props) =>
 {
 
+  const isRTL = (language.getLanguage() === 'ps')
 
   return (
     <div className={styles.news} >
-      <SmallHero title={language.events} image={HeroImage} />
+      <SmallHero title={language.events} image={HeroImage} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.newsWrapper, "w-controller"].join(" ")}>
         <div className={styles.newsTitle}>
           <p>

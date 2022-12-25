@@ -10,6 +10,8 @@
   background-position: center;
   padding: 10px;
   background-color: lightblue;
+  transition: 500ms;
+  text-shadow: 0px 0px 2px #0080d6;
 }
 
 

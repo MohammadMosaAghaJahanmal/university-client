@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styles from './style.module.css';
 import {
   FaPhoneAlt as Phone, 
@@ -28,56 +28,71 @@ import {AuthContext} from '../../authContext';
 const Navbar = (props) =>
 {
 
+  const navigate = useNavigate();
   const menus = [
     {
+      name: language.economical_advisory, 
+      mainLink: "/economical_advisory", 
+      nested: false
+    },
+    {
       name: language.about, 
-      mainLink: "/", 
+      mainLink: undefined, 
+      links: [
+        {name: language.our_vission_and_mission, link: "about/vission_mission"}, 
+        {name: language.chancellor_message, link: "about/chancellor_message"}, 
+        {name: language.history_and_achievements, link: "about/history_and_achievements"}, 
+        {name: language.organizational_structure, link: "about/organizational_structure"},
+        {name: language.stratigic_aim, link: "about/stratigic_aim"},
+        {name: language.academic_calendar, link: "about/academic_calendar"},
+        {name: language.aggrements, link: "about/aggrements"},
+      ],
       nested: false 
     },
     {
       name: language.academics, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/blah"}, {name: "Some Two", link: "/a1"}, {name: "Some Text", link: "/a2"}, {name: "Some Text", link: "/a3"}],
-      nested: false 
+      nested: false
     },
     {
       name: language.research, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/a4"}, {name: "Some Two", link: "/a5"}, {name: "Some Text", link: "/a6"}, {name: "Some Text", link: "/a7"}],
-      nested: false 
+      nested: false
     },
     {
       name: language.students, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/a12"}, {name: "Some Two", link: "/a23"}, {name: "Some Text", link: "/a13"}, {name: "Some Text", link: "/a14"}],
-      nested: false 
+      nested: false
     },
     {
       name: language.online_library, 
       mainLink: '/library', 
-      nested: false 
+      nested: false
     },
     {
       name: language.events, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/a42"}, {name: "Some Two", link: "/a124"}, {name: "Some Text", link: "/a132"}, {name: "Some Text", link: "/a432"}],
-      nested: false 
+      nested: false
     },
     {
       name: language.job_opportunity, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/firstNews"}, {name: "Some Two", link: "/a123"}, {name: "Some Text", link: "/a435"}, {name: "Some Text", link: "/a1223"}],
-      nested: false 
+      nested: false
     },
     {
       name: language.contact, 
       mainLink: "/contact", 
-      nested: false 
+      nested: false
     },
     {
       name: language.kankor, 
       mainLink: "other", 
-      nested: false 
+      nested: false
     },
   ]
 
@@ -169,7 +184,7 @@ const Navbar = (props) =>
           <div className={styles.mobileShaperLeft}></div>
         </div>
         <div className={[styles.navMenu, "w-controller"].join(" ")}>
-          <div className={styles.logo} data-aos="fade-down-right" data-aos-delay={500}>
+          <div className={styles.logo} data-aos="fade-down-right" data-aos-delay={500} onClick={() => navigate("/")}>
             <img src={LOGO} ref={logo} alt="Page logo"/>
           </div>
           <div className={styles.menuItems}>

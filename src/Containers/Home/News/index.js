@@ -12,7 +12,7 @@ const News = (props) =>
   return (
       <div className={styles.news}>
         <div className={[styles.newsWrapper, "w-controller"].join(' ')}>
-          <Title text="Latest News" className={styles.title}  />
+          <Title title="Latest News" className={styles.title}  />
           <div className={styles.newsCards}>
 
             <div data-aos="fade-up" data-aos-delay={300}>

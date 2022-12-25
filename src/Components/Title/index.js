@@ -5,8 +5,13 @@ const Title = (props) =>
 {
 
   return (
-      <div className={[styles.title, props.className].join(' ')}>
-        <p>{props.text}</p>
+      <div {...props} className={[styles.title, props.className].join(' ')}>
+        {
+        (props.title || props.text) ? 
+          <p>{props.text || props.title}</p>
+          :
+          props.children
+        }
       </div>
   )
 }

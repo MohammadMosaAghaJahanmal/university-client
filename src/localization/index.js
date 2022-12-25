@@ -1,39 +1,42 @@
 ﻿import LocalizedStrings from 'react-localization';
 
 let languages = new LocalizedStrings({
- en:{
-   contact: "Contact",
-   about: "About",
-   our_vission_and_mission: "Our Vission and Mission",
-   chancellor_message: "Chancellor's Message",
-   history_and_achievements: "History & Achievements",
-   organizational_structure: "ORG Structure",
-   stratigic_aim: "Stratigic Aim",
-   academic_calendar: "Academic Calendar",
-   aggrements: "Aggrements",
-   
-   academics: "Academics",
-   
-   research: "Research",
-   
-   students: "Students",
-   
-   online_library: "Online Library",
-   events: "News",
-   job_opportunity: "Job Opportunity",
-   kankor: "Kankor",
+  en:{
+    contact: "Contact",
+    about: "About",
+      our_vission_and_mission: "Our Vission and Mission",
+      chancellor_message: "Chancellor's Message",
+      history_and_achievements: "History & Achievements",
+      organizational_structure: "ORG Structure",
+      stratigic_aim: "Stratigic Aim",
+      academic_calendar: "Academic Calendar",
+      aggrements: "Aggrements",
+      
+      
+    academics: "Academics",
+    
+    research: "Research",
+    
+    students: "Students",
+    
+    online_library: "Online Library",
+    events: "News",
+    job_opportunity: "Job Opportunity",
+    kankor: "Kankor",
+
+    economical_advisory: "S E A Board",
    
   },
  ps:{
    // About
   about: "زموږ په اړه",
-  our_vission_and_mission:"لرلید او رسالت",
-  chancellor_message: "د رئیس بیغام",
-  history_and_achievements: "لاسته راوړنې",
-  organizational_structure: "اداري جوړښت",
-  stratigic_aim: "ستراتیژیکې موخې",
-  academic_calendar: "علمي تقویم",
-  aggrements: "هوکړه لیکونه",
+    our_vission_and_mission:"لرلید او رسالت",
+    chancellor_message: "د رئیس بیغام",
+    history_and_achievements: "لاسته راوړنې",
+    organizational_structure: "اداري جوړښت",
+    stratigic_aim: "ستراتیژیکې موخې",
+    academic_calendar: "علمي تقویم",
+    aggrements: "هوکړه لیکونه",
 
   // Academic
   academics: "علمي او تدریسي چارې",
@@ -85,7 +88,9 @@ job_opportunity: "کاري فرصت",
 kankor: "کانکور",
 //    Online Admision: "آنلاین نوملیکنه",
 //    Result: "نتیجه",
- },
+
+  economical_advisory: "اقتصادی مشورتی بورډ"
+ }
 });
 
 

@@ -10,6 +10,9 @@ const Home = lazy(() => import('../Home'));
 const News = lazy(() => import('../News'));
 const Contact = lazy(() => import('../Contact'));
 const Library = lazy(() => import('../Library'));
+const VissionMission = lazy(() => import('../VissionMission'));
+const ChancellorMessage = lazy(() => import('../ChancellorMessage'));
+const HistoryAchievements = lazy(() => import('../HistoryAchievements'));
 const PageNotFound = lazy(() => import('../404'));
 
 
@@ -25,6 +28,9 @@ class Layout extends PureComponent
         {screen: '/news/:id', Component: News},
         {screen: '/contact', Component: Contact},
         {screen: '/library', Component: Library},
+        {screen: '/about/vission_mission', Component: VissionMission},
+        {screen: '/about/chancellor_message', Component: ChancellorMessage},
+        {screen: '/about/history_and_achievements', Component: HistoryAchievements},
     ]
     
   const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})
