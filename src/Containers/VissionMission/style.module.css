@@ -11,7 +11,7 @@
   --lightBlue:#dff9fb;
   background-color: #dff9fb;
   background-image: linear-gradient(to right, #ffffff, #dff9fb, #ffffff);
-
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 
@@ -21,6 +21,7 @@
   position: relative;
   padding: 5px;
   box-shadow: 0 0 2px #0080d6;
+
 
 }
 

@@ -11,6 +11,8 @@
   --lightBlue:#dff9fb;
   background-color: #dff9fb;
   background-image: linear-gradient(to right, #ffffff, #dff9fb, #dff9fb, #ffffff);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
 
@@ -19,7 +21,7 @@
   display: grid;
   position: relative;
   padding: 5px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
   color: #0a446b;
   box-shadow: 0 0 2px #0080d6;
 }
