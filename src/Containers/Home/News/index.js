@@ -7,7 +7,7 @@ const News = (props) =>
 {
 
   const navigate = useNavigate();
-  const newsCardHandler = (id) => navigate(`/news/${id}`);
+  const newsCardHandler = (id) => navigate(`/posts/news/${id}`);
 
   return (
       <div className={styles.news}>

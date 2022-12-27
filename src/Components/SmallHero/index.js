@@ -11,7 +11,6 @@ function SmallHero(props) {
     const [bgPosition, setBgPosition] = useState({});
 
     const {bgAnimation} = props;
-
     useEffect(() => {
       let anime = 1;
       if(bgAnimation === true)

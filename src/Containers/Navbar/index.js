@@ -73,7 +73,7 @@ const Navbar = (props) =>
       nested: false
     },
     {
-      name: language.events, 
+      name: language.news, 
       mainLink: undefined, 
       links: [{name: "Some Text", link: "/a42"}, {name: "Some Two", link: "/a124"}, {name: "Some Text", link: "/a132"}, {name: "Some Text", link: "/a432"}],
       nested: false

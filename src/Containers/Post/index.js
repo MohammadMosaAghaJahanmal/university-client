@@ -8,29 +8,34 @@ import SmallHero from "../../Components/SmallHero";
 import HeroImage from '../../Assets/news.jpg';
 import language from '../../localization';
 import {AuthContext} from '../../authContext';
-const News = (props) =>
+import { useParams } from "react-router-dom";
+const Post = (props) =>
 {
 
-  const isRTL = (language.getLanguage() === 'ps')
+  const isRTL = (language.getLanguage() === 'ps');
+
+  const {type, id} = useParams();
+
+  
 
   return (
-    <div className={styles.news} >
-      <SmallHero title={language.events} image={HeroImage} isRTL={isRTL} bgAnimation={true}/>
-      <div className={[styles.newsWrapper, "w-controller"].join(" ")}>
-        <div className={styles.newsTitle}>
+    <div className={styles.post} >
+      <SmallHero title={language[type]} image={HeroImage} isRTL={isRTL} bgAnimation={true}/>
+      <div className={[styles.postWrapper, "w-controller"].join(" ")}>
+        <div className={styles.postTitle}>
           <p>
             High-Level Delegation from MoHE of Islamic Emirate of Afghanistan visits Saba University
           </p>
         </div>
-        <div className={styles.newsDate}>
+        <div className={styles.postDate}>
           12/1/2022
         </div>
-        <div className={styles.newsContent}>
-          <div className={styles.mainNews}>
-            <div className={styles.newsImage}>
-              <img src={D} alt="image about news"/>
+        <div className={styles.postContent}>
+          <div className={styles.mainPost}>
+            <div className={styles.postImage}>
+              <img src={D} alt="image about post"/>
             </div>
-            <div className={styles.newsDesc}>
+            <div className={styles.postDesc}>
               On January 3, 2022, Saba University hosted a high-level delegation of the Ministry of Higher Education and the Association of Private Universities and Institutions of Higher Education (APUIHE). The delegation comprised of Honorable Sheikh Shakirullah Wahdat and respected Mawlawi Shah Mohammad, members of the Advisory Board of MoHE, Professor Ataullah Kamran, Head of Public Oversight over Private Institutes of Higher Education, and other members of APUIHE and MoHE. <br />
               The delegation held two separate open discussion sessions with the university students as well as the faculty and staff. They explained some of the changes that the new leadership at MoHE has considered for public and private higher education institutions and also responded to a wide range of questions and concerns from both students and faculty members at the university. <br />
               In his opening remarks, Saba University’s Chancellor, Dr. Ahmad Khalid Hatam reiterated the University’s commitment to continue supporting the country’s young generation through the provision of world-class higher education. He highlighted the importance of aligning higher education with the economic, social, and infrastructural needs of the country for better administration of different public and private sectors. <br />
@@ -41,32 +46,32 @@ const News = (props) =>
               Answering a faculty member’s question about the imbalance of opportunities available to lecturers in public institutions, Mr. Kamran acknowledged the fact and reiterated the need for unifying not only services offered by both sectors but also the benefits like scholarships, retirement, and academic rankings for professors etc. <br />
             </div>
           </div>
-          <div className={styles.latestNews}>
-            <div className={styles.latestNewsCard}>
-              <div className={styles.latestNewsImage}>
-                <img src={C} alt="image about news"/>
+          <div className={styles.latestPost}>
+            <div className={styles.latestPostCard}>
+              <div className={styles.latestPostImage}>
+                <img src={C} alt="image about post"/>
               </div>
-              <div className={styles.latestNewsTitle}>
+              <div className={styles.latestPostTitle}>
                 <p>
                   High-Level Delegation from MoHE of Islamic Emirate of Afghanistan visits Saba University
                 </p>
               </div>
             </div>
-            <div className={styles.latestNewsCard}>
-              <div className={styles.latestNewsImage}>
-                <img src={B} alt="image about news"/>
+            <div className={styles.latestPostCard}>
+              <div className={styles.latestPostImage}>
+                <img src={B} alt="image about post"/>
               </div>
-              <div className={styles.latestNewsTitle}>
+              <div className={styles.latestPostTitle}>
                 <p>
                   High-Level Delegation from MoHE of Islamic Emirate of Afghanistan visits Saba University
                 </p>
               </div>
             </div>
-            <div className={styles.latestNewsCard}>
-              <div className={styles.latestNewsImage}>
-                <img src={A} alt="image about news"/>
+            <div className={styles.latestPostCard}>
+              <div className={styles.latestPostImage}>
+                <img src={A} alt="image about post"/>
               </div>
-              <div className={styles.latestNewsTitle}>
+              <div className={styles.latestPostTitle}>
                 <p>
                   High-Level Delegation from MoHE of Islamic Emirate of Afghanistan visits Saba University
                 </p>
@@ -81,4 +86,4 @@ const News = (props) =>
 
 
 
-export default News;
+export default Post;

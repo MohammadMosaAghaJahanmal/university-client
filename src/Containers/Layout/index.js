@@ -7,13 +7,16 @@ import styles from './style.css';
 const Navbar = lazy(() => import('../Navbar'));
 const Footer = lazy(() => import('../Footer'));
 const Home = lazy(() => import('../Home'));
-const News = lazy(() => import('../News'));
+const Post = lazy(() => import('../Post'));
 const Contact = lazy(() => import('../Contact'));
 const Library = lazy(() => import('../Library'));
 const VissionMission = lazy(() => import('../VissionMission'));
 const ChancellorMessage = lazy(() => import('../ChancellorMessage'));
 const HistoryAchievements = lazy(() => import('../HistoryAchievements'));
 const OrgStructure = lazy(() => import('../OrgStructure'));
+const StrategicAim = lazy(() => import('../StrategicAim'));
+const Aggrements = lazy(() => import('../Aggrements'));
+const AcademicCalendar = lazy(() => import('../AcademicCalendar'));
 const PageNotFound = lazy(() => import('../404'));
 
 
@@ -26,13 +29,16 @@ class Layout extends PureComponent
   {
     const screens = [
         {screen: '/', Component: Home},
-        {screen: '/news/:id', Component: News},
+        {screen: '/posts/:type/:id', Component: Post},
         {screen: '/contact', Component: Contact},
         {screen: '/library', Component: Library},
         {screen: '/about/vission_mission', Component: VissionMission},
         {screen: '/about/chancellor_message', Component: ChancellorMessage},
         {screen: '/about/history_and_achievements', Component: HistoryAchievements},
         {screen: '/about/organizational_structure', Component: OrgStructure},
+        {screen: '/about/stratigic_aim', Component: StrategicAim},
+        {screen: '/about/academic_calendar', Component: AcademicCalendar},
+        {screen: '/about/aggrements', Component: Aggrements},
       ]
     
   const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})

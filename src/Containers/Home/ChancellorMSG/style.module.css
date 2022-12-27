@@ -1,4 +1,4 @@
-.news
+.cmsg
 {
   --TextColor: #3e4958;
   --white:#ffffff;
@@ -9,168 +9,84 @@
   --darkGreen:#007600;
   --darkBlue:#002060;
   --lightBlue:#dff9fb;
-  background-color: var(--lightBlue);
   height: 100%;
-  /* background-image: conic-gradient(from 45deg, #dff9fb, #8ac53a, #dff9fb, #8ac53a); */
+  background-image: linear-gradient(to right, #ffffff, #dff9fb, #dff9fb, #ffffff);
+  background-color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
+.cmsgw
+{
+  padding: 10px;
+  transition: 300ms;
   background-size: 50%;
+}
+
+.contentW
+{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: end;
+  width: 340px;
+  margin: 0 0 0 auto;
+  column-gap: 10px;
+  align-content: center;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+.ch
+{
+  height: 150px;
+}
+
+.ch img
+{
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+  object-fit: cover;
 }
 
 .title
 {
+  padding: 5px 0;
+  font-size: 16px;
   color: #0080d6;
-  border-radius: 0 0 25px 25px;
-  margin-bottom: 40px;
-  transition: 300ms;
-  text-shadow: 2px 2px 0px rgba(0, 32, 96, 0.2);
-  text-align: center;
-
 }
 
-.newsWrapper
-{
-  height: 100%;
-  padding: 10px;
-  padding-bottom: 60px;
-  transition: 300ms;
-  /* background-image: conic-gradient( #facc07 0 25%, white 25% 50%, #facc07 50% 75%, white 75% 100%); */
-  background-image: conic-gradient( #dff9fb 0 25%, white 25% 50%, #dff9fb 50% 75%, white 75% 100%);
-  /* background-image: conic-gradient( #8ac53a 0 25%, white 25% 50%, #8ac53a 50% 75%, white 75% 100%); */
-  background-size: 50%;
-}
-
-.newsCards
+.textContent
 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 320px));
-  column-gap: 20px;
-  row-gap: 50px;
-  justify-content: center;
-  padding: 40px 0;
-  transition: 300ms;
-
+  grid-template-rows: repeat(auto-fill, minmax(auto, 30px));
+  
 }
 
-.newsCard
+.name
 {
-  display: grid;
-  /* background-color: white; */
-  background-color: #0080d6;
-  color: #dff9fb;
-  border-radius: 20px;
-  padding: 15px;
-  position: relative;
-  box-sizing: border-box;
-  /* box-shadow: 0px 0px 5px rgba(0, 128, 214, 0.5); */
-  transition: 300ms;
-  text-align: center;
-  row-gap: 10px;
-  cursor: pointer;
+  font-weight: 600;
+  font-style: italic;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
 }
-.newsCard:hover .newsImage img
+
+.button
 {
-  clip-path: polygon(54% 0%, 82% 0, 100% 0%, 100% 100%, 0 100%, 0 0%, 23% 0);
-
-}
-.newsCard:hover
-{
-  padding: 10px;
-}
-.newsImage
-{
-  width: 100%;
-  position: relative;
-  border-radius: 20px;
-  transition: 300ms;
-
-}
-
-.newsImage img
-{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  position: relative;
-  top: -35px;
-  transition: 300ms;
-  clip-path: polygon(50% 0%, 100% 0, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 0 0);
-  /* clip-path: polygon(48% 0, 100% 0, 100% 89%, 76% 100%, 0 100%, 0 0, 23% 0); */
-}
-
-.date
-{
-  position: absolute;
-  z-index: 99;
-  background-color: #8ac53a;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  right: 0;
-  bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: white;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
-  clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
-  transition: 300ms;
-}
-
-.newsCard:hover .date
-{
-  clip-path: polygon(49% 0, 100% 0, 89% 34%, 89% 69%, 100% 100%, 47% 100%, 0 100%, 7% 68%, 7% 31%, 0 0);
-  border-radius: 50%;
-  border-radius: 0;
-}
-
-.newsContent
-{
-  display: grid;
-  row-gap: 10px;
-  position: relative;
-  top: -15px;
-  border-radius: 5px;
-  transition: 300ms;
-
-}
-.newsTitle
-{
-  font-size: 20px;
-  font-weight: bold;
-  color: #91e61c;
-  transition: 300ms;
-
-}
-.newsCard:hover .newsTitle
-{
-  text-decoration: underline;
+  display: inline-block;
+  background-color: transparent;
+  grid-row-end: -2;
+  padding: 0 !important;
 }
 
 
-
-@media all and (max-width: 768px) {
-  .title
+@media all and (max-width: 375px) {
+  .contentW
   {
-    margin-bottom: 0px;
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    margin: unset;
+    padding: 0;
   }
-
-}
-
-@media all and (max-width: 679px) {
-  .newsCards
-  {
-    grid-template-columns: repeat(auto-fit, minmax(auto, 420px));
-    padding: 30px 0;
-  }
-  .newsWrapper
-  {
-    padding: 0 3px 20px 3px;
-  }
-  .newsCard
-  {
-    padding: 5px;
-  }
-
 }

@@ -20,7 +20,7 @@ let languages = new LocalizedStrings({
     students: "Students",
     
     online_library: "Online Library",
-    events: "News",
+    news: "News",
     job_opportunity: "Job Opportunity",
     kankor: "Kankor",
 
@@ -80,7 +80,7 @@ students: "محصلان",
 
 
 online_library: "آنلاین کتابتون",
-events: "خبرونه",
+news: "خبرونه",
 contact: "اړیکه",
 job_opportunity: "کاري فرصت",
 
