@@ -15,70 +15,58 @@ const AcademicCalendar = (props) =>
 
   return (
     <div className={styles.ac}>
-      <SmallHero title={language.academic_calendar} image={HeroImage} isRTL={isRTL} className={styles[isRTL + "Hero"]}/>
+      <SmallHero title={language.academic_calendar} image={HeroImage} isRTL={isRTL} className={[styles[isRTL + "Hero"], styles.hero].join(" ")}/>
       <div className={[styles.acw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
-          <div className={styles.stratigic}>
-            <Title 
-                title="Stratigic Aim One"
-                className={[styles.chTitle, styles.title].join(" ")}
-                />
-            <div className={styles.ach}>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
+          <Title 
+            title={language.academic_calendar}
+            className={styles.title}
+          />
+          <Text
+            className={styles.text}
+          >
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti repudiandae odit enim repellat incidunt, natus dignissimos nemo aperiam voluptate reprehenderit!
+          </Text>
+          <Text
+            className={styles.text}
+          >
+            Two Annual Semesters
+          </Text>
+          <div className={styles.cards}>
+            <div className={styles.card}>
+              <Title 
+                title="Semester"
+                className={styles.header}
+              />
+              <div className={styles.group}>
+                <p>Semester</p>
+                <p>Spring</p>
               </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
+              <div className={styles.group}>
+                <p>A.D</p>
+                <p>March</p>
               </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-              </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-              </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-              </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
+              <div className={styles.group}>
+                <p>L.Y</p>
+                <p>Hamal</p>
               </div>
             </div>
-          </div>
-          <div className={styles.stratigic}>
-            <Title 
-                title="Stratigic Aim Two"
-                className={[styles.chTitle, styles.title].join(" ")}
-                />
-            <div className={styles.ach}>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
+            <div className={styles.card}>
+              <Title 
+                title="Semester"
+                className={styles.header}
+              />
+              <div className={styles.group}>
+                <p>Semester</p>
+                <p>Spring</p>
               </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
+              <div className={styles.group}>
+                <p>A.D</p>
+                <p>March</p>
               </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-              </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-              </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-              </div>
-              <div className={[styles.item].join(" ")}>
-                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
+              <div className={styles.group}>
+                <p>L.Y</p>
+                <p>Hamal</p>
               </div>
             </div>
           </div>

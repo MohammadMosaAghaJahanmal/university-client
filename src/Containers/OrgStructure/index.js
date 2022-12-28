@@ -19,7 +19,7 @@ const OrgStructure = (props) =>
         <div className={styles.contentWrapper}>
           <div className={styles.history}>
             <Title 
-              title="Organizational Structure"
+              title={language.organizational_structure}
               className={[styles.chTitle, styles.title].join(" ")}
               />
             <Text className={styles.text}>

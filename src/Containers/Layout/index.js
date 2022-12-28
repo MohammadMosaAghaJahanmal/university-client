@@ -10,6 +10,7 @@ const Home = lazy(() => import('../Home'));
 const Post = lazy(() => import('../Post'));
 const Contact = lazy(() => import('../Contact'));
 const Library = lazy(() => import('../Library'));
+const News = lazy(() => import('../News'));
 const VissionMission = lazy(() => import('../VissionMission'));
 const ChancellorMessage = lazy(() => import('../ChancellorMessage'));
 const HistoryAchievements = lazy(() => import('../HistoryAchievements'));
@@ -32,6 +33,7 @@ class Layout extends PureComponent
         {screen: '/posts/:type/:id', Component: Post},
         {screen: '/contact', Component: Contact},
         {screen: '/library', Component: Library},
+        {screen: '/news', Component: News},
         {screen: '/about/vission_mission', Component: VissionMission},
         {screen: '/about/chancellor_message', Component: ChancellorMessage},
         {screen: '/about/history_and_achievements', Component: HistoryAchievements},

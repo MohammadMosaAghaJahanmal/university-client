@@ -19,7 +19,7 @@ const Aggrements = (props) =>
       <div className={[styles.agw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
           <Title 
-            title="Aggrements"
+            title={language.aggrements}
           />
           <div className={styles.cards}>
             <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>

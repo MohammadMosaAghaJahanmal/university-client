@@ -23,6 +23,8 @@ let languages = new LocalizedStrings({
     news: "News",
     job_opportunity: "Job Opportunity",
     kankor: "Kankor",
+      online_admission: "Online Admission",
+      result: "Result",
 
     economical_advisory: "S E A Board",
    
@@ -86,8 +88,8 @@ job_opportunity: "کاري فرصت",
 
 // Kankor
 kankor: "کانکور",
-//    Online Admision: "آنلاین نوملیکنه",
-//    Result: "نتیجه",
+  online_admission: "آنلاین نوملیکنه",
+  result: "نتیجه",
 
   economical_advisory: "اقتصادی مشورتی بورډ"
  }

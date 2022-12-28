@@ -74,8 +74,7 @@ const Navbar = (props) =>
     },
     {
       name: language.news, 
-      mainLink: undefined, 
-      links: [{name: "Some Text", link: "/a42"}, {name: "Some Two", link: "/a124"}, {name: "Some Text", link: "/a132"}, {name: "Some Text", link: "/a432"}],
+      mainLink: '/news', 
       nested: false
     },
     {
@@ -91,7 +90,8 @@ const Navbar = (props) =>
     },
     {
       name: language.kankor, 
-      mainLink: "other", 
+      mainLink: undefined, 
+      links: [{name: language.online_admission, link: "/kankor/admission"}, {name: language.result, link: "/kankor/result"}],
       nested: false
     },
   ]
