@@ -51,7 +51,7 @@ const OnlineAdmission = (props) =>
               </div>
               <div data-aos="fade-right" data-aos-delay={400}>
                 <MaterialInput
-                  label={"Graduation Year"}
+                  label={"Graduation Year *"}
                   placeholder={"G/Year"}
                   id="gyear"
                   type="select"
