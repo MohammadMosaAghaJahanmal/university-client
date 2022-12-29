@@ -1,0 +1,85 @@
+
+.inputGroup
+{
+  display: grid;
+}
+
+
+.inputGroup label
+{
+  font-size: 14px;
+  color: #0080d6;
+  transform: rotateX(30deg);
+  letter-spacing: 1px;
+}
+
+.input
+{
+  position: relative;
+  overflow: hidden;
+}
+.input .before, .input .after
+{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  height: 2px;
+  width: 100%;
+  background-color: #0080d6;
+  background-image: linear-gradient(to right,#0080d6,  rgb(0, 255, 191), #0080d6);
+  transition: 600ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+
+}
+.input .before
+{
+  left: -90%;
+}
+.input .after
+{
+  left: 90%;
+}
+.input input:focus ~ .after,.input input:focus ~ .before
+{
+  left: 0;
+  animation-name: bgPos;
+
+}
+.input input
+{
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  border: unset;
+  border-bottom: 2px solid #9ed8ff;
+  color: #0080d6;
+  padding: 11px 10px;
+  font-size: 16px;
+  background-color: transparent;
+  text-align: left;
+  transform: 300ms;
+  /* background-color: rgba(238, 238, 238, 0.3); */
+  /* background-color: whitesmoke; */
+  background-color: rgb(232, 240, 254);
+}
+.input input::placeholder
+{
+  color: rgba(0, 128, 214, 0.4);
+  font-size: 16px;
+}
+
+
+@keyframes bgPos {
+  0%
+  {
+    background-position-x: 0px;
+  }
+  100%
+  {
+    background-position-x: 1000px;
+  }
+}

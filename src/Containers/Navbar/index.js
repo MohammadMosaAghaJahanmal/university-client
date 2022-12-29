@@ -79,8 +79,7 @@ const Navbar = (props) =>
     },
     {
       name: language.job_opportunity, 
-      mainLink: undefined, 
-      links: [{name: "Some Text", link: "/firstNews"}, {name: "Some Two", link: "/a123"}, {name: "Some Text", link: "/a435"}, {name: "Some Text", link: "/a1223"}],
+      mainLink: '/job_opportunity', 
       nested: false
     },
     {
