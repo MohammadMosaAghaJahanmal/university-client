@@ -7,30 +7,19 @@ import Button from "../../Components/Button";
 import { FaFacebookF, FaMapMarkedAlt, FaYoutube } from "react-icons/fa";
 import languages from "../../localization";
 import MaterialInput from "../../Components/MaterialInput";
-import { provinces } from '../../Constants'
 
 const OnlineAdmission = (props) =>
 {
 
-  const isRTL = (languages.getLanguage() === 'ps');
-
-  const currentYear = (new Date().getFullYear() - 621);
-
-  let prevYears = (currentYear - 30);
-
-  let years = [];
-
-  for (;prevYears <= currentYear; prevYears++) {
-    years.unshift(prevYears)
-  }
+  const isRTL = (languages.getLanguage() === 'ps')
 
   return (
     <div className={styles.oa}>
-      <SmallHero title={languages.online_admission} image={HeroImage} isRTL={isRTL} style={{backgroundPosition: "bottom"}}/>
+      <SmallHero title={languages.result} image={HeroImage} isRTL={isRTL} style={{backgroundPosition: "bottom"}}/>
       <div className={[styles.oaWrapper, "w-controller"].join(" ")}>
         <div className={styles.oaFormWrapper}>
           <div className={styles.formTitle} data-aos="fade-down" data-aos-delay={100}>
-            Fill The Inputs For Online Admissions.
+            Find Your Result
           </div>
           <div className={styles.oaForm}>
             <div data-aos="fade-right" data-aos-delay={100}>
@@ -38,7 +27,6 @@ const OnlineAdmission = (props) =>
                   label={"Full Name *"}
                   placeholder={"Name *"}
                   id="fullname"
-                  onChange={(e) => {}}
                   />
               </div>
               <div data-aos="fade-right" data-aos-delay={200}>
@@ -46,7 +34,6 @@ const OnlineAdmission = (props) =>
                   label={"Father Name *"}
                   placeholder={"F/Name *"}
                   id="fname"
-                  onChange={(e) => {}}
                   />
               </div>
               <div data-aos="fade-right" data-aos-delay={400}>
@@ -54,10 +41,6 @@ const OnlineAdmission = (props) =>
                   label={"Graduation Year"}
                   placeholder={"G/Year"}
                   id="gyear"
-                  type="select"
-                  options={years}
-                  select={currentYear}
-                  onChange={(e) => {}}
                   />
               </div>
               <div data-aos="fade-right" data-aos-delay={600}>
@@ -65,7 +48,6 @@ const OnlineAdmission = (props) =>
                   label={"High School Name *"}
                   placeholder={"School Name *"}
                   id="sname"
-                  onChange={(e) => {}}
                   />
               </div>
               <div data-aos="fade-right" data-aos-delay={800}>
@@ -73,7 +55,6 @@ const OnlineAdmission = (props) =>
                   label={"Phone Number *"}
                   placeholder={"P/Number *"}
                   id="pname"
-                  onChange={(e) => {}}
                   />
               </div>
               <div data-aos="fade-right" data-aos-delay={1000}>
@@ -81,10 +62,6 @@ const OnlineAdmission = (props) =>
                   label={"Province *"}
                   placeholder={"Province *"}
                   id="province"
-                  type="select"
-                  options={provinces}
-                  select={"Kandahar"}
-                  onChange={(e) => {}}
                   />
               </div>
               <div data-aos="fade-right" data-aos-delay={1200}>
@@ -92,9 +69,9 @@ const OnlineAdmission = (props) =>
                   label={"Email Address"}
                   placeholder={"Email"}
                   id="email"
-                  onChange={(e) => {}}
                   />
               </div>
+
             <div className={styles.oaButton} data-aos="fade-up" data-aos-delay={1400}>
               <button>
                 Register

@@ -19,6 +19,7 @@ const StrategicAim = lazy(() => import('../StrategicAim'));
 const Aggrements = lazy(() => import('../Aggrements'));
 const AcademicCalendar = lazy(() => import('../AcademicCalendar'));
 const OnlineAdmission = lazy(() => import('../OnlineAdmission'));
+const Result = lazy(() => import('../Result'));
 const PageNotFound = lazy(() => import('../404'));
 
 
@@ -43,6 +44,7 @@ class Layout extends PureComponent
         {screen: '/about/academic_calendar', Component: AcademicCalendar},
         {screen: '/about/aggrements', Component: Aggrements},
         {screen: '/kankor/admission', Component: OnlineAdmission},
+        {screen: '/kankor/result', Component: Result},
       ]
     
   const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})

@@ -1,0 +1,114 @@
+.oa
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-image: linear-gradient(to right, #dff9fb, white, #dff9fb);
+}
+
+.oaWrapper
+{
+  margin-top: 20px;
+  display: grid;
+  row-gap: 10px;
+  padding: 40px 10px;
+  background-size: 50%;
+  column-gap: 40px;
+  align-content: start;
+
+}
+
+.oaFormWrapper
+{
+  display: grid;
+  row-gap: 30px;
+}
+
+.oaForm
+{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  row-gap: 15px;
+  column-gap: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+}
+.oaInfo
+{
+  display: grid;
+  row-gap: 10px;
+  align-content: start;
+}
+.formTitle
+{
+  font-size: 25px;
+  color: #0080d6;
+  font-weight: 600;
+  text-align: center;
+
+}
+
+
+.oaButton
+{
+  grid-column-start: 1;
+  grid-column-end: -1;
+  
+}
+
+.oaButton button
+{
+  display: flex;
+  width: 300px;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid #0080d6;
+  color: #0080d6;
+  margin: 0 auto;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: 300ms;
+  font-size: 18px;
+  background-color: rgb(232, 240, 254);
+  
+  
+
+}
+.oaButton button:hover
+{
+  background-color: #0080d6;
+  color: white;
+  border-color: #065f9b;
+}
+
+
+
+
+
+@media all and (max-width: 600px) {
+  .oaForm
+  {
+    grid-template-columns: auto;
+    row-gap: 15px;
+  }
+  .formTitle
+  {
+    font-size: 20px;
+  }
+  .oaButton button
+  {
+    width: 100%;
+  }
+}
+
