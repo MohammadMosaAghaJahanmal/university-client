@@ -10,7 +10,7 @@
   --darkBlue:#002060;
   --lightBlue:#dff9fb;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background-image: linear-gradient(to right, #dff9fb, white, #dff9fb);
+  background-image: linear-gradient(to right, white, dff9fb, white);
 }
 
 .oaWrapper
@@ -41,6 +41,9 @@
   margin: 0 auto;
   width: 100%;
   overflow: hidden;
+  align-content: start;
+  align-items: end;
+  justify-content: center;
 }
 .oaInfo
 {
@@ -57,34 +60,22 @@
 
 }
 
-
-.oaButton
-{
-  grid-column-start: 1;
-  grid-column-end: -1;
-  
-}
-
 .oaButton button
 {
   display: flex;
   width: 300px;
-  height: 45px;
+  height: 42px;
   align-items: center;
   justify-content: center;
   background-color: transparent;
   border: 2px solid #0080d6;
   color: #0080d6;
-  margin: 0 auto;
-  margin-top: 30px;
   cursor: pointer;
   transition: 300ms;
   font-size: 18px;
   background-color: rgb(232, 240, 254);
-  
-  
-
 }
+
 .oaButton button:hover
 {
   background-color: #0080d6;
@@ -92,16 +83,69 @@
   border-color: #065f9b;
 }
 
+.input
+{
+  width: 320px !important;
+}
 
+.logo
+{
+  width: 100px;
+  margin: 0 auto;
+}
 
+.logo img
+{
+  width: 100%;
+}
 
+.tableTitle
+{
+  text-align: center;
+  font-size: 20px;
+  color: #0080d6;
+}
+.table
+{
+  display: grid;
+  margin-top: 10px;
+}
+.thead
+{
+  background-color: #0080d6;
+  color: #dff9fb;
+}
+.tbody
+{
+  background-color: #dff9fb;
+  color: #0080d6;
+}
+.tbody .tr:nth-child(even)
+{
+  background-color: whitesmoke;
+}
+.th, .td
+{
+  padding: 15px;
+}
+.th
+{
+  font-weight: 600;
+}
+.tr
+{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+@media all and (max-width: 768px) {
+  .table
+  {
+    display: none;
+  }
+}
 
 @media all and (max-width: 600px) {
-  .oaForm
-  {
-    grid-template-columns: auto;
-    row-gap: 15px;
-  }
   .formTitle
   {
     font-size: 20px;

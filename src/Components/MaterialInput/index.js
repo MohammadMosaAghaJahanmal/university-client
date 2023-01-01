@@ -6,9 +6,7 @@ function MaterialInput(props) {
 
 		const options = props?.options?.map((option, index) => {
 			let isSelected = {}
-			// if(option === props?.select)
-			// 	isSelected.selected = true
-			return <option value={option} style={{textTransform: "capitalize"}} key={(option + index)} {...isSelected}>
+			return <option value={option} style={{textTransform: "capitalize"}} key={(option + " " + index)} {...isSelected}>
 				{option}
 			</option>
 		})
@@ -19,13 +17,14 @@ function MaterialInput(props) {
 					props.label &&
 					<label htmlFor={props.id}>{props.label}</label>
 				}
-				<div className={styles.input}>
+				<div className={[styles.input].join(" ")}>
 					{
 						props.type === 'select' ?
 						<select 
 							value={props.select}
 							placeholder={props.placeholder} 
 							onChange={props.onChange} 
+							className={props.className}
 						>
 							{options}
 						</select>
@@ -36,6 +35,7 @@ function MaterialInput(props) {
 							id={props.id} 
 							onChange={props.onChange} 
 							value={props.value} 
+							className={props.className}
 						/>
 					}
 					<span className={styles.before}></span>

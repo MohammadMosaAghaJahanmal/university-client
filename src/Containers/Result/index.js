@@ -7,11 +7,17 @@ import Button from "../../Components/Button";
 import { FaFacebookF, FaMapMarkedAlt, FaYoutube } from "react-icons/fa";
 import languages from "../../localization";
 import MaterialInput from "../../Components/MaterialInput";
+import logo from '../../Assets/logo.png'
 
 const OnlineAdmission = (props) =>
 {
 
-  const isRTL = (languages.getLanguage() === 'ps')
+  const isRTL = (languages.getLanguage() === 'ps');
+
+  let results = [
+    {id: "19290", fullName: 'Ahmadullah', fatherName: "Abdullah", province: "Kandahar", faculty: "Computer Sciences", marks: "888", pass: "true"},
+    {id: "18310", fullName: 'Mohammad Mosa', fatherName: "Mohammad Agha", province: "Kandahar", faculty: "Computer Sciences", marks: "999", pass: "false"},
+  ];
 
   return (
     <div className={styles.oa}>
@@ -23,59 +29,54 @@ const OnlineAdmission = (props) =>
           </div>
           <div className={styles.oaForm}>
             <div data-aos="fade-right" data-aos-delay={100}>
-                <MaterialInput
-                  label={"Full Name *"}
-                  placeholder={"Name *"}
-                  id="fullname"
-                  />
-              </div>
-              <div data-aos="fade-right" data-aos-delay={200}>
-                <MaterialInput
-                  label={"Father Name *"}
-                  placeholder={"F/Name *"}
-                  id="fname"
-                  />
-              </div>
-              <div data-aos="fade-right" data-aos-delay={400}>
-                <MaterialInput
-                  label={"Graduation Year"}
-                  placeholder={"G/Year"}
-                  id="gyear"
-                  />
-              </div>
-              <div data-aos="fade-right" data-aos-delay={600}>
-                <MaterialInput
-                  label={"High School Name *"}
-                  placeholder={"School Name *"}
-                  id="sname"
-                  />
-              </div>
-              <div data-aos="fade-right" data-aos-delay={800}>
-                <MaterialInput
-                  label={"Phone Number *"}
-                  placeholder={"P/Number *"}
-                  id="pname"
-                  />
-              </div>
-              <div data-aos="fade-right" data-aos-delay={1000}>
-                <MaterialInput
-                  label={"Province *"}
-                  placeholder={"Province *"}
-                  id="province"
-                  />
-              </div>
-              <div data-aos="fade-right" data-aos-delay={1200}>
-                <MaterialInput
-                  label={"Email Address"}
-                  placeholder={"Email"}
-                  id="email"
-                  />
-              </div>
-
+              <MaterialInput
+                label={"Student ID *"}
+                placeholder={"ID *"}
+                id="id"
+                className={styles.input}
+                />
+            </div>
             <div className={styles.oaButton} data-aos="fade-up" data-aos-delay={1400}>
               <button>
-                Register
+                Search
               </button>
+            </div>
+          </div>
+          <div className={styles.tableContainer}>
+            <div className={styles.logo}>
+              <img src={logo} alt="LOGO"/>
+            </div>
+            <div className={styles.tableTitle}>
+              <p>
+                Result Table
+              </p>
+            </div>
+            <div className={styles.table}>
+              <div className={styles.thead}>
+                <div className={styles.tr}>
+                  <div className={styles.th}>ID</div>
+                  <div className={styles.th}>Name</div>
+                  <div className={styles.th}>F/Name</div>
+                  <div className={styles.th}>Province</div>
+                  <div className={styles.th}>Faculty</div>
+                  <div className={styles.th}>Marks</div>
+                  <div className={styles.th}>Pass</div>
+                </div>
+              </div>
+              <div className={styles.tbody}>
+              {results.map((result, index) => (
+                <div className={styles.tr} key={result.id + " " + index}>
+                  <div className={styles.td}>{result.id}</div>
+                  <div className={styles.td}>{result.fullName}</div>
+                  <div className={styles.td}>{result.fatherName}</div>
+                  <div className={styles.td}>{result.province}</div>
+                  <div className={styles.td}>{result.faculty}</div>
+                  <div className={styles.td}>{result.marks}</div>
+                  <div className={styles.td}>{result.pass}</div>
+                </div>
+              ))}
+
+              </div>
             </div>
           </div>
         </div>
