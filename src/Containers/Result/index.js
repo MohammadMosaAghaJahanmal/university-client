@@ -76,8 +76,6 @@ const OnlineAdmission = (props) =>
                 </div>
               ))}
 
-              {/* BLAH */}
-
               </div>
             </div>
           </div>
