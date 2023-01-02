@@ -75,8 +75,41 @@ const OnlineAdmission = (props) =>
                   <div className={styles.td}>{result.pass}</div>
                 </div>
               ))}
-
               </div>
+            </div>
+            <div className={styles.mTble}>
+              {results.map((result, index) => (
+                <div className={styles.mTbody} key={result.id + " " + index}>
+                  <div className={styles.mTr}>
+                    <div className={styles.mTh}>ID</div>
+                    <div className={styles.mTd}>{result.id}</div>
+                  </div>
+                  <div className={styles.mTr}>
+                    <div className={styles.mTh}>Name</div>
+                    <div className={styles.mTd}>{result.fullName}</div>
+                  </div>
+                  <div className={styles.mTr}>
+                    <div className={styles.mTh}>F/Name</div>
+                    <div className={styles.mTd}>{result.fatherName}</div>
+                  </div>
+                  <div className={styles.mTr}>
+                    <div className={styles.mTh}>Province</div>
+                    <div className={styles.mTd}>{result.province}</div>
+                  </div>
+                  <div className={styles.mTr}>
+                    <div className={styles.mTh}>Faculty</div>
+                    <div className={styles.mTd}>{result.faculty}</div>
+                  </div>
+                  <div className={styles.mTr}>
+                    <div className={styles.mTh}>Marks</div>
+                    <div className={styles.mTd}>{result.marks}</div>
+                  </div>
+                  <div className={styles.mTr}>
+                    <div className={styles.mTh}>Pass</div>
+                    <div className={styles.mTd}>{result.pass}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

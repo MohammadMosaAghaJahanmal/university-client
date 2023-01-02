@@ -136,12 +136,55 @@
 {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  transition: 300ms;
 }
-
+.tr:hover
+{
+  background-color: rgba(0, 128, 214, 0.1) !important;
+}
+.mTble
+{
+  margin-top: 10px;
+  display: none;
+  row-gap: 10px;
+}
+.mTbody
+{
+  display: grid;
+  background-color: #2393dd;
+  row-gap: 1px;
+  border: 1px solid #2393dd;
+}
+.mTr
+{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: auto 1fr; */
+  column-gap: 1px;
+}
+.mTh, .mTd
+{
+  padding: 10px;
+}
+.mTh
+{
+  background-color: #0080d6;
+  color: #dff9fb;
+  font-weight: 600;
+}
+.mTd
+{
+  background-color: #dff9fb;
+  color: #0080d6;
+}
 @media all and (max-width: 768px) {
   .table
   {
     display: none;
+  }
+  .mTble
+  {
+    display: grid;
   }
 }
 

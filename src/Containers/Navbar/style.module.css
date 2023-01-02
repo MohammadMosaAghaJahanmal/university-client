@@ -98,7 +98,7 @@
 }
 .menuLeft a:hover i svg
 {
-  color: white;
+  color: white !important;
 }
 
 .menuLeft a span

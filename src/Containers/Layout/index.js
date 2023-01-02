@@ -19,6 +19,7 @@ const StrategicAim = lazy(() => import('../StrategicAim'));
 const Aggrements = lazy(() => import('../Aggrements'));
 const AcademicCalendar = lazy(() => import('../AcademicCalendar'));
 const OnlineAdmission = lazy(() => import('../OnlineAdmission'));
+const JobOpportunity = lazy(() => import('../JobOpportunity'));
 const Result = lazy(() => import('../Result'));
 const PageNotFound = lazy(() => import('../404'));
 
@@ -36,6 +37,7 @@ class Layout extends PureComponent
         {screen: '/contact', Component: Contact},
         {screen: '/library', Component: Library},
         {screen: '/news', Component: News},
+        {screen: '/job_opportunity', Component: JobOpportunity},
         {screen: '/about/vission_mission', Component: VissionMission},
         {screen: '/about/chancellor_message', Component: ChancellorMessage},
         {screen: '/about/history_and_achievements', Component: HistoryAchievements},

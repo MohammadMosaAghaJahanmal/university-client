@@ -7,11 +7,19 @@ import HeroImage1 from '../../Assets/man.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
+import { useNavigate } from "react-router-dom";
 
 const News = (props) =>
 {
 
   const isRTL = (language.getLanguage() === 'ps');
+
+  const navigate = useNavigate();
+
+  const clickHandler = (id) =>
+  {
+    navigate(`/posts/news/${id}`);
+  }
 
   return (
     <div className={styles.news}>
@@ -22,7 +30,7 @@ const News = (props) =>
             title={language.news}
           />
           <div className={styles.cards}>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
               <div className={styles.img}>
                 <img src={HeroImage} alt="aggrement image" />
               </div>
@@ -37,7 +45,7 @@ const News = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
               <div className={styles.img}>
                 <img src={HeroImage2} alt="aggrement image" />
               </div>
@@ -52,7 +60,7 @@ const News = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
               <div className={styles.img}>
                 <img src={HeroImage1} alt="aggrement image" />
               </div>
@@ -67,7 +75,7 @@ const News = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
               <div className={styles.img}>
                 <img src={HeroImage1} alt="aggrement image" />
               </div>
@@ -83,7 +91,7 @@ const News = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
               <div className={styles.img}>
                 <img src={HeroImage1} alt="aggrement image" />
               </div>
@@ -98,7 +106,7 @@ const News = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
               <div className={styles.img}>
                 <img src={HeroImage1} alt="aggrement image" />
               </div>
@@ -113,7 +121,7 @@ const News = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
               <div className={styles.img}>
                 <img src={HeroImage1} alt="aggrement image" />
               </div>

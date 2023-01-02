@@ -6,12 +6,18 @@ import HeroImage2 from '../../Assets/agg2.jpg';
 import HeroImage1 from '../../Assets/man.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
-import Text from "../../Components/Text";
-
+import {useNavigate} from 'react-router-dom';
 const Aggrements = (props) =>
 {
 
   const isRTL = (language.getLanguage() === 'ps');
+
+  const navigate = useNavigate();
+
+  const clickHandler = (id) =>
+  {
+    navigate(`/posts/aggrements/${id}`);
+  }
 
   return (
     <div className={styles.aggrements}>
@@ -22,7 +28,7 @@ const Aggrements = (props) =>
             title={language.aggrements}
           />
           <div className={styles.cards}>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("ID")}>
               <div className={styles.img}>
                 <img src={HeroImage} alt="aggrement image" />
               </div>
@@ -37,7 +43,7 @@ const Aggrements = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("ID")}>
               <div className={styles.img}>
                 <img src={HeroImage2} alt="aggrement image" />
               </div>
@@ -52,7 +58,7 @@ const Aggrements = (props) =>
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("ID")}>
               <div className={styles.img}>
                 <img src={HeroImage1} alt="aggrement image" />
               </div>
