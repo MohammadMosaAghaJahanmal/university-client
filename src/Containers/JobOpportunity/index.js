@@ -4,19 +4,11 @@ import SmallHero from '../../Components/SmallHero';
 import HeroImage from '../../Assets/job.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
-import {useNavigate} from 'react-router-dom';
 import Text from "../../Components/Text";
 const JobOpportunity = (props) =>
 {
 
   const isRTL = (language.getLanguage() === 'ps');
-
-  const navigate = useNavigate();
-
-  const clickHandler = (id) =>
-  {
-    navigate(`/posts/jobOpportunity/${id}`);
-  }
 
   return (
     <div className={styles.jobOpportunity}>
@@ -27,7 +19,7 @@ const JobOpportunity = (props) =>
             title={language.job_opportunity}
           />
           <div className={styles.cards}>
-            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("ID")}>
+            <div className={styles.card} data-aos="fade-right" data-aos-delay={300} >
               <div className={styles.img}>
                 <img src={HeroImage} alt="aggrement image" />
               </div>
