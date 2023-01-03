@@ -1,24 +1,23 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/vision.jpg';
-import Input from '../../Components/Input';
-import Button from "../../Components/Button";
+import HeroImage from '../../Assets/lab.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
-const VissionMission = (props) =>
-{
+import {IoCheckmarkCircleOutline as CheckBox} from 'react-icons/io5'
 
+const R_VissionMission = (props) =>
+{
   const isRTL = (language.getLanguage() === 'ps');
 
   return (
     <div className={styles.vissionMission}>
-      <SmallHero title={language.our_vission_and_mission} image={HeroImage} isRTL={isRTL} bgAnimation={true}/>
+      <SmallHero title={language.r_vission_mission} image={HeroImage}  bgAnimation={true}/>
       <div className={[styles.vmw, "w-controller"].join(" ")}>
         <div className={styles.vm}>
           <div className={styles.vmCard}>
-            <Title title="Our Vission" className={styles.title}/>
+            <Title title="Vission" className={styles.title}/>
             <Text text="
               To be a recognized university in the country 
               and region for quality teaching, research and learning, 
@@ -28,18 +27,32 @@ const VissionMission = (props) =>
             />
           </div>
           <div className={styles.vmCard}>
-            <Title title="Our Mission" className={styles.title} />
+            <Title title="Mission" className={styles.title} />
             <Text text="
               Saba University serves the nation and region through providing, 
               retaining, and practicing value-based knowledge, 
               skills, research and producing strong academic cadres known for their best Islamic, 
               national, and social characters.
-              " 
+              "
               className={styles.text}
             />
           </div>
-        </div>
-        <div className={styles.photoFrame}>
+          <div className={styles.achive}>
+            <Title 
+                title="Aim"
+                className={[styles.chTitle, styles.title].join(" ")}
+                />
+            <div className={styles.ach}>
+              <div className={[styles.item].join(" ")}>
+                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
+                <span className={styles.itemText}>Saba University will remain committed to ensuring quality</span>
+              </div>
+              <div className={[styles.item].join(" ")}>
+                <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
+                <span className={styles.itemText}>Saba University will remain committed to ensuring quality</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -48,4 +61,4 @@ const VissionMission = (props) =>
 
 
 
-export default VissionMission;
+export default R_VissionMission;

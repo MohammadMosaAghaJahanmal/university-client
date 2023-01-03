@@ -60,7 +60,7 @@ const Navbar = (props) =>
       mainLink: undefined, 
       links: [
         {name: language.capacity_building, link: "/research/capacity_building"},
-        {name: language.r_vission_mission, link: "/research/r_vission_mission"},
+        {name: language.r_vission_mission, link: "/research/vission_mission"},
         {name: language.manual_policies, link: "/research/manual_policies"},
         {name: language.saba_magazine, link: "/research/saba_magazine"},
         {name: language.research_publications, link: "/research/research_publications"}
