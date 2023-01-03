@@ -22,6 +22,7 @@ const OnlineAdmission = lazy(() => import('../OnlineAdmission'));
 const JobOpportunity = lazy(() => import('../JobOpportunity'));
 const R_VissionMission = lazy(() => import('../R_VissionMission'));
 const CapacityBuilding = lazy(() => import('../CapacityBuilding'));
+const SabaMagazine = lazy(() => import('../SabaMagazine'));
 const ManualPolicies = lazy(() => import('../ManualPolicies'));
 const Result = lazy(() => import('../Result'));
 const PageNotFound = lazy(() => import('../404'));
@@ -51,6 +52,7 @@ class Layout extends PureComponent
         {screen: '/research/capacity_building', Component: CapacityBuilding},
         {screen: '/research/vission_mission', Component: R_VissionMission},
         {screen: '/research/manual_policies', Component: ManualPolicies},
+        {screen: '/research/saba_magazine', Component: SabaMagazine},
         {screen: '/kankor/admission', Component: OnlineAdmission},
         {screen: '/kankor/result', Component: Result},
       ]

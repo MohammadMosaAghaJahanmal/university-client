@@ -8,7 +8,7 @@ function SmallHero(props) {
     let direction = (props.direction && {direction: props.direction});
     let isRTL = (props.isRTL && {transform: "rotateY(180deg)"});
 
-    const [bgPosition, setBgPosition] = useState({});
+    const [bgPosition, setBgPosition] = useState(props.bgPosition || {});
 
     const {bgAnimation} = props;
     useEffect(() => {
