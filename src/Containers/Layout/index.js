@@ -2,6 +2,7 @@ import React, { PureComponent, Suspense, lazy } from 'react';
 import {Route, Routes} from 'react-router-dom';
 import { AuthContext } from '../../authContext';
 import Loader from '../../Components/Loader';
+import CapacityBuilding from '../CapacityBuilding';
 import styles from './style.css';
 
 const Navbar = lazy(() => import('../Navbar'));
@@ -45,6 +46,7 @@ class Layout extends PureComponent
         {screen: '/about/stratigic_aim', Component: StrategicAim},
         {screen: '/about/academic_calendar', Component: AcademicCalendar},
         {screen: '/about/aggrements', Component: Aggrements},
+        {screen: '/research/capacity_building', Component: CapacityBuilding},
         {screen: '/kankor/admission', Component: OnlineAdmission},
         {screen: '/kankor/result', Component: Result},
       ]

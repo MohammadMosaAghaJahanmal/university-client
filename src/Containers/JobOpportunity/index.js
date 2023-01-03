@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import HeroImage from '../../Assets/job.jpg';
-import HeroImage2 from '../../Assets/worker.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import {useNavigate} from 'react-router-dom';
@@ -30,7 +29,7 @@ const JobOpportunity = (props) =>
           <div className={styles.cards}>
             <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("ID")}>
               <div className={styles.img}>
-                <img src={HeroImage2} alt="aggrement image" />
+                <img src={HeroImage} alt="aggrement image" />
               </div>
               <div className={styles.textContent}>
                 <Title 

@@ -16,6 +16,11 @@ let languages = new LocalizedStrings({
     academics: "Academics",
     
     research: "Research",
+      capacity_building: "Capacity Building", 
+      r_vission_mission: "Vission & Mission",
+      manual_policies: "Manual & Policies",
+      saba_magazine: "Saba Magazine",
+      research_publications: "Research Publications",
     
     students: "Students",
     
@@ -63,12 +68,11 @@ let languages = new LocalizedStrings({
 
 // Rechearch
 research: "څېړنه",
-
-//   Capacity Building: "ورکشاپونه او سمیینارونه", 
-//   Vission & Mission: "لرلید، رسالت او موخې",
-//   Manual & Policies: "پالیسیانې او طرزالعملونه",
-//   Saba Magazine: "سبا څېړنیزه مجله",
-//   Research Publications: "نشر سوې څېړنې",
+  capacity_building: "ورکشاپونه او سمیینارونه", 
+  r_vission_mission: "لرلید، رسالت او موخې",
+  manual_policies: "پالیسیانې او طرزالعملونه",
+  saba_magazine: "سبا څېړنیزه مجله",
+  research_publications: "نشر سوې څېړنې",
   
 // Students
 students: "محصلان",
