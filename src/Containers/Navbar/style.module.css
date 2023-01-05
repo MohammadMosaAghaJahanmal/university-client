@@ -378,12 +378,12 @@
 {
   background-image: linear-gradient(to top right, #045283, rgb(0, 157, 255));
 }
-.menuItem:hover span.shaper, 
+/* .menuItem:hover span.shaper, 
 .menuItem.active span.shaper,
 .menuItem:focus span.shaper
 {
   transform: rotate(90deg);
-}
+} */
 .menuItem:hover span.shaper::before, 
 .menuItem:hover span.shaper::after , 
 .menuItem.active span.shaper::before,
@@ -399,7 +399,7 @@
 .menuItem.active::before,
 .menuItem:focus:before
 {
-  clip-path: polygon(100% 0, 99% 57%, 96% 99%, 51% 100%, 17% 93%, 0 100%, 7% 50%, 0 5%, 61% 0, 84% 6%);
+  /* clip-path: polygon(100% 0, 99% 57%, 96% 99%, 51% 100%, 17% 93%, 0 100%, 7% 50%, 0 5%, 61% 0, 84% 6%); */
   border-radius: 0%;
   background-image: linear-gradient(to top right, #045283, rgb(0, 157, 255));
 }
