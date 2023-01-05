@@ -207,10 +207,10 @@ const Navbar = (props) =>
                 <span className={styles.menuText}>{menu.name}</span>
                 <span className={styles.shaper}></span>
                 <span className={styles.menuHintIcon}>
-                  <ArrowDown  size={20} color={"#25CCF7"}/>
+                  <ArrowDown  size={20} color={"#0080d6"}/>
                 </span>
                 <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
-                  <ArrowDown  size={20} color={"#25CCF7"}/>
+                  <ArrowDown  size={20} color={"#0080d6"}/>
                 </span>
                 <div className={styles.dropDown}>
                   {menu.links?.map((link, ndx )=> (

@@ -7,7 +7,7 @@ import HeroImage1 from '../../Assets/man.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const SabaMagazine = (props) =>
 {
@@ -30,6 +30,7 @@ const SabaMagazine = (props) =>
             title={language.saba_magazine}
             className={styles.mainTitle}
           />
+          <div className={styles.mainContentWrapper}>
           <div className={styles.cards}>
             <div className={[styles.card, (isRTL && styles.rtl)].join(" ")} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
               <div className={styles.img}>
@@ -164,6 +165,10 @@ const SabaMagazine = (props) =>
                   {new Date().toLocaleDateString()}
                 </p>
               </div>
+            </div>
+          </div>
+            <div className={styles.sideMenu}>
+              <NavLink  to={"/"} className={styles.link}>Home</NavLink>
             </div>
           </div>
         </div>

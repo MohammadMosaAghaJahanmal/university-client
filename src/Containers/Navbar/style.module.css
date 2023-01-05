@@ -44,9 +44,15 @@
   border-radius: 7px;
   position: relative;
   overflow: hidden;
+  color: #002060 !important;
   /* clip-path: polygon(52% 0, 81% 11%, 100% 1%, 100% 99%, 68% 86%, 41% 99%, 16% 90%, 0 100%, 0 0, 26% 9%); */
 
-  background-color: #0080d6 !important;
+  /* background-color: #0080d6 !important; */
+  /* background-color: rgba(37, 204, 247, 0.5) !important; */
+  background-color: white !important;
+  background-image: linear-gradient(to top right, #25CCF7, rgba(37, 204, 247, 0.3)) !important;
+
+
 
 }
 
@@ -179,7 +185,7 @@
 .nav
 {
   display: grid;
-  border-bottom: 18px solid #0080d6;
+  border-bottom: 18px solid #25CCF7;
   background-color: #dff9fb;
   position: -webkit-sticky;
   position: sticky;
@@ -466,8 +472,8 @@
   padding: 10px;
   text-align: center;
   text-decoration: none;
-  color: white;
-  background-color: #0080d6;
+  color: #009dff;
+  background-color: white;
   text-shadow: 1px 1px 0px transparent;
   transition: 300ms;
   font-size: 16px;
@@ -498,7 +504,7 @@
   height: 100%;
   width: 10%;
   background-color: rgba(255, 255, 255, 0.8);
-  background-image: linear-gradient(to top right, #25CCF7, rgba(37, 204, 247, 0.3));
+  background-image: linear-gradient(to top right, rgba(37, 204, 247, .5), rgba(37, 204, 247, 0.3));
   top: 0;
   transition: 500ms;
 
@@ -520,7 +526,7 @@
 }
 .dropDownLink:hover
 {
-  background-color: #009dff;
+  /* background-color: #009dff; */
 }
 
 .mobileShaperRight, .mobileShaperLeft
@@ -893,13 +899,17 @@
     display: block;
     position: relative;
     overflow: hidden;
-    background-color: #0080d6;
+    /* background-color: #0080d6; */
     /* background-image: linear-gradient(to bottom, #0080d6, rgba(37, 204, 247, 0.2) ,#0080d6); */
-    color: #dff9fb;
-    text-shadow: 0px 0px 2px #0080d6;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: linear-gradient(to top right, rgba(37, 204, 247, .7), rgba(37, 204, 247, 0.3));
+    /* color: #dff9fb; */
+    color: #0080d6;
+    /* text-shadow: 0px 0px 2px #0080d6; */
     transition: 300ms;
     font-size: 14px;
-    box-shadow: 0px 0px 2px rgba(0, 128, 214, 1);
+    font-weight: 600;
+    /* box-shadow: 0px 0px 2px rgba(0, 128, 214, 1); */
     text-decoration: none;
   }
 
@@ -1103,9 +1113,12 @@
   .mobileNestedLink
   {
     display: inline-block;
-    background-color: #009dff;
+    /* background-color: #009dff; */
+    background-color: rgba(37, 204, 247, 0.5);
     text-decoration: none;
-    color: white;
+    color: #0080d6;
+    /* border: 1px solid #0080d6; */
+    border-top-color: transparent;
     padding: 10px;
     width: 80%;
     font-size: 13px;
@@ -1143,7 +1156,8 @@
   .mobileNestedLink:hover,
   .mobileNestedLink.active
   {
-    background-color: rgb(0, 112, 182);
+    background-color: #0080d6;
+    color: white;
   }
 }
 
