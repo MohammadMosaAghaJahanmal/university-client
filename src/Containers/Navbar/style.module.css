@@ -328,6 +328,9 @@
   background-image: linear-gradient(to top right, #25CCF7, rgba(37, 204, 247, 0.3));
   color: white;
   border-radius: 5px;
+  min-width: 75px;
+  text-align: center;
+  display: inline-block;
 }
 .menuItem::before
 {
@@ -524,10 +527,10 @@
 {
   width: 100%; 
 }
-.dropDownLink:hover
+/* .dropDownLink:hover
 {
-  /* background-color: #009dff; */
-}
+  background-color: #009dff;
+} */
 
 .mobileShaperRight, .mobileShaperLeft
 {

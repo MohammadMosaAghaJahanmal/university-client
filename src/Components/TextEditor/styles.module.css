@@ -1,0 +1,29 @@
+
+
+
+.input
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+
+}
+.wrapperClass {
+  padding: 1rem;
+  border: 1px solid #dff9fb;
+}
+.editorClass {
+  background-color: #dff9fb;
+  padding: 1rem;
+  border: 1px solid #dff9fb;
+  color: #006fb9;
+}
+.toolbarClass {
+  border: 1px solid #dff9fb;
+}

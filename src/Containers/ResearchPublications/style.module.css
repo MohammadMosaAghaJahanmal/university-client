@@ -26,7 +26,6 @@
 .contentWrapper
 {
   width: 100%;
-  max-width: 1280px;
   display: grid;
   margin: 30px auto;
   padding: 14px;
@@ -117,9 +116,26 @@
   row-gap: 10px;
 }
 
-
-
+.wrapper
+{
+  display: grid;
+  grid-template-columns: auto 220px;
+  column-gap: 30px;
+  align-items: start;
+}
+@media all and (max-width: 1024px) {
+  .cards
+  {
+    grid-template-columns: repeat(2, auto);
+  }
+}
 @media all and (max-width: 992px) {
+
+  .wrapper
+  {
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+  }
   .img
   {
     height: 150px;
@@ -139,9 +155,11 @@
   }
 }
 @media all and (max-width: 768px) {
-  .cards
+  .wrapper
   {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: auto;
+    column-gap: 10px;
+    row-gap: 20px;
   }
   .img
   {

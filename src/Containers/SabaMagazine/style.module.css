@@ -26,7 +26,6 @@
 .contentWrapper
 {
   width: 100%;
-  max-width: 1280px;
   display: grid;
   margin: 30px auto;
   padding: 14px;
@@ -67,7 +66,7 @@
   display: inline-block;
   width: 60px;
   height: 60px;
-  background-color: #3e4958;
+  background-color: #facc07;
   position: absolute;
   right: -30px;
   bottom: -30px;
@@ -122,26 +121,24 @@
   display: grid;
   grid-template-columns: auto 220px;
   column-gap: 30px;
+  align-items: start;
 }
-
-.sideMenu
+.titleName
 {
-  display: grid;
-  text-align: center;
-  border: 1px solid #0080d6;
-  align-content: start;
-  padding: 3px;
+  font-weight: 100 !important;
 }
-.link
-{
-  background-color: #0080d6;
-  display: inline-block;
-  padding: 10px;
-  text-decoration: none;
-  color: #dff9fb;
+@media all and (max-width: 1024px) {
+  .cards
+  {
+    grid-template-columns: repeat(2, auto);
+  }
 }
-
 @media all and (max-width: 992px) {
+  .mainContentWrapper
+  {
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+  }
   .img
   {
     height: 150px;
@@ -161,10 +158,12 @@
   }
 }
 @media all and (max-width: 768px) {
-  .cards
+  .mainContentWrapper
   {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: auto;
+    row-gap: 30px;
   }
+
   .img
   {
     height: 170px;

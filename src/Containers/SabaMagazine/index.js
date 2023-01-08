@@ -8,6 +8,7 @@ import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
 import { NavLink, useNavigate } from "react-router-dom";
+import SideBar from "../../Components/SidaBar";
 
 const SabaMagazine = (props) =>
 {
@@ -18,7 +19,7 @@ const SabaMagazine = (props) =>
 
   const clickHandler = (id) =>
   {
-    navigate(`/posts/news/${id}`);
+    navigate(`/research/post/saba_magazine/${id}`);
   }
 
   return (
@@ -38,9 +39,17 @@ const SabaMagazine = (props) =>
               </div>
               <div className={styles.textContent}>
                 <Title 
-                  title={"Khalid Ahmad"}
-                  className={styles.title}
-                />
+                    className={styles.title}
+                  >
+                  <span className={styles.key}>Author: </span>
+                  <span className={styles.titleName}>Ahmadullah</span>
+                </Title>
+                <Title 
+                    className={styles.title}
+                  >
+                  <span className={styles.key}>Page: </span>
+                  <span className={styles.titleName}>#100</span>
+                </Title>
                 <Text 
                   className={styles.text}
                 >
@@ -57,9 +66,17 @@ const SabaMagazine = (props) =>
               </div>
               <div className={styles.textContent}>
                 <Title 
-                  title={"Khalid Ahmad"}
-                  className={styles.title}
-                />
+                    className={styles.title}
+                  >
+                  <span className={styles.key}>Author: </span>
+                  <span className={styles.titleName}>Khalid Ahmad</span>
+                </Title>
+                <Title 
+                    className={styles.title}
+                  >
+                  <span className={styles.key}>Page: </span>
+                  <span className={styles.titleName}>#100</span>
+                </Title>
                 <Text 
                   className={styles.text}
                 >
@@ -76,48 +93,17 @@ const SabaMagazine = (props) =>
               </div>
               <div className={styles.textContent}>
                 <Title 
-                  title={"Khalid Ahmad"}
                   className={styles.title}
-                />
-                <Text 
-                  className={styles.text}
                 >
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                </Text>
-                <p>
-                  {new Date().toLocaleDateString()}
-                </p>
-              </div>
-            </div>
-            <div className={[styles.card, (isRTL && styles.rtl)].join(" ")} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
-              <div className={styles.img}>
-                <img src={HeroImage1} alt="aggrement image" />
-              </div>
-              <div className={styles.textContent}>
+                  <span className={styles.key}>Author: </span>
+                  <span className={styles.titleName}>Ahmadullah</span>
+                </Title>
                 <Title 
-                  title={"Khalid Ahmad"}
-                  className={styles.title}
-                />
-                <Text 
-                  className={styles.text}
-                >
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                </Text>
-                <p>
-                  {new Date().toLocaleDateString()}
-                </p>
-              </div>
-            </div>
-            <div className={[styles.card, (isRTL && styles.rtl)].join(" ")} data-aos="fade-right" data-aos-delay={600} onClick={()=>clickHandler("id")}>
-              <div className={styles.img}>
-                <img src={HeroImage1} alt="aggrement image" />
-              </div>
-              <div className={styles.textContent}>
-                <Title 
-                  title={"Khalid Ahmad"}
-                  className={styles.title}
-                />
+                    className={styles.title}
+                  >
+                  <span className={styles.key}>Page: </span>
+                  <span className={styles.titleName}>#100</span>
+                </Title>
                 <Text 
                   className={styles.text}
                 >
@@ -128,48 +114,17 @@ const SabaMagazine = (props) =>
                 </p>
               </div>
             </div>
-            <div className={[styles.card, (isRTL && styles.rtl)].join(" ")} data-aos="fade-right" data-aos-delay={900} onClick={()=>clickHandler("id")}>
-              <div className={styles.img}>
-                <img src={HeroImage1} alt="aggrement image" />
-              </div>
-              <div className={styles.textContent}>
-                <Title 
-                  title={"Khalid Ahmad"}
-                  className={styles.title}
-                />
-                <Text 
-                  className={styles.text}
-                >
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                </Text>
-                <p>
-                  {new Date().toLocaleDateString()}
-                </p>
-              </div>
-            </div>
-            <div className={[styles.card, (isRTL && styles.rtl)].join(" ")} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler("id")}>
-              <div className={styles.img}>
-                <img src={HeroImage1} alt="aggrement image" />
-              </div>
-              <div className={styles.textContent}>
-                <Title 
-                  title={"Khalid Ahmad"}
-                  className={styles.title}
-                />
-                <Text 
-                  className={styles.text}
-                >
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                </Text>
-                <p>
-                  {new Date().toLocaleDateString()}
-                </p>
-              </div>
-            </div>
+
           </div>
-            <div className={styles.sideMenu}>
-              <NavLink  to={"/"} className={styles.link}>Home</NavLink>
-            </div>
+            <SideBar 
+              links={[
+                {name: language.capacity_building, link: "/research/capacity_building"},
+                {name: language.r_vission_mission, link: "/research/vission_mission"},
+                {name: language.manual_policies, link: "/research/manual_policies"},
+                {name: language.saba_magazine, link: "/research/saba_magazine"},
+                {name: language.research_publications, link: "/research/research_publications"}
+              ]}
+            />
           </div>
         </div>
       </div>
