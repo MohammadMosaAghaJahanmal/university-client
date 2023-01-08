@@ -22,10 +22,9 @@ class TextEditor extends Component {
     this.setState({
       editorState,
     });
+    
 		if(this.props.onConvertToHTML)
-		{
 			this.props.onConvertToHTML(convertToHTML(editorState.getCurrentContent()));
-		}
   };
 
  

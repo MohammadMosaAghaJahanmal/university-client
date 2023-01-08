@@ -20,7 +20,7 @@ const ResearchPublications = (props) =>
 
   const clickHandler = (id) =>
   {
-    navigate(`/posts/news/${id}`);
+    navigate(`/research/post/research_publications/${id}`);
   }
 
   return (
@@ -180,9 +180,6 @@ const ResearchPublications = (props) =>
               />
           </div>
         </div>
-        <TextEditor
-          onConvertToHTML={(html) => console.log(html)}
-        />
       </div>
     </div>
   )

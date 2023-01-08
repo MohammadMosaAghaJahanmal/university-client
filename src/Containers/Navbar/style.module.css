@@ -356,7 +356,6 @@
   position: absolute;
   width:  37px;
   height: 37px;
-  /* background-color: rgba(3, 67, 110, 0.5); */
   background-color: white;
   background-image: linear-gradient(to top right, #25CCF7, rgba(37, 204, 247, 0.3));
   border-radius: 50%;
@@ -364,8 +363,6 @@
   right: 0;
   transition: 300ms;
   clip-path: polygon(52% 0, 81% 11%, 100% 1%, 100% 99%, 68% 86%, 41% 99%, 16% 90%, 0 100%, 0 0, 26% 9%);
-  
-
 }
 
 .menuItem span.shaper::after
