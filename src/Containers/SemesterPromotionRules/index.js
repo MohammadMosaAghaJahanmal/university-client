@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/polic.jpg';
+import HeroImage from '../../Assets/promotion.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
@@ -9,14 +9,14 @@ import Text from "../../Components/Text";
 import {FaPiedPiperHat as CheckBox} from 'react-icons/fa';
 import SideBar from "../../Components/SidaBar";
 
-const MigrationPolicy = (props) =>
+const SemesterPromotionRules = (props) =>
 {
 
   const isRTL = (language.getLanguage() === 'ps');
 
   return (
     <div className={styles.mpa}>
-      <SmallHero title={language.migration_policy} image={HeroImage}  style={{color: "#0080d6"}}/>
+      <SmallHero title={language.semester_promotion_rules} image={HeroImage} bgAnimation={false} isRTL={isRTL}/>
       <div className={[styles.mpw, "w-controller"].join(" ")}>
         <div className={styles.wrapper}>
           <div className={styles.contentWrapper}>
@@ -104,4 +104,4 @@ const MigrationPolicy = (props) =>
 
 
 
-export default MigrationPolicy;
+export default SemesterPromotionRules;
