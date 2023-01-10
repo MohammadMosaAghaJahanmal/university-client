@@ -70,7 +70,15 @@ const Navbar = (props) =>
     {
       name: language.students, 
       mainLink: undefined, 
-      links: [{name: "Some Text", link: "/a12"}, {name: "Some Two", link: "/a23"}, {name: "Some Text", link: "/a13"}, {name: "Some Text", link: "/a14"}],
+      links: [
+        {name: language.student_portal, link: "/students/student_portal"}, 
+        {name: language.eligibility_criteria, link: "/students/eligibility_criteria"}, 
+        {name: language.scholarships_financing, link: "/students/scholarships_financing"}, 
+        {name: language.migration_policy, link: "/students/migration_policy"}, 
+        {name: language.semester_promotion_rules, link: "/students/semester_promotion_rules"}, 
+        {name: language.students_verification, link: "/students/students_verification"}, 
+        {name: language.penalties, link: "/students/penalties"}, 
+      ],
       nested: false
     },
     {

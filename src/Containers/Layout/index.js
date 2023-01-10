@@ -27,6 +27,9 @@ const SabaMagazine = lazy(() => import('../SabaMagazine'));
 const ResearchPublications = lazy(() => import('../ResearchPublications'));
 const ResearchPost = lazy(() => import('../ResearchPost'));
 const ManualPolicies = lazy(() => import('../ManualPolicies'));
+const EligibilityCriteria = lazy(() => import('../EligibilityCriteria'));
+const MigrationPolicy = lazy(() => import('../MigrationPolicy'));
+const ScholarshipsFinancing = lazy(() => import('../ScholarshipsFinancing'));
 const Result = lazy(() => import('../Result'));
 const PageNotFound = lazy(() => import('../404'));
 
@@ -59,6 +62,9 @@ class Layout extends PureComponent
         {screen: '/research/saba_magazine', Component: SabaMagazine},
         {screen: '/research/research_publications', Component: ResearchPublications},
         {screen: '/research/post/:type/:id', Component: ResearchPost},
+        {screen: '/students/eligibility_criteria', Component: EligibilityCriteria},
+        {screen: '/students/migration_policy', Component: MigrationPolicy},
+        {screen: '/students/scholarships_financing', Component: ScholarshipsFinancing},
         {screen: '/kankor/admission', Component: OnlineAdmission},
         {screen: '/kankor/result', Component: Result},
       ]

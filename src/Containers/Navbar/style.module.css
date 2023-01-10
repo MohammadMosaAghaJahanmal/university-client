@@ -448,13 +448,13 @@
 
 .menuHintIcon
 {
-  bottom: -7px;
+  bottom: -1px;
   transform: rotate(45deg);
   opacity: 0.5;
 }
 .menuHintIcon2
 {
-  bottom: -9px;
+  bottom: -2px;
   opacity: 0;
   animation-name: fade-down;
   animation-duration: 3000ms;
@@ -473,7 +473,7 @@
   width: 0;
   display: grid;
   z-index: 10;
-  top: 77px;
+  top: 70px;
   right: 0;
   row-gap: 1px;
   border-radius: 5px;
@@ -615,9 +615,9 @@
   }
   .menuItem
   {
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 1px;
-    text-shadow: 1px 1px 0 rgb(37, 36, 36);
+    /* text-shadow: 1px 1px 0 rgb(37, 36, 36); */
     padding: 20px 0;
   }
   /* 

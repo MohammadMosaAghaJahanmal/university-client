@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/workshop.jpg';
+import HeroImage from '../../Assets/capacity.jpg';
 import HeroImage2 from '../../Assets/agg2.jpg';
 import HeroImage1 from '../../Assets/man.jpg';
 import language from '../../localization';

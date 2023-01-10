@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import {NavLink} from 'react-router-dom';
-import { Colors } from '../../Constants';
+import languages from '../../localization';
 
 
 function SideBar(props) {
@@ -14,7 +14,7 @@ function SideBar(props) {
 
     links.unshift(        
     <NavLink  to={"/"} className={styles.link} key={`university${props.links?.length}`}>
-        <span>Home</span>
+        <span>{languages.home}</span>
     </NavLink>
 )
 
