@@ -6,6 +6,7 @@ import styles from './style.css';
 
 const Navbar = lazy(() => import('../Navbar'));
 const Footer = lazy(() => import('../Footer'));
+const EconomicalAdvisory = lazy(() => import('../EconomicalAdvisory'));
 const Home = lazy(() => import('../Home'));
 const Post = lazy(() => import('../Post'));
 const Contact = lazy(() => import('../Contact'));
@@ -44,6 +45,7 @@ class Layout extends PureComponent
         {screen: '/library', Component: Library},
         {screen: '/news', Component: News},
         {screen: '/job_opportunity', Component: JobOpportunity},
+        {screen: '/economical_advisory', Component: EconomicalAdvisory},
         {screen: '/about/vission_mission', Component: VissionMission},
         {screen: '/about/chancellor_message', Component: ChancellorMessage},
         {screen: '/about/history_and_achievements', Component: HistoryAchievements},

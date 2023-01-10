@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/magazine.jpg';
+import HeroImage from '../../Assets/research.jpg';
 import HeroImage2 from '../../Assets/agg2.jpg';
 import HeroImage1 from '../../Assets/man.jpg';
 import language from '../../localization';
@@ -25,7 +25,7 @@ const ResearchPublications = (props) =>
 
   return (
     <div className={styles.news}>
-      <SmallHero title={language.research_publications} image={HeroImage} bgPosition={{backgroundPosition: "top"}} bgAnimation={true}/>
+      <SmallHero title={language.research_publications} image={HeroImage} style={{color: "#0080d6", textShadow: "0 0 2px #0080d6"}} bgPosition={{backgroundPosition: "center"}} bgAnimation={false}/>
       <div className={[styles.nw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
           <Title 
