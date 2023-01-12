@@ -31,6 +31,7 @@ const EligibilityCriteria = lazy(() => import('../EligibilityCriteria'));
 const MigrationPolicy = lazy(() => import('../MigrationPolicy'));
 const ScholarshipsFinancing = lazy(() => import('../ScholarshipsFinancing'));
 const SemesterPromotionRules = lazy(() => import('../SemesterPromotionRules'));
+const StudentsVerification = lazy(() => import('../StudentsVerification'));
 const Penalties = lazy(() => import('../Penalties'));
 const Result = lazy(() => import('../Result'));
 const PageNotFound = lazy(() => import('../404'));
@@ -69,6 +70,7 @@ class Layout extends PureComponent
         {screen: '/students/scholarships_financing', Component: ScholarshipsFinancing},
         {screen: '/students/semester_promotion_rules', Component: SemesterPromotionRules},
         {screen: '/students/penalties', Component: Penalties},
+        {screen: '/students/students_verification', Component: StudentsVerification},
         {screen: '/kankor/admission', Component: OnlineAdmission},
         {screen: '/kankor/result', Component: Result},
       ]
