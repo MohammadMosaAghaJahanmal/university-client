@@ -5,8 +5,6 @@ import HeroImage from '../../Assets/promotion.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
-// import {IoGitCommitOutline as CheckBox} from 'react-icons/io5';
-import {FaPiedPiperHat as CheckBox} from 'react-icons/fa';
 import SideBar from "../../Components/SidaBar";
 
 const SemesterPromotionRules = (props) =>
@@ -15,77 +13,24 @@ const SemesterPromotionRules = (props) =>
   const isRTL = (language.getLanguage() === 'ps');
 
   return (
-    <div className={styles.mpa}>
-      <SmallHero title={language.semester_promotion_rules} image={HeroImage} bgAnimation={false} isRTL={isRTL}/>
-      <div className={[styles.mpw, "w-controller"].join(" ")}>
-        <div className={styles.wrapper}>
-          <div className={styles.contentWrapper}>
-            <div className={styles.mp}>
+    <div className={styles.container}>
+      <SmallHero title={language.semester_promotion_rules} image={HeroImage} style={{color: "#0080d6", textShadow: "0 0 2px white"}}  bgAnimation={true}/>
+      <div className={[styles.haw, "w-controller"].join(" ")}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.wrapper}>
+            <div className={styles.achive}>
               <Title 
-                  title="Policy One"
-                  className={[styles.chTitle, styles.title].join(" ")}
+                  title="TITLE FROM BACKEND"
+                  className={[styles.chTitle].join(" ")}
                   />
-              <div className={styles.ach}>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
+              <Text className={styles.text}>
+                <div className={styles.textData}>
+                  <p>Saba University was established in 2011 to provide quality higher education that Respond to the needs of society and the labor market. Since then, we have produced More than 3200 graduates collectively from journalism, civil engineering, economics, Sharia, law, and political sciences.</p>
+                  <p>Saba University was established in 2011 to provide quality higher education that Respond to the needs of society and the labor market. Since then, we have produced More than 3200 graduates collectively from journalism, civil engineering, economics, Sharia, law, and political sciences.</p>
                 </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
-              </div>
+              </Text>
             </div>
-            <div className={styles.mp}>
-              <Title 
-                  title="Policy Two"
-                  className={[styles.chTitle, styles.title].join(" ")}
-                  />
-              <div className={styles.ach}>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <SideBar
+            <SideBar
               links={[
                 {name: language.student_portal, link: "/students/student_portal"}, 
                 {name: language.eligibility_criteria, link: "/students/eligibility_criteria"}, 
@@ -95,7 +40,8 @@ const SemesterPromotionRules = (props) =>
                 {name: language.students_verification, link: "/students/students_verification"}, 
                 {name: language.penalties, link: "/students/penalties"}, 
               ]}
-            />
+              />
+          </div>
         </div>
       </div>
     </div>

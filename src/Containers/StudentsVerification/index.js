@@ -2,12 +2,10 @@ import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import HeroImage from '../../Assets/admission.jpg';
-import Input from '../../Components/Input';
-import Button from "../../Components/Button";
-import { FaFacebookF, FaMapMarkedAlt, FaYoutube } from "react-icons/fa";
 import languages from "../../localization";
 import MaterialInput from "../../Components/MaterialInput";
-import logo from '../../Assets/logo.png'
+import SideBar from "../../Components/SidaBar";
+
 
 const StudentsVerification = (props) =>
 {
@@ -21,37 +19,52 @@ const StudentsVerification = (props) =>
 
   return (
     <div className={styles.oa}>
-      <SmallHero title={languages.result} image={HeroImage} isRTL={isRTL} style={{backgroundPosition: "bottom"}}/>
+      <SmallHero title={languages.students_verification} image={HeroImage} isRTL={isRTL} style={{backgroundPosition: "bottom"}}/>
       <div className={[styles.oaWrapper, "w-controller"].join(" ")}>
         <div className={styles.oaFormWrapper}>
           <div className={styles.formTitle} data-aos="fade-down" data-aos-delay={100}>
             Saba University Students Documents
           </div>
-          <div className={styles.oaForm}>
-            <div data-aos="fade-right" data-aos-delay={100}>
-              <MaterialInput
-                label={"Student ID *"}
-                placeholder={"ID *"}
-                id="id"
-                className={styles.input}
-                />
+          <div className={styles.wrapper}>
+            <div className={styles.formContent}>
+              <div className={styles.oaForm}>
+                <div data-aos="fade-right" data-aos-delay={100}>
+                  <MaterialInput
+                    label={"Student ID *"}
+                    placeholder={"ID *"}
+                    id="id"
+                    className={styles.input}
+                    />
+                </div>
+                <div className={styles.oaButton} data-aos="fade-up" data-aos-delay={1400}>
+                  <button>
+                    Search
+                  </button>
+                </div>
+              </div>
+              <div className={styles.documents}>
+                <div className={styles.letter}>
+                  <a href="#">DOCUMENT - Third Semester</a>
+                </div>
+                <div className={styles.letter}>
+                  <a href="#">DOCUMENT - Letter Of Appreciation</a>
+                </div>
+                <div className={styles.letter}>
+                  <a href="#">DOCUMENT - Fourth Semester</a>
+                </div>
+              </div>
             </div>
-            <div className={styles.oaButton} data-aos="fade-up" data-aos-delay={1400}>
-              <button>
-                Search
-              </button>
-            </div>
-          </div>
-          <div className={styles.documents}>
-            <div className={styles.letter}>
-              <a href="#">DOCUMENT - Third Semester</a>
-            </div>
-            <div className={styles.letter}>
-              <a href="#">DOCUMENT - Letter Of Appreciation</a>
-            </div>
-            <div className={styles.letter}>
-              <a href="#">DOCUMENT - Fourth Semester</a>
-            </div>
+            <SideBar
+              links={[
+                {name: languages.student_portal, link: "/students/student_portal"}, 
+                {name: languages.eligibility_criteria, link: "/students/eligibility_criteria"}, 
+                {name: languages.scholarships_financing, link: "/students/scholarships_financing"}, 
+                {name: languages.migration_policy, link: "/students/migration_policy"}, 
+                {name: languages.semester_promotion_rules, link: "/students/semester_promotion_rules"}, 
+                {name: languages.students_verification, link: "/students/students_verification"}, 
+                {name: languages.penalties, link: "/students/penalties"}, 
+              ]}
+            />
           </div>
         </div>
         

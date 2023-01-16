@@ -1,4 +1,4 @@
-.mpa
+.container
 {
   --TextColor: #3e4958;
   --white:#ffffff;
@@ -16,14 +16,11 @@
 
 }
 
-
-.mpw
+.haw
 {
   display: grid;
   position: relative;
   padding: 5px;
-  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-
   color: #0a446b;
   box-shadow: 0 0 2px #0080d6;
 
@@ -33,17 +30,22 @@
 {
   width: 100%;
   display: grid;
-  padding: 0 14px;
+  margin: 30px auto;
+  padding: 14px;
   /* border-radius: 5px; */
-  row-gap: 30px;
 }
 
-.title
+.chTitle
 {
   font-size: 25px;
   font-weight: bold;
-  padding: 0;
 }
+
+.text
+{
+  margin-left: 10px;
+}
+
 .textData
 {
   font-size: 18px;
@@ -54,66 +56,33 @@
 
 .br
 {
-  background-color: rgba(33, 179, 171, 1);
-  height: 1px;
-  margin: 20px auto ;
+  background-color: #0a446b;
+  height: 2px;
+  margin: 30px auto ;
   width: 100%;
   max-width: 520px;
 }
+
 .ach
 {
   display: grid;
+  row-gap: 10px;
   margin-top: 20px;
-  row-gap: 5px;
-  margin-left: 20px;
-}
-.icon
-{
-  display: inline-block;
-  position: relative;
-  font-size: 25px;
-  position: relative;
-  transform: rotateY(180deg);
-  right: -10px;
-  transition: 300ms;
-}
-.icon.rtl
-{
-  transform: rotateY(0);
-  right: 0;
-}
-.icon::before
-{
-  content: '';
-  display: inline-block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(33, 179, 171, 0.2);
-  box-shadow: -1px 1px 1px rgba(33, 179, 171, 0.7);
-  border-radius: 50%;
-  left: 35px;
-  top: -38px;
-}
-.icon.rtl::before
-{
-  left: unset;
-  right: -38px;
-  box-shadow: -1px 1px 1px rgba(33, 179, 171, 0.7) !important;
 
 }
+
 .item
 {
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
+  column-gap: 10px;
+  padding: 5px;
   border-radius: 5px;
-  overflow: hidden;
-  text-indent: 10px;
-  /* font-family: cursive; */
   box-shadow: 0 1px 3px rgba(32, 178, 170, 0.5);
-  padding: 10px;
+  overflow: hidden;
 }
+
 .wrapper
 {
   display: grid;
@@ -124,17 +93,15 @@
   padding-bottom: 80px;
 
 }
+
 @media all and (max-width: 992px){
   .wrapper
   {
     grid-template-columns: auto auto;
     column-gap: 10px;
   }
-  .ach
-  {
-    margin-left: 10px;
-  }
 }
+
 @media all and (max-width: 768px){
   .wrapper
   {
@@ -142,7 +109,7 @@
     column-gap: 10px;
     row-gap: 20px;
   }
-  .title
+  .chTitle
   {
     font-size: 18px !important;
   }
@@ -150,20 +117,18 @@
   {
     font-size: 18px !important;
   }
-  .icon
-  {
-    font-size: 25px !important;
-  }
   .item
   {
     font-size: 18px !important;
   }
 }
+
 @media all and (max-width: 425px){
   
   .contentWrapper
   {
-    padding: 0 7px;
+    margin: 20px auto;
+    padding: 7px;
   }
   .item
   {
