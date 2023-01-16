@@ -15,8 +15,8 @@ const OnlineAdmission = (props) =>
   const isRTL = (languages.getLanguage() === 'ps');
 
   let results = [
-    {id: "19290", fullName: 'Ahmadullah', fatherName: "Abdullah", province: "Kandahar", faculty: "Computer Sciences", marks: "888", pass: "true"},
-    {id: "18310", fullName: 'Mohammad Mosa', fatherName: "Mohammad Agha", province: "Kandahar", faculty: "Computer Sciences", marks: "999", pass: "false"},
+    {id: "19290", fullName: 'Ahmadullah', fatherName: "Abdullah", province: "Kandahar", faculty: "Computer Sciences", marks: "888", status: "PASS"},
+    {id: "18310", fullName: 'Mohammad Mosa', fatherName: "Mohammad Agha", province: "Kandahar", faculty: "Computer Sciences", marks: "999", status: "FAIL"},
   ];
 
   return (
@@ -60,7 +60,7 @@ const OnlineAdmission = (props) =>
                   <div className={styles.th}>Province</div>
                   <div className={styles.th}>Faculty</div>
                   <div className={styles.th}>Marks</div>
-                  <div className={styles.th}>Pass</div>
+                  <div className={styles.th}>Status</div>
                 </div>
               </div>
               <div className={styles.tbody}>
@@ -72,7 +72,7 @@ const OnlineAdmission = (props) =>
                   <div className={styles.td}>{result.province}</div>
                   <div className={styles.td}>{result.faculty}</div>
                   <div className={styles.td}>{result.marks}</div>
-                  <div className={styles.td}>{result.pass}</div>
+                  <div className={styles.td}>{result.status}</div>
                 </div>
               ))}
               </div>
@@ -105,8 +105,8 @@ const OnlineAdmission = (props) =>
                     <div className={styles.mTd}>{result.marks}</div>
                   </div>
                   <div className={styles.mTr}>
-                    <div className={styles.mTh}>Pass</div>
-                    <div className={styles.mTd}>{result.pass}</div>
+                    <div className={styles.mTh}>Status</div>
+                    <div className={styles.mTd}>{result.status}</div>
                   </div>
                 </div>
               ))}
