@@ -3,7 +3,7 @@ import styles from './style.module.css';
 const ImagesViewer = (props) =>
 {
 
-  const imagesLength = props.images?.length;
+  const imagesLength = props.images?.length > 4 ? 4 : props.images?.length;
 
   return (
       <div {...props} className={[styles.imagesWrapper, styles["i"+imagesLength], props.className].join(' ')}>

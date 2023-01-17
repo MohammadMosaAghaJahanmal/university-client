@@ -2,10 +2,16 @@ import React, { PureComponent, Suspense, lazy } from 'react';
 import {Route, Routes} from 'react-router-dom';
 import { AuthContext } from '../../authContext';
 import Loader from '../../Components/Loader';
+
+
 import styles from './style.css';
 
+// Navbar
 const Navbar = lazy(() => import('../Navbar'));
+
+// Footer
 const Footer = lazy(() => import('../Footer'));
+
 const EconomicalAdvisory = lazy(() => import('../EconomicalAdvisory'));
 const Home = lazy(() => import('../Home'));
 const Post = lazy(() => import('../Post'));
@@ -34,6 +40,17 @@ const SemesterPromotionRules = lazy(() => import('../SemesterPromotionRules'));
 const StudentsVerification = lazy(() => import('../StudentsVerification'));
 const Penalties = lazy(() => import('../Penalties'));
 const Result = lazy(() => import('../Result'));
+const Curriculum = lazy(() => import('../Curriculum'));
+
+// In Academics Menu Quality Assurance 
+const Aims = lazy(() => import('../Aims'));
+const AnnualPrograms = lazy(() => import('../AnnualPrograms'));
+const CouncilCommittees = lazy(() => import('../CouncilCommittees'));
+const SelfAssesment = lazy(() => import('../SelfAssesment'));
+const A_ManualPolicies = lazy(() => import('../A_ManualPolicies'));
+const A_BuildingCapacity = lazy(() => import('../A_BuildingCapacity'));
+const Accreditation = lazy(() => import('../Accreditation'));
+
 const PageNotFound = lazy(() => import('../404'));
 
 
@@ -73,6 +90,14 @@ class Layout extends PureComponent
         {screen: '/students/students_verification', Component: StudentsVerification},
         {screen: '/kankor/admission', Component: OnlineAdmission},
         {screen: '/kankor/result', Component: Result},
+        {screen: '/academic/c_curriculum', Component: Curriculum},
+        {screen: '/academic/a_aims', Component: Aims},
+        {screen: '/academic/a_self_assesment', Component: SelfAssesment},
+        {screen: '/academic/a_annual_program_monitoring', Component: AnnualPrograms},
+        {screen: '/academic/a_councils_committees', Component: CouncilCommittees},
+        {screen: '/academic/a_manual_policies', Component: A_ManualPolicies},
+        {screen: '/academic/a_capacity_building', Component: A_BuildingCapacity},
+        {screen: '/academic/accreditation', Component: Accreditation},
       ]
     
   const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})

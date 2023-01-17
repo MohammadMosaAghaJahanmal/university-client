@@ -26,7 +26,7 @@ let languages = new LocalizedStrings({
         accreditation: "Accreditation",
       a_bcs_computer_science: "BCS Computer Science",
       a_bba_economics: "BBA Economics",
-        a_vission_mission: "Vission, Mission And About",
+        a_vission_mission: "Vission, Mission & About",
         a_curriculum: "Curriculum",
         a_organizational_structure: "Organizational Structure",
         a_aggrements: "Aggrements",
