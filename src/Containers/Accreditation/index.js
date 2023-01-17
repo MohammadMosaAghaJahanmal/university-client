@@ -31,13 +31,13 @@ const Accreditation = (props) =>
             </div>
             <SideBar
               links={[
-                {name: language.a_aims, link: "academic/a_aims"}, 
-                {name: language.a_self_assesment, link: "academic/a_self_assesment"},
-                {name: language.a_annual_program_monitoring, link: "academic/a_annual_program_monitoring"},
-                {name: language.a_councils_committees, link: "academic/a_councils_committees"},
-                {name: language.a_manual_policies, link: "academic/a_manual_policies"},
-                {name: language.a_capacity_building, link: "academic/a_capacity_building"},
-                {name: language.accreditation, link: "academic/accreditation"},
+                {name: language.a_aims, link: "/academic/a_aims"}, 
+                {name: language.a_self_assesment, link: "/academic/a_self_assesment"},
+                {name: language.a_annual_program_monitoring, link: "/academic/a_annual_program_monitoring"},
+                {name: language.a_councils_committees, link: "/academic/a_councils_committees"},
+                {name: language.a_manual_policies, link: "/academic/a_manual_policies"},
+                {name: language.a_capacity_building, link: "/academic/a_capacity_building"},
+                {name: language.accreditation, link: "/academic/accreditation"},
               ]}
               />
           </div>

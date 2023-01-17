@@ -19,7 +19,7 @@ const Curriculum = (props) =>
           <div className={styles.wrapper}>
             <div className={styles.content}>
               <Title 
-                title={language.a_curriculum}
+                title={"No Title From The Backend Just One Image"}
               />
               <img src={HeroImage} alt="Curriculam Image"/>
             </div>
