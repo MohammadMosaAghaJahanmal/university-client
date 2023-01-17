@@ -543,6 +543,7 @@
   height: 100%;
   transform: scaleY(0);
   transition: 300ms;
+  transform-origin: top;
 }
 
 .dropDownLink
