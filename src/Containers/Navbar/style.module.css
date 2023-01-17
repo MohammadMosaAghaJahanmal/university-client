@@ -512,6 +512,7 @@
   margin: 1px 0;
   color: #009dff;
   position: relative;
+  text-align: center;
 }
 .nestedContainer input:checked + label span
 {
