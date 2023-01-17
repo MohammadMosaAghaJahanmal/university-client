@@ -244,7 +244,7 @@ const Navbar = (props) =>
                           <ArrowDown size={20} color={"rgba(0, 157, 255, 0.5)"}/>
                         </span>
                       </label>
-                      <div className={styles.mobile}>
+                      <div className={styles.nestedLinks}>
                         {link.subLinks.map((subLink, indx) => (
                           <NavLink className={({isActive}) => [styles.dropDownLink, (isActive ? styles.active : null)].join(" ")} key={(subLink.name + indx)} to={subLink.link}><span>{subLink.name}</span></NavLink>
                         ))}
