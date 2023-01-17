@@ -40,7 +40,14 @@ const SemesterPromotionRules = lazy(() => import('../SemesterPromotionRules'));
 const StudentsVerification = lazy(() => import('../StudentsVerification'));
 const Penalties = lazy(() => import('../Penalties'));
 const Result = lazy(() => import('../Result'));
-const Curriculum = lazy(() => import('../Curriculum'));
+
+// In Academics Menu ComputerScience 
+const C_Curriculum = lazy(() => import('../C_Curriculum'));
+const C_OrgStructure = lazy(() => import('../C_OrgStructure'));
+
+// In Academics Menu Economics 
+const E_Curriculum = lazy(() => import('../E_Curriculum'));
+const E_OrgStructure = lazy(() => import('../E_OrgStructure'));
 
 // In Academics Menu Quality Assurance 
 const Aims = lazy(() => import('../Aims'));
@@ -90,7 +97,6 @@ class Layout extends PureComponent
         {screen: '/students/students_verification', Component: StudentsVerification},
         {screen: '/kankor/admission', Component: OnlineAdmission},
         {screen: '/kankor/result', Component: Result},
-        {screen: '/academic/c_curriculum', Component: Curriculum},
         {screen: '/academic/a_aims', Component: Aims},
         {screen: '/academic/a_self_assesment', Component: SelfAssesment},
         {screen: '/academic/a_annual_program_monitoring', Component: AnnualPrograms},
@@ -98,6 +104,10 @@ class Layout extends PureComponent
         {screen: '/academic/a_manual_policies', Component: A_ManualPolicies},
         {screen: '/academic/a_capacity_building', Component: A_BuildingCapacity},
         {screen: '/academic/accreditation', Component: Accreditation},
+        {screen: '/academic/c_curriculum', Component: C_Curriculum},
+        {screen: '/academic/c_organizational_structure', Component: C_OrgStructure},
+        {screen: '/academic/e_curriculum', Component: E_Curriculum},
+        {screen: '/academic/e_organizational_structure', Component: E_OrgStructure},
       ]
     
   const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})

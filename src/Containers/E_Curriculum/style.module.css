@@ -1,0 +1,81 @@
+.container
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+  background-color: #dff9fb;
+  background-image: linear-gradient(to right, #ffffff, #dff9fb, #dff9fb, #ffffff);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
+}
+
+.cw
+{
+  display: grid;
+  position: relative;
+  padding: 5px;
+  color: #0a446b;
+  box-shadow: 0 0 2px #0080d6;
+
+}
+
+.contentWrapper
+{
+  width: 100%;
+  display: grid;
+  margin: 30px auto;
+  padding: 14px;
+}
+
+
+.wrapper
+{
+  display: grid;
+  grid-template-columns: auto 220px;
+  column-gap: 30px;
+  align-items: start;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+}
+.content
+{
+  width: 100%;
+}
+.content img
+{
+  width: 100%;
+  object-fit: contain;
+}
+@media all and (max-width: 992px){
+  .wrapper
+  {
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+  }
+}
+
+@media all and (max-width: 768px){
+  .wrapper
+  {
+    grid-template-columns: auto;
+    column-gap: 10px;
+    row-gap: 20px;
+  }
+}
+
+@media all and (max-width: 425px){
+  
+  .contentWrapper
+  {
+    margin: 20px auto;
+    padding: 7px;
+  }
+}
