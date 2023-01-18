@@ -50,6 +50,7 @@ const C_Aggrements = lazy(() => import('../C_Aggrements'));
 const E_Curriculum = lazy(() => import('../E_Curriculum'));
 const E_OrgStructure = lazy(() => import('../E_OrgStructure'));
 const E_Aggrements = lazy(() => import('../E_Aggrements'));
+const E_VissionMission = lazy(() => import('../E_VissionMission'));
 
 // In Academics Menu Quality Assurance 
 const Aims = lazy(() => import('../Aims'));
@@ -114,6 +115,7 @@ class Layout extends PureComponent
         {screen: '/academic/e_curriculum', Component: E_Curriculum},
         {screen: '/academic/e_organizational_structure', Component: E_OrgStructure},
         {screen: '/academic/e_aggrements', Component: E_Aggrements},
+        {screen: '/academic/e_vission_mission', Component: E_VissionMission},
       ]
     
   const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})
