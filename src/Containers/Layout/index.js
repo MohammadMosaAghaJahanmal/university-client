@@ -41,19 +41,24 @@ const StudentsVerification = lazy(() => import('../StudentsVerification'));
 const Penalties = lazy(() => import('../Penalties'));
 const Result = lazy(() => import('../Result'));
 
-// In Academics Menu ComputerScience 
+const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
+
+// PDC In Academics Menu
+const PDC = lazy(() => import('../PDC'));
+
+// ComputerScience In Academics Menu
 const C_Curriculum = lazy(() => import('../C_Curriculum'));
 const C_OrgStructure = lazy(() => import('../C_OrgStructure'));
 const C_Aggrements = lazy(() => import('../C_Aggrements'));
 const C_VissionMission = lazy(() => import('../C_VissionMission'));
 
-// In Academics Menu Economics 
+// Economics In Academics Menu 
 const E_Curriculum = lazy(() => import('../E_Curriculum'));
 const E_OrgStructure = lazy(() => import('../E_OrgStructure'));
 const E_Aggrements = lazy(() => import('../E_Aggrements'));
 const E_VissionMission = lazy(() => import('../E_VissionMission'));
 
-// In Academics Menu Quality Assurance 
+// Quality Assurance In Academics Menu  
 const Aims = lazy(() => import('../Aims'));
 const AnnualPrograms = lazy(() => import('../AnnualPrograms'));
 const CouncilCommittees = lazy(() => import('../CouncilCommittees'));
@@ -101,6 +106,10 @@ class Layout extends PureComponent
         {screen: '/students/students_verification', Component: StudentsVerification},
         {screen: '/kankor/admission', Component: OnlineAdmission},
         {screen: '/kankor/result', Component: Result},
+
+
+        {screen: '/multipleimgs/:type/:id', Component: CapacityBuildingPost},
+
         {screen: '/academic/a_aims', Component: Aims},
         {screen: '/academic/a_self_assesment', Component: SelfAssesment},
         {screen: '/academic/a_annual_program_monitoring', Component: AnnualPrograms},
@@ -108,6 +117,8 @@ class Layout extends PureComponent
         {screen: '/academic/a_manual_policies', Component: A_ManualPolicies},
         {screen: '/academic/a_capacity_building', Component: A_BuildingCapacity},
         {screen: '/academic/accreditation', Component: Accreditation},
+
+        {screen: '/academic/a_pdc', Component: PDC},
 
         {screen: '/academic/c_curriculum', Component: C_Curriculum},
         {screen: '/academic/c_organizational_structure', Component: C_OrgStructure},
