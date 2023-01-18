@@ -44,6 +44,7 @@ const Result = lazy(() => import('../Result'));
 // In Academics Menu ComputerScience 
 const C_Curriculum = lazy(() => import('../C_Curriculum'));
 const C_OrgStructure = lazy(() => import('../C_OrgStructure'));
+const C_Aggrements = lazy(() => import('../C_Aggrements'));
 
 // In Academics Menu Economics 
 const E_Curriculum = lazy(() => import('../E_Curriculum'));
@@ -105,8 +106,11 @@ class Layout extends PureComponent
         {screen: '/academic/a_manual_policies', Component: A_ManualPolicies},
         {screen: '/academic/a_capacity_building', Component: A_BuildingCapacity},
         {screen: '/academic/accreditation', Component: Accreditation},
+
         {screen: '/academic/c_curriculum', Component: C_Curriculum},
         {screen: '/academic/c_organizational_structure', Component: C_OrgStructure},
+        {screen: '/academic/c_aggrements', Component: C_Aggrements},
+
         {screen: '/academic/e_curriculum', Component: E_Curriculum},
         {screen: '/academic/e_organizational_structure', Component: E_OrgStructure},
         {screen: '/academic/e_aggrements', Component: E_Aggrements},

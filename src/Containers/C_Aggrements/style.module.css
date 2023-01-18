@@ -1,0 +1,157 @@
+.container
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+  background-color: #dff9fb;
+  background-image: linear-gradient(to right, #ffffff, #dff9fb, #dff9fb, #ffffff);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
+}
+
+.cw
+{
+  display: grid;
+  position: relative;
+  padding: 5px;
+  color: #0a446b;
+  box-shadow: 0 0 2px #0080d6;
+
+}
+
+.contentWrapper
+{
+  width: 100%;
+  display: grid;
+  margin: 30px auto;
+  padding: 14px;
+  /* border-radius: 5px; */
+}
+
+.chTitle
+{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.text
+{
+  margin-left: 10px;
+}
+
+.textData
+{
+  font-size: 18px;
+  display: grid;
+  row-gap: 15px;
+  text-emphasis: none;
+}
+
+.br
+{
+  background-color: #0a446b;
+  height: 2px;
+  margin: 30px auto ;
+  width: 100%;
+  max-width: 520px;
+}
+
+.ach
+{
+  display: grid;
+  row-gap: 10px;
+  margin-top: 20px;
+
+}
+
+.item
+{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  column-gap: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(32, 178, 170, 0.5);
+  overflow: hidden;
+}
+
+.wrapper
+{
+  display: grid;
+  grid-template-columns: auto 220px;
+  column-gap: 30px;
+  align-items: start;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+}
+
+.imgs
+{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  row-gap: 1px;
+  column-gap: 1px;
+  margin-top: 20px;
+}
+
+.imgs img
+{
+  width: 100%;
+  object-fit: contain;
+}
+
+@media all and (max-width: 992px){
+  .wrapper
+  {
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+  }
+}
+
+@media all and (max-width: 768px){
+  .wrapper
+  {
+    grid-template-columns: auto;
+    column-gap: 10px;
+    row-gap: 20px;
+  }
+  .chTitle
+  {
+    font-size: 18px !important;
+  }
+  .textData
+  {
+    font-size: 18px !important;
+  }
+  .item
+  {
+    font-size: 18px !important;
+  }
+  .imgs
+  {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media all and (max-width: 425px){
+  
+  .contentWrapper
+  {
+    margin: 20px auto;
+    padding: 7px;
+  }
+  .item
+  {
+    font-size: 16px !important;
+  }
+}
