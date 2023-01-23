@@ -16,7 +16,7 @@
 
 }
 
-.haw
+.cw
 {
   display: grid;
   position: relative;
@@ -90,6 +90,23 @@
   column-gap: 30px;
   align-items: start;
   padding-bottom: 80px;
+
+}
+
+.imgs
+{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  row-gap: 1px;
+  column-gap: 1px;
+  margin-top: 20px;
+}
+
+.imgs img
+{
+  width: 100%;
+  object-fit: contain;
 }
 
 @media all and (max-width: 992px){
@@ -118,6 +135,10 @@
   .item
   {
     font-size: 18px !important;
+  }
+  .imgs
+  {
+    grid-template-columns: 1fr;
   }
 }
 

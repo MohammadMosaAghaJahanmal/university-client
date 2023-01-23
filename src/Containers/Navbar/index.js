@@ -33,7 +33,6 @@ const Navbar = (props) =>
     {
       name: language.economical_advisory, 
       mainLink: "/economical_advisory", 
-      nested: false
     },
     {
       name: language.about, 
@@ -46,14 +45,35 @@ const Navbar = (props) =>
         {name: language.stratigic_aim, link: "about/stratigic_aim"},
         {name: language.academic_calendar, link: "about/academic_calendar"},
         {name: language.aggrements, link: "about/aggrements"},
-      ],
-      nested: false 
+      ], 
     },
     {
       name: language.academics, 
       mainLink: undefined, 
-      links: [{name: "Some Text", link: "/blah"}, {name: "Some Two", link: "/a1"}, {name: "Some Text", link: "/a2"}, {name: "Some Text", link: "/a3"}],
-      nested: false
+      links: [
+        {name: language.a_pdc, link: "academic/a_pdc"}, 
+        {name: language.a_bcs_computer_science, isTitle: true, subLinks: [
+          {name: language.a_vission_mission, link: "academic/c_vission_mission"},
+          {name: language.a_curriculum, link: "academic/c_curriculum"},
+          {name: language.a_organizational_structure, link: "academic/c_organizational_structure"},
+          {name: language.a_aggrements, link: "academic/c_aggrements"},
+        ]},
+        {name: language.a_bba_economics, isTitle: true, subLinks: [
+          {name: language.a_vission_mission, link: "academic/e_vission_mission"},
+          {name: language.a_curriculum, link: "academic/e_curriculum"},
+          {name: language.a_organizational_structure, link: "academic/e_organizational_structure"},
+          {name: language.a_aggrements, link: "academic/e_aggrements"},
+        ]},
+        {name: language.a_quality_assurance, isTitle: true, subLinks: [
+          {name: language.a_aims, link: "academic/a_aims"}, 
+          {name: language.a_self_assesment, link: "academic/a_self_assesment"},
+          {name: language.a_annual_program_monitoring, link: "academic/a_annual_program_monitoring"},
+          {name: language.a_councils_committees, link: "academic/a_councils_committees"},
+          {name: language.a_manual_policies, link: "academic/a_manual_policies"},
+          {name: language.a_capacity_building, link: "academic/a_capacity_building"},
+          {name: language.accreditation, link: "academic/accreditation"},
+        ]}, 
+      ],
     },
     {
       name: language.research, 
@@ -65,7 +85,6 @@ const Navbar = (props) =>
         {name: language.saba_magazine, link: "/research/saba_magazine"},
         {name: language.research_publications, link: "/research/research_publications"}
       ],
-      nested: false
     },
     {
       name: language.students, 
@@ -79,33 +98,27 @@ const Navbar = (props) =>
         {name: language.students_verification, link: "/students/students_verification"}, 
         {name: language.penalties, link: "/students/penalties"}, 
       ],
-      nested: false
     },
     {
       name: language.online_library, 
       mainLink: '/library', 
-      nested: false
     },
     {
       name: language.news, 
       mainLink: '/news', 
-      nested: false
     },
     {
       name: language.job_opportunity, 
       mainLink: '/job_opportunity', 
-      nested: false
     },
     {
       name: language.contact, 
       mainLink: "/contact", 
-      nested: false
     },
     {
       name: language.kankor, 
       mainLink: undefined, 
       links: [{name: language.online_admission, link: "/kankor/admission"}, {name: language.result, link: "/kankor/result"}],
-      nested: false
     },
   ]
 
@@ -222,6 +235,22 @@ const Navbar = (props) =>
                 </span>
                 <div className={styles.dropDown}>
                   {menu.links?.map((link, ndx )=> (
+                    link.isTitle ?
+                    <div key={(link.name + ndx)} className={styles.nestedContainer}>
+                      <input type={"radio"} id={"menu"+ndx} name={'nestedMenu'} style={{display: "none"}}/>
+                      <label className={styles.nestedTitle} htmlFor={"menu"+ndx}>
+                        {link.name}
+                        <span>
+                          <ArrowDown size={20} color={"rgba(0, 157, 255, 0.5)"}/>
+                        </span>
+                      </label>
+                      <div className={styles.nestedLinks}>
+                        {link.subLinks.map((subLink, indx) => (
+                          <NavLink className={({isActive}) => [styles.dropDownLink, (isActive ? styles.active : null)].join(" ")} key={(subLink.name + indx)} to={subLink.link}><span>{subLink.name}</span></NavLink>
+                        ))}
+                      </div>
+                    </div>
+                    :
                     <NavLink className={({isActive}) => [styles.dropDownLink, (isActive ? styles.active : null)].join(" ")} key={(link.name + ndx)} to={link.link}><span>{link.name}</span></NavLink>
                   ))}
                 </div>
@@ -268,6 +297,22 @@ const Navbar = (props) =>
                     </label>
                     <div className={styles.mobileNestedMenu}>
                     {menu.links?.map((link, ndx )=> (
+                        link.isTitle ?
+                        <div key={(link.name + ndx)} className={styles.mobileNestedContainer}>
+                          <input type={"radio"} id={"mobilemenu"+ndx} name={'nestedMenu'} style={{display: "none"}}/>
+                          <label className={[styles.nestedTitle, styles.mobileNestedTitle].join(" ")} htmlFor={"mobilemenu"+ndx}>
+                            {link.name}
+                            <span>
+                              <ArrowDown size={20} color={"rgba(0, 157, 255, 0.5)"}/>
+                            </span>
+                          </label>
+                          <div className={styles.mobileNestedLinks}>
+                            {link.subLinks.map((subLink, indx) => (
+                              <NavLink className={({isActive}) => [styles.mobileNestedLink, (isActive ? styles.active : null)].join(" ")} key={(subLink.name + indx)} to={subLink.link}><span>{subLink.name}</span></NavLink>
+                            ))}
+                          </div>
+                        </div>
+                        :
                         <NavLink className={({isActive}) => [styles.mobileNestedLink, (isActive ? styles.active : null)].join(" ")} key={(link.name + ndx)} to={link.link}><span>{link.name}</span></NavLink>
                       ))}
                     </div>

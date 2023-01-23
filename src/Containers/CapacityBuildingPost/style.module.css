@@ -1,0 +1,274 @@
+.post
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+  background-color: #dff9fb;
+  background-image: linear-gradient(to right, #ffffff, #dff9fb, #dff9fb, #ffffff);
+}
+.postWrapper
+{
+  display: grid;
+  padding: 10px;
+  padding-top: 20px;
+  row-gap: 10px;
+  box-shadow: 0 0 2px #0080d6;
+  color: #0a446b;
+
+}
+
+.mainPost
+{
+  display: grid;
+  row-gap: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 0;
+}
+.latestPosts
+{
+  display: grid;
+  row-gap: 20px;
+}
+.postTitle
+{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.imgs
+{
+  grid-template-columns: repeat(3, 1fr);
+}
+.imgs:hover img
+{
+  filter: blur(0);
+  scale: unset;
+}
+.imgs img:last-child
+{
+  grid-column-end: unset !important;
+  grid-column-start: unset !important;
+}
+
+.postImage
+{
+  width: 100%;
+}
+
+.postImage img
+{
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.postDesc
+{
+  font-size: 18px;
+  line-height: 22px;
+}
+/* .postDate
+{
+  margin-bottom: 20px;
+} */
+
+.latestTitle
+{
+  font-size: 30px;
+}
+
+.cards
+{
+  display: grid;
+  row-gap: 15px;
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: repeat(auto-fill, minmax(40%, auto));
+  column-gap: 15px;
+  align-content: start;
+}
+
+.card
+{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 10px;
+  justify-content: start;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 180px;
+  box-shadow: 0 0 5px rgba(0, 32, 96, 0.2);
+  
+}
+.text
+{
+  font-size: 18px !important;
+  padding: 0 !important;
+}
+.card:hover .text
+{
+  text-decoration: underline;
+}
+
+.card:hover .title
+{
+  text-decoration: underline;
+}
+
+.img
+{
+  height: 100%;
+  width: 200px !important;
+}
+
+
+.textContent
+{
+  display: grid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 5px;
+  align-content: space-between;
+  row-gap: 5px;
+}
+
+.textContent > p
+{
+  color: #007600 !important;
+}
+.line
+{
+  width: 100%;
+  height: 1px;
+  /* background-color: #0a446b; */
+  box-shadow: 0 0 1px #002060;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+
+@media all and (max-width: 1366px) {
+
+
+  .mainPost
+  {
+    row-gap: 10px;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .text
+  {
+    font-size: 16px !important;
+  }
+}
+@media all and (max-width: 992px) {
+
+  .postWrapper
+  {
+    padding: 20px;
+  }
+  .postTitle
+  {
+    font-size: 18px;
+  }
+  .mainPost
+  {
+    row-gap: 10px;
+    padding: 5px;
+  }
+  .postDesc
+  {
+    font-size: 16px;
+  }
+  .imgs
+  {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cards
+  {
+    grid-template-columns: 1fr;
+  }
+  .img
+  {
+    width: 250px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .postImage img
+  {
+    max-height: 320px;
+  }
+
+  .postWrapper
+  {
+    padding: 10px;
+  }
+  .postTitle
+  {
+    width: 85%;
+  }
+  .cards
+  {
+    display: grid;
+    row-gap: 10px;
+  }
+    
+  .img
+  {
+    width: 200px;
+  }
+  
+}
+
+@media all and (max-width: 425px) {
+  .postImage img
+  {
+    max-height: 200px;
+  }
+  .postWrapper
+  {
+    padding: 3px;
+  }
+  .postTitle
+  {
+    font-size: 20px;
+    width: 100%;
+  }
+  .card
+  {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+    box-shadow: 0 0 2px #002060;
+    row-gap: 15px;
+  }
+  .text
+  {
+    font-size: 16px !important;
+    padding: 0 !important;
+  }
+  .imgs
+  {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .img
+  {
+    width: 100% !important;
+  }
+  .textContent
+  {
+    padding: 10px 10px !important;
+    row-gap: 10px;
+  }
+}
+

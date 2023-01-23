@@ -5,6 +5,7 @@
   box-sizing: border-box;
   user-select: none;
   -webkit-user-drag: none;
+  outline: none;
 }
 body {
   margin: 0;

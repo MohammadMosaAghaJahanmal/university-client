@@ -25,7 +25,7 @@ const OnlineAdmission = (props) =>
       <div className={[styles.oaWrapper, "w-controller"].join(" ")}>
         <div className={styles.oaFormWrapper}>
           <div className={styles.formTitle} data-aos="fade-down" data-aos-delay={100}>
-            Find Your Result
+            Find Your Kankor Result
           </div>
           <div className={styles.oaForm}>
             <div data-aos="fade-right" data-aos-delay={100}>
