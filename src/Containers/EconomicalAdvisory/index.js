@@ -94,11 +94,11 @@ const EconomicalAdvisory = (props) =>
               <div className={styles.mainBoard}>
                 <div className={styles.profileCards}>
                   {boardmembers.map((member) => (
-                    <div className={styles.profileCard}>
+                    <div className={styles.profileCard} key={member._id}>
                       <div className={styles.pImg}>
                         <img 
                           src={serverPath(member.imagePath)}
-                          alt="Some Text"
+                          alt="Member Image"
                           />
                       </div>
                       <div className={styles.pName}>
@@ -124,57 +124,25 @@ const EconomicalAdvisory = (props) =>
               {
               boardposts.length > 0 ?
               <div className={styles.cards}>
-                <div className={styles.card} onClick={() => clickHandler("ID")}>
-                  <ImagesViewer 
-                    images={[HeroImage]} 
-                    className={styles.cardImg}
-                  />
-                  <div className={styles.textContent}>
-                    <Text 
-                        className={styles.cardText}
-                        >
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                    </Text>
-                    <div className={styles.line}></div>
-                    <p>
+                {boardposts.map(post => (
+                  <div className={styles.card} onClick={() => clickHandler(post._id)} key={post._id}>
+                    <ImagesViewer 
+                      images={post.images.slice(0, 4).map(image => serverPath(image.imagePath))} 
+                      className={styles.cardImg}
+                    />
+                    <div className={styles.textContent}>
+                      <Text 
+                          className={styles.cardText}
+                          >
+                            {post[isRTL ? "pTitle" : "title"]}
+                      </Text>
+                      <div className={styles.line}></div>
+                      <p>
                         {new Date().toLocaleDateString()}
                       </p>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.card} onClick={() => clickHandler("ID")}>
-                  <ImagesViewer 
-                    images={[HeroImage]} 
-                    className={styles.cardImg}
-                  />
-                  <div className={styles.textContent}>
-                    <Text 
-                        className={styles.cardText}
-                        >
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                    </Text>
-                    <div className={styles.line}></div>
-                    <p>
-                        {new Date().toLocaleDateString()}
-                      </p>
-                  </div>
-                </div>
-                <div className={styles.card} onClick={() => clickHandler("ID")}>
-                  <ImagesViewer 
-                    images={[HeroImage]} 
-                    className={styles.cardImg}
-                  />
-                  <div className={styles.textContent}>
-                    <Text 
-                        className={styles.cardText}
-                        >
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                    </Text>
-                    <div className={styles.line}></div>
-                    <p>
-                      {new Date().toLocaleDateString()}
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
               :
               <p className={"msg"}>{language.no_posts}</p>
