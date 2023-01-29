@@ -26,11 +26,12 @@ const AuthProvider = (props) =>
 
     useEffect(() =>
     {
+        console.log("RENDERING");
+
         const lang = localStorage.getItem("lang");
         if (lang) {
             setLanguage(lang);
         }
-
         (async() =>
         {
             const {data: heros} = await (await fetch(serverPath("/hero"))).json();

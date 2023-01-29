@@ -25,10 +25,9 @@ const EconomicalAdvisory = (props) =>
     navigate(`/research/post/economical_advisory/${id}`);
   }
 
-  // console.log("RENDERING")
-
+  
   useEffect(() => {
-
+    
     (async() => {
       try {
         if(boardinfos.length <= 0 || boardmembers.length <= 0 || boardposts.length <= 0)
