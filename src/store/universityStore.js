@@ -3,7 +3,7 @@ import {initState} from './store';
 const universityStore = () =>
 {
 
-  const setUsers = (users, globalState) => ({users});
+  const setData = ({type, data}, globalState) => ({[type]: data});
 
   const initialState = (payload, globalState) => ({
     aaccreditations: [],
@@ -54,7 +54,7 @@ const universityStore = () =>
   
   return initState({
     initialState, 
-    setUsers, 
+    setData, 
   })
 }
 
