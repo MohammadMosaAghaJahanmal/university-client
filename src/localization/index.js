@@ -57,6 +57,7 @@ let languages = new LocalizedStrings({
     economical_advisory: "S E A Board",
     nothing_to_show: "Nothing To Show Yet",
     no_posts: "No Posts To Show",
+    posts: "Posts"
   },
  ps:{
   home: "کور",
@@ -121,7 +122,7 @@ let languages = new LocalizedStrings({
   economical_advisory: "اقتصادی مشورتی بورډ",
   nothing_to_show: "Nothing To Show Yet",
   no_posts: "No Posts To Show",
-
+  posts: "پوسټونه"
  }
 });
 

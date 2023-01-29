@@ -84,7 +84,7 @@ const EconomicalAdvisory = (props) =>
          :
           <div className={styles.contentWrapper}>
           {
-            boardinfos[0] && boardmembers[0] ?
+            boardinfos[0] && boardmembers.length > 0 ?
           <>
             <Title 
               title={boardinfos[0][isRTL ? "pTitle" : "title"]}
@@ -93,34 +93,22 @@ const EconomicalAdvisory = (props) =>
             <div className={styles.wrapper}>
               <div className={styles.mainBoard}>
                 <div className={styles.profileCards}>
-                  <div className={styles.profileCard}>
-                    <div className={styles.pImg}>
-                      <img 
-                        src={HeroImage}
-                        alt="Some Text"
-                        />
+                  {boardmembers.map((member) => (
+                    <div className={styles.profileCard}>
+                      <div className={styles.pImg}>
+                        <img 
+                          src={serverPath(member.imagePath)}
+                          alt="Some Text"
+                          />
+                      </div>
+                      <div className={styles.pName}>
+                        {member[isRTL ? "pName" : "name"]}
+                      </div>
+                      <div className={styles.pJob}>
+                        {member[isRTL ? "pJob" : "job"]}
+                      </div>
                     </div>
-                    <div className={styles.pName}>
-                      M.Mosa Agha Jahanmal
-                    </div>
-                    <div className={styles.pJob}>
-                      Teacher
-                    </div>
-                  </div>
-                  <div className={styles.profileCard}>
-                    <div className={styles.pImg}>
-                      <img 
-                        src={HeroImage}
-                        alt="Some Text"
-                        />
-                    </div>
-                    <div className={styles.pName}>
-                      Ahmadullah Khan
-                    </div>
-                    <div className={styles.pJob}>
-                      Teacher
-                    </div>
-                  </div>
+                  ))}
                 </div>
                 <Text className={styles.text}>
                   <div className={styles.textData}>
@@ -130,7 +118,8 @@ const EconomicalAdvisory = (props) =>
               </div>
               <div className={styles.br}></div>
               <Title 
-                title={"Posts"}
+                title={language.posts}
+                className={styles.mainTitle}
               />
               {
               boardposts.length > 0 ?
