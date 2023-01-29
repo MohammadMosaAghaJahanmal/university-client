@@ -55,7 +55,8 @@ let languages = new LocalizedStrings({
       online_admission: "Online Admission",
       result: "Result",
     economical_advisory: "S E A Board",
-
+    nothing_to_show: "Nothing To Show Yet",
+    no_posts: "No Posts To Show",
   },
  ps:{
   home: "کور",
@@ -117,7 +118,10 @@ let languages = new LocalizedStrings({
     online_admission: "آنلاین نوملیکنه",
     result: "نتیجه",
 
-  economical_advisory: "اقتصادی مشورتی بورډ"
+  economical_advisory: "اقتصادی مشورتی بورډ",
+  nothing_to_show: "Nothing To Show Yet",
+  no_posts: "No Posts To Show",
+
  }
 });
 
