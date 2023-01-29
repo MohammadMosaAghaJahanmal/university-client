@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {memo, useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import language from '../../localization';
@@ -162,4 +162,4 @@ const EconomicalAdvisory = (props) =>
 
 
 
-export default EconomicalAdvisory;
+export default memo(EconomicalAdvisory);
