@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/advisory.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
@@ -17,14 +16,14 @@ const EconomicalAdvisory = (props) =>
   const isRTL = (language.getLanguage() === 'ps');
   const [isLoading, setIsLoading] = useState(false);
 
-  const {boardinfos, boardmembers, boardposts} = globaState;
-
+  const {boardinfos, boardmembers, boardposts, heros} = globaState;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "economical_advisory")?.imagePath)).href;
   const navigate = useNavigate();
-
   const clickHandler = (id) =>
   {
     navigate(`/research/post/economical_advisory/${id}`);
   }
+
 
   useEffect(() => {
 
@@ -76,7 +75,7 @@ const EconomicalAdvisory = (props) =>
 
   return (
     <div className={styles.container}>
-      <SmallHero title={isRTL ? language.economical_advisory : "Saba Economical Advisory Board"} image={HeroImage} style={{color: "white", textShadow: "0 0 5px black"}} bgPosition={{backgroundPosition: "bottom"}} bgAnimation={false}/>
+      <SmallHero title={isRTL ? language.economical_advisory : "Saba Economical Advisory Board"} image={myHero} style={{color: "white", textShadow: "0 0 5px black"}} bgPosition={{backgroundPosition: "bottom"}} bgAnimation={false}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
         {
          isLoading ? 
