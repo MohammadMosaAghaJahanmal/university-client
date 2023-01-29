@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import languages from '../localization';
+import useStore from '../store/store';
 const initialState = {
     loading: true,
 };
@@ -32,6 +33,7 @@ const AuthProvider = (props) =>
 
         (async() =>
         {
+
             setAuth((prev) => ({...prev, loading: false}));
         })()
 
