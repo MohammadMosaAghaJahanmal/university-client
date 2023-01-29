@@ -6,7 +6,6 @@ function SmallHero(props) {
     let image = (props.image && {backgroundImage: `url(${props.image})`});
     let direction = (props.direction && {direction: props.direction});
     let isRTL = (props.isRTL && {transform: "rotateY(180deg)"});
-  console.log("RENDERING IMAG")
     const [bgPosition, setBgPosition] = useState(props.bgPosition || {});
 
     const {bgAnimation} = props;
