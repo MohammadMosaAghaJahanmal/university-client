@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import styles from './style.module.css';
 
 const Text = (props) =>
@@ -19,4 +19,4 @@ const Text = (props) =>
 
 
 
-export default Text
+export default memo(Text)

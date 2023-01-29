@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {memo} from "react";
 import styles from './style.module.css';
 
 const Title = (props) =>
 {
-
   return (
       <div {...props} className={[styles.title, props.className].join(' ')}>
         {
@@ -18,4 +17,4 @@ const Title = (props) =>
 
 
 
-export default Title
+export default memo(Title)

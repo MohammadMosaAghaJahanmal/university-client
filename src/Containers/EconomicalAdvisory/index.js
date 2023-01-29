@@ -10,6 +10,7 @@ import Loader from '../../Components/Loader';
 import useStore from '../../store/store';
 import serverPath from '../../utils/serverPath';
 import SweetAlert from '../../Components/SweetAlert';
+
 const EconomicalAdvisory = (props) =>
 {
   const [globaState, dispatch] = useStore();
@@ -24,6 +25,7 @@ const EconomicalAdvisory = (props) =>
     navigate(`/research/post/economical_advisory/${id}`);
   }
 
+  // console.log("RENDERING")
 
   useEffect(() => {
 

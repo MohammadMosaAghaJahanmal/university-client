@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import styles from './styles.module.css';
 
 
 function SmallHero(props) {
-
     let image = (props.image && {backgroundImage: `url(${props.image})`});
     let direction = (props.direction && {direction: props.direction});
     let isRTL = (props.isRTL && {transform: "rotateY(180deg)"});
-
+  console.log("RENDERING IMAG")
     const [bgPosition, setBgPosition] = useState(props.bgPosition || {});
 
     const {bgAnimation} = props;
@@ -43,4 +42,4 @@ function SmallHero(props) {
 } 
 
 
-export default SmallHero;
+export default memo(SmallHero, (prev, next) => prev.title === next.title);
