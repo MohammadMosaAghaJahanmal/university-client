@@ -61,6 +61,9 @@ const AuthProvider = (props) =>
             const {data: achievements} = await (await fetch(serverPath("/achieve"))).json();
             dispatch("setData", {type: "achievements", data: achievements});
 
+            const {data: orgstructures} = await (await fetch(serverPath("/org_structure"))).json();
+            dispatch("setData", {type: "orgstructures", data: orgstructures});
+
             setAuth((prev) => ({...prev, loading: false}));
         })()
 

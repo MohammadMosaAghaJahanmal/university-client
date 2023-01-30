@@ -16,7 +16,7 @@ const ChancellorMessage = (props) =>
   const chanMsg = chancellormessages[0];
 
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "chancellor_message")?.imagePath)).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "chancellor_message")?.imagePath || "")).href;
   return (
     <div className={styles.chancellorMessage}>
       <SmallHero title={language.chancellor_message} image={myHero} isRTL={isRTL} bgAnimation={true}/>

@@ -6,38 +6,47 @@ import Structure from '../../Assets/lib1.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
-import {IoCheckmarkCircleOutline as CheckBox} from 'react-icons/io5'
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
 const OrgStructure = (props) =>
 {
 
-  const isRTL = (language.getLanguage() === 'ps');
+  const [globalState] = useStore();
 
+  const {heros, orgstructures} = globalState;
+
+  const orgStructure = orgstructures[0];
+
+  const isRTL = (language.getLanguage() === 'ps');
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "organizational_structure")?.imagePath || "")).href;
   return (
     <div className={styles.orgStructure}>
-      <SmallHero title={language.organizational_structure} image={HeroImage} isRTL={isRTL}/>
+      <SmallHero title={language.organizational_structure} image={myHero} isRTL={isRTL}/>
       <div className={[styles.osw, "w-controller"].join(" ")}>
-        <div className={styles.contentWrapper}>
-          <div className={styles.history}>
-            <Title 
-              title={language.organizational_structure}
-              className={[styles.chTitle, styles.title].join(" ")}
-              />
-            <Text className={styles.text}>
-              <div className={styles.textData}>
-                <p>
-                  Kardan University’s academic structure is headed by the Academic Council chaired by the Chancellor or Vice Chancellor for Academic Affairs in his absence. The Academic Council has the ultimate authority for overseeing the academic priorities in teaching, research, and learning.
-                </p>
-                <p>
-                  The Academic Council oversees the University’s curriculum, quality assurance, program design and management, national and international accreditation standards, and development of academic strategy, policy, and performance. The Academic Council draws membership from the University’s leadership, Faculty Deans, Coordinators, Faculty Representatives, and Academic Administrators.
-                </p>
-              </div>
-            </Text>
-          <div className={styles.br}></div>
+        {
+          orgStructure?.title ?
+        <>
+          <div className={styles.contentWrapper}>
+            <div className={styles.history}>
+              <Title 
+                title={orgStructure[isRTL ? "pTitle": "title"]}
+                className={[styles.chTitle, styles.title].join(" ")}
+                />
+              <Text className={styles.text}>
+                <div className={styles.textData}>
+                  {orgStructure[isRTL ? "pDescription": "description"]}
+                </div>
+              </Text>
+              <div className={styles.br}></div>
+            </div>
           </div>
-        </div>
-        <div className={styles.orgImage}>
-          <img src={Structure} alt={"Image"}/>
-        </div>
+          <div className={styles.orgImage}>
+            <img src={serverPath(orgStructure?.imagePath)} alt={"Structure Image"}/>
+          </div>
+        </>
+        :
+        <p className="msg" style={{padding: "50px 0"}}>{language.nothing_to_show}</p>
+        }
       </div>
     </div>
   )

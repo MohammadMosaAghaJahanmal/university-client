@@ -4,7 +4,7 @@ import styles from './style.module.css';
 const Title = (props) =>
 {
   return (
-      <div {...props} className={[styles.title, props.className].join(' ')}>
+      <div {...props} className={[styles.ttl, props.className].join(' ')}>
         {
         (props.title || props.text) ? 
           <p>{props.text || props.title}</p>

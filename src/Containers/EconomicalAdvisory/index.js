@@ -18,7 +18,7 @@ const EconomicalAdvisory = (props) =>
   const [isLoading, setIsLoading] = useState(false);
 
   const {boardinfos, boardmembers, boardposts, heros} = globaState;
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "economical_advisory")?.imagePath)).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "economical_advisory")?.imagePath || "")).href;
   const navigate = useNavigate();
   const clickHandler = (id) =>
   {
