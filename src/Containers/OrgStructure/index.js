@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/structure.jpg';
-import Structure from '../../Assets/lib1.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";

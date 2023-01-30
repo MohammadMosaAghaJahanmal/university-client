@@ -42,9 +42,9 @@
 
 .title
 {
-  font-size: 25px;
-  font-weight: bold;
-  padding: 0;
+  font-size: 25px !important;
+  font-weight: bold !important;
+  padding: 0 !important;
 }
 .textData
 {
