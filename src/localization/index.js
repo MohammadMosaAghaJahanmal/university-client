@@ -57,7 +57,8 @@ let languages = new LocalizedStrings({
     economical_advisory: "S E A Board",
     nothing_to_show: "Nothing To Show Yet",
     no_posts: "No Posts To Show",
-    posts: "Posts"
+    posts: "Posts",
+    chancellor_of_saba: "chancellor of saba university"
   },
  ps:{
   home: "کور",
@@ -122,7 +123,8 @@ let languages = new LocalizedStrings({
   economical_advisory: "اقتصادی مشورتی بورډ",
   nothing_to_show: "تر اوسه د ښودلو لپاره هیڅ شی نشته",
   no_posts: "No Posts To Show",
-  posts: "پوسټونه"
+  posts: "پوسټونه",
+  chancellor_of_saba: "د سبا پوهنتون رییس"
  }
 });
 
