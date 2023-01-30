@@ -23,18 +23,18 @@ const StrategicAim = (props) =>
     
     (async() => {
       try {
+        if(stratigicaims.length <= 0)
+        {
           setIsLoading(true);
-          if(stratigicaims.length <= 0)
+          const response = await fetch(serverPath('/stratigic_aim'));
+          const objData = await response.json();
+          if(objData.status === "success")
           {
-            const response = await fetch(serverPath('/stratigic_aim'));
-            const objData = await response.json();
-            if(objData.status === "success")
-            {
-              const data = objData.data;
-              dispatch('setData', {type: "stratigicaims", data: data})
-            }
+            const data = objData.data;
+            dispatch('setData', {type: "stratigicaims", data: data})
           }
-        setIsLoading(false);
+          setIsLoading(false);
+        }
       } catch (err) {
         setIsLoading(false);
         return SweetAlert('error', err.message);
@@ -55,14 +55,14 @@ const StrategicAim = (props) =>
         <div className={styles.contentWrapper}>
           {stratigicaims.length > 0 ?
           stratigicaims.map(straAim => (
-            <div className={styles.stratigic}>
+            <div className={styles.stratigic} key={straAim._id}>
               <Title 
                   title={straAim[isRTL ? "pTitle": "title"]}
                   className={[styles.chTitle, styles.title].join(" ")}
                   />
               <div className={styles.ach}>
               {straAim?.aims?.map(aim => (
-                <div className={[styles.item].join(" ")}>
+                <div className={[styles.item].join(" ")} key={aim._id}>
                   <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
                   <span className={styles.itemText}>{aim[isRTL ? "pAim": "aim"]}</span>
                 </div>
