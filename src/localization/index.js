@@ -61,6 +61,8 @@ let languages = new LocalizedStrings({
     chancellor_of_saba: "chancellor of saba university",
     history_of_saba: "History Of Saba University",
     achievements: "Achievements",
+    annual_two_semesters: "Annual two semesters",
+    
   },
  ps:{
   home: "کور",
@@ -129,6 +131,7 @@ let languages = new LocalizedStrings({
   chancellor_of_saba: "د سبا پوهنتون رییس",
   history_of_saba: "د سبا پوهنتون تاریخ",
   achievements: "لاسته راوړنې",
+  annual_two_semesters: "کلني دوه سمسترونه",
 
  }
 });

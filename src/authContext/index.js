@@ -64,6 +64,9 @@ const AuthProvider = (props) =>
             const {data: orgstructures} = await (await fetch(serverPath("/org_structure"))).json();
             dispatch("setData", {type: "orgstructures", data: orgstructures});
 
+            const {data: academiccalendars} = await (await fetch(serverPath("/ac"))).json();
+            dispatch("setData", {type: "academiccalendars", data: academiccalendars});
+
             setAuth((prev) => ({...prev, loading: false}));
         })()
 
