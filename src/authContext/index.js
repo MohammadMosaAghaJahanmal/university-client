@@ -55,6 +55,12 @@ const AuthProvider = (props) =>
             const {data: avissionmissionimages} = await (await fetch(serverPath("/vis_mis_img"))).json();
             dispatch("setData", {type: "avissionmissionimages", data: avissionmissionimages});
 
+            const {data: histories} = await (await fetch(serverPath("/history"))).json();
+            dispatch("setData", {type: "histories", data: histories});
+
+            const {data: achievements} = await (await fetch(serverPath("/achieve"))).json();
+            dispatch("setData", {type: "achievements", data: achievements});
+
             setAuth((prev) => ({...prev, loading: false}));
         })()
 

@@ -58,7 +58,9 @@ let languages = new LocalizedStrings({
     nothing_to_show: "Nothing To Show Yet",
     no_posts: "No Posts To Show",
     posts: "Posts",
-    chancellor_of_saba: "chancellor of saba university"
+    chancellor_of_saba: "chancellor of saba university",
+    history_of_saba: "History Of Saba University",
+    achievements: "Achievements",
   },
  ps:{
   home: "کور",
@@ -124,7 +126,10 @@ let languages = new LocalizedStrings({
   nothing_to_show: "تر اوسه د ښودلو لپاره هیڅ شی نشته",
   no_posts: "No Posts To Show",
   posts: "پوسټونه",
-  chancellor_of_saba: "د سبا پوهنتون رییس"
+  chancellor_of_saba: "د سبا پوهنتون رییس",
+  history_of_saba: "د سبا پوهنتون تاریخ",
+  achievements: "لاسته راوړنې",
+
  }
 });
 
