@@ -34,39 +34,11 @@ const AuthProvider = (props) =>
         }
         (async() =>
         {
-            const {data: heros} = await (await fetch(serverPath("/hero"))).json();
-            dispatch("setData", {type: "heros", data: heros});
-
-            const {data: contactInfo} = await (await fetch(serverPath("/contact_info"))).json();
-            dispatch("setData", {type: "contactinfos", data: contactInfo});
-
-            const {data: chancellormessages} = await (await fetch(serverPath("/chan_msg"))).json();
-            dispatch("setData", {type: "chancellormessages", data: chancellormessages});
-
-            const {data: news} = await (await fetch(serverPath("/news"))).json();
-            dispatch("setData", {type: "news", data: news});
-
-            const {data: c_vission} = await (await fetch(serverPath("/c_vission"))).json();
-            dispatch("setData", {type: "cevissions", data: c_vission});
-
-            const {data: c_mission} = await (await fetch(serverPath("/c_mission"))).json();
-            dispatch("setData", {type: "cemissions", data: c_mission});
-
-            const {data: avissionmissionimages} = await (await fetch(serverPath("/vis_mis_img"))).json();
-            dispatch("setData", {type: "avissionmissionimages", data: avissionmissionimages});
-
-            const {data: histories} = await (await fetch(serverPath("/history"))).json();
-            dispatch("setData", {type: "histories", data: histories});
-
-            const {data: achievements} = await (await fetch(serverPath("/achieve"))).json();
-            dispatch("setData", {type: "achievements", data: achievements});
-
-            const {data: orgstructures} = await (await fetch(serverPath("/org_structure"))).json();
-            dispatch("setData", {type: "orgstructures", data: orgstructures});
-
-            const {data: academiccalendars} = await (await fetch(serverPath("/ac"))).json();
-            dispatch("setData", {type: "academiccalendars", data: academiccalendars});
-
+            const {data, status} = await (await fetch(serverPath("/bulky"))).json();
+            if(status === "success")
+                data.forEach(perModelData => {
+                    dispatch('setData', {...perModelData});
+                });
             setAuth((prev) => ({...prev, loading: false}));
         })()
 
