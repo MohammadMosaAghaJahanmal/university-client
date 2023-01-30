@@ -61,6 +61,10 @@
   border-radius: 5px;
 
 }
+.title
+{
+  text-transform: capitalize;
+}
 .text, .title
 {
   position: relative;
@@ -76,11 +80,18 @@
   height: 600px;
   margin-bottom: 30px;
   border-style: solid;
-  border-image: url(../../Assets/frame.jpg) 193 / 70px;
+  border-image: url(../../Assets/frame.jpg) 193 / 60px;
   border-radius: 10px;
   border-color: transparent;
+  border-width: 60px;
 }
 
+.image
+{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 
 @media all and (max-width: 992px) {

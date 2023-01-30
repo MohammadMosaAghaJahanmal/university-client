@@ -120,7 +120,7 @@ let languages = new LocalizedStrings({
     result: "نتیجه",
 
   economical_advisory: "اقتصادی مشورتی بورډ",
-  nothing_to_show: "Nothing To Show Yet",
+  nothing_to_show: "تر اوسه د ښودلو لپاره هیڅ شی نشته",
   no_posts: "No Posts To Show",
   posts: "پوسټونه"
  }
