@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/lab.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
@@ -36,7 +35,7 @@ const C_VissionMission = (props) =>
 
   return (
     <div className={styles.vissionMission}>
-      <SmallHero title={language.a_vission_mission} image={HeroImage}  bgAnimation={true}/>
+      <SmallHero title={language.a_vission_mission} image={myHero}  bgAnimation={true}/>
       <div className={[styles.vmw, "w-controller"].join(" ")}>
         {
           (visMis.vission?.title && visMis.mission?.title && visMis.about?.description) ?
