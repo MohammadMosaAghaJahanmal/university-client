@@ -62,6 +62,7 @@ let languages = new LocalizedStrings({
     history_of_saba: "History Of Saba University",
     achievements: "Achievements",
     annual_two_semesters: "Annual two semesters",
+    a_about: "About"
     
   },
  ps:{
@@ -132,7 +133,7 @@ let languages = new LocalizedStrings({
   history_of_saba: "د سبا پوهنتون تاریخ",
   achievements: "لاسته راوړنې",
   annual_two_semesters: "کلني دوه سمسترونه",
-
+  a_about: "موخی"
  }
 });
 

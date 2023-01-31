@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/vision.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
@@ -28,7 +27,7 @@ const VissionMission = (props) =>
       img: avissionmissionimages[0]
     }));
   }, []);
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "vission_mission")?.imagePath)).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "vission_mission")?.imagePath || "")).href;
 
   const isRTL = (language.getLanguage() === 'ps');
 
