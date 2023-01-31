@@ -18,7 +18,7 @@ const E_Aggrements = (props) =>
   const aggrements = ceaggrements.filter(perAggr => perAggr.type === 'cs');
 
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "aggrements")?.imagePath || "")).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "c_aggrements")?.imagePath || "")).href;
 
   return (
     <div className={styles.container}>

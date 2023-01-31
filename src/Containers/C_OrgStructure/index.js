@@ -1,26 +1,34 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/polic.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import SideBar from "../../Components/SidaBar";
-
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
 const C_OrgStructure = (props) =>
 {
+  const [globalState] = useStore();
+
+  const {heros, ceorganizationalstructures} = globalState;
+
+  const struc = ceorganizationalstructures.find(struc => struc.type === 'cs');
 
   const isRTL = (language.getLanguage() === 'ps');
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "c_organizational_structure")?.imagePath || "")).href;
+
   return (
     <div className={styles.container}>
-      <SmallHero title={language.a_organizational_structure} image={HeroImage} style={{color: "#0080d6", textShadow: "0 0 2px white"}}  bgAnimation={true}/>
+      <SmallHero title={language.a_organizational_structure} image={myHero} bgAnimation={true}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
+          {struc?.imagePath ?
           <div className={styles.wrapper}>
             <div className={styles.content}>
               <Title 
-                title={"No Title From The Backend Just One Image"}
+                title={language.a_organizational_structure}
               />
-              <img src={HeroImage} alt="Curriculam Image"/>
+              <img src={serverPath(struc?.imagePath)} alt="Curriculam Image"/>
             </div>
             <SideBar
               links={[
@@ -31,6 +39,9 @@ const C_OrgStructure = (props) =>
               ]}
               />
           </div>
+          :
+          <p className="msg">{language.nothing_to_show}</p>
+          }
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const C_Curriculum = (props) =>
   const curriculum = cecurriculums.find(curriculum => curriculum.type === 'cs');
 
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "curriculum")?.imagePath || "")).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "c_curriculum")?.imagePath || "")).href;
 
   return (
     <div className={styles.container}>

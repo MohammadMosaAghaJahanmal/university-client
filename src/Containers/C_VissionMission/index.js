@@ -29,7 +29,7 @@ const C_VissionMission = (props) =>
       about: about || {},
     }));
   }, []);
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "vission_mission")?.imagePath || "")).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "c_vission_mission")?.imagePath || "")).href;
 
   const isRTL = (language.getLanguage() === 'ps');
 
