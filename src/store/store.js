@@ -17,7 +17,7 @@ let globalState = {
     boardmembers: [],
     boardposts: [],
     capacitybuildings: [],
-    ccurriculums: [],
+    cecurriculums: [],
     ceabouts: [],
     ceaggrements: [],
     cemissions: [],
