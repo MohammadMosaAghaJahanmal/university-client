@@ -30,7 +30,7 @@ const C_Curriculum = (props) =>
               <Title 
                 title={language.a_curriculum}
               />
-              <img src={curriculum.imagePath} alt="Curriculam Image"/>
+              <img src={serverPath(curriculum.imagePath)} alt="Curriculam Image"/>
             </div>
             <SideBar
               links={[

@@ -50,10 +50,10 @@ const E_Aggrements = (props) =>
             </div>
             <SideBar
               links={[
-                {name: language.a_vission_mission, link: "/academic/c_vission_mission"},
-                {name: language.a_curriculum, link: "/academic/c_curriculum"},
-                {name: language.a_organizational_structure, link: "/academic/c_organizational_structure"},
-                {name: language.a_aggrements, link: "/academic/c_aggrements"},
+                {name: language.a_vission_mission, link: "/academic/e_vission_mission"},
+                {name: language.a_curriculum, link: "/academic/e_curriculum"},
+                {name: language.a_organizational_structure, link: "/academic/e_organizational_structure"},
+                {name: language.a_aggrements, link: "/academic/e_aggrements"},
               ]}
               />
           </div>
