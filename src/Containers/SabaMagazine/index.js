@@ -75,7 +75,7 @@ const SabaMagazine = (props) =>
               {magazines.map(post => (
                 <div className={[styles.card, (isRTL && styles.rtl)].join(" ")} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler(post._id)} key={post._id}>
                   <div className={styles.img}>
-                    <img src={serverPath(post.thumbnail)} alt="aggrement image" />
+                    <img src={serverPath(post.thumbnail)} alt="Magazine image" />
                   </div>
                   <div className={styles.textContent}>
                     <Title 

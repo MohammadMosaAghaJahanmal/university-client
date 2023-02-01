@@ -39,7 +39,7 @@
   display: grid;
   column-gap: 15px;
   row-gap: 15px;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, minmax(auto, 349px));
   align-content: start;
 }
 
@@ -85,7 +85,7 @@
 .title
 {
   font-size: 16px !important;
-  font-weight: 600;
+  font-weight: 600 !important;
   padding: 0 !important;
 }
 
