@@ -10,92 +10,106 @@ import Text from '../../Components/Text';
 import {useNavigate} from 'react-router-dom';
 import ImagesViewer from "../../Components/ImagesViewer";
 import SideBar from "../../Components/SidaBar";
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
+import SweetAlert from "../../Components/SweetAlert";
+import Loader from "../../Components/Loader";
 const CapacityBuilding = (props) =>
 {
+  const [globalState, dispatch] = useStore();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const {heros, capacitybuildings} = globalState;
 
   const isRTL = (language.getLanguage() === 'ps');
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "capacity_building")?.imagePath || "")).href;
 
   const navigate = useNavigate();
 
   const clickHandler = (id) =>
   {
-    navigate(`/posts/aggrements/${id}`);
+    navigate(`/multipleimgs/capacity_building/${id}`);
   }
+
+  useEffect(() => {
+    
+    (async() => {
+      try {
+        if(capacitybuildings.length <= 0)
+        {
+          setIsLoading(true);
+            const response = await fetch(serverPath('/capacity_building'));
+            const objData = await response.json();
+            if(objData.status === "success")
+            {
+              const data = objData.data;
+              dispatch('setData', {type: "capacitybuildings", data: data})
+            }
+
+          setIsLoading(false);
+        }
+      } catch (err) {
+        setIsLoading(false);
+        return SweetAlert('error', err.message);
+      }
+    })()
+
+
+  }, [])
 
   return (
     <div className={styles.cb}>
-      <SmallHero title={language.capacity_building} image={HeroImage} isRTL={isRTL} bgAnimation={true}/>
+      <SmallHero title={language.capacity_building} image={myHero} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.cbw, "w-controller"].join(" ")}>
+      {
+         isLoading ? 
+         <Loader message="Loading Data..." />
+         :
         <div className={styles.contentWrapper}>
-          <Title 
-            title={language.capacity_building}
-            className={styles.title}
-          />
-          <div className={styles.wrapper}>
-            <div className={styles.cards}>
-              <div className={styles.card}>
-                <ImagesViewer 
-                  images={[HeroImage, HeroImage1, HeroImage2, HeroImage1]} 
-                  className={styles.img}
-                />
-                <div className={styles.textContent}>
-                  <Text 
-                      className={styles.text}
-                      >
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                  </Text>
-                  <div className={styles.line}></div>
-                  <p>
-                      {new Date().toLocaleDateString()}
-                    </p>
-                </div>
+          {capacitybuildings.length > 0 ? 
+            <>
+            <Title 
+              title={language.capacity_building}
+              className={styles.title}
+            />
+            <div className={styles.wrapper}>
+              <div className={styles.cards}>
+              {capacitybuildings.map(buildings => (
+                  <div className={styles.card} key={buildings._id} onClick={() => clickHandler(buildings._id)}>
+                    <ImagesViewer 
+                      images={buildings.images.map(building => (serverPath(building.imagePath)))} 
+                      className={styles.img}
+                    />
+                    <div className={styles.textContent}>
+                      <Text 
+                          className={styles.text}
+                          >
+                        {buildings[isRTL ? "pTitle": "title"]}
+                      </Text>
+                      <div className={styles.line}></div>
+                      <p>
+                          {new Date(buildings.createdAt).toLocaleDateString()}
+                        </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className={styles.card}>
-                <ImagesViewer 
-                  images={[HeroImage, HeroImage1, HeroImage2, HeroImage1]} 
-                  className={styles.img}
-                />
-                <div className={styles.textContent}>
-                  <Text 
-                      className={styles.text}
-                      >
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                  </Text>
-                  <div className={styles.line}></div>
-                  <p>
-                      {new Date().toLocaleDateString()}
-                    </p>
-                </div>
-              </div>
-              <div className={styles.card}>
-                <ImagesViewer 
-                  images={[HeroImage, HeroImage1, HeroImage2, HeroImage1]} 
-                  className={styles.img}
-                />
-                <div className={styles.textContent}>
-                  <Text 
-                      className={styles.text}
-                      >
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas rerum reprehenderit temporibus? Officiis maiores mollitia minus omnis excepturi deleniti
-                  </Text>
-                  <div className={styles.line}></div>
-                  <p>
-                      {new Date().toLocaleDateString()}
-                    </p>
-                </div>
-              </div>
+              <SideBar
+                    links={[
+                      {name: language.capacity_building, link: "/research/capacity_building"},
+                      {name: language.r_vission_mission, link: "/research/vission_mission"},
+                      {name: language.manual_policies, link: "/research/manual_policies"},
+                      {name: language.saba_magazine, link: "/research/saba_magazine"},
+                      {name: language.research_publications, link: "/research/research_publications"}
+                    ]}
+                  />
             </div>
-            <SideBar
-                  links={[
-                    {name: language.capacity_building, link: "/research/capacity_building"},
-                    {name: language.r_vission_mission, link: "/research/vission_mission"},
-                    {name: language.manual_policies, link: "/research/manual_policies"},
-                    {name: language.saba_magazine, link: "/research/saba_magazine"},
-                    {name: language.research_publications, link: "/research/research_publications"}
-                  ]}
-                />
-          </div>
+            </>
+          :
+          <p className="msg" style={{padding: "20px 0"}}>{language.nothing_to_show}</p>  
+          }
         </div>
+        }
       </div>
     </div>
   )

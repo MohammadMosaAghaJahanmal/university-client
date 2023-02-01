@@ -40,7 +40,7 @@ const CapacityBuildingPost = (props) =>
             </div>
             <div className={styles.postImage}>
               <ImagesViewer
-                  images={[HeroImage, HeroImage, HeroImage]} 
+                  images={[HeroImage, A, D]} 
                   className={styles.imgs}
                 />
             </div>
