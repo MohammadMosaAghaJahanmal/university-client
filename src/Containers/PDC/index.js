@@ -21,7 +21,6 @@ const PDC = (props) =>
   const pdcStat = pdcstaticks[0]
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "a_pdc")?.imagePath || "")).href;
-
   const navigate = useNavigate();
 
   const postHandler = (type, id) =>
@@ -114,7 +113,7 @@ const PDC = (props) =>
                     </Text>
                     <div className={styles.line}></div>
                     <p>
-                        {new Date().toLocaleDateString()}
+                        {new Date(pdcPost.createdAt).toLocaleDateString()}
                       </p>
                   </div>
                 </div>

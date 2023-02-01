@@ -138,7 +138,7 @@ const EconomicalAdvisory = (props) =>
                       </Text>
                       <div className={styles.line}></div>
                       <p>
-                        {new Date().toLocaleDateString()}
+                        {new Date(post.createdAt).toLocaleDateString()}
                       </p>
                     </div>
                   </div>
