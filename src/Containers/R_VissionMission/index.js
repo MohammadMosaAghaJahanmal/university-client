@@ -7,54 +7,69 @@ import Title from '../../Components/Title';
 import Text from "../../Components/Text";
 import {IoCheckmarkCircleOutline as CheckBox} from 'react-icons/io5'
 import SideBar from "../../Components/SidaBar";
-
+import useStore from "../../store/store";
+import serverPath from '../../utils/serverPath';
 const R_VissionMission = (props) =>
 {
+  const [globalState] = useStore();
+  const {heros, cevissions, cemissions, raims} = globalState;
+  const [visMis, setVisMis] = useState({
+    vission: {},
+    mission: {},
+  });
+
+  useEffect(() => {
+    let vis = cevissions.find(v => v.type === 're');
+    let mis = cemissions.find(v => v.type === 're');
+    setVisMis(prev => ({
+      vission: vis || {},
+      mission: mis || {},
+    }));
+  }, []);
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "vission_mission")?.imagePath || "")).href;
+
   const isRTL = (language.getLanguage() === 'ps');
 
   return (
     <div className={styles.vissionMission}>
-      <SmallHero title={language.r_vission_mission} image={HeroImage}  bgAnimation={true}/>
+      <SmallHero title={language.r_vission_mission} image={myHero}  bgAnimation={true}/>
       <div className={[styles.vmw, "w-controller"].join(" ")}>
+        {
+        (visMis.vission?.title && visMis.mission?.title) ?
         <div className={styles.wrapper}>
           <div className={styles.vm}>
             <div className={styles.vmCard}>
-              <Title title="Vission" className={styles.title}/>
-              <Text text="
-                To be a recognized university in the country 
-                and region for quality teaching, research and learning, 
-                strong management system for nurturing a generation disciplined with national values brightening future of the country.
-                " 
+              <Title title={visMis.vission[isRTL ? "pTitle" : "title"]} className={styles.title}/>
+              <Text text={visMis.vission[isRTL ? "pDescription" : "description"]}
                 className={styles.text}
               />
             </div>
             <div className={styles.vmCard}>
-              <Title title="Mission" className={styles.title} />
-              <Text text="
-                Saba University serves the nation and region through providing, 
-                retaining, and practicing value-based knowledge, 
-                skills, research and producing strong academic cadres known for their best Islamic, 
-                national, and social characters.
-                "
+              <Title title={visMis.mission[isRTL ? "pTitle" : "title"]} className={styles.title} />
+              <Text text={visMis.mission[isRTL ? "pDescription" : "description"]}
                 className={styles.text}
               />
             </div>
+            {raims.length > 0 &&
             <div className={styles.achive}>
-              <Title 
-                  title="Aim"
-                  className={[styles.chTitle, styles.title].join(" ")}
-                  />
-              <div className={styles.ach}>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality</span>
+              {raims.map(raim => (
+              <div key={raim._id}>
+                <Title 
+                    title={raim[isRTL ? "pTitle" : "title"]}
+                    className={[styles.chTitle, styles.title].join(" ")}
+                    />
+                <div className={styles.ach}>
+                  {raim.aims.map(aim => (
+                    <div className={[styles.item].join(" ")} key={aim._id}>
+                      <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
+                      <span className={styles.itemText}>{aim[isRTL ? "pAim" : "aim"]}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
+              ))}
             </div>
+            }
           </div>
           <SideBar
               links={[
@@ -66,6 +81,9 @@ const R_VissionMission = (props) =>
               ]}
             />
         </div>
+        : 
+        <p className="msg" style={{padding: "50px 0"}}>{language.nothing_to_show}</p>
+        }
       </div>
     </div>
   )
