@@ -26,7 +26,7 @@ const A_BuildingCapacity = (props) =>
 
   const clickHandler = (id) =>
   {
-    navigate(`/posts/aggrements/${id}`);
+    navigate(`/multipleimgs/a_capacity_building/${id}`);
   }
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const A_BuildingCapacity = (props) =>
             <div className={styles.wrapper}>
               <div className={styles.cards}>
               {acapacitybuildings.map(buildings => (
-                <div className={styles.card} key={buildings._id}>
+                <div className={styles.card} key={buildings._id} onClick={() => clickHandler(buildings._id)}>
                   <ImagesViewer 
                     images={buildings.images.map(building => (serverPath(building.imagePath)))} 
                     className={styles.img}

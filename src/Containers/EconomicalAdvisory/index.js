@@ -22,7 +22,7 @@ const EconomicalAdvisory = (props) =>
   const navigate = useNavigate();
   const clickHandler = (id) =>
   {
-    navigate(`/research/post/economical_advisory/${id}`);
+    navigate(`/multipleimgs/economical_advisory/${id}`);
   }
 
   
