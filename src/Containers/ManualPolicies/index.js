@@ -1,90 +1,80 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/polic.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
-import Text from "../../Components/Text";
-// import {IoGitCommitOutline as CheckBox} from 'react-icons/io5';
 import {FaPiedPiperHat as CheckBox} from 'react-icons/fa';
 import SideBar from "../../Components/SidaBar";
-
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
+import SweetAlert from "../../Components/SweetAlert";
+import Loader from "../../Components/Loader";
 const ManualPolicies = (props) =>
 {
+  const [globalState, dispatch] = useStore();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const {heros, rmanualpolicies} = globalState;
 
   const isRTL = (language.getLanguage() === 'ps');
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "manual_policies")?.imagePath || "")).href;
+
+  
+  useEffect(() => {
+    
+    (async() => {
+      try {
+        if(rmanualpolicies.length <= 0)
+        {
+          setIsLoading(true);
+            const response = await fetch(serverPath('/r_m_policy'));
+            const objData = await response.json();
+            if(objData.status === "success")
+            {
+              const data = objData.data;
+              dispatch('setData', {type: "rmanualpolicies", data: data})
+            }
+
+          setIsLoading(false);
+        }
+      } catch (err) {
+        setIsLoading(false);
+        return SweetAlert('error', err.message);
+      }
+    })()
+
+
+  }, [])
 
   return (
     <div className={styles.mpa}>
-      <SmallHero title={language.manual_policies} image={HeroImage}  style={{color: "#0080d6"}}/>
+      <SmallHero title={language.manual_policies} image={myHero}  style={{color: "#0080d6"}}/>
       <div className={[styles.mpw, "w-controller"].join(" ")}>
+      {
+         isLoading ? 
+         <Loader message="Loading Data..." />
+         :
+          rmanualpolicies.length > 0 ? 
         <div className={styles.wrapper}>
+          <>
           <div className={styles.contentWrapper}>
-            <div className={styles.mp}>
+          {rmanualpolicies.map(policy => (
+            <div className={styles.mp} key={policy._id}>
               <Title 
-                  title="Policy One"
+                  title={policy[isRTL ? "pTitle": "title"]}
                   className={[styles.chTitle, styles.title].join(" ")}
                   />
               <div className={styles.ach}>
-                <div className={[styles.item].join(" ")}>
+              {policy.policies.map(pol => (
+                <div className={[styles.item].join(" ")} key={pol._id}>
                   <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
+                  <span className={styles.itemText}>{pol[isRTL ? "pPolicy": "policy"]}</span>
                 </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality One</span>
-                </div>
+              ))}
+
               </div>
             </div>
-            <div className={styles.br}></div>
-            <div className={styles.mp}>
-              <Title 
-                  title="Policy Two"
-                  className={[styles.chTitle, styles.title].join(" ")}
-                  />
-              <div className={styles.ach}>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-                <div className={[styles.item].join(" ")}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>Saba University will remain committed to ensuring quality Two</span>
-                </div>
-              </div>
-            </div>
+          ))}
           </div>
           <SideBar
               links={[
@@ -95,7 +85,11 @@ const ManualPolicies = (props) =>
                 {name: language.research_publications, link: "/research/research_publications"}
               ]}
             />
+          </>
         </div>
+          :
+          <p className="msg" style={{padding: "50px 0"}}>{language.nothing_to_show}</p>  
+      }
       </div>
     </div>
   )
