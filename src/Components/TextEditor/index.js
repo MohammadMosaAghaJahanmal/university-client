@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './styles.module.css';
-import { EditorState, convertToRaw} from 'draft-js';
+import { EditorState} from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML, convertFromHTML, } from 'draft-convert';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -27,6 +27,14 @@ class TextEditor extends Component {
 			this.props.onConvertToHTML(convertToHTML(editorState.getCurrentContent()));
   };
 
+  componentDidMount()
+  {
+    if(this.props.initState)
+    {
+      let newState = EditorState.createWithContent(convertFromHTML(this.props.initState));
+      this.onEditorStateChange(newState)
+    }
+  }
  
   render() {
     const { editorState } = this.state;
