@@ -17,7 +17,6 @@ const EligibilityCriteria = (props) =>
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "eligibility_criteria")?.imagePath || "")).href;
 
-
   return (
     <div className={styles.container}>
       <SmallHero title={language.eligibility_criteria} image={myHero} isRTL={isRTL} bgAnimation={true}/>
