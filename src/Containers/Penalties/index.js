@@ -1,34 +1,43 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/penalty.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
 import SideBar from "../../Components/SidaBar";
-
-const penalties = (props) =>
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
+const Penalties = (props) =>
 {
+  const [globalState] = useStore();
+
+  const {heros, penalties} = globalState;
+
 
   const isRTL = (language.getLanguage() === 'ps');
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "penalties")?.imagePath || "")).href;
 
   return (
     <div className={styles.container}>
-      <SmallHero title={language.penalties} image={HeroImage} isRTL={isRTL} bgAnimation={false}/>
+      <SmallHero title={language.penalties} image={myHero} isRTL={isRTL} bgAnimation={false}/>
       <div className={[styles.haw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
+        {penalties?.length > 0 ?
           <div className={styles.wrapper}>
             <div className={styles.achive}>
-              <Title 
-                  title="TITLE FROM BACKEND"
-                  className={[styles.chTitle].join(" ")}
-                  />
-              <Text className={styles.text}>
-                <div className={styles.textData}>
-                  <p>Saba University was established in 2011 to provide quality higher education that Respond to the needs of society and the labor market. Since then, we have produced More than 3200 graduates collectively from journalism, civil engineering, economics, Sharia, law, and political sciences.</p>
-                  <p>Saba University was established in 2011 to provide quality higher education that Respond to the needs of society and the labor market. Since then, we have produced More than 3200 graduates collectively from journalism, civil engineering, economics, Sharia, law, and political sciences.</p>
-                </div>
-              </Text>
+            {penalties.map(penalty => (
+              <div key={penalty._id}>
+                <Title 
+                    title={penalty[isRTL ? "pTitle" : "title"]}
+                    className={[styles.chTitle].join(" ")}
+                    />
+                <Text className={styles.text}>
+                  <div className={styles.textData}>
+                    {penalty[isRTL ? "pDescription" : "description"]}
+                  </div>
+                </Text>
+              </div>
+              ))}
             </div>
             <SideBar
               links={[
@@ -42,6 +51,9 @@ const penalties = (props) =>
               ]}
               />
           </div>
+        :
+        <p className="msg">{language.nothing_to_show}</p>
+        }
         </div>
       </div>
     </div>
@@ -50,4 +62,4 @@ const penalties = (props) =>
 
 
 
-export default penalties;
+export default Penalties;
