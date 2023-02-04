@@ -85,7 +85,7 @@ const Aggrements = (props) =>
             </div>
           </>
           :
-          <p>{language.nothing_to_show}</p>
+          <p className="msg">{language.nothing_to_show}</p>
           }
         </div>
       }
