@@ -1,34 +1,44 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/workshop.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
 import SideBar from "../../Components/SidaBar";
-
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
 const EligibilityCriteria = (props) =>
 {
+  const [globalState] = useStore();
+
+  const {heros, eligibilitycriterias : ecs} = globalState;
+
 
   const isRTL = (language.getLanguage() === 'ps');
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "eligibility_criteria")?.imagePath || "")).href;
+
 
   return (
     <div className={styles.container}>
-      <SmallHero title={language.eligibility_criteria} image={HeroImage} isRTL={isRTL} bgAnimation={true}/>
+      <SmallHero title={language.eligibility_criteria} image={myHero} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.haw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
+        {ecs?.length > 0 ?
           <div className={styles.wrapper}>
             <div className={styles.achive}>
-              <Title 
-                  title="TITLE FROM BACKEND"
-                  className={[styles.chTitle].join(" ")}
-                  />
-              <Text className={styles.text}>
-                <div className={styles.textData}>
-                  <p>Saba University was established in 2011 to provide quality higher education that Respond to the needs of society and the labor market. Since then, we have produced More than 3200 graduates collectively from journalism, civil engineering, economics, Sharia, law, and political sciences.</p>
-                  <p>Saba University was established in 2011 to provide quality higher education that Respond to the needs of society and the labor market. Since then, we have produced More than 3200 graduates collectively from journalism, civil engineering, economics, Sharia, law, and political sciences.</p>
-                </div>
-              </Text>
+              {ecs.map(ec => (
+              <div key={ec._id}>
+                <Title 
+                    title={ec[isRTL ? "pTitle" : "title"]}
+                    className={[styles.chTitle].join(" ")}
+                    />
+                <Text className={styles.text}>
+                  <div className={styles.textData}>
+                    {ec[isRTL ? "pDescription" : "description"]}
+                  </div>
+                </Text>
+              </div>
+              ))}
             </div>
             <SideBar
               links={[
@@ -42,6 +52,9 @@ const EligibilityCriteria = (props) =>
               ]}
               />
           </div>
+          :
+          <p className="msg">{language.nothing_to_show}</p>
+          }
         </div>
       </div>
     </div>

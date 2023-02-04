@@ -79,9 +79,6 @@ const EconomicalAdvisory = (props) =>
     <div className={styles.container}>
       <SmallHero title={isRTL ? language.economical_advisory : "Saba Economical Advisory Board"} image={myHero} style={{color: "white", textShadow: "0 0 5px black"}} bgPosition={{backgroundPosition: "bottom"}} bgAnimation={false}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
-        <TextEditor 
-          initState={`<p>Some Text</p>`}
-        />
         {
          isLoading ? 
          <Loader message="Loading Data..." />
