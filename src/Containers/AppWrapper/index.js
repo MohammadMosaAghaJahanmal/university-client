@@ -7,7 +7,7 @@ const AppWrapper = (props) =>
 
   const authContext = useContext(AuthContext);
   if(authContext.loading)
-    return <Loader />;
+    return <Loader message="Loading Website..." />;
   return (
     <Layout />
   )

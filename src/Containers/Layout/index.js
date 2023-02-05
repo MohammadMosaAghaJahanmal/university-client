@@ -134,7 +134,7 @@ class Layout extends PureComponent
   const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})
     return (
       <div className={styles.mainContainer}>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader message="Loading Navbar..."/>}>
             <Navbar />
         </Suspense>
         <main {...direction}>
@@ -142,7 +142,7 @@ class Layout extends PureComponent
             {
               screens.map((per, index) => {
               return (
-                <Route path={`${per.screen}`} key={index} element={<Suspense fallback={<Loader />}>
+                <Route path={`${per.screen}`} key={index} element={<Suspense fallback={<Loader message="Loading Data..." />}>
                     <per.Component />
               </Suspense>} />
               )})
@@ -152,7 +152,7 @@ class Layout extends PureComponent
                 </Suspense>} />
           </Routes>
         </main>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader message="Loading Footer..." />}>
             <Footer {...direction}/>
         </Suspense>
       </div>
