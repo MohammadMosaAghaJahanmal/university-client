@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/polic.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import SideBar from "../../Components/SidaBar";
