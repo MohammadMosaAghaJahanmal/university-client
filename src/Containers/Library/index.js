@@ -1,99 +1,138 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/book2.jpg';
-import Input from '../../Components/Input';
 import Button from "../../Components/Button";
 import language from '../../localization';
-import FREQ from '../../Assets/freq.jpg';
 import {IoCloudDownload as Download} from 'react-icons/io5';
+import MaterialInput from '../../Components/MaterialInput'
+import SweetAlert from "../../Components/SweetAlert";
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
+import Loader from '../../Components/Loader'
 const Library = (props) =>
 {
 
-  const isRTL = (language.getLanguage() === 'ps');
+  const [globalState] = useStore();
 
-  console.log(isRTL)
+  const {heros} = globalState;
+
+  const isRTL = (language.getLanguage() === 'ps');
+  const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [findBook, setFindBook] = useState({
+    searchBy: "id",
+    searchBook: "",
+  })
+
+  const onChange = (type, value) => 
+    setFindBook(prev => ({...prev, [type]: value}));
+    
+    const myHero = new URL(serverPath(heros?.find(hero => hero.type === "library")?.imagePath || "")).href;
+
+  const searchHandler = async () =>
+  {
+    if(isLoading || books.find(book => book[findBook.searchBy] === findBook.searchBook))
+      return;
+    if(findBook.searchBook.length <= "" || findBook.searchBy.length <= 0)
+      return SweetAlert("info", "Please Fill All The inputs");
+    if(['id', 'name'].findIndex((per => per === findBook.searchBy)) < 0)
+      return SweetAlert("info", "You only can search by book id or it's name");
+
+    try {
+      setIsLoading(true)
+      const response = await(await fetch(serverPath('/library/find'), {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/json"
+        },
+        body: JSON.stringify(findBook)
+      })).json();
+
+
+      if(response.status === "failure")
+        SweetAlert("info", response.message);
+
+      if(response.status === "success")
+        setBooks(response.data)
+
+      setIsLoading(false);
+      
+    } catch (error) {
+      setIsLoading(false);
+        SweetAlert("error", error.message);
+    }
+  }
+
 
   return (
     <div className={styles.library}>
-      <SmallHero title={language.online_library} image={HeroImage} style={{backgroundPosition: "bottom", textShadow: "1px 1px 3px black"}} bgAnimation={true}/>
+      <SmallHero title={language.online_library} image={myHero} style={{backgroundPosition: "bottom", textShadow: "1px 1px 3px black"}} bgAnimation={true}/>
       <div className={[styles.libraryWrapper, "w-controller"].join(" ")}>
+        {isLoading && (
+          <Loader message="Fetching Books..." className={styles.loader} />
+        )}
         <div className={styles.libraryTitle}>
           <p>You can search Book by it's name or id</p>
         </div>
         <div className={styles.libraryContent}>
           <div className={styles.libraryInputs}>
-            <div className={styles.inputGroup}>
-              <label >
-                Search By
-              </label>
-              <Input type="text" placeholder="Search By" list="type" />
-              <datalist id="type">
-                <option value={"Book Name"} />
-                <option value={"Book Id"} />
-              </datalist>
-            </div>
-            <div className={styles.inputGroup}>
-              <label>
-                Search
-              </label>
-              <Input type="text" placeholder="Search Book" />
-            </div>
+              <MaterialInput
+                  label={"Search By *"}
+                  placeholder={"SearchBy(ID or NAME)"}
+                  id="id"
+                  type="select"
+                  options={['id', 'name']}
+                  select={findBook.searchBy}
+                  onChange={(e) => {
+                    onChange("searchBy", e.target.value)
+                  }}
+                  value={findBook.searchBy}
+                  />
+              <MaterialInput
+                    label={"Search Book *"}
+                    placeholder={"SearchBook *"}
+                    id="searchBook"
+                    onChange={(e) => {
+                      onChange("searchBook", e.target.value)
+                    }}
+                    value={findBook.searchBook}
+                    />
             <div className={styles.inputGroupBtn}>
-              <Button label="Search" />
+              <Button label="Search" onClick={searchHandler} />
             </div>
           </div>
           <div className={styles.booksList}>
-            <div className={[styles.book, (isRTL && styles.rtlBook)].join(" ")}>
+          {books.length <= 0 ?
+            <p className="msg" style={{color: "#0080d6"}}>{language.nothing_to_show}</p>
+            :
+            books.map(book => (
+            <div className={[styles.book, (isRTL && styles.rtlBook)].join(" ")} key={book._id}>
               <div className={styles.bookImage}>
-                <img src={FREQ} alt="book image" />
+                <img src={serverPath(book.imagePath)} alt="book image" />
               </div>
               <div className={styles.bookContent}>
                 <div className={styles.bookId}>
                   <p>ID: </p>
-                  <p>#109234</p>
+                  <p>{book.id}</p>
                 </div>
                 <div className={styles.bookName}>
                   <p>Book Name: </p>
-                  <p>Frequntly Ask Quetions</p>
+                  <p>{isRTL ? book.pName: book.name}</p>
                 </div>
                 <div className={styles.bookAuthor}>
                   <p>Author: </p>
-                  <p>Mohammadullah Jahani</p>
+                  <p>{isRTL ? book.pAuthor: book.author}</p>
                 </div>
               </div>
               <div className={[styles.downloadLink, (isRTL && styles.rtlLink)].join(' ')}>
                 <div className={styles.linkContent}>
                   <p><Download /></p>
-                  <p>Download</p>
+                  <a href={serverPath(book.filePath)} download={book.name + book.pName + ".pdf"}>Download</a>
                 </div>
               </div>
             </div>
-            <div className={[styles.book, (isRTL && styles.rtlBook)].join(" ")}>
-              <div className={styles.bookImage}>
-                <img src={FREQ} alt="book image" />
-              </div>
-              <div className={styles.bookContent}>
-                <div className={styles.bookId}>
-                  <p>ID: </p>
-                  <p>#109234</p>
-                </div>
-                <div className={styles.bookName}>
-                  <p>Book Name: </p>
-                  <p>Frequntly Ask Quetions</p>
-                </div>
-                <div className={styles.bookAuthor}>
-                  <p>Author: </p>
-                  <p>Mohammadullah Jahani</p>
-                </div>
-              </div>
-              <div className={[styles.downloadLink, (isRTL && styles.rtlLink)].join(' ')}>
-                <div className={styles.linkContent}>
-                  <p><Download /></p>
-                  <p>Download</p>
-                </div>
-              </div>
-            </div>
+            ))
+          }
           </div>
         </div>
       </div>

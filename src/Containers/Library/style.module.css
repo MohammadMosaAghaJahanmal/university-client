@@ -17,6 +17,8 @@
   padding: 20px;
   background-color: white;
   padding-bottom: 50px;
+  position: relative;
+
 }
 
 .libraryTitle {
@@ -29,10 +31,28 @@
 .libraryContent {
   display: grid;
 }
+.loader
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 128, 214, 0.6);
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+}
+
 
 .libraryInputs {
   display: grid;
-  grid-template-columns: repeat(3, 250px);
+  grid-template-columns: repeat(3, minmax(auto, 250px));
   justify-content: center;
   align-content: center;
   column-gap: 10px;
@@ -180,6 +200,10 @@
   scale: 1.2;
   color: #dff9fb;
 }
+.book:hover .linkContent a
+{
+  color: #dff9fb;
+}
 .book.rtlBook::before
 {
   right: unset ;
@@ -241,6 +265,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.linkContent a
+{
+  color: #0080d6;
+  transition: 300ms;
+  display: block;
 }
 
 @media all and (max-width: 830px) {
@@ -338,5 +368,15 @@
   {
     scale: unset;
     color: #63686e;
+  }
+  .linkContent a
+  {
+    padding: 5px 0;
+  }
+}
+
+@media all and (max-width: 425px) {
+  .libraryInputs {
+    grid-template-columns: 1fr;
   }
 }

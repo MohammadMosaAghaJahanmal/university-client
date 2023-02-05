@@ -1,18 +1,21 @@
 import React, { useState }  from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/admission.jpg';
 import languages from "../../localization";
 import MaterialInput from "../../Components/MaterialInput";
 import { provinces } from '../../Constants'
 import SweetAlert from '../../Components/SweetAlert';
 import serverPath from "../../utils/serverPath";
 import createValidForm from '../../utils/createValidForm';
+import useStore from "../../store/store";
 const OnlineAdmission = (props) =>
 {
+  const [globalState] = useStore();
+
+  const {heros} = globalState;
 
   const isRTL = (languages.getLanguage() === 'ps');
-
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "admission")?.imagePath || "")).href;
   const currentYear = (new Date().getFullYear() - 621);
 
   let prevYears = (currentYear - 30);
@@ -74,7 +77,7 @@ const OnlineAdmission = (props) =>
   }
   return (
     <div className={styles.oa}>
-      <SmallHero title={languages.online_admission} image={HeroImage} isRTL={isRTL} style={{backgroundPosition: "bottom"}}/>
+      <SmallHero title={languages.online_admission} image={myHero} isRTL={isRTL} style={{backgroundPosition: "bottom"}}/>
       <div className={[styles.oaWrapper, "w-controller"].join(" ")}>
         <div className={styles.oaFormWrapper}>
           <div className={styles.formTitle} data-aos="fade-down" data-aos-delay={100}>
