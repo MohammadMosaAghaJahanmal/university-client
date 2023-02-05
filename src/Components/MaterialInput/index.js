@@ -36,6 +36,7 @@ function MaterialInput(props) {
 							onChange={props.onChange} 
 							value={props.value} 
 							className={props.className}
+							size={props.size}
 						/>
 					}
 					<span className={styles.before}></span>

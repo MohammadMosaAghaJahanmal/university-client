@@ -1,28 +1,70 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/admission.jpg';
-import Input from '../../Components/Input';
-import Button from "../../Components/Button";
-import { FaFacebookF, FaMapMarkedAlt, FaYoutube } from "react-icons/fa";
-import languages from "../../localization";
+import language from "../../localization";
 import MaterialInput from "../../Components/MaterialInput";
 import logo from '../../Assets/logo.png'
+import SweetAlert from "../../Components/SweetAlert";
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
+import Loader from "../../Components/Loader";
 
 const OnlineAdmission = (props) =>
 {
+  
+  const [globalState, dispatch] = useStore();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const isRTL = (languages.getLanguage() === 'ps');
+  const {heros, students} = globalState;
 
-  let results = [
-    {id: "19290", fullName: 'Ahmadullah', fatherName: "Abdullah", province: "Kandahar", faculty: "Computer Sciences", marks: "888", status: "PASS"},
-    {id: "18310", fullName: 'Mohammad Mosa', fatherName: "Mohammad Agha", province: "Kandahar", faculty: "Computer Sciences", marks: "999", status: "FAIL"},
-  ];
+  const isRTL = (language.getLanguage() === 'ps');
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "result")?.imagePath || "")).href;
+
+  const [results, setResults] = useState([]);
+  const [studentID, setStudentID] = useState('');
+
+  const onFindResults = async () => {
+    if(isLoading || (studentID === results[0]?.id))
+      return;
+
+    if(studentID.length <= 0)
+      return SweetAlert('info', "Please Enter Student id!");
+
+    if(studentID.length > 15)
+      return SweetAlert('info', "Please Enter Valid student id!");
+
+
+    try {
+      if(students.length <= 0)
+      {
+        setIsLoading(true);
+        const response = await fetch(serverPath(`/student/${studentID}`));
+        const objData = await response.json();
+        if(objData.status === "failure")
+          SweetAlert("error", objData.message);
+
+        if(objData.status === "success")
+        {
+          const data = objData.data;
+          setResults(data);
+          console.log(data);
+        }
+        setIsLoading(false);
+      }
+    } catch (err) {
+      setIsLoading(false);
+      return SweetAlert('error', err.message);
+    }
+  }
 
   return (
     <div className={styles.oa}>
-      <SmallHero title={languages.result} image={HeroImage} isRTL={isRTL} style={{backgroundPosition: "bottom"}}/>
+      <SmallHero title={language.result} image={myHero} isRTL={isRTL} style={{backgroundPosition: "bottom"}}/>
       <div className={[styles.oaWrapper, "w-controller"].join(" ")}>
+        {
+          isLoading &&
+          <Loader message="Finding Results..." className={styles.loader} />
+        }
         <div className={styles.oaFormWrapper}>
           <div className={styles.formTitle} data-aos="fade-down" data-aos-delay={100}>
             Find Your Kankor Result
@@ -34,10 +76,12 @@ const OnlineAdmission = (props) =>
                 placeholder={"ID *"}
                 id="id"
                 className={styles.input}
+                onChange={(e) => setStudentID(e.target.value)}
+                value={studentID}
                 />
             </div>
             <div className={styles.oaButton} data-aos="fade-up" data-aos-delay={1400}>
-              <button>
+              <button onClick={onFindResults} disabled={isLoading}>
                 Search
               </button>
             </div>
@@ -70,11 +114,16 @@ const OnlineAdmission = (props) =>
                   <div className={styles.td}>{result.fullName}</div>
                   <div className={styles.td}>{result.fatherName}</div>
                   <div className={styles.td}>{result.province}</div>
-                  <div className={styles.td}>{result.faculty}</div>
+                  <div className={styles.td}>{result?.facultyId?.name}</div>
                   <div className={styles.td}>{result.marks}</div>
                   <div className={styles.td}>{result.status}</div>
                 </div>
               ))}
+              {results.length <= 0 && (
+                <div className={styles.tr} style={{textAlign: "center"}}>
+                  <div className={styles.td} style={{gridColumnStart: 1, gridColumnEnd: -1, padding: 40}}>{language.nothing_to_show}</div>
+                </div>
+              )}
               </div>
             </div>
             <div className={styles.mTble}>
@@ -110,6 +159,11 @@ const OnlineAdmission = (props) =>
                   </div>
                 </div>
               ))}
+              {results.length <= 0 && (
+                <div className={styles.mTr} style={{textAlign: "center"}}>
+                  <div className={styles.mTd} style={{gridColumnStart: 1, gridColumnEnd: -1, padding: 40}}>{language.nothing_to_show}</div>
+                </div>
+              )}
             </div>
           </div>
         </div>
