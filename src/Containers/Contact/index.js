@@ -53,7 +53,7 @@ const Contact = (props) =>
         return SweetAlert('error', message);
 
       SweetAlert("success", "Successfully registered!");
-      setAdmission({...initialState});
+      setContact({...initialState});
       console.log(data)
     } catch (error) {
       return SweetAlert('error', error.message);
