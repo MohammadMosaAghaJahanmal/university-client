@@ -80,7 +80,7 @@ const Post = (props) =>
     if(!mainPost)
       return navigate('/', {replace: true});
 
-    const latestData = ([...data].reverse()).slice(0, 5);
+    const latestData = ([...data].reverse()).slice(0, 4);
     setLatestPosts(latestData.filter(latest => latest._id !== mainPost._id));
 
   }
@@ -127,7 +127,7 @@ const Post = (props) =>
               </div>
               ))
               :
-              <p className="msg">{language.no_posts}</p>
+              <p className="msg">{language.nothing_to_show}</p>
             }
             </div>
           </div>
