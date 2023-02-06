@@ -6,14 +6,63 @@ import Input from '../../Components/Input';
 import Button from "../../Components/Button";
 import { FaFacebookF, FaMapMarkedAlt, FaYoutube } from "react-icons/fa";
 import languages from "../../localization";
+import SweetAlert from '../../Components/SweetAlert';
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
 const Contact = (props) =>
 {
-
+  const [globalState] = useStore();
+  const {heros, contactus} = globalState;
   const isRTL = (languages.getLanguage() === 'ps')
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "contact")?.imagePath || "")).href;
+
+  const initialState = {
+    fullName: "",
+    email: "",
+    subject: "",
+    phone: "",
+    message: "",
+  };
+  const [contact, setContact] = useState({...initialState});
+
+  const onChange = (type, value) =>
+    setContact(prev => ({...prev, [type]: value}))
+
+  const submitHandler = async () =>
+  {
+    let formData = {};
+    for (const fieldKey in contact) {
+      if (Object.hasOwnProperty.call(contact, fieldKey)) {
+        const value = contact[fieldKey];
+        if(value.value.length <= 0)
+          return SweetAlert("info", fieldKey.toUpperCase() + " is not allowed to by empty!");
+
+        formData[fieldKey] = value.value;
+      }
+    }
+    try {
+      
+      const {status, message, data} = await (await fetch(serverPath('/contact'), {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/json"
+        },
+        body: JSON.stringify(contact)
+      })).json()
+      if(status === "failure")
+        return SweetAlert('error', message);
+
+      SweetAlert("success", "Successfully registered!");
+      setAdmission({...initialState});
+      console.log(data)
+    } catch (error) {
+      return SweetAlert('error', error.message);
+    }
+  }
 
   return (
     <div className={styles.contact}>
-      <SmallHero title={languages.contact} image={HeroImage} isRTL={isRTL} bgAnimation={true}/>
+      <SmallHero title={languages.contact} image={myHero} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.contactWrapper, "w-controller"].join(" ")}>
         <div className={styles.contactFormWrapper}>
           <div className={styles.formTitle} data-aos="fade-up-right" data-aos-delay={100}>
@@ -21,19 +70,19 @@ const Contact = (props) =>
           </div>
           <div className={styles.contactForm}>
             <div className={styles.inputGroup} data-aos="fade-up-right" data-aos-delay={300}>
-              <Input type="text" placeholder="Full Name" onChange={()=> {}}/>
+              <Input type="text" placeholder="Full Name" value={contact.fullName} onChange={(e)=> onChange('fullName', e.target.value)}/>
             </div>
             <div className={styles.inputGroup} data-aos="fade-up-right" data-aos-delay={500}>
-              <Input type="text" placeholder="Email" onChange={()=> {}}/>
+              <Input type="text" placeholder="Email" value={contact.email} onChange={(e)=> onChange('email', e.target.value)}/>
             </div>
             <div className={styles.inputGroup} data-aos="fade-up-right" data-aos-delay={700}> 
-              <Input type="text" placeholder="Subject" onChange={()=> {}}/>
+              <Input type="text" placeholder="Subject" value={contact.subject} onChange={(e)=> onChange('subject', e.target.value)}/>
             </div>
             <div className={styles.inputGroup} data-aos="fade-up-right" data-aos-delay={900}>
-              <Input type="text" placeholder="Phone" onChange={()=> {}}/>
+              <Input type="text" placeholder="Phone" value={contact.phone} onChange={(e)=> onChange('phone', e.target.value)}/>
             </div>
             <div className={[styles.inputGroup, styles.textarea].join(' ')} data-aos="fade-up-right" data-aos-delay={1100}>
-              <Input type="textarea" placeholder="Message" onChange={()=> {}}/>
+              <Input type="textarea" placeholder="Message" value={contact.message} onChange={(e)=> onChange('message', e.target.value)}/>
             </div>
           </div>
           <div className={styles.contactButton} data-aos="fade-up-right" data-aos-delay={1100}>
