@@ -1,8 +1,11 @@
 import React from 'react'
 import styles from './style.module.css'
 import {FaCopyright, FaEnvelope, FaFacebookF, FaMapMarkedAlt, FaMapMarkerAlt, FaPhoneAlt, FaYoutube} from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
+import languages from '../../localization';
 const Footer = (props) =>
 {
+
   return (
       <footer className={styles.footer} {...props}>
         <div className={[styles.footerContent, 'w-controller'].join(" ")}>
@@ -61,17 +64,31 @@ const Footer = (props) =>
             </div>
           </div>
           <div className={styles.moreInfo}>
-            <p className={styles.title} data-aos="fade-right" data-aos-delay={1100}>Contact</p>
+            <p className={styles.title} data-aos="fade-right" data-aos-delay={1100}>Links</p>
             <div data-aos="fade-right" data-aos-delay={1200}>
-              Kandahar, Afghanistan Dand chawk District #4
-              <br />
-              Saba Institute of Higher Education
+              <NavLink to={'/kankor/admission'} className={styles.link}>
+                {languages.online_admission}
+              </NavLink>
             </div>
             <div data-aos="fade-right" data-aos-delay={1300}>
-              info@saba.edu.af
+              <NavLink to={'/students/student_portal'} className={styles.link}>
+                {languages.student_portal}
+              </NavLink>
             </div>
-            <div data-aos="fade-right" data-aos-delay={1400}>
-              +93700001231
+            <div data-aos="fade-right" data-aos-delay={1300}>
+              <NavLink to={'/students/students_verification'} className={styles.link}>
+                {languages.students_verification}
+              </NavLink>
+            </div>
+            <div data-aos="fade-right" data-aos-delay={1300}>
+              <NavLink to={'/research/saba_magazine'} className={styles.link}>
+                {languages.saba_magazine}
+              </NavLink>
+            </div>
+            <div data-aos="fade-right" data-aos-delay={1300}>
+              <NavLink to={'/about/chancellor_message'} className={styles.link}>
+                {languages.chancellor_message}
+              </NavLink>
             </div>
           </div>
         </div>

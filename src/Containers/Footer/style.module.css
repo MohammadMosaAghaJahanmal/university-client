@@ -161,7 +161,11 @@
   font-weight: 100;
 }
 
-
+.link
+{
+  color: white;
+  text-decoration: none;
+}
 
 @media all and (max-width: 1280px) {
   .footerContent
