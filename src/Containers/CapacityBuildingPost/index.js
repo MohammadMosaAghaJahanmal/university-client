@@ -1,15 +1,8 @@
 import React, {useContext, useEffect, useState} from "react";
 import styles from './style.module.css';
-import A from '../../Assets/news2.jpg';
-import B from '../../Assets/news.jpg';
-import C from '../../Assets/b.jpg';
-import D from '../../Assets/a.jpg';
 import SmallHero from "../../Components/SmallHero";
-import HeroImage from '../../Assets/newspaper.jpg';
 import language from '../../localization';
-import {AuthContext} from '../../authContext';
 import { useParams } from "react-router-dom";
-import Title from "../../Components/Title";
 import ImagesViewer from "../../Components/ImagesViewer";
 import Text from "../../Components/Text";
 import { useNavigate } from "react-router-dom";
