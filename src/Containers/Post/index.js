@@ -1,84 +1,138 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import styles from './style.module.css';
-import A from '../../Assets/news2.jpg';
-import B from '../../Assets/news.jpg';
-import C from '../../Assets/b.jpg';
-import D from '../../Assets/a.jpg';
 import SmallHero from "../../Components/SmallHero";
-import HeroImage from '../../Assets/news.jpg';
 import language from '../../localization';
-import {AuthContext} from '../../authContext';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import serverPath from "../../utils/serverPath";
+import useStore from "../../store/store";
+import Loader from "../../Components/Loader";
+import SweetAlert from "../../Components/SweetAlert";
 const Post = (props) =>
 {
 
   const isRTL = (language.getLanguage() === 'ps');
-
+  
+  const [globalState, dispatch] = useStore(false);
+  
+  
+  
+  const navigate = useNavigate();
   const {type, id} = useParams();
 
-  
+  const allowTypes = ['aggrements', 'news'];
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const {heros, news, aggrements} = globalState;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === type)?.imagePath || "")).href;
+
+  const [mainPost, setMainPost] = useState({});
+  const [latestPosts, setLatestPosts] = useState([]);
+
+  useEffect(() => {
+    (async() => {
+
+      if(id.length !== 24 || (allowTypes.findIndex(allow => allow === type) < 0))
+        return navigate("/", {replace: true});
+
+      try {
+        if(type === 'aggrements')
+        {
+          if(aggrements.length <= 0)
+          {
+            setIsLoading(true);
+            const response = await fetch(serverPath('/aggrement'));
+            const objData = await response.json();
+            if(objData.status === "success")
+            {
+              const data = objData.data;
+              if(data.length <= 0)
+                return navigate('/', {replace: true})
+
+              dispatch('setData', {type: "aggrements", data: data})
+              placingPosts(data);
+            }
+            setIsLoading(false);
+          }
+          if(aggrements.length > 0)
+            return placingPosts(aggrements);
+        }
+
+        if(type === 'news' && news.length <= 0)
+          return navigate('/', {replace: true})
+        if(type === 'news' && news.length > 0)
+          return placingPosts(aggrements);
+
+      } catch (err) {
+        setIsLoading(false);
+        return SweetAlert('error', err.message);
+      }
+    })()
+  }, [id, type]);
+
+
+  function placingPosts(data) {
+    let mainPost = data.find(perPost => perPost._id === id);
+    if(mainPost)
+      setMainPost(mainPost);
+
+    if(!mainPost)
+      return navigate('/', {replace: true});
+
+    const latestData = ([...data].reverse()).slice(0, 5);
+    setLatestPosts(latestData.filter(latest => latest._id !== mainPost._id));
+
+  }
 
   return (
     <div className={styles.post} >
-      <SmallHero title={language[type]} image={HeroImage} isRTL={isRTL} bgAnimation={true}/>
+      <SmallHero title={language[type]} image={myHero} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.postWrapper, "w-controller"].join(" ")}>
-        <div className={styles.postTitle}>
-          <p>
-            High-Level Delegation from MoHE of Islamic Emirate of Afghanistan visits Saba University
-          </p>
-        </div>
-        <div className={styles.postDate}>
-          12/1/2022
-        </div>
-        <div className={styles.postContent}>
-          <div className={styles.mainPost}>
-            <div className={styles.postImage}>
-              <img src={D} alt="image about post"/>
+      {isLoading ? 
+        <Loader message="Please Wait..." />
+      :
+      mainPost.title &&
+      (
+        <>
+          <div className={styles.postTitle}>
+            <p>
+              {mainPost[isRTL ? "pTitle" : "title"]}
+            </p>
+          </div>
+          <div className={styles.postDate}>
+            {new Date(mainPost.createdAt).toLocaleDateString()}
+          </div>
+          <div className={styles.postContent}>
+            <div className={styles.mainPost}>
+              <div className={styles.postImage}>
+                <img src={serverPath(mainPost.imagePath)} alt="post image"/>
+              </div>
+              <div className={styles.postDesc}>
+                {mainPost[isRTL ? "pDescription" : "description"]}
+              </div>
             </div>
-            <div className={styles.postDesc}>
-              On January 3, 2022, Saba University hosted a high-level delegation of the Ministry of Higher Education and the Association of Private Universities and Institutions of Higher Education (APUIHE). The delegation comprised of Honorable Sheikh Shakirullah Wahdat and respected Mawlawi Shah Mohammad, members of the Advisory Board of MoHE, Professor Ataullah Kamran, Head of Public Oversight over Private Institutes of Higher Education, and other members of APUIHE and MoHE. <br />
-              The delegation held two separate open discussion sessions with the university students as well as the faculty and staff. They explained some of the changes that the new leadership at MoHE has considered for public and private higher education institutions and also responded to a wide range of questions and concerns from both students and faculty members at the university. <br />
-              In his opening remarks, Saba University’s Chancellor, Dr. Ahmad Khalid Hatam reiterated the University’s commitment to continue supporting the country’s young generation through the provision of world-class higher education. He highlighted the importance of aligning higher education with the economic, social, and infrastructural needs of the country for better administration of different public and private sectors. <br />
-              He said, “keeping these needs in mind, we have proposed several new graduate programs to MoHE’s previous administrators, which we hope will be seriously considered by the current MoHE leadership”. “We plan to organize a national conference on review and revisions needed in the existing regulations regarding higher education” Dr. Hatam added. <br />
-              On the question of charging higher fees posed by a student, Dr. Hatam clarified that Saba University’s course fees reflect the higher quality of services offered as well as the international affiliations that benefit Saba University’s graduates overseas. “However, we offer a wide range of discount packages to ensure no student is left out of higher education merely for financial reasons. We have Afs. 77 million currently outstanding with our students, but no student is prevented from continuing their education here” he said.
-              While talking to the students, Professor Kamran assured students of Islamic Emirate’s full support for their positive initiatives. He said, “we are working to bridge the gap between the public and private sector institutions as well as between the students and MoHE. We want Afghan degrees to be respected worldwide”. <br />
-              The delegation late held a separate meeting with the university leadership, staff, and faculty members where they noted different suggestions from faculty members and responded to their questions and concerns. <br />
-              Answering a faculty member’s question about the imbalance of opportunities available to lecturers in public institutions, Mr. Kamran acknowledged the fact and reiterated the need for unifying not only services offered by both sectors but also the benefits like scholarships, retirement, and academic rankings for professors etc. <br />
+            <div className={styles.latestPost}>
+            {latestPosts.length > 0 ?
+              latestPosts.map(latest => (
+              <div className={styles.latestPostCard} key={latest._id} onClick={() => navigate(`/posts/${type}/${latest._id}`)}>
+                <div className={styles.latestPostImage}>
+                  <img src={serverPath(latest.thumbnail)} alt="post image"/>
+                </div>
+                <div className={styles.latestPostTitle}>
+                  <p>
+                    {latest[isRTL ? "pTitle" : "title"]}
+                  </p>
+                </div>
+              </div>
+              ))
+              :
+              <p className="msg">{language.no_posts}</p>
+            }
             </div>
           </div>
-          <div className={styles.latestPost}>
-            <div className={styles.latestPostCard}>
-              <div className={styles.latestPostImage}>
-                <img src={C} alt="image about post"/>
-              </div>
-              <div className={styles.latestPostTitle}>
-                <p>
-                  High-Level Delegation from MoHE of Islamic Emirate of Afghanistan visits Saba University
-                </p>
-              </div>
-            </div>
-            <div className={styles.latestPostCard}>
-              <div className={styles.latestPostImage}>
-                <img src={B} alt="image about post"/>
-              </div>
-              <div className={styles.latestPostTitle}>
-                <p>
-                  High-Level Delegation from MoHE of Islamic Emirate of Afghanistan visits Saba University
-                </p>
-              </div>
-            </div>
-            <div className={styles.latestPostCard}>
-              <div className={styles.latestPostImage}>
-                <img src={A} alt="image about post"/>
-              </div>
-              <div className={styles.latestPostTitle}>
-                <p>
-                  High-Level Delegation from MoHE of Islamic Emirate of Afghanistan visits Saba University
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        </>
+        )
+      }
       </div>
     </div>
   )
