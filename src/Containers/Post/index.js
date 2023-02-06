@@ -60,8 +60,9 @@ const Post = (props) =>
 
         if(type === 'news' && news.length <= 0)
           return navigate('/', {replace: true})
+
         if(type === 'news' && news.length > 0)
-          return placingPosts(aggrements);
+          return placingPosts(news);
 
       } catch (err) {
         setIsLoading(false);
