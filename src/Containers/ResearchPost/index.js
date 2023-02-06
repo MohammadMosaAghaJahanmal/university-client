@@ -169,7 +169,7 @@ const ResearchPost = (props) =>
               Latest Posts
             </p>
             <div className={styles.latestPost}>
-            {latestPosts.length > 0 ?
+            {(latestPosts.length > 0) &&
               latestPosts.map(latest => (
               <div className={styles.latestPostCard} key={latest._id} onClick={() => navigate(`/research/post/${type}/${latest._id}`)}>
                 <div className={styles.latestPostImage}>
@@ -181,10 +181,7 @@ const ResearchPost = (props) =>
                   </p>
                 </div>
               </div>
-              ))
-              :
-              <p className="msg">{language.nothing_to_show}</p>
-            }
+              ))}
             </div>
           </div>
         </>
