@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './style.module.css'
-import {FaCopyright, FaEnvelope, FaFacebookF, FaMapMarkedAlt, FaMapMarkerAlt, FaPhoneAlt, FaYoutube} from 'react-icons/fa';
+import { FaEnvelope, FaFacebookF, FaMapMarkedAlt, FaMapMarkerAlt, FaPhoneAlt, FaYoutube} from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import languages from '../../localization';
+import AFG_FLAG from '../../Assets/af-flag.png';
+import US_FLAG from '../../Assets/us-flag.png';
+import {AuthContext} from '../../authContext';
 const Footer = (props) =>
 {
-
+  const {setLanguage} = useContext(AuthContext);
+  const lang = languages.getLanguage();
   return (
       <footer className={styles.footer} {...props}>
         <div className={[styles.footerContent, 'w-controller'].join(" ")}>
@@ -56,12 +60,7 @@ const Footer = (props) =>
                 +93700001231
               </span>
             </div>
-            <div data-aos="fade-right" data-aos-delay={1000}>
-              <FaCopyright size={18}/> 
-              <span>
-                Copyright © 2022 SIHE
-              </span>
-            </div>
+
           </div>
           <div className={styles.moreInfo}>
             <p className={styles.title} data-aos="fade-right" data-aos-delay={1100}>Links</p>
@@ -90,6 +89,26 @@ const Footer = (props) =>
                 {languages.chancellor_message}
               </NavLink>
             </div>
+          </div>
+        </div>
+        <div className={styles.copyRight}>
+          <span>
+            Copyright © 2022 SIHE - by 
+            <a href='https://jahanmal.com/' target={"_blank"} className={styles.developer}>
+              Jahanmal Agha
+            </a>
+          </span>
+        </div>
+        <div className={[styles.upperMenu].join(" ")}>
+          <div className={styles.menuRight}>
+            <button className={[styles.lang, (lang === "ps" && styles.active)].join(" ")} onClick={()=>setLanguage("ps")}>
+              <img src={AFG_FLAG} className={styles.flags} alt="Afg Flag"/>
+              <span>PS</span>
+            </button>
+            <button className={[styles.lang, (lang === "en" && styles.active)].join(" ")} onClick={()=>setLanguage("en")}>
+              <img src={US_FLAG} className={styles.flags} alt="Usa Flag"/>
+              <span>EN</span>
+            </button>
           </div>
         </div>
       </footer>

@@ -145,7 +145,6 @@ const Navbar = (props) =>
 
   return (
     <>
-      
       <div className={[styles.upperMenuContainer].join(" ")}>
         <div className={[styles.upperMenu].join(" ")} data-aos="fade-down" data-aos-delay={500}>
           <div className={styles.menuLeft}>

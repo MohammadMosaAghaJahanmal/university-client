@@ -101,15 +101,6 @@
 {
   color: #f00;
 }
-/* .footerIcon:hover span.map
-{
-  background-color: rgba(0, 128, 214, 0.6);
-  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
-} */
-/* .footerIcon:hover span.map svg
-{
-  color: #dff9fb;
-} */
 .footerIcon:hover span.facebook
 {
   background-color: rgba(255, 255, 255, 0.6);
@@ -126,11 +117,6 @@
   row-gap: 15px;
   align-content: start;
 }
-/* .contact
-{
-  grid-template-rows: repeat(auto-fit, minmax(auto, 40px));
-  justify-content: start;
-} */
 .moreInfo > div
 {
   display: grid;
@@ -142,10 +128,19 @@
 
 .copyRight
 {
+  text-align: center;
+  padding: 20px 0;
   background-color: #dff9fb;
-  background-image: linear-gradient(to bottom, rgba(223, 249, 251, 0.4), rgba(37, 204, 247, 0.1) ,rgba(223, 249, 251, 0.4));
-}
+  color: #0080d6;
+  direction: ltr;
 
+}
+.developer
+{
+  color: #0080d6;
+  display: inline-block;
+  margin-left: 10px;
+}
 .copyContent
 {
   grid-template-columns: repeat(2, auto);
@@ -167,6 +162,108 @@
   text-decoration: none;
 }
 
+.upperMenuContainer
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  position: relative;
+}
+.upperMenu
+{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  width: 100%;
+  margin: 0 0 0 auto;
+  direction: ltr;
+  background-color: #dff9fb;
+  color: #0080d6;
+}
+.menuLeft
+{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 10px;
+}
+.menuLeft a:active
+{
+  opacity: 0.3;
+  scale: 1.05;
+}
+
+.menuRight button::before
+{
+  content: '';
+  display: inline-block;
+  width: 80px;
+  position: absolute;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 300ms;
+  bottom: -40px;
+  left: -40px;
+
+}
+
+
+
+.menuRight button:not(.active)::before
+{
+  bottom: -60px;
+  left: -60px;
+}
+.menuRight button.active::before, .menuRight button:hover::before 
+{
+  bottom: -40px;
+  left: -40px;
+}
+
+.menuRight button
+{
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content:  center;
+  font-size: 14px;
+  cursor: pointer;
+  /* color: #007600; */
+  font-weight: bold;
+  color: var(--TextColor);
+  text-transform: uppercase;
+  padding: 5px;
+  margin: 0 3px;
+  border-radius: 5px;
+  border: unset;
+  transition: 300ms;
+  position: relative;
+  overflow: hidden;
+}
+.menuRight button:hover, button.active, .menuLeft a
+{
+  box-shadow: 1px 1px 10px rgba(0, 0, 139, 0.2);
+  /* background-color: #ffd000; */
+  background-color: #0080d6;
+  color: white;
+
+}
+
+.flags
+{
+  height: 24px;
+  object-fit: cover;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  z-index: 9;
+}
 @media all and (max-width: 1280px) {
   .footerContent
   {
