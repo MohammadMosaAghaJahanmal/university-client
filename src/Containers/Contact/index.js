@@ -88,6 +88,7 @@ const Contact = (props) =>
           <div className={styles.contactButton} data-aos="fade-up-right" data-aos-delay={1100}>
             <Button 
               label="Submit"
+              onClick={submitHandler}
             />
           </div>
         </div>
