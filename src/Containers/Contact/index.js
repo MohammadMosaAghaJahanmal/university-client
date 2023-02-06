@@ -30,19 +30,16 @@ const Contact = (props) =>
 
   const submitHandler = async () =>
   {
-    let formData = {};
     for (const fieldKey in contact) {
       if (Object.hasOwnProperty.call(contact, fieldKey)) {
         const value = contact[fieldKey];
-        if(value.value.length <= 0)
+        if(value.length <= 0)
           return SweetAlert("info", fieldKey.toUpperCase() + " is not allowed to by empty!");
-
-        formData[fieldKey] = value.value;
       }
     }
     try {
       
-      const {status, message, data} = await (await fetch(serverPath('/contact'), {
+      const {status, message, data} = await (await fetch(serverPath('/contact_us'), {
         method: "POST",
         headers: {
           "Content-Type": "Application/json"
