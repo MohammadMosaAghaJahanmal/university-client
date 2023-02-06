@@ -6,10 +6,14 @@ import languages from '../../localization';
 import AFG_FLAG from '../../Assets/af-flag.png';
 import US_FLAG from '../../Assets/us-flag.png';
 import {AuthContext} from '../../authContext';
+import useStore from "../../store/store";
 const Footer = (props) =>
 {
+  const [globalState] = useStore();
   const {setLanguage} = useContext(AuthContext);
-  const lang = languages.getLanguage();
+  const contactinfo = globalState.contactinfos[0];
+  const isRTL = (languages.getLanguage() === 'ps')
+
   return (
       <footer className={styles.footer} {...props}>
         <div className={[styles.footerContent, 'w-controller'].join(" ")}>
@@ -21,21 +25,27 @@ const Footer = (props) =>
               temporibus quibusdam natus incidunt maiores, at culpa nostrum? 
             </p>
             <div className={styles.links} data-aos="fade-right" data-aos-delay={500}>
-              <div className={styles.footerIcon}>
-                <span className={styles.facebook}>
-                  <FaFacebookF size={16} />
-                </span>
-              </div>
-              <div className={styles.footerIcon}>
-                <span className={styles.youtube}>
-                  <FaYoutube size={16} />
-                </span>
-              </div>
-              <div className={styles.footerIcon}>
-                <span className={styles.map}>
-                  <FaMapMarkedAlt size={16} />
-                </span>
-              </div>
+            <a href={contactinfo.facebook} target={"_blank"}>
+                <div className={styles.footerIcon}>
+                  <span className={styles.facebook}>
+                    <FaFacebookF size={16} />
+                  </span>
+                </div>
+              </a>
+              <a href={contactinfo.youtube} target={"_blank"}>
+                <div className={styles.footerIcon}>
+                  <span className={styles.youtube}>
+                    <FaYoutube size={16} />
+                  </span>
+                </div>
+              </a>
+              <a href={contactinfo.googleMap} target={"_blank"}>
+                <div className={styles.footerIcon}>
+                  <span className={styles.map}>
+                    <FaMapMarkedAlt size={16} />
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
           <div className={[styles.moreInfo, styles.contact].join(" ")}>
@@ -43,21 +53,19 @@ const Footer = (props) =>
             <div data-aos="fade-right" data-aos-delay={700}>
               <FaMapMarkerAlt size={16}/> 
               <span>
-                Kandahar, Afghanistan Dand chawk District #4
-                <br />
-                Saba Institute of Higher Education
+                {contactinfo[isRTL ? "pAddress" : "address"]}
               </span>
             </div>
             <div data-aos="fade-right" data-aos-delay={800}>
               <FaEnvelope size={16}/> 
               <span>
-                info@saba.edu.af
+                {contactinfo.email}
               </span>
             </div>
             <div data-aos="fade-right" data-aos-delay={900}>
               <FaPhoneAlt size={16}/> 
               <span>
-                +93700001231
+                {contactinfo.phone}
               </span>
             </div>
 
@@ -101,11 +109,11 @@ const Footer = (props) =>
         </div>
         <div className={[styles.upperMenu].join(" ")}>
           <div className={styles.menuRight}>
-            <button className={[styles.lang, (lang === "ps" && styles.active)].join(" ")} onClick={()=>setLanguage("ps")}>
+            <button className={[styles.lang, (isRTL && styles.active)].join(" ")} onClick={()=>setLanguage("ps")}>
               <img src={AFG_FLAG} className={styles.flags} alt="Afg Flag"/>
               <span>PS</span>
             </button>
-            <button className={[styles.lang, (lang === "en" && styles.active)].join(" ")} onClick={()=>setLanguage("en")}>
+            <button className={[styles.lang, (!isRTL && styles.active)].join(" ")} onClick={()=>setLanguage("en")}>
               <img src={US_FLAG} className={styles.flags} alt="Usa Flag"/>
               <span>EN</span>
             </button>

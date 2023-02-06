@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/contact1.jpg';
 import Input from '../../Components/Input';
 import Button from "../../Components/Button";
 import { FaFacebookF, FaMapMarkedAlt, FaYoutube } from "react-icons/fa";
@@ -12,7 +11,8 @@ import useStore from "../../store/store";
 const Contact = (props) =>
 {
   const [globalState] = useStore();
-  const {heros, contactus} = globalState;
+  const {heros, contactinfos} = globalState;
+  const contactinfo = contactinfos[0];
   const isRTL = (languages.getLanguage() === 'ps')
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "contact")?.imagePath || "")).href;
 
@@ -91,46 +91,58 @@ const Contact = (props) =>
         </div>
 
         <div className={styles.contactInfo}>
-          <div className={styles.formTitle} data-aos="fade-up" data-aos-delay={100}>
-            Contact Information
-          </div>
-          <div className={[styles.contactAddress, styles.addresses].join(" ")} data-aos="fade-up" data-aos-delay={300}>
-            <p>Address: </p>
-            <p className={styles.addressValue}>
-              Kandahar, Afghanistan Dand chawk District #4
-            </p>
-          </div>
-          <div className={[styles.contactEmail, styles.addresses].join(" ")} data-aos="fade-up" data-aos-delay={500}>
-            <p>Email: </p>
-            <p className={styles.addressValue}>
-              info@saba.edu.af
-            </p>
-          </div>
-          <div className={[styles.contactPhone, styles.addresses].join(" ")} data-aos="fade-up" data-aos-delay={700}>
-            <p>Phone: </p>
-            <p className={styles.addressValue}>+93700001231</p>
+          {contactinfo &&
+          <>
+            <div className={styles.formTitle} data-aos="fade-up" data-aos-delay={100}>
+              Contact Information
             </div>
-          <div className={[styles.contactOpen, styles.addresses].join(" ")} data-aos="fade-up" data-aos-delay={900}>
-            We are open from Saturday to Thursday <br/> 05.00 AM - 08.00 PM </div>
-          <div className={[styles.follow, styles.addresses].join(" ")}>
-          <div className={styles.links} data-aos="fade-up" data-aos-delay={900}>
-            <div className={styles.footerIcon}>
-              <span className={styles.facebook}>
-                <FaFacebookF size={16} />
-              </span>
+            <div className={[styles.contactAddress, styles.addresses].join(" ")} data-aos="fade-up" data-aos-delay={300}>
+              <p>Address: </p>
+              <p className={styles.addressValue}>
+                {contactinfo[isRTL ? "pAddress" : "address"]}
+              </p>
             </div>
-            <div className={styles.footerIcon}>
-              <span className={styles.youtube}>
-                <FaYoutube size={16} />
-              </span>
+            <div className={[styles.contactEmail, styles.addresses].join(" ")} data-aos="fade-up" data-aos-delay={500}>
+              <p>Email: </p>
+              <p className={styles.addressValue}>
+                {contactinfo.email}
+              </p>
             </div>
-            <div className={styles.footerIcon}>
-              <span className={styles.map}>
-                <FaMapMarkedAlt size={16} />
-              </span>
+            <div className={[styles.contactPhone, styles.addresses].join(" ")} data-aos="fade-up" data-aos-delay={700}>
+              <p>Phone: </p>
+              <p className={styles.addressValue}>
+                {contactinfo.phone}
+              </p>
+              </div>
+            <div className={[styles.contactOpen, styles.addresses].join(" ")} data-aos="fade-up" data-aos-delay={900}>
+              We are open from Saturday to Thursday <br/> 05.00 AM - 08.00 PM </div>
+            <div className={[styles.follow, styles.addresses].join(" ")}>
+            <div className={styles.links} data-aos="fade-up" data-aos-delay={900}>
+              <a href={contactinfo.facebook} target={"_blank"}>
+                <div className={styles.footerIcon}>
+                  <span className={styles.facebook}>
+                    <FaFacebookF size={16} />
+                  </span>
+                </div>
+              </a>
+              <a href={contactinfo.youtube} target={"_blank"}>
+                <div className={styles.footerIcon}>
+                  <span className={styles.youtube}>
+                    <FaYoutube size={16} />
+                  </span>
+                </div>
+              </a>
+              <a href={contactinfo.googleMap} target={"_blank"}>
+                <div className={styles.footerIcon}>
+                  <span className={styles.map}>
+                    <FaMapMarkedAlt size={16} />
+                  </span>
+                </div>
+              </a>
             </div>
-          </div>
-          </div>
+            </div>
+          </>
+          }
         </div>
         
       </div>
