@@ -35,6 +35,8 @@ const StudentsPortal = (props) =>
 
   const [fields, setFields] = useState({...initFiledsState})
 
+  const [showModal, setShowModal] = useState(false);
+
   const onChange = (type, value) => setFields(prev => ({...prev, [type]: value}));
   const onLogout = () => {
     setAuth(prev => ({
@@ -85,7 +87,6 @@ const StudentsPortal = (props) =>
           const docs = await fetch(serverPath(`/student_doc/${user?.id}`));
           const docsObj = await docs.json();
           let studetnDOCS = [];
-          setFields({...initFiledsState})
           if(docsObj.status === "success")
               studetnDOCS = docsObj.data;
 
@@ -99,8 +100,12 @@ const StudentsPortal = (props) =>
           }));
         }
         setAuth(prev => ({...prev, authLoading: false}));
+        setShowModal(false);
+        setFields({...initFiledsState})
       } catch (err) {
         setAuth(prev => ({...prev, authLoading: false}));
+        setShowModal(false);
+        setFields({...initFiledsState})
         return SweetAlert('error', err.message);
       }
   }
@@ -129,35 +134,50 @@ const StudentsPortal = (props) =>
                   </button>
                 </div>
                 :
-              <div className={styles.oaForm}>
-                <p className={styles.loginMessage}>Login To Student Portal</p>
-                <div data-aos="fade-right" data-aos-delay={100}>
-                  <MaterialInput
-                    label={"Student ID*"}
-                    placeholder={"Enter ID *"}
-                    id="id"
-                    className={styles.input}
-                    onChange={(e) => onChange("id", e.target.value)}
-                    value={fields.id}
-                    />
+              <>
+              {showModal && 
+                <div className={styles.modal}>
+                  <div className={styles.oaForm}>
+                    <p className={styles.loginMessage}>Login To Student Portal</p>
+                    <div data-aos="fade-right" data-aos-delay={100}>
+                      <MaterialInput
+                        label={"Student ID*"}
+                        placeholder={"Enter ID *"}
+                        id="id"
+                        className={styles.input}
+                        onChange={(e) => onChange("id", e.target.value)}
+                        value={fields.id}
+                        />
+                    </div>
+                    <div data-aos="fade-right" data-aos-delay={100}>
+                      <MaterialInput
+                        type="password"
+                        label={"Student Password*"}
+                        placeholder={"Enter Password *"}
+                        id="password"
+                        className={styles.input}
+                        onChange={(e) => onChange("password", e.target.value)}
+                        value={fields.password}
+                        />
+                    </div>
+                    <div className={styles.oaButton} data-aos="fade-up" data-aos-delay={800}>
+                      <button onClick={searchHandler}>
+                        Login
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div data-aos="fade-right" data-aos-delay={100}>
-                  <MaterialInput
-                    type="password"
-                    label={"Student Password*"}
-                    placeholder={"Enter Password *"}
-                    id="password"
-                    className={styles.input}
-                    onChange={(e) => onChange("password", e.target.value)}
-                    value={fields.password}
-                    />
-                </div>
+              }
+              {
+                !showModal && 
                 <div className={styles.oaButton} data-aos="fade-up" data-aos-delay={800}>
-                  <button onClick={searchHandler}>
+                  <button onClick={() => setShowModal(prev => (!prev))} style={{width: "280px", margin: "0 auto"}}>
                     Login
                   </button>
                 </div>
-              </div>
+              }
+
+              </>
               }
               {
               (login && student) && (
