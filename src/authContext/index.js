@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import languages from '../localization';
 import useStore from '../store/store';
 import serverPath from '../utils/serverPath';
+let SA_TOKEN = "SA_TOKEN";
+
 const initialState = {
     login: false,
     token: null,
     student: null,
     loading: true,
     authLoading: false,
+    studetnDocs: [],
+    SA_TOKEN
 
 };
 
@@ -19,7 +23,6 @@ export const AuthContext = React.createContext({
     languageCode: "en" || "af"
 });
 
-let SA_TOKEN = "SA_TOKEN";
 
 const AuthProvider = (props) =>
 {
@@ -56,25 +59,35 @@ const AuthProvider = (props) =>
             setAuth(prev => ({...prev, authLoading: true}));
             try {
                 const response = await fetch(serverPath("/token"), {
-                method: "POST",
-                headers: {
-                "Authorization": `bearer ${authtoken}`
-                },
-                body: JSON.stringify({type: "student"})
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "Application/json",    
+                    "Authorization": `bearer ${authtoken}`,
+                    },
+                    body: JSON.stringify({type: "student"})
                 });
                 const objData = await response.json();
                 if (objData.status === 'success') {
+                    const docs = await fetch(serverPath(`/student_doc/${objData?.user?.id}`));
+                    const docsObj = await docs.json();
+                    let studetnDOCS = [];
+
+                    if(docsObj.status === "success")
+                        studetnDOCS = docsObj.data;
+
                     setAuth((prev) => ({
                         ...prev, 
                         login: true, 
                         token: authtoken,
                         student: objData.user,
-                        authLoading: false
+                        authLoading: false,
+                        studetnDocs: studetnDOCS
                     }));
                     return
                 };
-
-            } catch (error) {}
+                console.log(objData)
+            } catch (error) {
+}
             localStorage.removeItem(SA_TOKEN);
             setAuth(prev => ({...prev, authLoading: false}));
         })()
