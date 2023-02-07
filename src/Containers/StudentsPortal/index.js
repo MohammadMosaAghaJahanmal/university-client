@@ -17,6 +17,7 @@ const StudentsPortal = (props) =>
     authLoading, 
     studetnDocs, 
     SA_TOKEN, 
+    student,
     login, 
     setAuth
   } = authContext;
@@ -39,7 +40,7 @@ const StudentsPortal = (props) =>
     setAuth(prev => ({
       ...prev, 
       token: "", 
-      student: "", 
+      student: null, 
       studetnDocs: [], 
       authLoading: false, 
       login: false
@@ -113,20 +114,23 @@ const StudentsPortal = (props) =>
           <Loader message="Finding Results..." className={styles.loader} />
         }
         <div className={styles.oaFormWrapper}>
-          <div className={styles.formTitle} data-aos="fade-down" data-aos-delay={100}>
-            Saba University Students Portal
-          </div>
+          { (login && student) &&
+            <div className={styles.formTitle} data-aos="fade-down" data-aos-delay={100}>
+              {languages.sabaStudentsPortal}
+            </div>
+          }
           <div className={styles.wrapper}>
             <div className={styles.formContent}>
               {
                 login ? 
                 <div className={styles.oaButton} style={{margin: "10px 0" }} data-aos="fade-up" data-aos-delay={800}>
                   <button onClick={onLogout} style={{marginLeft: "auto"}}>
-                    Logout
+                    {languages.logOut}
                   </button>
                 </div>
                 :
               <div className={styles.oaForm}>
+                <p className={styles.loginMessage}>Login To Student Portal</p>
                 <div data-aos="fade-right" data-aos-delay={100}>
                   <MaterialInput
                     label={"Student ID*"}
@@ -155,22 +159,54 @@ const StudentsPortal = (props) =>
                 </div>
               </div>
               }
-
-              <div className={styles.documents}>
               {
-                studetnDocs.length > 0 ?
-                studetnDocs.map(result => (
-                  <div className={styles.letter} key={result._id}>
-                    <a href={serverPath(result.filePath)} download={result.title + ".pdf"} className={styles.docLink}>
-                      <span>DOCUMENT - {result[isRTL ? "pTitle" : "title"]}</span>
-                      <span>{new Date(result.createdAt).toLocaleDateString()}</span>
-                    </a>
+              (login && student) && (
+              <>
+                <div className={styles.studentProfile}>
+                  {student?.imagePath && 
+                  <div className={styles.studentImage}>
+                    <img src={serverPath(student.thumbnail)} alt="Student image" className={styles.img} />
                   </div>
-                ))
-                :
-                <p className="msg" style={{marginTop: "20px", color: "dodgerblue"}}>{languages.nothing_to_show}</p>
-              }
-              </div>
+                  }
+                  <div className={styles.studentDetails}>
+                    <div className={styles.group}>
+                      <p className={styles.groupTitle}>{languages.id}: </p>
+                      <p className={styles.groupValue}>{student?.id}</p>
+                    </div>
+                    <div className={styles.group}>
+                      <p className={styles.groupTitle}>{languages.fullName}: </p>
+                      <p className={styles.groupValue}>{student[isRTL ? "pFullName" : "fullName"]}</p>
+                    </div>
+                    <div className={styles.group}>
+                      <p className={styles.groupTitle}>{languages.fatherName}: </p>
+                      <p className={styles.groupValue}>{student[isRTL ? "pFatherName" : "fatherName"]}</p>
+                    </div>
+                    <div className={styles.group}>
+                      <p className={styles.groupTitle}>{languages.faculty}: </p>
+                      <p className={styles.groupValue}>{student?.facultyId[isRTL ? "pName" : "name"]}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.documents}>
+                  <div className={styles.documentLetter}>
+                    {languages.yourDocuments}
+                  </div>
+                {
+                  studetnDocs.length > 0 ?
+                  studetnDocs.map(result => (
+                    <div className={styles.letter} key={result._id}>
+                      <a href={serverPath(result.filePath)} download={result.title + ".pdf"} className={styles.docLink}>
+                        <span>{languages.document.toUpperCase()} - {result[isRTL ? "pTitle" : "title"]}</span>
+                        <span>{new Date(result.createdAt).toLocaleDateString()}</span>
+                      </a>
+                    </div>
+                  ))
+                  :
+                  <p className="msg" style={{marginTop: "20px", color: "dodgerblue"}}>{languages.nothing_to_show}</p>
+                }
+                </div>
+              </>
+            )}
             </div>
             <SideBar
               links={[

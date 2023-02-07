@@ -65,6 +65,15 @@ let languages = new LocalizedStrings({
     a_about: "About",
     author: "Author",
     page: "Page",
+    related: "Related",
+    document: "Document",
+    fullName: "Full Name",
+    fatherName: "Father Name",
+    faculty: "Faculty",
+    id: "ID",
+    yourDocuments: "Your Documents",
+    sabaStudentsPortal: "Saba University Students Portal",
+    logOut: "LogOut",
   },
  ps:{
   home: "کور",
@@ -136,7 +145,17 @@ let languages = new LocalizedStrings({
   annual_two_semesters: "کلني دوه سمسترونه",
   author: "لیکوال",
   page: "ګڼه",
-  a_about: "موخی"
+  a_about: "موخی",
+  related: "اړوند",
+  document: "سند",
+  fullName: "بشپړ نوم",
+  fatherName: "د پلار نوم",
+  faculty: "پوهنځی",
+  id: "آیډی",
+  yourDocuments: "ستاسو اسناد",
+  sabaStudentsPortal: "د سبا پوهنتون محصلینو پورټل",
+  logOut: "وتل",
+
  }
 });
 

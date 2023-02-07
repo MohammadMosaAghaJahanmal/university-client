@@ -34,7 +34,6 @@
 .oaForm
 {
   display: grid;
-  grid-template-columns: repeat(2, auto);
   row-gap: 15px;
   column-gap: 10px;
   max-width: 1000px;
@@ -79,7 +78,7 @@
 .oaButton button
 {
   display: flex;
-  width: 300px;
+  width: 100%;
   height: 42px;
   align-items: center;
   justify-content: center;
@@ -145,6 +144,60 @@
   padding-bottom: 80px;
 
 }
+
+.studentProfile
+{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  border: 1px solid #0080d6;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+.studentImage
+{
+  max-width: 200px;
+  width: 100%;
+  height: 200px;
+}
+.studentImage img
+{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.studentDetails
+{
+  display: grid;
+  align-content: start;
+  row-gap: 10px;
+  padding: 10px 0;
+}
+.group
+{
+  display: flex;
+  column-gap: 5px;
+  color: #0080d6;
+}
+.groupTitle
+{
+  font-weight: bold;
+  opacity: 0.8;
+}
+.documentLetter
+{
+  color: #0080d6;
+  text-align: center;
+  font-size: 20px;
+  margin: 10px 0;
+}
+.loginMessage
+{
+  color: #0080d6;
+  text-align: center;
+  font-size: 20px;
+  opacity: 0.8;
+}
 @media all and (max-width: 992px){
   .wrapper
   {
@@ -170,6 +223,22 @@
   .oaButton button
   {
     width: 100%;
+  }
+}
+
+
+@media all and (max-width: 425px) {
+  .group
+  {
+    display: grid;
+  }
+  .groupValue
+  {
+    text-indent: 10px;
+  }
+  .studentDetails
+  {
+    row-gap: 5px;
   }
 }
 

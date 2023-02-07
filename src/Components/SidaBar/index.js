@@ -21,7 +21,7 @@ function SideBar(props) {
 
     return (
         <div className={styles.sideMenu}>
-            <p className={styles.relations}>{props.title || "Related"}</p>
+            <p className={styles.relations}>{props.title || languages.related}</p>
             {links}
       </div>
     )
