@@ -3,18 +3,23 @@ import languages from '../localization';
 import useStore from '../store/store';
 import serverPath from '../utils/serverPath';
 const initialState = {
+    login: false,
+    token: null,
+    student: null,
     loading: true,
+    authLoading: false,
+
 };
 
 export const AuthContext = React.createContext({
     ...initialState,
-    initialState: initialState,
+    initialState: {...initialState},
     setAuth: (prev) => {},
     setLanguage: (langCode) => {},
     languageCode: "en" || "af"
 });
 
-
+let SA_TOKEN = "SA_TOKEN";
 
 const AuthProvider = (props) =>
 {
@@ -26,12 +31,10 @@ const AuthProvider = (props) =>
 
     useEffect(() =>
     {
-        console.log("RENDERING");
 
         const lang = localStorage.getItem("lang");
-        if (lang) {
+        if (lang) 
             setLanguage(lang);
-        }
         (async() =>
         {
             const {data, status} = await (await fetch(serverPath("/bulky"))).json();
@@ -40,6 +43,39 @@ const AuthProvider = (props) =>
                     dispatch('setData', {...perModelData});
                 });
             setAuth((prev) => ({...prev, loading: false}));
+        })()
+
+    }, []);
+
+    useEffect(() =>
+    {
+        (async()=>{
+            const authtoken = localStorage.getItem(SA_TOKEN);
+            if (!authtoken)
+                return;
+            setAuth(prev => ({...prev, authLoading: true}));
+            try {
+                const response = await fetch(serverPath("/token"), {
+                method: "POST",
+                headers: {
+                "Authorization": `bearer ${authtoken}`
+                },
+                });
+                const objData = await response.json();
+                if (objData.status === 'success') {
+                    setAuth((prev) => ({
+                        ...prev, 
+                        login: true, 
+                        token: authtoken,
+                        student: objData.user,
+                        authLoading: false
+                    }));
+                    return
+                };
+
+            } catch (error) {}
+            localStorage.removeItem(SA_TOKEN);
+            setAuth(prev => ({...prev, authLoading: false}));
         })()
 
     }, []);
