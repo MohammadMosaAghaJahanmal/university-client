@@ -68,7 +68,15 @@ const AuthProvider = (props) =>
                 });
                 const objData = await response.json();
                 if (objData.status === 'success') {
-                    const docs = await fetch(serverPath(`/student_doc/${objData?.user?.id}`));
+                    const docs = await fetch(serverPath(`/student_doc/find`), {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "Application/json",    
+                            "Authorization": `bearer ${authtoken}`,
+                        },
+                    "Content-Type": "Application/json",    
+                    body: JSON.stringify({studentId: objData?.user?.id})
+                      });
                     const docsObj = await docs.json();
                     let studetnDOCS = [];
 

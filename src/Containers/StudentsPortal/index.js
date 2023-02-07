@@ -85,7 +85,14 @@ const StudentsPortal = (props) =>
         {
           const {token, user} = objData;
           localStorage.setItem(SA_TOKEN, token);
-          const docs = await fetch(serverPath(`/student_doc/${user?.id}`));
+          const docs = await fetch(serverPath(`/student_doc/find`), {
+            method: "POST",
+            headers: {
+              "Content-Type": "Application/json",
+              "Authorization": `bearer ${token}`,
+            },
+            body: JSON.stringify({studentId: user?.id})
+          });
           const docsObj = await docs.json();
           let studetnDOCS = [];
           if(docsObj.status === "success")

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import languages from "../../localization";
@@ -8,8 +8,16 @@ import SweetAlert from '../../Components/SweetAlert';
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import Loader from "../../Components/Loader";
+import {AuthContext} from '../../authContext';
+
 const StudentsVerification = (props) =>
 {
+  const authContext = useContext(AuthContext)
+  const {
+    student,
+    token,
+    setAuth
+  } = authContext;
   const [globalState, dispatch] = useStore();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,7 +39,14 @@ const StudentsVerification = (props) =>
 
       try {
         setIsLoading(true);
-        const response = await fetch(serverPath(`/student_doc/${studentId}`));
+        const response = await fetch(serverPath(`/student_doc/find`), {
+          method: "POST",
+          headers: {
+            "Content-Type": "Application/json",
+            "Authorization": `bearer ${token}`,
+          },
+          body: JSON.stringify({studentId: student?.id})
+        });
         const objData = await response.json();
         if(objData.status === "failure")
           SweetAlert("error", objData.message);
