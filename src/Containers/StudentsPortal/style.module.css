@@ -46,6 +46,7 @@
   border: 1px solid rgba(0, 128, 214, 0.6);
   padding: 20px;
   border-radius: 10px;
+  position: relative;
 }
 .oaInfo
 {
@@ -215,6 +216,33 @@
   align-content: center;
   justify-content: center;
   z-index: 100;
+}
+.closeButton
+{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: unset;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 3;
+
+}
+.closeButton svg
+{
+  color: rgba(0, 128, 214, 0.6);
+  width: 25px;
+}
+.welcomeTitle
+{
+  margin-bottom: 50px;
+  font-size: 25px;
+  color: #0080d6;
+  opacity: 0.8;
 }
 @media all and (max-width: 992px){
   .wrapper

@@ -9,6 +9,7 @@ import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import Loader from "../../Components/Loader";
 import {AuthContext} from '../../authContext';
+import {IoMdCloseCircleOutline as Close} from 'react-icons/io'
 const StudentsPortal = (props) =>
 {
   const [globalState] = useStore();
@@ -137,7 +138,10 @@ const StudentsPortal = (props) =>
               <>
               {showModal && 
                 <div className={styles.modal}>
-                  <div className={styles.oaForm}>
+                  <div className={styles.oaForm} data-aos="fade-right" data-aos-delay={100}>
+                    <button className={styles.closeButton} onClick={() => setShowModal(prev => (!prev))}>
+                      <Close size={25} />
+                    </button>
                     <p className={styles.loginMessage}>Login To Student Portal</p>
                     <div data-aos="fade-right" data-aos-delay={100}>
                       <MaterialInput
@@ -169,12 +173,16 @@ const StudentsPortal = (props) =>
                 </div>
               }
               {
-                !showModal && 
-                <div className={styles.oaButton} data-aos="fade-up" data-aos-delay={800}>
-                  <button onClick={() => setShowModal(prev => (!prev))} style={{width: "280px", margin: "0 auto"}}>
-                    Login
-                  </button>
-                </div>
+                !showModal && (
+                  <>
+                  <div data-aos="fade-down" data-aos-delay={300} className={styles.welcomeTitle}>Welcome To Students Portal</div>
+                  <div className={styles.oaButton} data-aos="fade-up" data-aos-delay={500}>
+                    <button onClick={() => setShowModal(prev => (!prev))} style={{width: "280px",}}>
+                      Login
+                    </button>
+                  </div>
+                </>
+                )
               }
 
               </>
