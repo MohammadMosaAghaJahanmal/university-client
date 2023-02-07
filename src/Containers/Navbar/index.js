@@ -23,11 +23,14 @@ import US_FLAG from '../../Assets/us-flag.png';
 import LOGO from '../../Assets/logo.png';
 import language from '../../localization';
 import {AuthContext} from '../../authContext';
-
+import useStore from "../../store/store";
 
 const Navbar = (props) =>
 {
 
+  const [globalState] = useStore();
+  const {contactinfos} = globalState;
+  const contactinfo = contactinfos[0]
   const navigate = useNavigate();
   const menus = [
     {
@@ -142,7 +145,7 @@ const Navbar = (props) =>
     } 
   }, []);
 
-
+  console.log(contactinfos)
   return (
     <>
       <div className={[styles.upperMenuContainer].join(" ")}>
@@ -152,13 +155,13 @@ const Navbar = (props) =>
               <i>
                 <Phone size={18} color="#0080d6" /> 
               </i>
-              <span><address>+93744488816</address></span>
+              <span><address>{contactinfo?.phone}</address></span>
             </a>
-            <a href="mailto:iamceayber@gmail.com" data-aos="fade-left" data-aos-delay={900} >
+            <a href={`mailto:${contactinfo?.email}`} data-aos="fade-left" data-aos-delay={900} >
               <i>
                 <Mail size={20} color="#0080d6" /> 
               </i>
-              <span><address>iamceayber@gmail.com</address></span>
+              <span><address>{contactinfo?.email}</address></span>
             </a>
           </div>
           <div className={styles.menuRight}>
