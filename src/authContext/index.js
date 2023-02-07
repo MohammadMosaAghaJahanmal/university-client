@@ -60,6 +60,7 @@ const AuthProvider = (props) =>
                 headers: {
                 "Authorization": `bearer ${authtoken}`
                 },
+                body: JSON.stringify({type: "student"})
                 });
                 const objData = await response.json();
                 if (objData.status === 'success') {
