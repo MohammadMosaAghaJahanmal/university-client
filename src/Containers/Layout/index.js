@@ -38,6 +38,7 @@ const MigrationPolicy = lazy(() => import('../MigrationPolicy'));
 const ScholarshipsFinancing = lazy(() => import('../ScholarshipsFinancing'));
 const SemesterPromotionRules = lazy(() => import('../SemesterPromotionRules'));
 const StudentsVerification = lazy(() => import('../StudentsVerification'));
+const StudentsPortal = lazy(() => import('../StudentsPortal'));
 const Penalties = lazy(() => import('../Penalties'));
 const Result = lazy(() => import('../Result'));
 
@@ -104,6 +105,7 @@ class Layout extends PureComponent
         {screen: '/students/semester_promotion_rules', Component: SemesterPromotionRules},
         {screen: '/students/penalties', Component: Penalties},
         {screen: '/students/students_verification', Component: StudentsVerification},
+        {screen: '/students/student_portal', Component: StudentsPortal},
         {screen: '/kankor/admission', Component: OnlineAdmission},
         {screen: '/kankor/result', Component: Result},
 
