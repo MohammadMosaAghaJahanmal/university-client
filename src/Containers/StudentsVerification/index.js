@@ -16,7 +16,6 @@ const StudentsVerification = (props) =>
   const {
     student,
     token,
-    setAuth
   } = authContext;
   const [globalState, dispatch] = useStore();
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +29,7 @@ const StudentsVerification = (props) =>
   const [results, setResults] = useState([]);
 
   const searchHandler = async () => {
-    if(isLoading || (studentId === results[0]?.student?.id))
+    if(isLoading)
       return;
     if(studentId.length <= 0)
       return SweetAlert("info", "ID input not allowed to by empty!")
@@ -54,7 +53,7 @@ const StudentsVerification = (props) =>
         if(objData.status === "success")
         {
           const data = objData.data;
-          setResults(data);
+          // setResults(data);
         }
         setIsLoading(false);
       } catch (err) {
@@ -95,19 +94,11 @@ const StudentsVerification = (props) =>
                 </div>
               </div>
               <div className={styles.documents}>
-              {
-                results.length > 0 ?
-                results.map(result => (
-                  <div className={styles.letter} key={result._id}>
-                    <a href={serverPath(result.filePath)} download={result.title + ".pdf"} className={styles.docLink}>
-                      <span>DOCUMENT - {result[isRTL ? "pTitle" : "title"]}</span>
-                      <span>{new Date(result.createdAt).toLocaleDateString()}</span>
-                    </a>
+                <div className={styles.sProfile}>
+                  <div className={styles.pImg}>
+                    <img src={serverPath(student?.thumbnail)} alt={'student image'} />
                   </div>
-                ))
-                :
-                <p className="msg" style={{marginTop: "20px", color: "dodgerblue"}}>{languages.nothing_to_show}</p>
-              }
+                </div>
               </div>
             </div>
             <SideBar
