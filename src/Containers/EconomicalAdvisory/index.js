@@ -11,13 +11,21 @@ import useStore from '../../store/store';
 import serverPath from '../../utils/serverPath';
 import SweetAlert from '../../Components/SweetAlert';
 import TextEditor from "../../Components/TextEditor";
+import Pagination from "../../Components/Pagination";
 
 const EconomicalAdvisory = (props) =>
 {
   const [globaState, dispatch] = useStore();
   const isRTL = (language.getLanguage() === 'ps');
   const [isLoading, setIsLoading] = useState(false);
+  const [pagination, setPagination] = useState({
+    min: 1,
+    max: 1,
+    value: 1,
+    show: 4,
+  });
 
+  
   const {boardinfos, boardmembers, boardposts, heros} = globaState;
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "economical_advisory")?.imagePath || "")).href;
   const navigate = useNavigate();
@@ -75,6 +83,14 @@ const EconomicalAdvisory = (props) =>
 
   }, [])
 
+  useEffect(() => {
+    setPagination(prev => ({
+      ...prev,
+      max: Math.ceil(boardposts.length / pagination.show),
+      value: 1
+    }))
+  }, [boardposts]);
+
   return (
     <div className={styles.container}>
       <SmallHero title={isRTL ? language.economical_advisory : "Saba Economical Advisory Board"} image={myHero} style={{color: "white", textShadow: "0 0 5px black"}} bgPosition={{backgroundPosition: "bottom"}} bgAnimation={false}/>
@@ -124,8 +140,9 @@ const EconomicalAdvisory = (props) =>
               />
               {
               boardposts.length > 0 ?
+              <>
               <div className={styles.cards}>
-                {boardposts.map(post => (
+                {boardposts.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(post => (
                   <div className={styles.card} onClick={() => clickHandler(post._id)} key={post._id}>
                     <ImagesViewer 
                       images={post.images.slice(0, 4).map(image => serverPath(image.imagePath))} 
@@ -145,6 +162,20 @@ const EconomicalAdvisory = (props) =>
                   </div>
                 ))}
               </div>
+              <div style={{width: 200, margin: "0 auto", marginTop: 30}}>
+              { pagination.max > 1 &&
+                <Pagination
+                  min={pagination.min}
+                  max={pagination.max}
+                  value={pagination.value}
+                  onChange={(value) => setPagination(prev => ({
+                    ...prev,
+                    value: value
+                  }))}
+                />
+              }
+              </div>
+              </>
               :
               <p className={"msg"}>{language.no_posts}</p>
               }
