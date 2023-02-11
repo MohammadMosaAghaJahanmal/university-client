@@ -10,13 +10,19 @@ import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import Loader from "../../Components/Loader";
 import SweetAlert from "../../Components/SweetAlert";
+import Pagination from "../../Components/Pagination";
 
 const PDC = (props) =>
 {
 
   const [globalState, dispatch] = useStore();
   const [isLoading, setIsLoading] = useState(false);
-
+  const [pagination, setPagination] = useState({
+    min: 1,
+    max: 1,
+    value: 1,
+    show: 6,
+  });
   const {heros, pdcstaticks, pdcposts} = globalState;
   const pdcStat = pdcstaticks[0]
   const isRTL = (language.getLanguage() === 'ps');
@@ -64,9 +70,16 @@ const PDC = (props) =>
         return SweetAlert('error', err.message);
       }
     })()
+  }, []);
+  
+  useEffect(() => {
+    setPagination(prev => ({
+      ...prev,
+      max: Math.ceil(pdcposts.length / pagination.show),
+      value: 1
+    }))
+  }, [pdcposts]);
 
-
-  }, [])
 
 
   return (
@@ -101,7 +114,7 @@ const PDC = (props) =>
                 pdcposts.length <= 0 ?
                 <p>{language.no_posts}</p>
                 :
-                pdcposts.map(pdcPost => (
+                pdcposts.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(pdcPost => (
                 <div className={styles.card} onClick={()=> postHandler("a_pdc", pdcPost._id)} key={pdcPost._id}>
                   <ImagesViewer 
                     images={pdcPost.images.map(pdcImage => (serverPath(pdcImage.imagePath)))} 
@@ -121,6 +134,17 @@ const PDC = (props) =>
 
               }
             </div>
+            { pagination.max > 1 &&
+              <Pagination
+                min={pagination.min}
+                max={pagination.max}
+                value={pagination.value}
+                onChange={(value) => setPagination(prev => ({
+                  ...prev,
+                  value: value
+                }))}
+              />
+            }
           </>
           :
           <p className="msg">{language.nothing_to_show}</p>

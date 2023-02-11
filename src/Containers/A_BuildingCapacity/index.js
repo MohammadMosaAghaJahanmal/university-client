@@ -21,7 +21,7 @@ const A_BuildingCapacity = (props) =>
     min: 1,
     max: 1,
     value: 1,
-    show: 6,
+    show: 8,
   });
 
   const {heros, acapacitybuildings} = globalState;
