@@ -11,6 +11,7 @@ import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import SweetAlert from "../../Components/SweetAlert";
 import Loader from "../../Components/Loader";
+import Pagination from "../../Components/Pagination";
 const CapacityBuilding = (props) =>
 {
   const [globalState, dispatch] = useStore();
@@ -20,6 +21,13 @@ const CapacityBuilding = (props) =>
 
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "capacity_building")?.imagePath || "")).href;
+  const [pagination, setPagination] = useState({
+    min: 1,
+    max: 1,
+    value: 1,
+    show: 8,
+  });
+
 
   const navigate = useNavigate();
 
@@ -50,9 +58,15 @@ const CapacityBuilding = (props) =>
         return SweetAlert('error', err.message);
       }
     })()
+  }, []);
 
-
-  }, [])
+  useEffect(() => {
+    setPagination(prev => ({
+      ...prev,
+      max: Math.ceil(capacitybuildings.length / pagination.show),
+      value: 1
+    }))
+  }, [capacitybuildings]);
 
   return (
     <div className={styles.cb}>
@@ -71,7 +85,7 @@ const CapacityBuilding = (props) =>
             />
             <div className={styles.wrapper}>
               <div className={styles.cards}>
-              {capacitybuildings.map(buildings => (
+              {capacitybuildings.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(buildings => (
                   <div className={styles.card} key={buildings._id} onClick={() => clickHandler(buildings._id)}>
                     <ImagesViewer 
                       images={buildings.images.map(building => (serverPath(building.imagePath)))} 
@@ -101,6 +115,17 @@ const CapacityBuilding = (props) =>
                     ]}
                   />
             </div>
+            { pagination.max > 1 &&
+              <Pagination
+                min={pagination.min}
+                max={pagination.max}
+                value={pagination.value}
+                onChange={(value) => setPagination(prev => ({
+                  ...prev,
+                  value: value
+                }))}
+              />
+            }
             </>
           :
           <p className="msg" style={{padding: "20px 0"}}>{language.nothing_to_show}</p>  
