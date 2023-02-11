@@ -1,0 +1,24 @@
+
+
+.container
+{
+  display: flex;
+  justify-self: center;
+}
+
+.input
+{
+  color: #0080d6;
+  border: transparent;
+  background-color: rgba(0, 128, 214, 0.1);
+}
+
+
+.btn
+{
+  display: inline-block;
+  background-color: transparent;
+  border: unset;
+  cursor: pointer;
+}
+
