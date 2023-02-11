@@ -8,6 +8,7 @@ import SweetAlert from "../../Components/SweetAlert";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import Loader from "../../Components/Loader";
+import Pagination from "../../Components/Pagination";
 const Aggrements = (props) =>
 {
 
@@ -19,6 +20,12 @@ const Aggrements = (props) =>
 
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "aggrements")?.imagePath || "")).href;
+  const [pagination, setPagination] = useState({
+    min: 1,
+    max: 1,
+    value: 1,
+    show: 6,
+  });
 
   useEffect(() => {
     
@@ -44,6 +51,13 @@ const Aggrements = (props) =>
 
 
   }, [])
+  useEffect(() => {
+    setPagination(prev => ({
+      ...prev,
+      max: Math.ceil(aggrements.length / pagination.show),
+      value: 1
+    }))
+  }, [aggrements]);
 
   const navigate = useNavigate();
 
@@ -67,7 +81,7 @@ const Aggrements = (props) =>
               title={language.aggrements}
             />
             <div className={styles.cards}>
-            {aggrements.map(aggrement => (
+            {aggrements.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(aggrement => (
               <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler(aggrement._id)} key={aggrement._id}>
                 <div className={styles.img}>
                   <img src={serverPath(aggrement.thumbnail)} alt="aggrement image" />
@@ -83,6 +97,17 @@ const Aggrements = (props) =>
               </div>
             ))}
             </div>
+            { pagination.max > 1 &&
+              <Pagination
+                min={pagination.min}
+                max={pagination.max}
+                value={pagination.value}
+                onChange={(value) => setPagination(prev => ({
+                  ...prev,
+                  value: value
+                }))}
+              />
+            }
           </>
           :
           <p className="msg">{language.nothing_to_show}</p>
