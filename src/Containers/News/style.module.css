@@ -41,7 +41,7 @@
   display: grid;
   column-gap: 15px;
   row-gap: 15px;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
   align-content: start;
 }
 
@@ -51,7 +51,7 @@
   display: grid;
   grid-template-columns: auto;
   column-gap: 20px;
-  justify-content: start;
+  /* justify-content: start; */
   cursor: pointer;
 
 }
