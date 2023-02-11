@@ -10,6 +10,7 @@ import SweetAlert from "../../Components/SweetAlert";
 import serverPath from "../../utils/serverPath";
 import Loader from "../../Components/Loader";
 import useStore from "../../store/store";
+import Pagination from "../../Components/Pagination";
 const SabaMagazine = (props) =>
 {
   const [globalState, dispatch] = useStore();
@@ -19,6 +20,12 @@ const SabaMagazine = (props) =>
 
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "saba_magazine")?.imagePath || "")).href;
+  const [pagination, setPagination] = useState({
+    min: 1,
+    max: 1,
+    value: 1,
+    show: 9,
+  });
 
   
   useEffect(() => {
@@ -47,6 +54,15 @@ const SabaMagazine = (props) =>
 
   }, [])
 
+  useEffect(() => {
+    setPagination(prev => ({
+      ...prev,
+      max: Math.ceil(magazines.length / pagination.show),
+      value: 1
+    }))
+  }, [magazines]);
+
+
   const navigate = useNavigate();
 
   const clickHandler = (id) =>
@@ -72,7 +88,7 @@ const SabaMagazine = (props) =>
             />
             <div className={styles.mainContentWrapper}>
               <div className={styles.cards}>
-              {magazines.map(post => (
+              {magazines.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(post => (
                 <div className={[styles.card, (isRTL && styles.rtl)].join(" ")} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler(post._id)} key={post._id}>
                   <div className={styles.img}>
                     <img src={serverPath(post.thumbnail)} alt="Magazine image" />
@@ -112,6 +128,17 @@ const SabaMagazine = (props) =>
                 ]}
               />
             </div>
+            { pagination.max > 1 &&
+              <Pagination
+                min={pagination.min}
+                max={pagination.max}
+                value={pagination.value}
+                onChange={(value) => setPagination(prev => ({
+                  ...prev,
+                  value: value
+                }))}
+              />
+            }
           </>
           :
           <p className="msg" style={{padding: "30px 0"}}>{language.nothing_to_show}</p>  
