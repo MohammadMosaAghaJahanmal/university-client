@@ -2,7 +2,7 @@
 {
   background-color: #0080d6;
   height: 700px;
-  background-image: url(../../../Assets/abcd.jpg);
+  /* background-image: url(../../../Assets/abcd.jpg); */
   background-size: cover;
   background-position: center;
 }
