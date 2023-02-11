@@ -11,11 +11,18 @@ import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import SweetAlert from "../../Components/SweetAlert";
 import Loader from "../../Components/Loader";
+import Pagination from "../../Components/Pagination";
 const A_BuildingCapacity = (props) =>
 {
 
   const [globalState, dispatch] = useStore();
   const [isLoading, setIsLoading] = useState(false);
+  const [pagination, setPagination] = useState({
+    min: 1,
+    max: 1,
+    value: 1,
+    show: 6,
+  });
 
   const {heros, acapacitybuildings} = globalState;
 
@@ -51,9 +58,16 @@ const A_BuildingCapacity = (props) =>
         return SweetAlert('error', err.message);
       }
     })()
+  }, []);
 
+  useEffect(() => {
+    setPagination(prev => ({
+      ...prev,
+      max: Math.ceil(acapacitybuildings.length / pagination.show),
+      value: 1
+    }))
+  }, [acapacitybuildings]);
 
-  }, [])
 
   return (
     <div className={styles.cb}>
@@ -72,7 +86,7 @@ const A_BuildingCapacity = (props) =>
             />
             <div className={styles.wrapper}>
               <div className={styles.cards}>
-              {acapacitybuildings.map(buildings => (
+              {acapacitybuildings.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(buildings => (
                 <div className={styles.card} key={buildings._id} onClick={() => clickHandler(buildings._id)}>
                   <ImagesViewer 
                     images={buildings.images.map(building => (serverPath(building.imagePath)))} 
@@ -104,6 +118,17 @@ const A_BuildingCapacity = (props) =>
                     ]}
                   />
             </div>
+            { pagination.max > 1 &&
+              <Pagination
+                min={pagination.min}
+                max={pagination.max}
+                value={pagination.value}
+                onChange={(value) => setPagination(prev => ({
+                  ...prev,
+                  value: value
+                }))}
+              />
+            }
           </>
           :
           <p className="msg" style={{padding: "50px 0"}}>{language.nothing_to_show}</p>  
