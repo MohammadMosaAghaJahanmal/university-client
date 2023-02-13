@@ -40,15 +40,17 @@ const VissionMission = (props) =>
         <>
           <div className={styles.vm}>
             <div className={styles.vmCard}>
-              <Title title={isRTL ? visMis.vission.pTitle : visMis.vission.title} className={styles.title}/>
-              <Text text={isRTL ? visMis.vission.pDescription : visMis.vission.description}
+              <Title title={visMis.vission[isRTL ? "pTitle" : "title"]} className={styles.title}/>
+              <Text
                 className={styles.text}
+                dangerouslySetInnerHTML={{__html: visMis.vission[isRTL ? "pDescription": "description"]}}
               />
             </div>
             <div className={styles.vmCard}>
-              <Title title={isRTL ? visMis.mission.pTitle : visMis.mission.title} className={styles.title} />
-              <Text text={isRTL ? visMis.mission.pDescription : visMis.mission.description}
+              <Title title={visMis.mission[isRTL ? "pTitle" : "title"]} className={styles.title} />
+              <Text
                 className={styles.text}
+                dangerouslySetInnerHTML={{__html: visMis.mission[isRTL ? "pDescription": "description"]}}
               />
             </div>
           </div>

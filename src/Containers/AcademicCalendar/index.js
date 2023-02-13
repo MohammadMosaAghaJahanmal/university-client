@@ -31,9 +31,8 @@ const AcademicCalendar = (props) =>
             />
             <Text
               className={styles.text}
-            >
-              {calendar[isRTL ? "pDescription": "description"]}
-            </Text>
+              dangerouslySetInnerHTML={{__html: calendar[isRTL ? "pDescription" : "description"]}}
+            ></Text>
             <Text
               className={styles.text}
             >

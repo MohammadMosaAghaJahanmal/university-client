@@ -32,9 +32,7 @@ const CouncilCommittees = (props) =>
                   className={[styles.chTitle].join(" ")}
                   />
               <Text className={styles.text}>
-                <div className={styles.textData}>
-                  {comittee[isRTL ? "pDescription" : "description"]}
-                </div>
+                <div className={styles.textData} dangerouslySetInnerHTML={{__html: comittee[isRTL ? "pMessage": "message"]}}></div>
               </Text>
             </div>
             <SideBar

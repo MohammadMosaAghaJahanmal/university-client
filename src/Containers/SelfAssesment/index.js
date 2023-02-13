@@ -34,9 +34,7 @@ const SelfAssesment = (props) =>
                   className={[styles.chTitle].join(" ")}
                   />
               <Text className={styles.text}>
-                <div className={styles.textData}>
-                  {self[isRTL ? "pDescription" : "description"]}
-                </div>
+                <div className={styles.textData} dangerouslySetInnerHTML={{__html: self[isRTL ? "pDescription": "description"]}}></div>
               </Text>
             </div>
             <SideBar

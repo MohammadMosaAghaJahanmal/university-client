@@ -108,9 +108,7 @@ const Post = (props) =>
               <div className={styles.postImage}>
                 <img src={serverPath(mainPost.imagePath)} alt="post image"/>
               </div>
-              <div className={styles.postDesc}>
-                {mainPost[isRTL ? "pDescription" : "description"]}
-              </div>
+              <div className={styles.postDesc} dangerouslySetInnerHTML={{__html: mainPost[isRTL ? "pDescription" : "description"]}}></div>
             </div>
             <div className={styles.latestPost}>
             {latestPosts.length > 0 ?

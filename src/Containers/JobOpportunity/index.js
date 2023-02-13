@@ -69,9 +69,7 @@ const JobOpportunity = (props) =>
                     className={styles.title}
                     title={job[isRTL ? "pTitle" : "title"]}
                   />
-                  <Text className={styles.text}>
-                  {job[isRTL ? "pDescription" : "description"]}
-                  </Text>
+                  <Text className={styles.text} dangerouslySetInnerHTML={{__html: job[isRTL ? "pDescription": "description"]}}></Text>
                   <p className={styles.expire}>
                     Expiring On {new Date(job.expireDate).toLocaleDateString()}
                   </p>

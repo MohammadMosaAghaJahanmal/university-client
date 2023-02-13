@@ -32,9 +32,7 @@ const SemesterPromotionRules = (props) =>
                     className={[styles.chTitle].join(" ")}
                     />
                 <Text className={styles.text}>
-                  <div className={styles.textData}>
-                    {spr[isRTL ? "pDescription" : "description"]}
-                  </div>
+                  <div className={styles.textData} dangerouslySetInnerHTML={{__html: spr[isRTL ? "pDescription": "description"]}}></div>
                 </Text>
               </div>
               ))}

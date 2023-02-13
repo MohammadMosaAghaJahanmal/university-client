@@ -32,9 +32,7 @@ const ScholarshipsFinancing = (props) =>
                     className={[styles.chTitle].join(" ")}
                     />
                 <Text className={styles.text}>
-                  <div className={styles.textData}>
-                    {sco[isRTL ? "pDescription" : "description"]}
-                  </div>
+                  <div className={styles.textData} dangerouslySetInnerHTML={{__html: sco[isRTL ? "pDescription": "description"]}}></div>
                 </Text>
               </div>
               ))}

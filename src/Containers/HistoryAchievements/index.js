@@ -34,9 +34,7 @@ const HistoryAchievements = (props) =>
               />
               {history?.description ?
               <Text className={styles.text}>
-                <div className={styles.textData}>
-                  {history[isRTL ? "pDescription" : "description"]}
-                </div>
+                <div className={styles.textData} dangerouslySetInnerHTML={{__html: history[isRTL ? "pDescription": "description"]}}></div>
               </Text>
               :
               <p className="msg">{language.nothing_to_show}</p>
@@ -53,9 +51,7 @@ const HistoryAchievements = (props) =>
               { achievement?.description ?
               <>
                 <Text className={styles.text}>
-                  <div className={styles.textData}>
-                    {achievement[isRTL ? "pDescription" : "description"]}
-                  </div>
+                  <div className={styles.textData} dangerouslySetInnerHTML={{__html: achievement[isRTL ? "pDescription": "description"]}}></div>
                 </Text>
                 {achievement?.achievements?.length > 0 &&
                 achievement.achievements.map(ach => (

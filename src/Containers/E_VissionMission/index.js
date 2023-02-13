@@ -41,13 +41,13 @@ const E_VissionMission = (props) =>
           <div className={styles.vm}>
             <div className={styles.vmCard}>
               <Title title={visMis.vission[isRTL ? "pTitle" : "title"]} className={styles.title}/>
-              <Text text={visMis.vission[isRTL ? "pDescription" : "description"]}
+              <Text dangerouslySetInnerHTML={{__html: visMis.vission[isRTL ? "pDescription": "description"]}}
                 className={styles.text}
               />
             </div>
             <div className={styles.vmCard}>
               <Title title={visMis.mission[isRTL ? "pTitle" : "title"]} className={styles.title} />
-              <Text text={visMis.mission[isRTL ? "pDescription" : "description"]}
+              <Text dangerouslySetInnerHTML={{__html: visMis.mission[isRTL ? "pDescription": "description"]}}
                 className={styles.text}
               />
             </div>
@@ -56,10 +56,7 @@ const E_VissionMission = (props) =>
                   title={language.a_about}
                   className={[styles.chTitle, styles.title].join(" ")}
                   />
-              <div className={styles.textData}>
-                <p>
-                  {visMis.about[isRTL ? "pDescription" : "description"]}
-                </p>
+              <div className={styles.textData} dangerouslySetInnerHTML={{__html: visMis.about[isRTL ? "pDescription": "description"]}}>
               </div>
             </div>
           </div>

@@ -101,9 +101,7 @@ const PDC = (props) =>
               <img src={serverPath(pdcStat?.imagePath)} alt="PDC IMAGE"/>
             </div>
             <div className={styles.bulletContainer}>
-              <Text className={[styles.text, styles.bulletText].join(" ")}>
-                {pdcStat[isRTL ? "pAnnualPlan" : "annualPlan"]}
-              </Text>
+              <Text className={[styles.text, styles.bulletText].join(" ")} dangerouslySetInnerHTML={{__html: pdcStat[isRTL ? "pAnnualPlan" : "annualPlan"]}}></Text>
             </div>
             <Title 
               title={"PDC Posts"}

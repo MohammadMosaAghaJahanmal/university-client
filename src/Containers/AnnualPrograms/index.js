@@ -34,9 +34,7 @@ const AnnualPrograms = (props) =>
                   className={[styles.chTitle].join(" ")}
                   />
               <Text className={styles.text}>
-                <div className={styles.textData}>
-                {anualPrograms[isRTL ? "pDescription" : "description"]}
-                </div>
+                <div className={styles.textData} dangerouslySetInnerHTML={{__html: anualPrograms[isRTL ? "pDescription" : "description"]}}></div>
               </Text>
             </div>
             <SideBar

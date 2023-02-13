@@ -144,9 +144,7 @@ const ResearchPost = (props) =>
                 {mainPost[isRTL ? "pTitle" : "title"]}
                 </p>
               </div>
-              <div className={styles.postDesc}>
-              {mainPost[isRTL ? "pDescription" : "description"]}
-              </div>
+              <div className={styles.postDesc} dangerouslySetInnerHTML={{__html: mainPost[isRTL ? "pDescription": "description"]}}></div>
             </div>
             <SideBar
                   links={[

@@ -5,7 +5,7 @@ const Text = (props) =>
 {
 
   return (
-      <div {...props} className={[styles.text, props.className].join(' ')}>
+      <div {...props} className={[styles.text, props.className].join(' ')} dangerouslySetInnerHTML={props.dangerouslySetInnerHTML}>
         {
           props.text 
           ?

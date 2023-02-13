@@ -36,9 +36,7 @@ const ChancellorMessage = (props) =>
                   className={[styles.chTitle, styles.title].join(" ")}
                   />
                 <Text className={styles.text}>
-                  <div className={styles.textData}>
-                    {chanMsg[isRTL ? "pMessage": "message"]}
-                  </div>
+                  <div className={styles.textData} dangerouslySetInnerHTML={{__html: chanMsg[isRTL ? "pMessage": "message"]}}></div>
                 </Text>
             </div>
             :

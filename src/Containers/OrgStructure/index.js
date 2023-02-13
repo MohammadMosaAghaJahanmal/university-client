@@ -31,9 +31,7 @@ const OrgStructure = (props) =>
                 className={[styles.chTitle, styles.title].join(" ")}
                 />
               <Text className={styles.text}>
-                <div className={styles.textData}>
-                  {orgStructure[isRTL ? "pDescription": "description"]}
-                </div>
+                <div className={styles.textData} dangerouslySetInnerHTML={{__html: orgStructure[isRTL ? "pDescription": "description"]}}></div>
               </Text>
               <div className={styles.br}></div>
             </div>

@@ -128,9 +128,7 @@ const EconomicalAdvisory = (props) =>
                   ))}
                 </div>
                 <Text className={styles.text}>
-                  <div className={styles.textData}>
-                    {boardinfos[0][isRTL ? "pDescription" : "description"]}
-                  </div>
+                  <div className={styles.textData} dangerouslySetInnerHTML={{__html: boardinfos[0][isRTL ? "pDescription" : "description"]}}></div>
                 </Text>
               </div>
               <div className={styles.br}></div>
