@@ -15,7 +15,6 @@ const StudentsVerification = (props) =>
   const authContext = useContext(AuthContext)
   const {
     student,
-    token,
   } = authContext;
   const [globalState, dispatch] = useStore();
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +26,7 @@ const StudentsVerification = (props) =>
 
   const [studentId, setStudentId] = useState('');
   const [results, setResults] = useState([]);
-
+  const result = results[0];
   const searchHandler = async () => {
     if(isLoading)
       return;
@@ -38,22 +37,19 @@ const StudentsVerification = (props) =>
 
       try {
         setIsLoading(true);
-        const response = await fetch(serverPath(`/student_doc/find`), {
-          method: "POST",
-          headers: {
-            "Content-Type": "Application/json",
-            "Authorization": `bearer ${token}`,
-          },
-          body: JSON.stringify({studentId: student?.id})
-        });
+        const response = await fetch(serverPath(`/student/${studentId}`));
         const objData = await response.json();
         if(objData.status === "failure")
-          SweetAlert("error", objData.message);
+          SweetAlert("info", objData.message);
 
         if(objData.status === "success")
         {
           const data = objData.data;
-          // setResults(data);
+          setResults(data);
+          if(data?.length <= 0 || !data[0]?.isGraduated)
+          {
+            SweetAlert('info', "There is no graduated Student by this id !");
+          }
         }
         setIsLoading(false);
       } catch (err) {
@@ -93,13 +89,37 @@ const StudentsVerification = (props) =>
                   </button>
                 </div>
               </div>
+              {(result?.id && result?.isGraduated) &&
               <div className={styles.documents}>
                 <div className={styles.sProfile}>
                   <div className={styles.pImg}>
                     <img src={serverPath(student?.thumbnail)} alt={'student image'} />
                   </div>
+                  <div className={styles.letter}>
+                    <div className={styles.group}>
+                      <p className={styles.key}>{languages.id}:</p>
+                      <p className={styles.value}>{result.id}</p>
+                    </div>
+                    <div className={styles.group}>
+                      <p className={styles.key}>{languages.fullName}:</p>
+                      <p className={styles.value}>{result[isRTL ? "pFullName" : "fullName"]}</p>
+                    </div>
+                    <div className={styles.group}>
+                      <p className={styles.key}>{languages.fatherName}:</p>
+                      <p className={styles.value}>{result[isRTL ? "pFatherName" : "fatherName"]}</p>
+                    </div>
+                    <div className={styles.group}>
+                      <p className={styles.key}>{languages.faculty}:</p>
+                      <p className={styles.value}>{result?.facultyId[isRTL ? "pName" : "name"]}</p>
+                    </div>
+                    <div className={styles.group}>
+                      <p className={styles.key}>{languages.graduated_date}:</p>
+                      <p className={styles.value}>{result.graduatedOn}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
+              }
             </div>
             <SideBar
               links={[

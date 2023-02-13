@@ -119,20 +119,71 @@
   padding: 10px;
   display: grid;
   row-gap: 5px;
+  justify-content: center;
 }
-.letter a
+.sProfile
+{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  overflow: hidden;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.pImg
+{
+  height: 200px;
+  width: 100%;
+}
+.pImg img
+{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.letter
 {
   display: grid;
   background-color: rgba(232, 240, 254, .4);
-  width: 100%;
   height: 100%;
-  padding: 10px 5px;
-  grid-template-columns: repeat(2, auto);
   align-items: center;
   column-gap: 10px;
-  row-gap: 10px;
+  align-content: start;
+  width: 400px;
+  background-color: #0080d6;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.letter::before, .letter::after
+{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 5px groove rgba(0, 153, 255, 0.5);
+}
+.letter::after
+{
+  right: 0;
+  bottom: 0;
+}
+.letter::before
+{
+  left: 0;
+  top: 0;
+}
+
+.group
+{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  width: 100%;
   justify-content: space-between;
-  text-transform: uppercase;
+  padding: 6px 10px;
+  position: relative;
+  z-index: 9;
 }
 
 
@@ -170,6 +221,36 @@
   .oaButton button
   {
     width: 100%;
+  }
+  .documents
+  {
+    justify-content: stretch;
+  }
+  .sProfile
+  {
+    grid-template-columns: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    width: 100%;
+    justify-content: stretch;
+    border: 2px groove rgba(0, 128, 214, 0.6);
+  }
+  .group
+  {
+    grid-template-columns: auto;
+    padding: 6px 10px;
+  }
+  .value
+  {
+    text-indent: 10px;
+  }
+  .letter
+  {
+    width: 100%;
+  }
+  .pImg img
+  {
+    object-fit: contain;
   }
 }
 
