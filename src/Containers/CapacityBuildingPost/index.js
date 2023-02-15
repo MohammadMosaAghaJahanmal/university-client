@@ -111,9 +111,7 @@ const CapacityBuildingPost = (props) =>
                   className={styles.imgs}
                 />
             </div>
-            <div className={styles.postDesc}>
-              {mainPost[isRTL ? "pDescription" : "description"]}
-            </div>
+            <div className={styles.postDesc} dangerouslySetInnerHTML={{__html: mainPost[isRTL ? "pDescription" : "description"]}}></div>
           </div>
           <div className={styles.latestPosts}>
             <p className={styles.latestTitle}>
