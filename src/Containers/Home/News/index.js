@@ -39,9 +39,7 @@ const News = (props) =>
                 </div>
                 <div className={styles.newsContent}>
                   <p className={styles.newsTitle}>{perNews[isRTL ? "pTitle" : "title"]}</p>
-                  <p className={styles.newsDesc}>
-                    {perNews[isRTL ? "pDescription" : "description"].slice(0,  250)}  
-                  </p>
+                  <p className={styles.newsDesc} dangerouslySetInnerHTML={{__html: perNews[isRTL ? "pDescription" : "description"].slice(0,  250)}}></p>
                 </div>
               </div>
             </div>
