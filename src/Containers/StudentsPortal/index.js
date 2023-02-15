@@ -218,7 +218,7 @@ const StudentsPortal = (props) =>
                     </div>
                     <div className={styles.group}>
                       <p className={styles.groupTitle}>{languages.faculty}: </p>
-                      <p className={styles.groupValue}>{student?.facultyId[isRTL ? "pName" : "name"]}</p>
+                      <p className={styles.groupValue}>{student?.facultyId && student?.facultyId[isRTL ? "pName" : "name"]}</p>
                     </div>
                   </div>
                 </div>

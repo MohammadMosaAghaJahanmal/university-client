@@ -45,11 +45,15 @@ const StudentsVerification = (props) =>
         if(objData.status === "success")
         {
           const data = objData.data;
-          setResults(data);
           if(data?.length <= 0 || !data[0]?.isGraduated)
           {
             SweetAlert('info', "There is no graduated Student by this id !");
           }
+          if(data[0]?.isGraduated)
+          {
+            setResults(data);
+          }
+
         }
         setIsLoading(false);
       } catch (err) {
@@ -57,6 +61,8 @@ const StudentsVerification = (props) =>
         return SweetAlert('error', err.message);
       }
   }
+
+  console.log(serverPath(student?.thumbnail))
 
   return (
     <div className={styles.oa}>
@@ -93,7 +99,7 @@ const StudentsVerification = (props) =>
               <div className={styles.documents}>
                 <div className={styles.sProfile}>
                   <div className={styles.pImg}>
-                    <img src={serverPath(student?.thumbnail)} alt={'student image'} />
+                    <img src={serverPath(result?.thumbnail)} alt={'student image'} />
                   </div>
                   <div className={styles.letter}>
                     <div className={styles.group}>
@@ -110,11 +116,11 @@ const StudentsVerification = (props) =>
                     </div>
                     <div className={styles.group}>
                       <p className={styles.key}>{languages.faculty}:</p>
-                      <p className={styles.value}>{result?.facultyId[isRTL ? "pName" : "name"]}</p>
+                      <p className={styles.value}>{result?.facultyId && result?.facultyId[isRTL ? "pName" : "name"]}</p>
                     </div>
                     <div className={styles.group}>
                       <p className={styles.key}>{languages.graduated_date}:</p>
-                      <p className={styles.value}>{result.graduatedOn}</p>
+                      <p className={styles.value}>{new Date(result.graduatedOn).toLocaleDateString()}</p>
                     </div>
                   </div>
                 </div>
