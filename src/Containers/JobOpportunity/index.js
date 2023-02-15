@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
-import HeroImage from '../../Assets/job.jpg';
 import language from '../../localization';
 import Title from '../../Components/Title';
 import Text from "../../Components/Text";
@@ -62,7 +61,7 @@ const JobOpportunity = (props) =>
             {jobs.map(job => (
               <div className={styles.card} data-aos="fade-right" data-aos-delay={300} key={job._id}>
                 <div className={styles.img}>
-                  <img src={HeroImage} alt="job image" />
+                  <img src={serverPath(job.imagePath)} alt="job image" />
                 </div>
                 <div className={styles.textContent}>
                   <Title 
