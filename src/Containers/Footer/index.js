@@ -25,21 +25,21 @@ const Footer = (props) =>
               temporibus quibusdam natus incidunt maiores, at culpa nostrum? 
             </p>
             <div className={styles.links} data-aos="fade-right" data-aos-delay={500}>
-            <a href={contactinfo.facebook} target={"_blank"}>
+            <a href={contactinfo?.facebook} target={"_blank"}>
                 <div className={styles.footerIcon}>
                   <span className={styles.facebook}>
                     <FaFacebookF size={16} />
                   </span>
                 </div>
               </a>
-              <a href={contactinfo.youtube} target={"_blank"}>
+              <a href={contactinfo?.youtube} target={"_blank"}>
                 <div className={styles.footerIcon}>
                   <span className={styles.youtube}>
                     <FaYoutube size={16} />
                   </span>
                 </div>
               </a>
-              <a href={contactinfo.googleMap} target={"_blank"}>
+              <a href={contactinfo?.googleMap} target={"_blank"}>
                 <div className={styles.footerIcon}>
                   <span className={styles.map}>
                     <FaMapMarkedAlt size={16} />
@@ -59,13 +59,13 @@ const Footer = (props) =>
             <div data-aos="fade-right" data-aos-delay={800}>
               <FaEnvelope size={16}/> 
               <span>
-                {contactinfo.email}
+                {contactinfo?.email}
               </span>
             </div>
             <div data-aos="fade-right" data-aos-delay={900}>
               <FaPhoneAlt size={16}/> 
               <span>
-                {contactinfo.phone}
+                {contactinfo?.phone}
               </span>
             </div>
 
