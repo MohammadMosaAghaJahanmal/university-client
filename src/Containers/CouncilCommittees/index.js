@@ -27,12 +27,12 @@ const CouncilCommittees = (props) =>
         {acouncilscommittees?.length > 0 ?
           <div className={styles.wrapper}>
             <div className={styles.content}>
-              <Title
+              {/* <Title
                   title="No Title From Backend"
                   className={[styles.chTitle].join(" ")}
-                  />
+                  /> */}
               <Text className={styles.text}>
-                <div className={styles.textData} dangerouslySetInnerHTML={{__html: comittee[isRTL ? "pMessage": "message"]}}></div>
+                <div className={styles.textData} dangerouslySetInnerHTML={{__html: comittee[isRTL ? "pDescription": "description"]}}></div>
               </Text>
             </div>
             <SideBar
