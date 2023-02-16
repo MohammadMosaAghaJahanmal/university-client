@@ -32,6 +32,7 @@ const AcademicCalendar = (props) =>
             <Text
               className={styles.text}
               dangerouslySetInnerHTML={{__html: calendar[isRTL ? "pDescription" : "description"]}}
+              style={{display: "grid", rowGap: "15px"}}
             ></Text>
             <Text
               className={styles.text}

@@ -46,12 +46,14 @@ const C_VissionMission = (props) =>
               <Title title={visMis.vission[isRTL ? "pTitle" : "title"]} className={styles.title}/>
               <Text dangerouslySetInnerHTML={{__html: visMis.vission[isRTL ? "pDescription" : "description"]}}
                 className={styles.text}
+                style={{display: "grid", rowGap: "15px"}}
               />
             </div>
             <div className={styles.vmCard}>
               <Title title={visMis.mission[isRTL ? "pTitle" : "title"]} className={styles.title} />
               <Text dangerouslySetInnerHTML={{__html: visMis.mission[isRTL ? "pDescription" : "description"]}}
                 className={styles.text}
+                style={{display: "grid", rowGap: "15px"}}
               />
             </div>
             <div className={styles.achive}>

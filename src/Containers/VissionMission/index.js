@@ -44,6 +44,7 @@ const VissionMission = (props) =>
               <Text
                 className={styles.text}
                 dangerouslySetInnerHTML={{__html: visMis.vission[isRTL ? "pDescription": "description"]}}
+                style={{display: "grid", rowGap: "15px"}}
               />
             </div>
             <div className={styles.vmCard}>
@@ -51,6 +52,7 @@ const VissionMission = (props) =>
               <Text
                 className={styles.text}
                 dangerouslySetInnerHTML={{__html: visMis.mission[isRTL ? "pDescription": "description"]}}
+                style={{display: "grid", rowGap: "15px"}}
               />
             </div>
           </div>
