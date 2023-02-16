@@ -3,7 +3,7 @@ import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import languages from "../../localization";
 import MaterialInput from "../../Components/MaterialInput";
-import { provinces } from '../../Constants'
+import { pProvinces, provinces } from '../../Constants'
 import SweetAlert from '../../Components/SweetAlert';
 import serverPath from "../../utils/serverPath";
 import createValidForm from '../../utils/createValidForm';
@@ -32,7 +32,7 @@ const OnlineAdmission = (props) =>
     fatherName: {value: "", required: true},
     pFatherName: {value: "", required: true},
     province: {value: "Kandahar", required: true},
-    pProvince: {value: "Kandahar", required: true},
+    pProvince: {value: "کندهار", required: true},
     phone: {value: "", required: true},
     graduationYear: {value: years[0], required: true},
     highSchool: {value: "", required: true},
@@ -155,9 +155,10 @@ const OnlineAdmission = (props) =>
                   options={provinces}
                   select={admission.province.value}
                   onChange={(e) => {
-                    console.log(e.target.value)
-                    onChange("province", e.target.value)
-                    onChange("pProvince", e.target.value)
+                    onChange("province", e.target.value);
+                    const index = provinces.findIndex(pro => pro === e.target.value);
+                    console.log(index, e.target.value)
+                    onChange("pProvince", pProvinces[index])
                   }}
                   value={admission.province.value}
                   />
