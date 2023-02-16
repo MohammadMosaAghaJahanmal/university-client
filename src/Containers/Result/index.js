@@ -116,7 +116,7 @@ const OnlineAdmission = (props) =>
                   <div className={styles.td}>{result.province}</div>
                   <div className={styles.td}>{result?.facultyId?.name}</div>
                   <div className={styles.td}>{result.marks}</div>
-                  <div className={styles.td}>{result.status}</div>
+                  <div className={styles.td}>{result.kankorStatus}</div>
                 </div>
               ))}
               {results.length <= 0 && (
@@ -155,7 +155,7 @@ const OnlineAdmission = (props) =>
                   </div>
                   <div className={styles.mTr}>
                     <div className={styles.mTh}>Status</div>
-                    <div className={styles.mTd}>{result.status}</div>
+                    <div className={styles.mTd}>{result.kankorStatus}</div>
                   </div>
                 </div>
               ))}

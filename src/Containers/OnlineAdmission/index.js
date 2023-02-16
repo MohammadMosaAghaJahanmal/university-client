@@ -38,6 +38,7 @@ const OnlineAdmission = (props) =>
     highSchool: {value: "", required: true},
     pHighSchool: {value: "", required: true},
     email: {value: "", required: false},
+    admissionType: {value: "online", required: false},
   };
   
   const [admission, setAdmission] = useState({...initialState});

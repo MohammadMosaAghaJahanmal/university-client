@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import Button from "../../Components/Button";
@@ -8,17 +8,28 @@ import MaterialInput from '../../Components/MaterialInput'
 import SweetAlert from "../../Components/SweetAlert";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
-import Loader from '../../Components/Loader'
+import Loader from '../../Components/Loader';
+import {AuthContext} from '../../authContext';
+import { useNavigate } from "react-router-dom";
 const Library = (props) =>
 {
 
   const [globalState] = useStore();
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate()
+
+  const {
+    token,
+    loading,
+    login,
+    student
+  } = authContext;
 
   const {heros} = globalState;
 
   const isRTL = (language.getLanguage() === 'ps');
   const [books, setBooks] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(loading);
   const [findBook, setFindBook] = useState({
     searchBy: "id",
     searchBook: "",
@@ -31,7 +42,7 @@ const Library = (props) =>
 
   const searchHandler = async () =>
   {
-    if(isLoading || books.find(book => book[findBook.searchBy] === findBook.searchBook))
+    if(isLoading || books.find(book => book[findBook.searchBy] === findBook.searchBook) || login || token || student?._id)
       return;
     if(findBook.searchBook.length <= "" || findBook.searchBy.length <= 0)
       return SweetAlert("info", "Please Fill All The inputs");
@@ -72,8 +83,14 @@ const Library = (props) =>
           <Loader message="Fetching Books..." className={styles.loader} />
         )}
         <div className={styles.libraryTitle}>
+          {login && token && student?._id
+          ?
           <p>You can search Book by it's name or id</p>
+          :
+          <p>Please Login To Your Portal Account</p>
+        }
         </div>
+        {login && token && student?._id ?
         <div className={styles.libraryContent}>
           <div className={styles.libraryInputs}>
               <MaterialInput
@@ -135,6 +152,16 @@ const Library = (props) =>
           }
           </div>
         </div>
+        :
+        <div className={styles.inputGroupBtn}>
+          <Button label="Login To Portal" onClick={() => {
+            navigate('/students/student_portal')
+          }} 
+            style={{maxWidth: '400px' , margin: "20px auto", justifySelf: "center", display: "block"}}
+          />
+        </div>
+        }
+        
       </div>
     </div>
   )
