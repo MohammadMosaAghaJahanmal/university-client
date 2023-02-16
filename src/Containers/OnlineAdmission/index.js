@@ -157,7 +157,6 @@ const OnlineAdmission = (props) =>
                   onChange={(e) => {
                     onChange("province", e.target.value);
                     const index = provinces.findIndex(pro => pro === e.target.value);
-                    console.log(index, e.target.value)
                     onChange("pProvince", pProvinces[index])
                   }}
                   value={admission.province.value}

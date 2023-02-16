@@ -53,7 +53,7 @@ const Footer = (props) =>
             <div data-aos="fade-right" data-aos-delay={700}>
               <FaMapMarkerAlt size={16}/> 
               <span>
-                {contactinfo[isRTL ? "pAddress" : "address"]}
+                {contactinfo?.address && contactinfo[isRTL ? "pAddress" : "address"]}
               </span>
             </div>
             <div data-aos="fade-right" data-aos-delay={800}>
