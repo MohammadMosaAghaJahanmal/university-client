@@ -151,7 +151,7 @@ const Navbar = (props) =>
       <div className={[styles.upperMenuContainer].join(" ")}>
         <div className={[styles.upperMenu].join(" ")} data-aos="fade-down" data-aos-delay={500}>
           <div className={styles.menuLeft}>
-            <a href="tel:+93744488816" data-aos="fade-left" data-aos-delay={700} >
+            <a href={`tel:${contactinfo?.phone}`} data-aos="fade-left" data-aos-delay={700} >
               <i>
                 <Phone size={18} color="#0080d6" /> 
               </i>
