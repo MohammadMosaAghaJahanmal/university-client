@@ -42,7 +42,7 @@ const Library = (props) =>
 
   const searchHandler = async () =>
   {
-    if(isLoading || books.find(book => book[findBook.searchBy] === findBook.searchBook) || login || token || student?._id)
+    if(isLoading || books.find(book => book[findBook.searchBy] === findBook.searchBook) || !login || !token || !student?._id)
       return;
     if(findBook.searchBook.length <= "" || findBook.searchBy.length <= 0)
       return SweetAlert("info", "Please Fill All The inputs");
