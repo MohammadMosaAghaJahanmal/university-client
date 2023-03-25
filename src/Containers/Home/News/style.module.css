@@ -55,8 +55,10 @@
 {
   display: grid;
   /* background-color: white; */
-  background-color: #0080d6;
-  color: #dff9fb;
+  /* background-color: #0080d6; */
+  background-color: #dff9fb;
+  box-shadow: 1px 1px 5px rgba(0, 128, 214, 0.3);
+  color: #002060;
   border-radius: 20px;
   padding: 15px;
   position: relative;
