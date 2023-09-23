@@ -75,6 +75,7 @@ let languages = new LocalizedStrings({
     sabaStudentsPortal: "Saba University Students Portal",
     logOut: "LogOut",
     graduated_date: "Graduated Date",
+    menu: "MENU"
   },
  ps:{
   home: "کور",
@@ -157,6 +158,7 @@ let languages = new LocalizedStrings({
   sabaStudentsPortal: "د سبا پوهنتون محصلینو پورټل",
   logOut: "وتل",
   graduated_date: "د فراغت نیټه",
+  menu: "MENU"
  }
 });
 

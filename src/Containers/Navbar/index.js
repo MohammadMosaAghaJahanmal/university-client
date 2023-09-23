@@ -34,10 +34,6 @@ const Navbar = (props) =>
   const navigate = useNavigate();
   const menus = [
     {
-      name: language.economical_advisory, 
-      mainLink: "/economical_advisory", 
-    },
-    {
       name: language.about, 
       mainLink: undefined, 
       links: [
@@ -54,7 +50,6 @@ const Navbar = (props) =>
       name: language.academics, 
       mainLink: undefined, 
       links: [
-        {name: language.a_pdc, link: "academic/a_pdc"}, 
         {name: language.a_bcs_computer_science, isTitle: true, subLinks: [
           {name: language.a_vission_mission, link: "academic/c_vission_mission"},
           {name: language.a_curriculum, link: "academic/c_curriculum"},
@@ -66,18 +61,23 @@ const Navbar = (props) =>
           {name: language.a_curriculum, link: "academic/e_curriculum"},
           {name: language.a_organizational_structure, link: "academic/e_organizational_structure"},
           {name: language.a_aggrements, link: "academic/e_aggrements"},
+          {name: language.economical_advisory, link: "/economical_advisory", },
         ]},
-        {name: language.a_quality_assurance, isTitle: true, subLinks: [
-          {name: language.a_aims, link: "academic/a_aims"}, 
-          {name: language.a_self_assesment, link: "academic/a_self_assesment"},
-          {name: language.a_annual_program_monitoring, link: "academic/a_annual_program_monitoring"},
-          {name: language.a_councils_committees, link: "academic/a_councils_committees"},
-          {name: language.a_manual_policies, link: "academic/a_manual_policies"},
-          {name: language.a_capacity_building, link: "academic/a_capacity_building"},
-          {name: language.accreditation, link: "academic/accreditation"},
-        ]}, 
       ],
     },
+    {
+      name: language.a_quality_assurance, 
+      mainLink: undefined, 
+      links: [
+        {name: language.a_aims, link: "academic/a_aims"}, 
+        {name: language.a_self_assesment, link: "academic/a_self_assesment"},
+        {name: language.a_annual_program_monitoring, link: "academic/a_annual_program_monitoring"},
+        {name: language.a_councils_committees, link: "academic/a_councils_committees"},
+        {name: language.a_manual_policies, link: "academic/a_manual_policies"},
+        {name: language.a_capacity_building, link: "academic/a_capacity_building"},
+        {name: language.accreditation, link: "academic/accreditation"},
+      ]
+  }, 
     {
       name: language.research, 
       mainLink: undefined, 
@@ -103,6 +103,11 @@ const Navbar = (props) =>
       ],
     },
     {
+      name: language.kankor, 
+      mainLink: undefined, 
+      links: [{name: language.online_admission, link: "/kankor/admission"}, {name: language.result, link: "/kankor/result"}],
+    },
+    {
       name: language.online_library, 
       mainLink: '/library', 
     },
@@ -119,33 +124,14 @@ const Navbar = (props) =>
       mainLink: "/contact", 
     },
     {
-      name: language.kankor, 
-      mainLink: undefined, 
-      links: [{name: language.online_admission, link: "/kankor/admission"}, {name: language.result, link: "/kankor/result"}],
-    },
+      name: language.a_pdc, 
+      mainLink: "academic/a_pdc"
+    }, 
   ]
 
   const {setLanguage} = useContext(AuthContext);
   const lang = language.getLanguage();
   const logo = useRef()
-  useEffect(() =>
-  {
-    window.onscroll = (e) =>
-    {
-      if(window.scrollY > 18)   
-      {
-        logo.current.style.height = "100%"
-        logo.current.style.top = "0"
-        return
-      }
-
-      if(logo.current.hasAttribute("style"))
-        logo.current.removeAttribute("style");
-      
-    } 
-  }, []);
-
-  console.log(contactinfos)
   return (
     <>
       <div className={[styles.upperMenuContainer].join(" ")}>
@@ -215,50 +201,6 @@ const Navbar = (props) =>
           <div className={styles.logo} data-aos="fade-down-right" data-aos-delay={500} onClick={() => navigate("/")}>
             <img src={LOGO} ref={logo} alt="Page logo"/>
           </div>
-          <div className={styles.menuItems}>
-            {menus.map((menu, index) => (menu.mainLink) ? 
-            (
-              <div data-aos="fade-down-left" data-aos-delay={(index + 1) * 200} key={(menu.name + index)}>
-                <NavLink  className={({isActive}) => [styles.menuItem, isActive ? styles.active : null].join(" ")}  to={menu.mainLink || "#"}>
-                  <span className={styles.menuText}>{menu.name}</span>
-                  <span className={styles.shaper}></span>
-                </NavLink>
-              </div>
-
-            ):(
-              <div data-aos="fade-down-left" data-aos-delay={(index + 1) * 200} className={styles.menuItem} key={(menu.name + index)}>
-                <span className={styles.menuText}>{menu.name}</span>
-                <span className={styles.shaper}></span>
-                <span className={styles.menuHintIcon}>
-                  <ArrowDown  size={20} color={"rgba(0, 157, 255, 0.5)"}/>
-                </span>
-                <span className={[styles.menuHintIcon, styles.menuHintIcon2].join(" ")}>
-                  <ArrowDown  size={20} color={"rgba(0, 157, 255, 0.5)"}/>
-                </span>
-                <div className={styles.dropDown}>
-                  {menu.links?.map((link, ndx )=> (
-                    link.isTitle ?
-                    <div key={(link.name + ndx)} className={styles.nestedContainer}>
-                      <input type={"radio"} id={"menu"+ndx} name={'nestedMenu'} style={{display: "none"}}/>
-                      <label className={styles.nestedTitle} htmlFor={"menu"+ndx}>
-                        {link.name}
-                        <span>
-                          <ArrowDown size={20} color={"rgba(0, 157, 255, 0.5)"}/>
-                        </span>
-                      </label>
-                      <div className={styles.nestedLinks}>
-                        {link.subLinks.map((subLink, indx) => (
-                          <NavLink className={({isActive}) => [styles.dropDownLink, (isActive ? styles.active : null)].join(" ")} key={(subLink.name + indx)} to={subLink.link}><span>{subLink.name}</span></NavLink>
-                        ))}
-                      </div>
-                    </div>
-                    :
-                    <NavLink className={({isActive}) => [styles.dropDownLink, (isActive ? styles.active : null)].join(" ")} key={(link.name + ndx)} to={link.link}><span>{link.name}</span></NavLink>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
           <div className={styles.mobileMenu}>
               <input type={'checkbox'} style={{display: "none"}} className={styles.input} id="menuToggler" />
               <label htmlFor="menuToggler" className={styles.menuToggler}>
@@ -274,7 +216,7 @@ const Navbar = (props) =>
               </label>
               <div className={styles.mobileDropDown}>
                 <div className={styles.menuTitle}>
-                    <p>MENU</p>
+                    <p>{language.menu}</p>
                 </div>
                 {menus.map((menu, index) => (menu.mainLink) ? 
                 (
