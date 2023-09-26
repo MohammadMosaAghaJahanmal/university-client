@@ -75,7 +75,8 @@ let languages = new LocalizedStrings({
     sabaStudentsPortal: "Saba University Students Portal",
     logOut: "LogOut",
     graduated_date: "Graduated Date",
-    menu: "MENU"
+    menu: "MENU",
+    saba_foundation: "Saba Foundation"
   },
  ps:{
   home: "کور",
@@ -90,7 +91,7 @@ let languages = new LocalizedStrings({
     aggrements: "هوکړه لیکونه",
 
   // Academic
-  academics: "علمي او تدریسي چارې",
+  academics: "علمي پروګرامونه",
     a_pdc: "مسلکي پرمختیایي مرکز",
     a_quality_assurance: "تضمین کیفیت",
       a_aims: "اهداف",
@@ -109,7 +110,7 @@ let languages = new LocalizedStrings({
 
 
   // Rechearch
-  research: "څېړنه",
+  research: "څیړنیز مرکز",
     capacity_building: "ورکشاپونه او سمیینارونه", 
     r_vission_mission: "لرلید، رسالت او موخې",
     manual_policies: "پالیسیانې او طرزالعملونه",
@@ -127,7 +128,7 @@ let languages = new LocalizedStrings({
     penalties: "د ډسپلین خلاف کړنې او مجازات",
 
 
-  online_library: "آنلاین کتابتون",
+  online_library: "سبا کتابتون",
   news: "خبرونه",
   contact: "اړیکه",
   job_opportunity: "کاري فرصت",
@@ -158,7 +159,8 @@ let languages = new LocalizedStrings({
   sabaStudentsPortal: "د سبا پوهنتون محصلینو پورټل",
   logOut: "وتل",
   graduated_date: "د فراغت نیټه",
-  menu: "MENU"
+  menu: "مینیو",
+  saba_foundation: "سبا مرستندویه بنیاد "
  }
 });
 

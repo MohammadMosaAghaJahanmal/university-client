@@ -34,19 +34,22 @@ const Navbar = (props) =>
   const navigate = useNavigate();
   const menus = [
     {
+      order: 1,
       name: language.about, 
       mainLink: undefined, 
       links: [
         {name: language.our_vission_and_mission, link: "about/vission_mission"}, 
         {name: language.chancellor_message, link: "about/chancellor_message"}, 
-        {name: language.history_and_achievements, link: "about/history_and_achievements"}, 
+        // {name: language.history_and_achievements, link: "about/history_and_achievements"}, 
         {name: language.organizational_structure, link: "about/organizational_structure"},
         {name: language.stratigic_aim, link: "about/stratigic_aim"},
         {name: language.academic_calendar, link: "about/academic_calendar"},
         {name: language.aggrements, link: "about/aggrements"},
+        {name: language.contact, link: "/contact", },
       ], 
     },
     {
+      order: 2,
       name: language.academics, 
       mainLink: undefined, 
       links: [
@@ -61,11 +64,11 @@ const Navbar = (props) =>
           {name: language.a_curriculum, link: "academic/e_curriculum"},
           {name: language.a_organizational_structure, link: "academic/e_organizational_structure"},
           {name: language.a_aggrements, link: "academic/e_aggrements"},
-          {name: language.economical_advisory, link: "/economical_advisory", },
         ]},
       ],
     },
     {
+      order: 5,
       name: language.a_quality_assurance, 
       mainLink: undefined, 
       links: [
@@ -79,6 +82,7 @@ const Navbar = (props) =>
       ]
   }, 
     {
+      order: 3,
       name: language.research, 
       mainLink: undefined, 
       links: [
@@ -90,6 +94,7 @@ const Navbar = (props) =>
       ],
     },
     {
+      order: 7,
       name: language.students, 
       mainLink: undefined, 
       links: [
@@ -100,32 +105,39 @@ const Navbar = (props) =>
         {name: language.semester_promotion_rules, link: "/students/semester_promotion_rules"}, 
         {name: language.students_verification, link: "/students/students_verification"}, 
         {name: language.penalties, link: "/students/penalties"}, 
+        {name: language.job_opportunity, link: "/job_opportunity"},
       ],
     },
     {
+      order: 6,
       name: language.kankor, 
       mainLink: undefined, 
       links: [{name: language.online_admission, link: "/kankor/admission"}, {name: language.result, link: "/kankor/result"}],
     },
     {
+      order: 9,
       name: language.online_library, 
       mainLink: '/library', 
     },
     {
+      order: 10,
       name: language.news, 
       mainLink: '/news', 
     },
     {
-      name: language.job_opportunity, 
-      mainLink: '/job_opportunity', 
-    },
-    {
-      name: language.contact, 
-      mainLink: "/contact", 
-    },
-    {
+      order: 4,
       name: language.a_pdc, 
       mainLink: "academic/a_pdc"
+    }, 
+    {
+      order: 8,
+      name: language.economical_advisory, 
+      mainLink: "/economical_advisory"
+    },
+    {
+      order: 11,
+      name: language.saba_foundation, 
+      mainLink: "foundation"
     }, 
   ]
 
@@ -218,7 +230,7 @@ const Navbar = (props) =>
                 <div className={styles.menuTitle}>
                     <p>{language.menu}</p>
                 </div>
-                {menus.map((menu, index) => (menu.mainLink) ? 
+                {menus.sort((a, b) => (a.order - b.order)).map((menu, index) => (menu.mainLink) ? 
                 (
                   <div className={styles.mobileItem} key={(menu.name + index)}>
                     <input type={"checkbox"} id="one"  style={{display: "none"}} className={styles.chekcBox}/>

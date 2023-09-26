@@ -690,7 +690,7 @@
 
   .mobileLinkShape
   {
-    left: 40%;
+    left: 43%;
     top: -80px;
     position: absolute;
     z-index: 9;
@@ -844,7 +844,8 @@
     display: grid;
     width: 80%;
     border-radius: 0px 0 20px 20px;
-    background-color: rgba(37, 204, 247, 0.5);
+    background-color: rgba(37, 204, 247, 0.1);
+
   }
   .mobileNestedTitle
   {
@@ -883,17 +884,14 @@
   .mobileNestedLink
   {
     display: inline-block;
-    /* background-color: #009dff; */
-    background-color: rgba(37, 204, 247, 0.5);
+    background-color: rgba(37, 204, 247, 0.3);
     text-decoration: none;
     color: #0080d6;
-    /* border: 1px solid #0080d6; */
     border-top-color: transparent;
     padding: 10px;
     width: 80%;
     font-size: 13px;
     transition: 300ms;
-    border-radius: 0px 0 20px 20px;
     position: relative;
     overflow: hidden;
 
