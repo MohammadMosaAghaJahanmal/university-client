@@ -13,9 +13,11 @@ let languages = new LocalizedStrings({
       academic_calendar: "Academic Calendar",
       aggrements: "Aggrements",
       
+    a_pdc: "Professional Development Center",
+      a_pdc_b: "Professional Development Board",
+    
       
     academics: "Academics",
-      a_pdc: "PDC",
       a_quality_assurance: "Quality Assurance",
         a_aims: "Aims",
         a_self_assesment: "Self Assesment",
@@ -76,7 +78,10 @@ let languages = new LocalizedStrings({
     logOut: "LogOut",
     graduated_date: "Graduated Date",
     menu: "MENU",
-    saba_foundation: "Saba Foundation"
+    saba_foundation: "Saba Foundation",
+    vission: "Vission",
+    mission: "Mission",
+    structure: "Structure"
   },
  ps:{
   home: "کور",
@@ -90,9 +95,10 @@ let languages = new LocalizedStrings({
     academic_calendar: "علمي تقویم",
     aggrements: "هوکړه لیکونه",
 
+  a_pdc: "مسلکي پرمختیایي مرکز",
+    a_pdc_b: "مسلکي پرمختیایی پورډ",
   // Academic
   academics: "علمي پروګرامونه",
-    a_pdc: "مسلکي پرمختیایي مرکز",
     a_quality_assurance: "تضمین کیفیت",
       a_aims: "اهداف",
       a_self_assesment: "ځان ارزونې اصلي او فرعي معیارونه",
@@ -160,7 +166,8 @@ let languages = new LocalizedStrings({
   logOut: "وتل",
   graduated_date: "د فراغت نیټه",
   menu: "مینیو",
-  saba_foundation: "سبا مرستندویه بنیاد "
+  saba_foundation: "سبا مرستندویه بنیاد",
+  structure: "Structure"
  }
 });
 

@@ -44,8 +44,11 @@ const Result = lazy(() => import('../Result'));
 
 const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
 
-// PDC In Academics Menu
+
 const PDC = lazy(() => import('../PDC'));
+const PDC_VissionMission = lazy(() => import('../PDC_VissionMission'));
+const PDC_Structure = lazy(() => import('../PDC_Structure'));
+const PDC_Aims = lazy(() => import('../PDC_Aims'));
 
 // ComputerScience In Academics Menu
 const C_Curriculum = lazy(() => import('../C_Curriculum'));
@@ -67,6 +70,9 @@ const SelfAssesment = lazy(() => import('../SelfAssesment'));
 const A_ManualPolicies = lazy(() => import('../A_ManualPolicies'));
 const A_BuildingCapacity = lazy(() => import('../A_BuildingCapacity'));
 const Accreditation = lazy(() => import('../Accreditation'));
+
+const SabaFoundation = lazy(() => import('../SabaFoundation'));
+
 
 const PageNotFound = lazy(() => import('../404'));
 
@@ -120,7 +126,10 @@ class Layout extends PureComponent
         {screen: '/academic/a_capacity_building', Component: A_BuildingCapacity},
         {screen: '/academic/accreditation', Component: Accreditation},
 
-        {screen: '/academic/a_pdc', Component: PDC},
+        {screen: '/pdc/a_pdc_b', Component: PDC},
+        {screen: '/pdc/aims', Component: PDC_Aims},
+        {screen: '/pdc/vission_mission', Component: PDC_VissionMission},
+        {screen: '/pdc/structure', Component: PDC_Structure},
 
         {screen: '/academic/c_curriculum', Component: C_Curriculum},
         {screen: '/academic/c_organizational_structure', Component: C_OrgStructure},
@@ -131,6 +140,8 @@ class Layout extends PureComponent
         {screen: '/academic/e_organizational_structure', Component: E_OrgStructure},
         {screen: '/academic/e_aggrements', Component: E_Aggrements},
         {screen: '/academic/e_vission_mission', Component: E_VissionMission},
+
+        {screen: '/foundation', Component: SabaFoundation},
       ]
     
   const direction = ((this.context.languageCode === "ps") && {style: {direction: "rtl"}})

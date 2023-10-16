@@ -127,7 +127,12 @@ const Navbar = (props) =>
     {
       order: 4,
       name: language.a_pdc, 
-      mainLink: "academic/a_pdc"
+      links: [
+        {name: language.r_vission_mission, link: "/pdc/vission_mission"},
+        {name: language.a_pdc_b, link: "pdc/a_pdc_b"},
+        {name: language.structure, link: "pdc/structure"},
+        {name: language.a_aims, link: "pdc/aims"},
+      ],
     }, 
     {
       order: 8,

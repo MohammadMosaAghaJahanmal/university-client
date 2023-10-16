@@ -8,7 +8,7 @@ import SideBar from "../../Components/SidaBar";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 
-const Aims = (props) =>
+const PDC_Aims = (props) =>
 {
 
   const [globalState] = useStore();
@@ -59,4 +59,4 @@ const Aims = (props) =>
 
 
 
-export default Aims;
+export default PDC_Aims;

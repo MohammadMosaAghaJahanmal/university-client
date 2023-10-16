@@ -19,11 +19,16 @@ const Post = (props) =>
   const navigate = useNavigate();
   const {type, id} = useParams();
 
-  const allowTypes = ['aggrements', 'news'];
+
+  const allowTypes = {
+    aggrements: "aggrement",
+    news: "news",
+    foundation: "foundation",
+  }
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const {heros, news, aggrements} = globalState;
+  const {heros, news} = globalState;
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === type)?.imagePath || "")).href;
 
   const [mainPost, setMainPost] = useState({});
@@ -32,30 +37,36 @@ const Post = (props) =>
   useEffect(() => {
     (async() => {
 
-      if(id.length !== 24 || (allowTypes.findIndex(allow => allow === type) < 0))
+      if(id.length !== 24 || !(allowTypes[type]))
         return navigate("/", {replace: true});
 
-      try {
-        if(type === 'aggrements')
-        {
-          if(aggrements.length <= 0)
-          {
-            setIsLoading(true);
-            const response = await fetch(serverPath('/aggrement'));
-            const objData = await response.json();
-            if(objData.status === "success")
-            {
-              const data = objData.data;
-              if(data.length <= 0)
-                return navigate('/', {replace: true})
+      if(globalState[type].length > 0)
+        return placingPosts(globalState[type]);
 
-              dispatch('setData', {type: "aggrements", data: data})
-              placingPosts(data);
+        try {
+        for (const key in allowTypes) {
+          const perType = allowTypes[key];
+
+          if(type === key && key !== "news")
+          {
+            if(globalState[key].length <= 0)
+            {
+              setIsLoading(true);
+              const response = await fetch(serverPath(`/${perType}`));
+              const objData = await response.json();
+              if(objData.status === "success")
+              {
+                const data = objData.data;
+                if(data.length <= 0)
+                  return navigate('/', {replace: true})
+
+                dispatch('setData', {type: key, data: data});
+                placingPosts(data);
+              }
+              setIsLoading(false);
             }
-            setIsLoading(false);
+            break;
           }
-          if(aggrements.length > 0)
-            return placingPosts(aggrements);
         }
 
         if(type === 'news' && news.length <= 0)

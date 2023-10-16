@@ -39,6 +39,7 @@ const universityStore = () =>
     magazines: [],
     migrationpolicies: [],
     news: [],
+    foundation: [],
     orgstructures: [],
     pdcposts: [],
     pdcstaticks: [],
