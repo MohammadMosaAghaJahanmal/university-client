@@ -167,7 +167,9 @@ let languages = new LocalizedStrings({
   graduated_date: "د فراغت نیټه",
   menu: "مینیو",
   saba_foundation: "سبا مرستندویه بنیاد",
-  structure: "Structure"
+  structure: "Structure",
+  vission: "Vission",
+  mission: "Mission",
  }
 });
 
