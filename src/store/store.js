@@ -39,6 +39,7 @@ let globalState = {
     orgstructures: [],
     pdcposts: [],
     pdcstaticks: [],
+    pdc_aims: [],
     penalties: [],
     raims: [],
     researchpublications: [],

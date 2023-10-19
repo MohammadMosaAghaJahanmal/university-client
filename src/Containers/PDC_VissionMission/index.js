@@ -52,12 +52,12 @@ const C_VissionMission = (props) =>
           </div>
           <SideBar
               links={[
-                {name: language.a_vission_mission, link: "/academic/c_vission_mission"},
-                {name: language.a_curriculum, link: "/academic/c_curriculum"},
-                {name: language.a_organizational_structure, link: "/academic/c_organizational_structure"},
-                {name: language.a_aggrements, link: "/academic/c_aggrements"},
+                {name: language.r_vission_mission, link: "/pdc/vission_mission"}, 
+                {name: language.a_pdc_b, link: "/pdc/a_pdc_b"},
+                {name: language.structure, link: "/pdc/structure"},
+                {name: language.a_aims, link: "/pdc/aims"},
               ]}
-            />
+              />
         </div>
       </div>
     </div>

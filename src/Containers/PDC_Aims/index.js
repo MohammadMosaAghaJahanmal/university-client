@@ -13,9 +13,9 @@ const PDC_Aims = (props) =>
 
   const [globalState] = useStore();
 
-  const {heros, aaims} = globalState;
+  const {heros, pdcaims} = globalState;
 
-  const aim = aaims[0];
+  const aim = pdcaims[0];
 
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "a_aims")?.imagePath || "")).href;
@@ -25,7 +25,7 @@ const PDC_Aims = (props) =>
       <SmallHero title={language.a_aims} image={myHero}  bgAnimation={true}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
-        {aaims?.length > 0 ?
+        {pdcaims?.length > 0 ?
           <div className={styles.wrapper}>
             <div className={styles.content}>
               {/* <Title
@@ -38,13 +38,10 @@ const PDC_Aims = (props) =>
             </div>
             <SideBar
               links={[
-                {name: language.a_aims, link: "/academic/a_aims"}, 
-                {name: language.a_self_assesment, link: "/academic/a_self_assesment"},
-                {name: language.a_annual_program_monitoring, link: "/academic/a_annual_program_monitoring"},
-                {name: language.a_councils_committees, link: "/academic/a_councils_committees"},
-                {name: language.a_manual_policies, link: "/academic/a_manual_policies"},
-                {name: language.a_capacity_building, link: "/academic/a_capacity_building"},
-                {name: language.accreditation, link: "/academic/accreditation"},
+                {name: language.r_vission_mission, link: "/pdc/vission_mission"}, 
+                {name: language.a_pdc_b, link: "/pdc/a_pdc_b"},
+                {name: language.structure, link: "/pdc/structure"},
+                {name: language.a_aims, link: "/pdc/aims"},
               ]}
               />
           </div>

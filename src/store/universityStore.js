@@ -8,6 +8,7 @@ const universityStore = () =>
   const initialState = (payload, globalState) => ({
     aaccreditations: [],
     aaims: [],
+    pdc_aims: [],
     aannualprograms: [],
     academiccalendars: [],
     acapacitybuildings: [],
