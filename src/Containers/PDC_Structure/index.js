@@ -11,33 +11,33 @@ const Structure = (props) =>
 
   const [globalState] = useStore();
 
-  const {heros, orgstructures} = globalState;
+  const {heros, pdcstructures} = globalState;
 
-  const orgStructure = orgstructures[0];
+  const pdcStructure = pdcstructures[0];
 
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "organizational_structure")?.imagePath || "")).href;
   return (
-    <div className={styles.orgStructure}>
+    <div className={styles.pdcStructure}>
       <SmallHero title={language.structure} image={myHero} isRTL={isRTL}/>
       <div className={[styles.osw, "w-controller"].join(" ")}>
         {
-          orgStructure?.title ?
+          pdcStructure?.title ?
         <>
           <div className={styles.contentWrapper}>
             <div className={styles.history}>
               <Title 
-                title={orgStructure[isRTL ? "pTitle": "title"]}
+                title={pdcStructure[isRTL ? "pTitle": "title"]}
                 className={[styles.chTitle, styles.title].join(" ")}
                 />
               <Text className={styles.text}>
-                <div className={styles.textData} dangerouslySetInnerHTML={{__html: orgStructure[isRTL ? "pDescription": "description"]}}></div>
+                <div className={styles.textData} dangerouslySetInnerHTML={{__html: pdcStructure[isRTL ? "pDescription": "description"]}}></div>
               </Text>
               <div className={styles.br}></div>
             </div>
           </div>
           <div className={styles.orgImage}>
-            <img src={serverPath(orgStructure?.imagePath)} alt={"Structure Image"}/>
+            <img src={serverPath(pdcStructure?.imagePath)} alt={"Structure Image"}/>
           </div>
         </>
         :

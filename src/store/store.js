@@ -37,6 +37,7 @@ let globalState = {
     news: [],
     foundation: [],
     orgstructures: [],
+    pdcstructures: [],
     pdcposts: [],
     pdcstaticks: [],
     pdc_aims: [],
