@@ -62,8 +62,7 @@ const C_VissionMission = (props) =>
                   className={[styles.chTitle, styles.title].join(" ")}
                   />
               <div className={styles.textData}>
-                <p>
-                  {visMis.about[isRTL ? "pDescription" : "description"]}
+                <p dangerouslySetInnerHTML={{__html: visMis.about[isRTL ? "pDescription" : "description"]}}>
                 </p>
               </div>
             </div>
