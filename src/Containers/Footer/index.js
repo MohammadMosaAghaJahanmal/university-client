@@ -103,7 +103,7 @@ const Footer = (props) =>
           <span>
             Copyright © 2022 SIHE - by 
             <a href='https://jahanmal.com/' target={"_blank"} className={styles.developer}>
-              Jahanmal Agha
+              Jahanmal Team
             </a>
           </span>
         </div>

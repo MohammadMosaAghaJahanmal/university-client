@@ -41,6 +41,11 @@ const StudentsVerification = lazy(() => import('../StudentsVerification'));
 const StudentsPortal = lazy(() => import('../StudentsPortal'));
 const Penalties = lazy(() => import('../Penalties'));
 const Result = lazy(() => import('../Result'));
+const Values = lazy(() => import('../Values'));
+const StrategicPlane = lazy(() => import('../StrategicPlane'));
+const CouncilsAndCommittees = lazy(() => import('../CouncilsAndCommittees'));
+const AcademicPrograms = lazy(() => import('../AcademicPrograms'));
+const YourOpinion = lazy(() => import('../YourOpinion'));
 
 const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
 
@@ -99,6 +104,11 @@ class Layout extends PureComponent
         {screen: '/about/stratigic_aim', Component: StrategicAim},
         {screen: '/about/academic_calendar', Component: AcademicCalendar},
         {screen: '/about/aggrements', Component: Aggrements},
+        {screen: '/about/academic_programs', Component: AcademicPrograms},
+        {screen: '/:id/values', Component: Values},
+        {screen: '/:id/strategic_plane', Component: StrategicPlane},
+        {screen: '/:id/councils_and_committees', Component: CouncilsAndCommittees},
+        {screen: '/:id/your_opinion', Component: YourOpinion},
         {screen: '/research/capacity_building', Component: CapacityBuilding},
         {screen: '/research/vission_mission', Component: R_VissionMission},
         {screen: '/research/manual_policies', Component: ManualPolicies},

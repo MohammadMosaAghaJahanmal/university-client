@@ -27,6 +27,7 @@ const CapacityBuildingPost = (props) =>
       {type:'a_pdc', storePath: "pdcposts", route: "pdc_post"},
       {type:'a_capacity_building', storePath: "acapacitybuildings", route: "a_capacity_building"},
       {type:'capacity_building', storePath: "capacitybuildings", route: "capacity_building"},
+      {type:'councils_and_committees', storePath: "councilsandcommittees", route: "councils_and_committees"},
   ];
   
     const [isLoading, setIsLoading] = useState(false);

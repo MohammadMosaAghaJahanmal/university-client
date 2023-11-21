@@ -1,0 +1,145 @@
+.values
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+  background-color: #dff9fb;
+  background-image: linear-gradient(to right, #ffffff, #dff9fb, #dff9fb, #ffffff);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.wrapper
+{
+  display: grid;
+  grid-template-columns: auto 220px;
+  column-gap: 30px;
+  align-items: start;
+  padding-bottom: 80px;
+}
+
+
+.saw
+{
+  margin-top: 20px;
+  display: grid;
+  row-gap: 10px;
+  padding: 40px 10px;
+  background-size: 50%;
+  column-gap: 40px;
+  align-content: start;
+  position: relative;
+}
+
+.contentWrapper
+{
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  margin: 30px auto;
+  padding: 14px;
+  /* border-radius: 5px; */
+  row-gap: 30px;
+}
+
+.title
+{
+  font-size: 25px !important;
+  font-weight: bold !important;
+  padding: 0 !important;
+}
+.textData
+{
+  font-size: 18px;
+  display: grid;
+  row-gap: 15px;
+  text-emphasis: none;
+}
+
+.br
+{
+  background-color: #0a446b;
+  height: 1px;
+  margin: 30px auto ;
+  width: 100%;
+  max-width: 520px;
+}
+.ach
+{
+  display: grid;
+  margin-top: 20px;
+}
+.icon
+{
+  display: inline-block;
+  position: relative;
+  font-size: 25px;
+  position: relative;
+  transform: rotateY(180deg);
+  right: -10px;
+  transition: 300ms;
+}
+.icon.rtl
+{
+  transform: rotateY(0);
+  right: 0;
+}
+.item
+{
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 5px;
+  overflow: hidden;
+  text-indent: 10px;
+  /* font-family: cursive; */
+}
+@media all and (max-width: 992px){
+  .wrapper
+  {
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+  }
+}
+
+@media all and (max-width: 768px){
+  .wrapper
+  {
+    grid-template-columns: auto;
+    column-gap: 10px;
+    row-gap: 20px;
+  }
+  .title
+  {
+    font-size: 18px !important;
+  }
+  .textData
+  {
+    font-size: 18px !important;
+  }
+  .icon
+  {
+    font-size: 25px !important;
+  }
+  .item
+  {
+    font-size: 18px !important;
+  }
+}
+@media all and (max-width: 425px){
+  
+  .contentWrapper
+  {
+    margin: 20px auto;
+    padding: 7px;
+  }
+  .item
+  {
+    font-size: 16px !important;
+  }
+}

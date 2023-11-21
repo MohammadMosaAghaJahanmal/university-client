@@ -49,6 +49,10 @@ let globalState = {
     semesterpromotionrules: [],
     stratigicaims: [],
     students: [],
+    values: [],
+    strategicplanes: [],
+    councilsandcommittees: [],
+    academicprograms: [],
 };
 let actions = {};
 let listeners = [];

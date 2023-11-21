@@ -53,6 +53,10 @@ const universityStore = () =>
     semesterpromotionrules: [],
     stratigicaims: [],
     students: [],
+    values: [],
+    strategicplanes: [],
+    councilsandcommittees: [],
+    academicprograms: [],
     });
   
   return initState({

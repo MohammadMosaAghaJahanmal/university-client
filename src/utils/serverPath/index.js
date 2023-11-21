@@ -1,1 +1,1 @@
-export default (path) => (`http://localhost:8080${path}`); 
+export default (path) => new URL(`http://localhost:8080${path}`).href; 
