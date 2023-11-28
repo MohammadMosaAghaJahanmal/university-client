@@ -109,7 +109,7 @@ let languages = new LocalizedStrings({
     // About
     about: "زموږ په اړه",
       our_vission_and_mission:"لرلید او رسالت",
-      chancellor_message: "د رئیس بیغام",
+      chancellor_message: "د رئیس پیغام",
       history_and_achievements: "لاسته راوړنې",
       organizational_structure: "اداري جوړښت",
       stratigic_aim: "ستراتیژیکې موخې",
