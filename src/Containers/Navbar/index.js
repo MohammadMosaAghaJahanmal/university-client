@@ -55,20 +55,114 @@ const Navbar = (props) =>
     },
     {
       order: 2,
-      name: language.academics, 
+      name: language.academics_programs, 
       mainLink: undefined, 
       links: [
         {name: language.a_bcs_computer_science, isTitle: true, subLinks: [
-          {name: language.a_vission_mission, link: "academic/c_vission_mission"},
-          {name: language.a_curriculum, link: "academic/c_curriculum"},
-          {name: language.a_organizational_structure, link: "academic/c_organizational_structure"},
-          {name: language.a_aggrements, link: "academic/c_aggrements"},
+          {name: language.our_vission_and_mission, link: "cs/vission_mission"},
+          {name: language.strategic_aims, link: "cs/strategic_aim"},
+          {name: language.strategic_plane, link: "cs/strategic_plane"},
+          {name: language.values, link: "cs/values"},
+          {name: language.academic_calendar, link: "cs/academic_calendar"},
+          {name: language.structure, link: "cs/structure"},
+          {name: language.informational_technology, isTitle: true, subLinks: [
+            {name: language.our_vission_and_mission, link: "it/vission_mission"},
+            {name: language.strategic_aims, link: "it/strategic_aim"},
+            {name: language.strategic_plane, link: "it/strategic_plane"},
+            {name: language.values, link: "it/values"},
+            {name: language.curriculum, link: "it/curriculum"},
+            {name: language.academic_calendar, link: "it/academic_calendar"},
+            {name: language.structure, link: "it/structure"},
+            {name: language.councils_and_committees, link: "it/councils_and_committees"}, 
+            {name: language.labs, link: "it/labs"}, 
+            {name: language.library, link: "it/libraryinfos"}, 
+            {name: language.achievements, link: "it/achievements"}, 
+            {name: language.aggrements, link: "it/aggrements"}, 
+            {name: language.semester_fee, link: "it/semester_fee"},
+          ]},
+          {name: language.software_engineering, isTitle: true, subLinks: [
+            {name: language.our_vission_and_mission, link: "se/vission_mission"},
+            {name: language.strategic_aims, link: "se/strategic_aim"},
+            {name: language.strategic_plane, link: "se/strategic_plane"},
+            {name: language.values, link: "se/values"},
+            {name: language.curriculum, link: "se/curriculum"},
+            {name: language.academic_calendar, link: "se/academic_calendar"},
+            {name: language.structure, link: "se/structure"},
+            {name: language.councils_and_committees, link: "se/councils_and_committees"}, 
+            {name: language.labs, link: "se/labs"}, 
+            {name: language.library, link: "se/libraryinfos"}, 
+            {name: language.achievements, link: "se/achievements"}, 
+            {name: language.aggrements, link: "se/aggrements"}, 
+            {name: language.semester_fee, link: "se/semester_fee"},
+          ]},
+          {name: language.information_system, isTitle: true, subLinks: [
+            {name: language.our_vission_and_mission, link: "is/vission_mission"},
+            {name: language.strategic_aims, link: "is/strategic_aim"},
+            {name: language.strategic_plane, link: "is/strategic_plane"},
+            {name: language.values, link: "is/values"},
+            {name: language.curriculum, link: "is/curriculum"},
+            {name: language.academic_calendar, link: "is/academic_calendar"},
+            {name: language.structure, link: "is/structure"},
+            {name: language.councils_and_committees, link: "is/councils_and_committees"}, 
+            {name: language.labs, link: "is/labs"}, 
+            {name: language.library, link: "is/libraryinfos"}, 
+            {name: language.achievements, link: "is/achievements"}, 
+            {name: language.aggrements, link: "is/aggrements"}, 
+            {name: language.semester_fee, link: "is/semester_fee"},
+          ]},
         ]},
         {name: language.a_bba_economics, isTitle: true, subLinks: [
-          {name: language.a_vission_mission, link: "academic/e_vission_mission"},
-          {name: language.a_curriculum, link: "academic/e_curriculum"},
-          {name: language.a_organizational_structure, link: "academic/e_organizational_structure"},
-          {name: language.a_aggrements, link: "academic/e_aggrements"},
+          {name: language.our_vission_and_mission, link: "eco/vission_mission"},
+          {name: language.strategic_aims, link: "eco/strategic_aim"},
+          {name: language.strategic_plane, link: "eco/strategic_plane"},
+          {name: language.values, link: "eco/values"},
+          {name: language.academic_calendar, link: "eco/academic_calendar"},
+          {name: language.structure, link: "eco/structure"},
+          {name: language.national_economics, isTitle: true, subLinks: [
+            {name: language.our_vission_and_mission, link: "neco/vission_mission"},
+            {name: language.strategic_aims, link: "neco/strategic_aim"},
+            {name: language.strategic_plane, link: "neco/strategic_plane"},
+            {name: language.values, link: "neco/values"},
+            {name: language.curriculum, link: "neco/curriculum"},
+            {name: language.academic_calendar, link: "neco/academic_calendar"},
+            {name: language.structure, link: "neco/structure"},
+            {name: language.councils_and_committees, link: "neco/councils_and_committees"}, 
+            {name: language.labs, link: "neco/labs"}, 
+            {name: language.library, link: "neco/libraryinfos"}, 
+            {name: language.achievements, link: "neco/achievements"}, 
+            {name: language.aggrements, link: "neco/aggrements"}, 
+            {name: language.semester_fee, link: "neco/semester_fee"},
+          ]},
+          {name: language.banking, isTitle: true, subLinks: [
+            {name: language.our_vission_and_mission, link: "beco/vission_mission"},
+            {name: language.strategic_aims, link: "beco/strategic_aim"},
+            {name: language.strategic_plane, link: "beco/strategic_plane"},
+            {name: language.values, link: "beco/values"},
+            {name: language.curriculum, link: "beco/curriculum"},
+            {name: language.academic_calendar, link: "beco/academic_calendar"},
+            {name: language.structure, link: "beco/structure"},
+            {name: language.councils_and_committees, link: "beco/councils_and_committees"}, 
+            {name: language.labs, link: "beco/labs"}, 
+            {name: language.library, link: "beco/libraryinfos"}, 
+            {name: language.achievements, link: "beco/achievements"}, 
+            {name: language.aggrements, link: "beco/aggrements"}, 
+            {name: language.semester_fee, link: "beco/semester_fee"},
+          ]},
+          {name: language.business_administration , isTitle: true, subLinks: [
+            {name: language.our_vission_and_mission, link: "baeco/vission_mission"},
+            {name: language.strategic_aims, link: "baeco/strategic_aim"},
+            {name: language.strategic_plane, link: "baeco/strategic_plane"},
+            {name: language.values, link: "baeco/values"},
+            {name: language.curriculum, link: "baeco/curriculum"},
+            {name: language.academic_calendar, link: "baeco/academic_calendar"},
+            {name: language.structure, link: "baeco/structure"},
+            {name: language.councils_and_committees, link: "baeco/councils_and_committees"}, 
+            {name: language.labs, link: "baeco/labs"}, 
+            {name: language.library, link: "baeco/libraryinfos"}, 
+            {name: language.achievements, link: "baeco/achievements"}, 
+            {name: language.aggrements, link: "baeco/aggrements"}, 
+            {name: language.semester_fee, link: "baeco/semester_fee"},
+          ]},
         ]},
       ],
     },
@@ -273,9 +367,42 @@ const Navbar = (props) =>
                             </span>
                           </label>
                           <div className={styles.mobileNestedLinks}>
-                            {link.subLinks.map((subLink, indx) => (
+                            {link.subLinks.map((subLink, indx) => !subLink.subLinks ? (
                               <NavLink className={({isActive}) => [styles.mobileNestedLink, (isActive ? styles.active : null)].join(" ")} key={(subLink.name + indx)} to={subLink.link}><span>{subLink.name}</span></NavLink>
-                            ))}
+                            ) :
+                            <div className={styles.mobileItem} key={(subLink.name + index)}>
+                              <input type={"checkbox"} id={(subLink.name + index)}  style={{display: "none"}} className={styles.chekcBox}/>
+                              <label className={[styles.mobileLink, styles.fullNested].join(" ")} htmlFor={(subLink.name + index)}>
+                                {subLink.name}
+                                <span className={styles.mobileLinkShape} style={{animationDuration: ((index + 1) * 10) + "s"}}></span>
+                                <span className={[styles.icon].join(' ')}>
+                                  <ArrowDown size={20} color={"rgba(0, 157, 255, 0.5)"}/>
+                                  <ArrowDown size={0} color={"rgba(0, 157, 255, 0.5)"}/>
+                                </span>
+                              </label>
+                              <div className={styles.mobileNestedMenu}>
+                              {subLink.subLinks?.map((link, ndx )=> (
+                                  link.isTitle ?
+                                  <div key={(link.name + ndx)} className={styles.mobileNestedContainer}>
+                                    <input type={"radio"} id={"mobilemenu"+ndx} name={'nestedMenu'} style={{display: "none"}}/>
+                                    <label className={[styles.nestedTitle, styles.mobileNestedTitle].join(" ")} htmlFor={"mobilemenu"+ndx}>
+                                      {link.name}
+                                      <span>
+                                        <ArrowDown size={20} color={"rgba(0, 157, 255, 0.5)"}/>
+                                      </span>
+                                    </label>
+                                    <div className={styles.mobileNestedLinks}>
+                                      {link.subLinks.map((subLink, indx) => (
+                                        <NavLink className={({isActive}) => [styles.mobileNestedLink, (isActive ? styles.active : null)].join(" ")} key={(subLink.name + indx)} to={subLink.link}><span>{subLink.name}</span></NavLink>
+                                      ))}
+                                    </div>
+                                  </div>
+                                  :
+                                  <NavLink className={({isActive}) => [styles.mobileNestedLink, (isActive ? styles.active : null)].join(" ")} key={(link.name + ndx)} to={link.link}><span>{link.name}</span></NavLink>
+                                ))}
+                              </div>
+                            </div>
+                            )}
                           </div>
                         </div>
                         :

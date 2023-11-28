@@ -24,6 +24,7 @@ const Post = (props) =>
     aggrements: "aggrement",
     news: "news",
     foundation: "foundation",
+    labs: "lab",
   }
 
   const [isLoading, setIsLoading] = useState(false);

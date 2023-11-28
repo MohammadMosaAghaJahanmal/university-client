@@ -22,6 +22,12 @@ const VissionMission = lazy(() => import('../VissionMission'));
 const ChancellorMessage = lazy(() => import('../ChancellorMessage'));
 const HistoryAchievements = lazy(() => import('../HistoryAchievements'));
 const OrgStructure = lazy(() => import('../OrgStructure'));
+const Structure = lazy(() => import('../Structure'));
+const Curriculum = lazy(() => import('../Curriculum'));
+const Labs = lazy(() => import('../Labs'));
+const Achievements = lazy(() => import('../Achievements'));
+const LibraryInfos = lazy(() => import('../LibraryInfos'));
+const SemesterFee = lazy(() => import('../SemesterFee'));
 const StrategicAim = lazy(() => import('../StrategicAim'));
 const Aggrements = lazy(() => import('../Aggrements'));
 const AcademicCalendar = lazy(() => import('../AcademicCalendar'));
@@ -97,18 +103,28 @@ class Layout extends PureComponent
         {screen: '/news', Component: News},
         {screen: '/job_opportunity', Component: JobOpportunity},
         {screen: '/economical_advisory', Component: EconomicalAdvisory},
-        {screen: '/about/vission_mission', Component: VissionMission},
         {screen: '/about/chancellor_message', Component: ChancellorMessage},
         {screen: '/about/history_and_achievements', Component: HistoryAchievements},
         {screen: '/about/organizational_structure', Component: OrgStructure},
-        {screen: '/about/stratigic_aim', Component: StrategicAim},
-        {screen: '/about/academic_calendar', Component: AcademicCalendar},
-        {screen: '/about/aggrements', Component: Aggrements},
+        // {screen: '/about/stratigic_aim', Component: StrategicAim},
+        // {screen: '/about/academic_calendar', Component: AcademicCalendar},
+        // {screen: '/about/aggrements', Component: Aggrements},
         {screen: '/about/academic_programs', Component: AcademicPrograms},
+        {screen: '/:id/vission_mission', Component: VissionMission},
         {screen: '/:id/values', Component: Values},
         {screen: '/:id/strategic_plane', Component: StrategicPlane},
+        {screen: '/:id/strategic_aim', Component: StrategicAim},
         {screen: '/:id/councils_and_committees', Component: CouncilsAndCommittees},
         {screen: '/:id/your_opinion', Component: YourOpinion},
+        {screen: '/:id/stratigic_aim', Component: StrategicAim},
+        {screen: '/:id/academic_calendar', Component: AcademicCalendar},
+        {screen: '/:id/structure', Component: Structure},
+        {screen: '/:id/curriculum', Component: Curriculum},
+        {screen: '/:id/labs', Component: Labs},
+        {screen: '/:id/achievements', Component: Achievements},
+        {screen: '/:id/aggrements', Component: Aggrements},
+        {screen: '/:id/libraryinfos', Component: LibraryInfos},
+        {screen: '/:id/semester_fee', Component: SemesterFee},
         {screen: '/research/capacity_building', Component: CapacityBuilding},
         {screen: '/research/vission_mission', Component: R_VissionMission},
         {screen: '/research/manual_policies', Component: ManualPolicies},

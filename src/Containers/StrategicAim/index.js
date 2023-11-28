@@ -2,79 +2,52 @@ import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import language from '../../localization';
-import Title from '../../Components/Title';
-import {FaPiedPiperHat as CheckBox} from 'react-icons/fa';
-import SweetAlert from "../../Components/SweetAlert";
+import Text from "../../Components/Text";
+import SideBar from "../../Components/SidaBar";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
-import Loader from "../../Components/Loader";
-const StrategicAim = (props) =>
-{
+import { useParams } from "react-router-dom";
 
-  const [globalState, dispatch] = useStore();
-  const [isLoading, setIsLoading] = useState(false);
+const StratigicAim = (props) =>
+{
+  const {id} = useParams()
+  const [globalState] = useStore();
 
   const {heros, stratigicaims} = globalState;
 
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "stratigic_aim")?.imagePath || "")).href;
-
-  useEffect(() => {
-    
-    (async() => {
-      try {
-        if(stratigicaims.length <= 0)
-        {
-          setIsLoading(true);
-          const response = await fetch(serverPath('/stratigic_aim'));
-          const objData = await response.json();
-          if(objData.status === "success")
-          {
-            const data = objData.data;
-            dispatch('setData', {type: "stratigicaims", data: data})
-          }
-          setIsLoading(false);
-        }
-      } catch (err) {
-        setIsLoading(false);
-        return SweetAlert('error', err.message);
-      }
-    })()
-
-
-  }, [])
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "stratigicaims")?.imagePath || "")).href;
 
   return (
-    <div className={styles.strategicAim}>
-      <SmallHero title={language.stratigic_aim} image={myHero} isRTL={isRTL}/>
-      <div className={[styles.saw, "w-controller"].join(" ")}>
-        {
-         isLoading ? 
-         <Loader message="Loading Data..." />
-         :
+    <div className={styles.container}>
+      <SmallHero title={language.strategic_aims} image={myHero}  bgAnimation={true}/>
+      <div className={[styles.cw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
-          {stratigicaims.length > 0 ?
-          stratigicaims.map(straAim => (
-            <div className={styles.stratigic} key={straAim._id}>
-              <Title 
-                  title={straAim[isRTL ? "pTitle": "title"]}
-                  className={[styles.chTitle, styles.title].join(" ")}
-                  />
-              <div className={styles.ach}>
-              {straAim?.aims?.map(aim => (
-                <div className={[styles.item].join(" ")} key={aim._id}>
-                  <i className={[styles.icon, (isRTL && styles.rtl)].join(" ")}><CheckBox /></i>
-                  <span className={styles.itemText}>{aim[isRTL ? "pAim": "aim"]}</span>
-                </div>
-              ))}
-              </div>
+        {stratigicaims?.length > 0 ?
+            stratigicaims.map((stratigicaim, index) => stratigicaim.type === id ? (
+          <div className={styles.wrapper}>
+            <div className={styles.content}>
+              <Text className={styles.text}>
+                <div className={styles.textData} dangerouslySetInnerHTML={{__html: stratigicaim[isRTL ? "pDescription" : "description"]}}></div>
+              </Text>
             </div>
-          ))
+            <SideBar
+              links={[
+                {name: language.a_aims, link: "/academic/a_aims"}, 
+                {name: language.a_self_assesment, link: "/academic/a_self_assesment"},
+                {name: language.a_annual_program_monitoring, link: "/academic/a_annual_program_monitoring"},
+                {name: language.a_councils_committees, link: "/academic/a_councils_committees"},
+                {name: language.a_manual_policies, link: "/academic/a_manual_policies"},
+                {name: language.a_capacity_building, link: "/academic/a_capacity_building"},
+                {name: language.accreditation, link: "/academic/accreditation"},
+              ]}
+              />
+          </div>
+          ): null)
           :
           <p className="msg">{language.nothing_to_show}</p>
           }
         </div>
-        }
       </div>
     </div>
   )
@@ -82,4 +55,4 @@ const StrategicAim = (props) =>
 
 
 
-export default StrategicAim;
+export default StratigicAim;

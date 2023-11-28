@@ -6,12 +6,14 @@ import Title from '../../Components/Title';
 import Text from "../../Components/Text";
 import useStore from "../../store/store";
 import serverPath from '../../utils/serverPath';
+import { useParams } from "react-router-dom";
 
 const VissionMission = (props) =>
 {
+  const {id} = useParams();
   const [globalState] = useStore();
 
-  const {heros, cevissions, cemissions, avissionmissionimages} = globalState;
+  const {heros, vissions, missions, avissionmissionimages} = globalState;
   const [visMis, setVisMis] = useState({
     vission: {},
     mission: {},
@@ -19,14 +21,14 @@ const VissionMission = (props) =>
   });
 
   useEffect(() => {
-    let vis = cevissions.find(v => v.type === 'ab');
-    let mis = cemissions.find(v => v.type === 'ab');
+    let vis = vissions.find(v => v.type === id);
+    let mis = missions.find(m => m.type === id);
     setVisMis(prev => ({
       vission: vis || {},
       mission: mis || {},
       img: avissionmissionimages[0]
     }));
-  }, []);
+  }, [id]);
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "vission_mission")?.imagePath || "")).href;
 
   const isRTL = (language.getLanguage() === 'ps');

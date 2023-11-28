@@ -688,26 +688,6 @@
     left: -140px;
   }
 
-  .mobileLinkShape
-  {
-    left: 43%;
-    top: -80px;
-    position: absolute;
-    z-index: 9;
-    display: flex;
-    width: 200px;
-    height: 200px;
-    align-items: center;
-    justify-content: center;
-    transition: 300ms;
-    clip-path: polygon(50% 8%, 78% 18%, 90% 42%, 90% 70%, 69% 91%, 35% 89%, 13% 75%, 10% 44%, 22% 18%);
-    animation-name: shaper;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    font-weight: 100;
-  }
-
   .mobileLink:hover .mobileLinkShape,
   .mobileLink.active .mobileLinkShape,
   .chekcBox:checked + .mobileLink .mobileLinkShape
@@ -901,33 +881,27 @@
     position: relative;
     z-index: 2;
   }
-  .mobileNestedLink::before
-  {
-    content: '';
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    position: absolute;
-    right: 50%;
-    top: 50%;
-    transform: translateX(50%) translateY(-50%);
-    transition: 300ms;
-    clip-path: polygon(50% 100%, 100% 0, 100% 100%, 50% 0, 0 100%, 0 0);
-  }
-  .mobileNestedLink:hover::before,
-  .mobileNestedLink.active::before
-  {
-    clip-path: polygon(56% 0, 100% 0, 100% 100%, 48% 100%, 0 100%, 0 0);
-  }
+
   .mobileNestedLink:hover,
   .mobileNestedLink.active
   {
     background-color: #0080d6;
     color: white;
   }
-
+  .fullNested
+  {
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-image: unset;
+    background-color: rgba(37, 204, 247, 0.3);
+    color: #0080d6;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 13px;
+  }
 
   @media all and (max-width: 768px) {
     .upperMenuContainer
@@ -951,33 +925,4 @@
   {
     top: 80px;
   }
-}
-
-@keyframes shaper {
-  0%
-  {
-    clip-path: polygon(50% 8%, 78% 18%, 90% 42%, 90% 70%, 69% 91%, 35% 89%, 13% 75%, 10% 44%, 22% 18%);
-  }
-  20%
-  {
-    clip-path: polygon(40% 7%, 63% 22%, 92% 30%, 80% 57%, 81% 85%, 40% 95%, 13% 86%, 6% 56%, 11% 15%);
-  }
-  40%
-  {
-    clip-path: polygon(7% 23%, 54% 6%, 73% 25%, 90% 34%, 93% 63%, 76% 85%, 45% 91%, 13% 82%, 3% 53%);
-  }
-  60%
-  {
-    clip-path: polygon(21% 34%, 30% 8%, 66% 15%, 90% 25%, 94% 48%, 86% 75%, 61% 90%, 30% 82%, 9% 58%);
-  }
-  80%
-  {
-    clip-path: polygon(4% 46%, 16% 12%, 55% 4%, 84% 18%, 83% 42%, 93% 65%, 83% 78%, 52% 89%, 10% 78%);
-  }
-  100%
-  {
-    clip-path: polygon(8% 70%, 11% 36%, 21% 15%, 58% 11%, 85% 20%, 97% 51%, 93% 89%, 56% 91%, 25% 90%);
-    rotate: 360deg;
-  }
-  
 }

@@ -10,8 +10,10 @@ import Loader from "../../Components/Loader";
 import Text from "../../Components/Text";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
+import { useParams } from "react-router-dom";
 const YourOpinion = (props) =>
 {
+  const {id} = useParams();
   const [globalState] = useStore();
 
   const {heros} = globalState;
@@ -42,7 +44,7 @@ const YourOpinion = (props) =>
         headers: {
           "Content-Type": "Application/JSON",
         },
-        body: JSON.stringify({...fields, type: "about"})
+        body: JSON.stringify({...fields, type: id})
       });
 
       const objData = await response.json();
@@ -83,17 +85,6 @@ const YourOpinion = (props) =>
                 <Button  label="Send" disabled={loading} />
               </form>
             </div>
-            <SideBar
-              links={[
-                {name: languages.our_vission_and_mission, link: "/about/vission_mission"}, 
-                {name: languages.values, link: "/about/values"},
-                {name: languages.years_plane, link: "/about/strategic_plane"}, 
-                {name: languages.councils_and_committees, link: "/about/councils_and_committees"}, 
-                {name: languages.academic_programs, link: "/about/academic_programs"}, 
-                {name: languages.your_opinion, link: "/about/your_opinion"},
-                {name: languages.contact, link: "/contact", },
-              ]}
-            />
           </div>
         </div>
         

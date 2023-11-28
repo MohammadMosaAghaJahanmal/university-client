@@ -3,7 +3,7 @@ import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import language from '../../localization';
 import Title from '../../Components/Title';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import SweetAlert from "../../Components/SweetAlert";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
@@ -12,12 +12,12 @@ import Pagination from "../../Components/Pagination";
 const Aggrements = (props) =>
 {
 
-  
+  const {id} = useParams()
   const [globalState, dispatch] = useStore();
   const [isLoading, setIsLoading] = useState(false);
 
   const {heros, aggrements} = globalState;
-
+  const [aggrs, setAggrs] = useState(aggrements.filter(perField => perField.type?.toLowerCase() === id));
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "aggrements")?.imagePath || "")).href;
   const [pagination, setPagination] = useState({
@@ -39,6 +39,7 @@ const Aggrements = (props) =>
           if(objData.status === "success")
           {
             const data = objData.data;
+            setAggrs(data.filter(perField => perField.type?.toLowerCase() === id));
             dispatch('setData', {type: "aggrements", data: data})
           }
           setIsLoading(false);
@@ -54,10 +55,10 @@ const Aggrements = (props) =>
   useEffect(() => {
     setPagination(prev => ({
       ...prev,
-      max: Math.ceil(aggrements.length / pagination.show),
+      max: Math.ceil(aggrs.length / pagination.show),
       value: 1
     }))
-  }, [aggrements]);
+  }, [aggrs]);
 
   const navigate = useNavigate();
 
@@ -75,13 +76,13 @@ const Aggrements = (props) =>
          <Loader message="Loading Data..." />
          :
         <div className={styles.contentWrapper}>
-          {aggrements.length > 0 ?
+          {aggrs.length > 0 ?
           <>
             <Title 
               title={language.aggrements}
             />
             <div className={styles.cards}>
-            {aggrements.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(aggrement => (
+            {aggrs.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(aggrement => (
               <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler(aggrement._id)} key={aggrement._id}>
                 <div className={styles.img}>
                   <img src={serverPath(aggrement.thumbnail)} alt="aggrement image" />
