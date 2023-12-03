@@ -52,6 +52,17 @@ const StrategicPlane = lazy(() => import('../StrategicPlane'));
 const CouncilsAndCommittees = lazy(() => import('../CouncilsAndCommittees'));
 const AcademicPrograms = lazy(() => import('../AcademicPrograms'));
 const YourOpinion = lazy(() => import('../YourOpinion'));
+const ResearchSupport = lazy(() => import('../ResearchSupport'));
+const ResearchTrainings = lazy(() => import('../ResearchTrainings'));
+const ResearchPaper = lazy(() => import('../ResearchPaper'));
+const ResearchGuide = lazy(() => import('../ResearchGuide'));
+const PoliciesAndProcedures = lazy(() => import('../PoliciesAndProcedures'));
+const ResearchPapersAndPublications = lazy(() => import('../ResearchPapersAndPublications'));
+const ScientificAndResearchMagazine = lazy(() => import('../ScientificAndResearchMagazine'));
+const PlanedResearche = lazy(() => import('../PlanedResearche'));
+const UnderProcessResearche = lazy(() => import('../UnderProcessResearche'));
+const CompletedResearche = lazy(() => import('../CompletedResearche'));
+const PublishedResearche = lazy(() => import('../PublishedResearche'));
 
 const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
 
@@ -125,6 +136,17 @@ class Layout extends PureComponent
         {screen: '/:id/aggrements', Component: Aggrements},
         {screen: '/:id/libraryinfos', Component: LibraryInfos},
         {screen: '/:id/semester_fee', Component: SemesterFee},
+        {screen: '/:id/policies_and_procedure', Component: PoliciesAndProcedures},
+        {screen: '/research/research_papers_and_publication', Component: ResearchPapersAndPublications},
+        {screen: '/research/scientific_and_research_magazine', Component: ScientificAndResearchMagazine},
+        {screen: '/research/research_paper', Component: ResearchPaper},
+        {screen: '/research/research_guide', Component: ResearchGuide},
+        {screen: '/research/research_support', Component: ResearchSupport},
+        {screen: '/research/research_trainings', Component: ResearchTrainings},
+        {screen: '/research/planed_researche', Component: PlanedResearche},
+        {screen: '/research/under_process_researche', Component: UnderProcessResearche},
+        {screen: '/research/completed_researche', Component: CompletedResearche},
+        {screen: '/research/published_researche', Component: PublishedResearche},
         {screen: '/research/capacity_building', Component: CapacityBuilding},
         {screen: '/research/vission_mission', Component: R_VissionMission},
         {screen: '/research/manual_policies', Component: ManualPolicies},

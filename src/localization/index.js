@@ -102,7 +102,19 @@ let languages = new LocalizedStrings({
     information_system: "Information System",
     national_economics: "National Economics",
     banking: "Banking",
-    business_administration: "Business and Administration"
+    business_administration: "Business and Administration",
+    research_support: "Research Support",
+    research_trainings: "Research Trainings",
+    policies_and_procedures : "Policies and Procedures",
+    research_papers_and_publications: "Research Papers And Publications",
+    scientific_and_research_magazine: "Scientific and Research Magazine",
+    research_paper: "Research Papers",
+    research_guide: "Research Guide",
+    research_activities: "Research Activities",
+    planed_researche : "Planed Researches",
+    under_process_researche: "Under Process Researches",
+    completed_researche: "Completed Researches",
+    published_researche: "Published Researches",
   },
   ps:{
     home: "کور",
@@ -211,8 +223,19 @@ let languages = new LocalizedStrings({
     information_system: "معلوماتي سیسټمونه",
     national_economics: "ملی اقتصاد",
     banking: "بانکداري",
-    business_administration: "اداره او تجارت"
-
+    business_administration: "اداره او تجارت",
+    research_trainings: "څیړنیزه روزنه",
+    research_support: "څیړنیز ملاتړ",
+    policies_and_procedures : "پالیسیاني او طرزالعملونه",
+    research_papers_and_publications: "څیړنیز اثار او انتشارات",
+    scientific_and_research_magazine: "علمي او څیړنیزه مجله",
+    research_paper: "څیړنیزي مقالي",
+    research_guide: "د څیړني لارښود",
+    research_activities: "څیړنیزي کړني",
+    planed_researche : "پلان سوي څیړني",
+    under_process_researche: "تر کار لاندي څیړني",
+    completed_researche: "تکمیل سوي څیړني",
+    published_researche: "نشر سوي څیړني",
   }
 });
 

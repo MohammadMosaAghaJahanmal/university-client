@@ -46,11 +46,6 @@ const Navbar = (props) =>
         {name: language.your_opinion, link: "/about/your_opinion"},
         {name: language.contact, link: "/contact" },
         // {name: language.chancellor_message, link: "about/chancellor_message"}, 
-        // {name: language.history_and_achievements, link: "about/history_and_achievements"}, 
-        // {name: language.organizational_structure, link: "about/organizational_structure"},
-        // {name: language.stratigic_aim, link: "about/stratigic_aim"},
-        // {name: language.academic_calendar, link: "about/academic_calendar"},
-        // {name: language.aggrements, link: "about/aggrements"},
       ], 
     },
     {
@@ -167,6 +162,33 @@ const Navbar = (props) =>
       ],
     },
     {
+      order: 3,
+      name: language.research, 
+      mainLink: undefined, 
+      links: [
+        {name: language.strategic_aims, link: "/research/strategic_aim"},
+        {name: language.strategic_plane, link: "/research/strategic_plane"},
+        {name: language.research_activities, isTitle: true, subLinks: [
+          {name: language.planed_researche, link: "research/planed_researche"},
+          {name: language.under_process_researche, link: "research/under_process_researche"},
+          {name: language.completed_researche, link: "research/completed_researche"},
+          {name: language.published_researche, link: "research/published_researche"},
+        ]},
+        {name: language.research_support, link: "/research/research_support"},
+        {name: language.research_trainings, link: "/research/research_trainings"},
+        {name: language.policies_and_procedures, link: "/research/policies_and_procedure"},
+        {name: language.research_papers_and_publications, link: "/research/research_papers_and_publication"},
+        {name: language.scientific_and_research_magazine, link: "/research/scientific_and_research_magazine"},
+        {name: language.research_guide, link: "/research/research_guide"},
+        {name: language.research_paper, link: "/research/research_paper"},
+        {name: language.aggrements, link: "/research/aggrements"},
+        {name: language.your_opinion, link: "/research/your_opinion"},
+        // {name: language.manual_policies, link: "/research/manual_policies"},
+        // {name: language.saba_magazine, link: "/research/saba_magazine"},
+        // {name: language.research_publications, link: "/research/research_publications"}
+      ],
+    },
+    {
       order: 5,
       name: language.a_quality_assurance, 
       mainLink: undefined, 
@@ -179,19 +201,7 @@ const Navbar = (props) =>
         {name: language.a_capacity_building, link: "academic/a_capacity_building"},
         {name: language.accreditation, link: "academic/accreditation"},
       ]
-  }, 
-    {
-      order: 3,
-      name: language.research, 
-      mainLink: undefined, 
-      links: [
-        {name: language.capacity_building, link: "/research/capacity_building"},
-        {name: language.r_vission_mission, link: "/research/vission_mission"},
-        {name: language.manual_policies, link: "/research/manual_policies"},
-        {name: language.saba_magazine, link: "/research/saba_magazine"},
-        {name: language.research_publications, link: "/research/research_publications"}
-      ],
-    },
+    }, 
     {
       order: 7,
       name: language.students, 
@@ -359,7 +369,7 @@ const Navbar = (props) =>
                     {menu.links?.map((link, ndx )=> (
                         link.isTitle ?
                         <div key={(link.name + ndx)} className={styles.mobileNestedContainer}>
-                          <input type={"radio"} id={"mobilemenu"+ndx} name={'nestedMenu'} style={{display: "none"}}/>
+                          <input type={"checkbox"} id={"mobilemenu"+ndx} name={'nestedMenu'} style={{display: "none"}}/>
                           <label className={[styles.nestedTitle, styles.mobileNestedTitle].join(" ")} htmlFor={"mobilemenu"+ndx}>
                             {link.name}
                             <span>

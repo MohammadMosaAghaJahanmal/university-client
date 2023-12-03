@@ -31,6 +31,8 @@ const CapacityBuildingPost = (props) =>
       {type:'achievements', storePath: "achievements", route: "achievement"},
       {type:'agreements', storePath: "agreements", route: "agreement"},
       {type:'libraryinfos', storePath: "libraryinfos", route: "libraryinfo"},
+      {type:'research_trainings', storePath: "researchtrainings", route: "research_training"},
+      {type:'research_papers_and_publications', storePath: "researchpapersandpublications", route: "research_papers_and_publication"},
   ];
   
     const [isLoading, setIsLoading] = useState(false);
