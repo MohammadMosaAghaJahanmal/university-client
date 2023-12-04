@@ -19,6 +19,8 @@ const C_VissionMission = (props) =>
     about: {}
   });
 
+  console.log("HI");
+
   useEffect(() => {
     let vis = cevissions.find(v => v.type === 'cs');
     let mis = cemissions.find(v => v.type === 'cs');
