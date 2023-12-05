@@ -53,9 +53,9 @@ const ResearchPaper = (props) =>
           :
           <div className={styles.contentWrapper}>
             <Title 
-              text={language.research_paper}
+              text={language?.research_paper}
             />
-            {researchpapers.length > 0 ?
+            {researchpapers?.length > 0 ?
             researchpapers.map(perField => (
               <div className={styles.stratigic} key={perField._id}>
                 <div dangerouslySetInnerHTML={{__html: perField[isRTL ? "pDescription" : 'description']}} className={styles.ach}></div>
