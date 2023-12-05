@@ -189,6 +189,29 @@ const Navbar = (props) =>
       ],
     },
     {
+      order: 4,
+      name: language.a_pdc, 
+      links: [
+        {name: language.our_vission_and_mission, link: "/pdc/vission_mission"},
+        {name: language.structure, link: "/pdc/structure"},
+        {name: language.strategic_aims, link: "/pdc/strategic_aim"},
+        {name: language.values, link: "/pdc/values"},
+        {name: language.a_pdc_b, link: "/pdc/a_pdc_b"},
+        {name: language.annual_professional_development_plan, link: "/pdc/annual_professional_development_plan"},
+        {name: language.seminars_courses_workshop, isTitle: true, subLinks: [
+          {name: language.teacher, link: "/pdc/teacher"},
+          {name: language.administrative_staff, link: "/pdc/administrative_staff"},
+          {name: language.student, link: "/pdc/pdc_student"},
+          {name: language.society, link: "/pdc/society"},
+        ]},
+        // {name: language.seminars_courses_workshop, link: "/pdc/seminars_courses_workshop"},
+        {name: language.aggrements, link: "/pdc/aggrements"},
+        {name: language.your_opinion, link: "/pdc/your_opinion"},
+
+        // {name: language.a_aims, link: "/pdc/aims"},
+      ],
+    }, 
+    {
       order: 5,
       name: language.a_quality_assurance, 
       mainLink: undefined, 
@@ -204,7 +227,7 @@ const Navbar = (props) =>
     }, 
     {
       order: 7,
-      name: language.students, 
+      name: language.student, 
       mainLink: undefined, 
       links: [
         {name: language.student_portal, link: "/students/student_portal"}, 
@@ -233,16 +256,6 @@ const Navbar = (props) =>
       name: language.news, 
       mainLink: '/news', 
     },
-    {
-      order: 4,
-      name: language.a_pdc, 
-      links: [
-        {name: language.r_vission_mission, link: "/pdc/vission_mission"},
-        {name: language.a_pdc_b, link: "pdc/a_pdc_b"},
-        {name: language.structure, link: "pdc/structure"},
-        {name: language.a_aims, link: "pdc/aims"},
-      ],
-    }, 
     {
       order: 8,
       name: language.economical_advisory, 
@@ -356,8 +369,8 @@ const Navbar = (props) =>
 
                 ):(
                   <div className={styles.mobileItem} key={(menu.name + index)}>
-                    <input type={"checkbox"} id={(menu.name + index)}  style={{display: "none"}} className={styles.chekcBox}/>
-                    <label className={styles.mobileLink} htmlFor={(menu.name + index)}>
+                    <input type={"checkbox"} id={(menu.name + (index + " "))}  style={{display: "none"}} className={styles.chekcBox}/>
+                    <label className={styles.mobileLink} htmlFor={(menu.name + (index + " "))}>
                       {menu.name}
                       <span className={styles.mobileLinkShape} style={{animationDuration: ((index + 1) * 10) + "s"}}></span>
                       <span className={[styles.icon].join(' ')}>

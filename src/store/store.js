@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 
 let globalState = {
     aaccreditations: [],
+    administrativestaffs: [],
+    annualprofessionaldevelopmentplans: [],
     aaims: [],
     aannualprograms: [],
     achievements: [],
@@ -63,9 +65,13 @@ let globalState = {
     semesterpromotionrules: [],
     stratigicaims: [],
     scientificandresearchmagazines: [],
+    seminarscoursesworkshops: [],
+    teachers: [],
     structures: [],
     semesterfees: [],
     students: [],
+    societies: [],
+    pdcstudents: [],
     values: [],
     strategicplanes: [],
     councilsandcommittees: [],

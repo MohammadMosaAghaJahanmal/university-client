@@ -6,7 +6,9 @@ const universityStore = () =>
   const setData = ({type, data}, globalState) => ({[type]: data});
 
   const initialState = (payload, globalState) => ({
+    administrativestaffs: [],
     aaccreditations: [],
+    annualprofessionaldevelopmentplans: [],
     aaims: [],
     pdc_aims: [],
     aannualprograms: [],
@@ -66,7 +68,11 @@ const universityStore = () =>
     scholarshipsfinancings: [],
     semesterpromotionrules: [],
     stratigicaims: [],
+    seminarscoursesworkshops: [],
     scientificandresearchmagazines: [],
+    teachers: [],
+    pdcstudents: [],
+    societies: [],
     students: [],
     values: [],
     strategicplanes: [],

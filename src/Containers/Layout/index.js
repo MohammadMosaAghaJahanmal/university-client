@@ -68,6 +68,11 @@ const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
 
 
 const PDC = lazy(() => import('../PDC'));
+const AnnualProfessionalDevelopmentPlan = lazy(() => import('../AnnualProfessionalDevelopmentPlan'));
+const SeminarsCoursesWorkshop = lazy(() => import('../SeminarsCoursesWorkshop'));
+const Teacher = lazy(() => import('../Teacher'));
+const AdministrativeStaff = lazy(() => import('../AdministrativeStaff'));
+const PDCStudent = lazy(() => import('../PDCStudent'));
 const PDC_VissionMission = lazy(() => import('../PDC_VissionMission'));
 const PDC_Structure = lazy(() => import('../PDC_Structure'));
 const PDC_Aims = lazy(() => import('../PDC_Aims'));
@@ -175,9 +180,13 @@ class Layout extends PureComponent
         {screen: '/academic/accreditation', Component: Accreditation},
 
         {screen: '/pdc/a_pdc_b', Component: PDC},
-        {screen: '/pdc/aims', Component: PDC_Aims},
-        {screen: '/pdc/vission_mission', Component: PDC_VissionMission},
-        {screen: '/pdc/structure', Component: PDC_Structure},
+        {screen: '/pdc/annual_professional_development_plan', Component: AnnualProfessionalDevelopmentPlan},
+        {screen: '/pdc/seminars_courses_workshop', Component: SeminarsCoursesWorkshop},
+        {screen: '/pdc/teacher', Component: Teacher},
+        {screen: '/pdc/administrative_staff', Component: AdministrativeStaff},
+        {screen: '/pdc/pdc_student', Component: PDCStudent},
+        // {screen: '/pdc/aims', Component: PDC_Aims},
+        // {screen: '/pdc/structure', Component: PDC_Structure},
 
         {screen: '/academic/c_curriculum', Component: C_Curriculum},
         {screen: '/academic/c_organizational_structure', Component: C_OrgStructure},
