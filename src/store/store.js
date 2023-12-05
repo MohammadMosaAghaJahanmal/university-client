@@ -52,6 +52,7 @@ let globalState = {
     researchsupports: [],
     researchtrainings: [],
     researchguides: [],
+    researchpapers: [],
     planedresearches: [],
     underprocessresearches: [],
     completedresearches: [],
