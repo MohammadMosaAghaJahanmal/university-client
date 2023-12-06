@@ -23,8 +23,12 @@ const Post = (props) =>
   const allowTypes = {
     aggrements: "aggrement",
     news: "news",
+    teachers: "teacher",
     foundation: "foundation",
     labs: "lab",
+    pdcstudents: "pdc_student",
+    administrativestaffs: "administrative_staff",
+    societies: "society",
   }
 
   const [isLoading, setIsLoading] = useState(false);

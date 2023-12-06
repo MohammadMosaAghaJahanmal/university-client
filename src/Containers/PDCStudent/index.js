@@ -7,15 +7,17 @@ import { useNavigate } from "react-router-dom";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import Pagination from "../../Components/Pagination";
-const News = (props) =>
+import Loader from "../../Components/Loader";
+const PDCStudent = (props) =>
 {
 
-  const [globalState] = useStore();
+  const [globalState, dispatch] = useStore();
 
-  const {heros, news} = globalState;
+  const {heros, pdcstudents} = globalState;
+  const [isLoading, setIsLoading] = useState(false);
 
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "news")?.imagePath || "")).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "pdc_student")?.imagePath || "")).href;
   const [pagination, setPagination] = useState({
     min: 1,
     max: 1,
@@ -28,39 +30,60 @@ const News = (props) =>
 
   const clickHandler = (id) =>
   {
-    navigate(`/posts/news/${id}`);
+    navigate(`/posts/pdcstudents/${id}`);
   }
+
+  useEffect(() => {
+    (async() => {
+      try {
+        if(pdcstudents.length <= 0 && !isLoading)
+        {
+          setIsLoading(true);
+          const response = await fetch(serverPath(`/pdc_student`));
+          const objData = await response.json();
+          if(objData.status === "success")
+          {
+            const data = objData.data;
+            dispatch('setData', {type: 'pdcstudents', data: data});
+          }
+          setIsLoading(false);
+        }
+      } catch (error) {
+        setIsLoading(false);
+      }
+    })()
+  }, []);
 
   useEffect(() => {
     setPagination(prev => ({
       ...prev,
-      max: Math.ceil(news.length / pagination.show),
+      max: Math.ceil(pdcstudents.length / pagination.show),
       value: 1
     }))
-  }, []);
+  }, [pdcstudents]);
 
   return (
     <div className={styles.news}>
-      <SmallHero title={language.news} image={myHero} isRTL={isRTL} bgAnimation={true}/>
+      <SmallHero title={language.student} image={myHero} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.nw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
-        {news.length > 0 ?
+        {isLoading ? <Loader /> : pdcstudents.length > 0 ?
           <>
             <Title 
-              title={language.news}
+              title={language.student}
             />
             <div className={styles.cards}>
-              {news.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(perNews => (
-              <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler(perNews._id)} key={perNews._id}>
+              {pdcstudents.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(perStudent => (
+              <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler(perStudent._id)} key={perStudent._id}>
                 <div className={styles.img}>
-                  <img src={serverPath(perNews.thumbnail)} alt="News Image" />
+                  <img src={serverPath(perStudent.thumbnail)} alt="Student Image" />
                 </div>
                 <div className={styles.textContent}>
                   <Title className={styles.title}>
-                    {perNews[isRTL ? "pTitle" : "title"]}
+                    {perStudent[isRTL ? "pTitle" : "title"]}
                   </Title>
                   <p>
-                    {new Date(perNews.createdAt).toLocaleDateString()}
+                    {new Date(perStudent.createdAt).toLocaleDateString()}
                   </p>
                 </div>
               </div>
@@ -90,4 +113,4 @@ const News = (props) =>
 
 
 
-export default News;
+export default PDCStudent;

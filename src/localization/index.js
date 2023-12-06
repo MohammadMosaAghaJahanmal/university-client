@@ -40,7 +40,7 @@ let languages = new LocalizedStrings({
       saba_magazine: "Saba Magazine",
       research_publications: "Research Publications",
 
-    students: "Students",
+    student: "Students",
       student_portal: "Student Portal",
       eligibility_criteria: "Eligibility Criteria",
       scholarships_financing: "Scholarships & Financing",
@@ -86,7 +86,7 @@ let languages = new LocalizedStrings({
     years_plane: "Five-Years Stratigic Plan",
     strategic_plane: "Strategic Plan",
     strategic_aims: "Strategic Aims",
-    downloadPlanFile: "Download Plan File",
+    downloadPlanFile: "Download File",
     councils_and_committees: "Councils And Committees",
     academic_programs: "Academic Programs",
     your_opinion: "Your Opinion",
@@ -115,6 +115,11 @@ let languages = new LocalizedStrings({
     under_process_researche: "Under Process Researches",
     completed_researche: "Completed Researches",
     published_researche: "Published Researches",
+    annual_professional_development_plan: "Annual Professional Development Plan",
+    seminars_courses_workshop: "Seminars Courses Workshops",
+    teacher: "Teachers",
+    administrative_staff: "Administrative Staffs",
+    society: "Society"
   },
   ps:{
     home: "کور",
@@ -157,7 +162,7 @@ let languages = new LocalizedStrings({
       research_publications: "نشر سوې څېړنې",
       
     // Students
-    students: "محصلان",
+    student: "محصلان",
       student_portal: "د محصل معلومات",
       eligibility_criteria: "د داخلې شرائط",
       scholarships_financing: "د محصلانو مالي تمویل او تشویق",
@@ -207,7 +212,7 @@ let languages = new LocalizedStrings({
     years_plane: "پنځه کلن ستراتیژیک پلان",
     strategic_plane: "ستراتیژیک پلان",
     strategic_aims: "ستراتیژیکی موخی",
-    downloadPlanFile: "د پلان فایل ډاونلوډ کړی",
+    downloadPlanFile: "فایل ډاونلوډ کړی",
     councils_and_committees: "شوراګانی او کمیټی",
     academic_programs: "علمی برنامی",
     your_opinion: "ستاسو نظر",
@@ -236,6 +241,11 @@ let languages = new LocalizedStrings({
     under_process_researche: "تر کار لاندي څیړني",
     completed_researche: "تکمیل سوي څیړني",
     published_researche: "نشر سوي څیړني",
+    annual_professional_development_plan: "کلنی مسلکي پرمختیایی پلان",
+    seminars_courses_workshop: "سیمینارونه ورکشاپونه کورسونه ",
+    teacher: "استادان",
+    administrative_staff: "اداري کارمندان",
+    society: "ټولنه"
   }
 });
 

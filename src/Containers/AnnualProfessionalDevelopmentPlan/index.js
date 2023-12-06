@@ -3,38 +3,33 @@ import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import language from '../../localization';
 import Title from '../../Components/Title';
-import {FaPiedPiperHat as CheckBox} from 'react-icons/fa';
 import SweetAlert from "../../Components/SweetAlert";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import Loader from "../../Components/Loader";
-import { useParams } from "react-router-dom";
-import SideBar from "../../Components/SidaBar";
-const Values = (props) =>
+import languages from "../../localization";
+const AnnualProfessionalDevelopmentPlan = (props) =>
 {
-  const {id} = useParams();
   const [globalState, dispatch] = useStore();
   const [isLoading, setIsLoading] = useState(false);
-  
-  const {heros, values} = globalState;
-  const [valueData, setValueData] = useState(values.filter(perField => perField.id == id));
+
+  const {heros, annualprofessionaldevelopmentplans} = globalState;
 
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = serverPath((heros?.find(hero => hero.type === "value")?.imagePath) || "");
+  const myHero = serverPath((heros?.find(hero => hero.type === "annual_professional_development_plan")?.imagePath) || "");
 
   useEffect(() => {
     (async() => {
       try {
-        if(values.length <= 0)
+        if(annualprofessionaldevelopmentplans.length <= 0)
         {
           setIsLoading(true);
-          const response = await fetch(serverPath('/value'));
+          const response = await fetch(serverPath('/annual_professional_development_plan'));
           const objData = await response.json();
           if(objData.status === "success")
           {
             const data = objData.data;
-            setValueData(data.filter(perField => perField.id == id))
-            dispatch('setData', {type: "values", data: data})
+            dispatch('setData', {type: "annualprofessionaldevelopmentplans", data: data})
           }
           setIsLoading(false);
         }
@@ -45,11 +40,11 @@ const Values = (props) =>
     })()
 
 
-  }, [id])
+  }, [])
 
   return (
     <div className={styles.strategicAim}>
-      <SmallHero title={language.values} image={myHero} isRTL={isRTL}/>
+      <SmallHero title={language.annual_professional_development_plan} image={myHero} isRTL={isRTL}/>
       <div className={[styles.saw, "w-controller"].join(" ")}>
         <div className={styles.wrapper}>
           {
@@ -57,14 +52,14 @@ const Values = (props) =>
           <Loader message="Loading Data..." />
           :
           <div className={styles.contentWrapper}>
-            {valueData.length > 0 ?
-            valueData.map(value => value.type === id && (
-              <div className={styles.stratigic} key={value._id}>
-                <Title 
-                    title={value[isRTL ? "pTitle": "title"]}
-                    className={[styles.chTitle, styles.title].join(" ")}
-                    />
-                <div dangerouslySetInnerHTML={{__html: value[isRTL ? "pValue" : 'value']}} className={styles.ach}></div>
+            <Title 
+              text={language.annual_professional_development_plan}
+            />
+            {annualprofessionaldevelopmentplans.length > 0 ?
+            annualprofessionaldevelopmentplans.map(perField => (
+              <div className={styles.stratigic} key={perField._id}>
+                <div dangerouslySetInnerHTML={{__html: perField[isRTL ? "pDescription" : 'description']}} className={styles.ach}></div>
+                <a href={serverPath(perField.filePath)} download={"annualprofessionaldevelopmentplans.pdf"} target="_blank" className={styles.fileLink}>{languages.downloadPlanFile}</a>
               </div>
             ))
             :
@@ -80,4 +75,4 @@ const Values = (props) =>
 
 
 
-export default Values;
+export default AnnualProfessionalDevelopmentPlan;
