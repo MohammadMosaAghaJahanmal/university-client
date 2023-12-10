@@ -99,6 +99,7 @@ const A_BuildingCapacity = lazy(() => import('../A_BuildingCapacity'));
 const Accreditation = lazy(() => import('../Accreditation'));
 
 const SabaFoundation = lazy(() => import('../SabaFoundation'));
+const Society = lazy(() => import('../Society'));
 
 
 const PageNotFound = lazy(() => import('../404'));
@@ -185,6 +186,7 @@ class Layout extends PureComponent
         {screen: '/pdc/teacher', Component: Teacher},
         {screen: '/pdc/administrative_staff', Component: AdministrativeStaff},
         {screen: '/pdc/pdc_student', Component: PDCStudent},
+        {screen: '/pdc/society', Component: Society},
         // {screen: '/pdc/aims', Component: PDC_Aims},
         // {screen: '/pdc/structure', Component: PDC_Structure},
 
