@@ -7,7 +7,8 @@ const universityStore = () =>
 
   const initialState = (payload, globalState) => ({
     administrativestaffs: [],
-    aaccreditations: [],
+    accreditations: [],
+    accrs: [],
     annualprofessionaldevelopmentplans: [],
     aaims: [],
     pdc_aims: [],
@@ -19,7 +20,8 @@ const universityStore = () =>
     acouncilscommittees: [],
     aggrements: [],
     amanualpolicies: [],
-    aselfassesments: [],
+    selfassesments: [],
+    periodicprogramreviews: [],
     avissionmissionimages: [],
     boardinfos: [],
     boardmembers: [],

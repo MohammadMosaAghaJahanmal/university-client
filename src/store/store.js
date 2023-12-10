@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 
 let globalState = {
-    aaccreditations: [],
+    accreditations: [],
+    accrs: [],
     administrativestaffs: [],
     annualprofessionaldevelopmentplans: [],
     aaims: [],
@@ -14,7 +15,8 @@ let globalState = {
     acouncilscommittees: [],
     aggrements: [],
     amanualpolicies: [],
-    aselfassesments: [],
+    selfassesments: [],
+    periodicprogramreviews: [],
     avissionmissionimages: [],
     boardinfos: [],
     boardmembers: [],

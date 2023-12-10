@@ -94,6 +94,8 @@ const Aims = lazy(() => import('../Aims'));
 const AnnualPrograms = lazy(() => import('../AnnualPrograms'));
 const CouncilCommittees = lazy(() => import('../CouncilCommittees'));
 const SelfAssesment = lazy(() => import('../SelfAssesment'));
+const PeriodicProgramReview = lazy(() => import('../PeriodicProgramReview'));
+const Accr = lazy(() => import('../Accr'));
 const A_ManualPolicies = lazy(() => import('../A_ManualPolicies'));
 const A_BuildingCapacity = lazy(() => import('../A_BuildingCapacity'));
 const Accreditation = lazy(() => import('../Accreditation'));
@@ -143,6 +145,7 @@ class Layout extends PureComponent
         {screen: '/:id/libraryinfos', Component: LibraryInfos},
         {screen: '/:id/semester_fee', Component: SemesterFee},
         {screen: '/:id/policies_and_procedure', Component: PoliciesAndProcedures},
+        {screen: '/:id/accreditation', Component: Accr},
         {screen: '/research/research_papers_and_publication', Component: ResearchPapersAndPublications},
         {screen: '/research/scientific_and_research_magazine', Component: ScientificAndResearchMagazine},
         {screen: '/research/research_paper', Component: ResearchPaper},
@@ -172,13 +175,9 @@ class Layout extends PureComponent
 
         {screen: '/multipleimgs/:type/:id', Component: CapacityBuildingPost},
 
-        {screen: '/academic/a_aims', Component: Aims},
-        {screen: '/academic/a_self_assesment', Component: SelfAssesment},
-        {screen: '/academic/a_annual_program_monitoring', Component: AnnualPrograms},
-        {screen: '/academic/a_councils_committees', Component: CouncilCommittees},
-        {screen: '/academic/a_manual_policies', Component: A_ManualPolicies},
-        {screen: '/academic/a_capacity_building', Component: A_BuildingCapacity},
-        {screen: '/academic/accreditation', Component: Accreditation},
+        {screen: '/assurance/self_assesment', Component: SelfAssesment},
+        {screen: '/assurance/periodic_program_review', Component: PeriodicProgramReview},
+        {screen: '/assurance/accreditation', Component: Accreditation},
 
         {screen: '/pdc/a_pdc_b', Component: PDC},
         {screen: '/pdc/annual_professional_development_plan', Component: AnnualProfessionalDevelopmentPlan},

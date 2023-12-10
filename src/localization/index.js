@@ -119,7 +119,11 @@ let languages = new LocalizedStrings({
     seminars_courses_workshop: "Seminars Courses Workshops",
     teacher: "Teachers",
     administrative_staff: "Administrative Staffs",
-    society: "Society"
+    society: "Society",
+    periodic_program_review: "Periodic Program Review",
+    internal_accreditation: "Internal Accreditation",
+    national_accreditation: "National Accreditation",
+    international_accreditation: "International Accreditation",
   },
   ps:{
     home: "کور",
@@ -245,7 +249,11 @@ let languages = new LocalizedStrings({
     seminars_courses_workshop: "سیمینارونه ورکشاپونه کورسونه ",
     teacher: "استادان",
     administrative_staff: "اداري کارمندان",
-    society: "ټولنه"
+    society: "ټولنه",
+    periodic_program_review: "دورئی بیاکتنه",
+    internal_accreditation: "داخلی اعتبار اخیستنه",
+    national_accreditation: "ملي اعتبار اخیستنه",
+    international_accreditation: "بین المللی اعتبار اخیستنه",
   }
 });
 
