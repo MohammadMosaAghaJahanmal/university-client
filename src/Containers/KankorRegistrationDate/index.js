@@ -3,34 +3,39 @@ import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import language from '../../localization';
 import Text from "../../Components/Text";
-import SideBar from "../../Components/SidaBar";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 
-const ResearchSupport = (props) =>
+const KankorRegistrationDate = (props) =>
 {
+
   const [globalState] = useStore();
 
-  const {heros, researchsupports} = globalState;
+  const {heros, kankorregistrationdates} = globalState;
+
+  
 
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "research_support")?.imagePath || "")).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "kankor_registration_date")?.imagePath || "")).href;
 
   return (
     <div className={styles.container}>
-      <SmallHero title={language.strategic_aims} image={myHero}  bgAnimation={true}/>
+      <SmallHero title={language.kankor_registration_date} image={myHero} style={{color: "#0080d6", textShadow: "0 0 2px white"}}  bgAnimation={true}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
-        {researchsupports?.length > 0 ?
-            researchsupports.map((stratigicaim, index) => (
+        {kankorregistrationdates?.length > 0 ?
           <div className={styles.wrapper}>
             <div className={styles.content}>
-              <Text className={styles.text}>
-                <div className={styles.textData} dangerouslySetInnerHTML={{__html: stratigicaim[isRTL ? "pDescription" : "description"]}}></div>
-              </Text>
+              {kankorregistrationdates.map(per => (
+              <div key={per.id}>
+                <Text className={styles.text}>
+                  <div className={styles.textData} dangerouslySetInnerHTML={{__html: per[isRTL ? "pDescription": "description"]}}></div>
+                </Text>
+              </div>
+              ))
+              }
             </div>
           </div>
-          ))
           :
           <p className="msg">{language.nothing_to_show}</p>
           }
@@ -42,4 +47,4 @@ const ResearchSupport = (props) =>
 
 
 
-export default ResearchSupport;
+export default KankorRegistrationDate;

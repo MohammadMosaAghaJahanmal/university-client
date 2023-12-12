@@ -225,10 +225,24 @@ const Navbar = (props) =>
         {name: language.your_opinion, link: "/assurance/your_opinion"},
         // {name: language.a_annual_program_monitoring, link: "academic/a_annual_program_monitoring"},
         // {name: language.a_councils_committees, link: "academic/a_councils_committees"},
-        // {name: language.a_manual_policies, link: "academic/a_manual_policies"},
+        // {name: language.a_manual_policies, link: "acrademic/a_manual_policies"},
         // {name: language.a_capacity_building, link: "academic/a_capacity_building"},
       ]
     }, 
+    {
+      order: 6,
+      name: language.kankor, 
+      mainLink: undefined, 
+      links: [
+        {name: language.offline_enrollment_requirement, link: "/kankor/offline_enrollment_requirement"}, 
+        {name: language.kankor_registration_date, link: "/kankor/kankor_registration_date"}, 
+        {name: language.kankor_guide, link: "/kankor/kankor_guide"}, 
+        {name: language.enrolled, link: "/kankor/enrolled"}, 
+        {name: language.general, link: "/kankor/general"}, 
+        // {name: language.online_admission, link: "/kankor/admission"}, 
+        // {name: language.result, link: "/kankor/result"}
+      ],
+    },
     {
       order: 7,
       name: language.student, 
@@ -243,12 +257,6 @@ const Navbar = (props) =>
         {name: language.penalties, link: "/students/penalties"}, 
         {name: language.job_opportunity, link: "/job_opportunity"},
       ],
-    },
-    {
-      order: 6,
-      name: language.kankor, 
-      mainLink: undefined, 
-      links: [{name: language.online_admission, link: "/kankor/admission"}, {name: language.result, link: "/kankor/result"}],
     },
     {
       order: 9,

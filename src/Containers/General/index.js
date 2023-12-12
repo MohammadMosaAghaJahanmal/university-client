@@ -7,26 +7,26 @@ import SideBar from "../../Components/SidaBar";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 
-const ResearchSupport = (props) =>
+const General = (props) =>
 {
   const [globalState] = useStore();
 
-  const {heros, researchsupports} = globalState;
+  const {heros, generals} = globalState;
 
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "research_support")?.imagePath || "")).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "general")?.imagePath || "")).href;
 
   return (
     <div className={styles.container}>
-      <SmallHero title={language.strategic_aims} image={myHero}  bgAnimation={true}/>
+      <SmallHero title={language.general} image={myHero}  bgAnimation={true}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
-        {researchsupports?.length > 0 ?
-            researchsupports.map((stratigicaim, index) => (
+        {generals?.length > 0 ?
+            generals.map((per, index) => (
           <div className={styles.wrapper}>
             <div className={styles.content}>
               <Text className={styles.text}>
-                <div className={styles.textData} dangerouslySetInnerHTML={{__html: stratigicaim[isRTL ? "pDescription" : "description"]}}></div>
+                <div className={styles.textData} dangerouslySetInnerHTML={{__html: per[isRTL ? "pDescription" : "description"]}}></div>
               </Text>
             </div>
           </div>
@@ -42,4 +42,4 @@ const ResearchSupport = (props) =>
 
 
 
-export default ResearchSupport;
+export default General;

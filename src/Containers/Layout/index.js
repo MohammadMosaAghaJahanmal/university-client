@@ -63,6 +63,11 @@ const PlanedResearche = lazy(() => import('../PlanedResearche'));
 const UnderProcessResearche = lazy(() => import('../UnderProcessResearche'));
 const CompletedResearche = lazy(() => import('../CompletedResearche'));
 const PublishedResearche = lazy(() => import('../PublishedResearche'));
+const OfflineEnrollmentRequirement = lazy(() => import('../OfflineEnrollmentRequirement'));
+const KankorGuide = lazy(() => import('../KankorGuide'));
+const KankorRegistrationDate = lazy(() => import('../KankorRegistrationDate'));
+const Enrolled = lazy(() => import('../Enrolled'));
+const General = lazy(() => import('../General'));
 
 const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
 
@@ -169,6 +174,11 @@ class Layout extends PureComponent
         {screen: '/students/penalties', Component: Penalties},
         {screen: '/students/students_verification', Component: StudentsVerification},
         {screen: '/students/student_portal', Component: StudentsPortal},
+        {screen: '/kankor/offline_enrollment_requirement', Component: OfflineEnrollmentRequirement},
+        {screen: '/kankor/kankor_registration_date', Component: KankorRegistrationDate},
+        {screen: '/kankor/kankor_guide', Component: KankorGuide},
+        {screen: '/kankor/enrolled', Component: Enrolled},
+        {screen: '/kankor/general', Component: General},
         {screen: '/kankor/admission', Component: OnlineAdmission},
         {screen: '/kankor/result', Component: Result},
 

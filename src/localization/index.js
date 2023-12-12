@@ -124,6 +124,11 @@ let languages = new LocalizedStrings({
     internal_accreditation: "Internal Accreditation",
     national_accreditation: "National Accreditation",
     international_accreditation: "International Accreditation",
+    offline_enrollment_requirement: "Offline Enrollment Requirements",
+    kankor_guide: "Kankor Guide", 
+    kankor_registration_date : "Kankor Registration Date", 
+    enrolled : "Enrolled", 
+    general: "General"
   },
   ps:{
     home: "کور",
@@ -254,6 +259,11 @@ let languages = new LocalizedStrings({
     internal_accreditation: "داخلی اعتبار اخیستنه",
     national_accreditation: "ملي اعتبار اخیستنه",
     international_accreditation: "بین المللی اعتبار اخیستنه",
+    offline_enrollment_requirement: "د حضوري نوم لیکني شرایط",
+    kankor_guide: "د کانکور لارښود", 
+    kankor_registration_date : "د کانکور د نوم لیکني نیټه", 
+    enrolled : "اختصاصي", 
+    general: "عمومي"
   }
 });
 
