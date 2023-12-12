@@ -17,7 +17,7 @@ const Values = (props) =>
   const [isLoading, setIsLoading] = useState(false);
   
   const {heros, values} = globalState;
-  const [valueData, setValueData] = useState(values.filter(perField => perField.id == id));
+  const [valueData, setValueData] = useState(values.filter(perField => perField.type == id));
 
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = serverPath((heros?.find(hero => hero.type === "value")?.imagePath) || "");
@@ -33,7 +33,7 @@ const Values = (props) =>
           if(objData.status === "success")
           {
             const data = objData.data;
-            setValueData(data.filter(perField => perField.id == id))
+            setValueData(data.filter(perField => perField.type == id))
             dispatch('setData', {type: "values", data: data})
           }
           setIsLoading(false);
