@@ -29,6 +29,7 @@ const CapacityBuildingPost = (props) =>
       {type:'capacity_building', storePath: "capacitybuildings", route: "capacity_building"},
       {type:'councils_and_committees', storePath: "councilsandcommittees", route: "councils_and_committees"},
       {type:'achievements', storePath: "achievements", route: "achievement"},
+      {type:'activity', storePath: "activities", route: "activity"},
       {type:'agreements', storePath: "agreements", route: "agreement"},
       {type:'libraryinfos', storePath: "libraryinfos", route: "libraryinfo"},
       {type:'research_trainings', storePath: "researchtrainings", route: "research_training"},

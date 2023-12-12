@@ -68,6 +68,7 @@ const KankorGuide = lazy(() => import('../KankorGuide'));
 const KankorRegistrationDate = lazy(() => import('../KankorRegistrationDate'));
 const Enrolled = lazy(() => import('../Enrolled'));
 const General = lazy(() => import('../General'));
+const Activity = lazy(() => import('../Activity'));
 
 const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
 
@@ -127,6 +128,7 @@ class Layout extends PureComponent
         {screen: '/news', Component: News},
         {screen: '/job_opportunity', Component: JobOpportunity},
         {screen: '/economical_advisory', Component: EconomicalAdvisory},
+        {screen: '/seb/activity', Component: Activity},
         {screen: '/about/chancellor_message', Component: ChancellorMessage},
         {screen: '/about/history_and_achievements', Component: HistoryAchievements},
         {screen: '/about/organizational_structure', Component: OrgStructure},

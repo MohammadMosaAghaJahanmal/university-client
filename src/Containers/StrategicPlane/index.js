@@ -17,9 +17,9 @@ const StrategicPlane = (props) =>
   const [isLoading, setIsLoading] = useState(false);
 
   const {heros, strategicplanes} = globalState;
-
+  const [filteredData, setFilteredData] = useState([]);
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = serverPath((heros?.find(hero => hero.type === "strategic_plane")?.imagePath) || "");
+  const myHero = serverPath((heros?.find(hero => hero.type === "strategic_plane")?.imagePath || "" ) || "");
 
   useEffect(() => {
     (async() => {
@@ -32,17 +32,19 @@ const StrategicPlane = (props) =>
           if(objData.status === "success")
           {
             const data = objData.data;
+            setFilteredData(data.filter(perField => perField.type == id));
             dispatch('setData', {type: "strategicplanes", data: data})
           }
           setIsLoading(false);
+        }else
+        {
+          setFilteredData(strategicplanes.filter(perField => perField.type == id))
         }
       } catch (err) {
         setIsLoading(false);
         return SweetAlert('error', err.message);
       }
     })()
-
-
   }, [id])
 
   return (
@@ -58,8 +60,8 @@ const StrategicPlane = (props) =>
             <Title 
               text={language.strategic_plane}
             />
-            {strategicplanes.length > 0 ?
-            strategicplanes.map(perField => perField.type === id && (
+            {filteredData.length > 0 ?
+            filteredData.map(perField => (
               <div className={styles.stratigic} key={perField._id}>
                 <div dangerouslySetInnerHTML={{__html: perField[isRTL ? "pDescription" : 'description']}} className={styles.ach}></div>
                 <a href={serverPath(perField.filePath)} download={"strategicplanes.pdf"} target="_blank" className={styles.fileLink}>{languages.downloadPlanFile}</a>

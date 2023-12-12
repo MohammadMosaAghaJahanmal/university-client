@@ -56,7 +56,7 @@ let languages = new LocalizedStrings({
     kankor: "Kankor",
       online_admission: "Online Admission",
       result: "Result",
-    economical_advisory: "S E A Board",
+    saba_economical_board: "Saba Economical Board",
     nothing_to_show: "Nothing To Show Yet",
     no_posts: "No Posts To Show",
     posts: "Posts",
@@ -128,7 +128,8 @@ let languages = new LocalizedStrings({
     kankor_guide: "Kankor Guide", 
     kankor_registration_date : "Kankor Registration Date", 
     enrolled : "Enrolled", 
-    general: "General"
+    general: "General",
+    activity: "Activities",
   },
   ps:{
     home: "کور",
@@ -191,7 +192,7 @@ let languages = new LocalizedStrings({
       online_admission: "آنلاین نوملیکنه",
       result: "نتیجه",
 
-    economical_advisory: "اقتصادی مشورتی بورډ",
+    saba_economical_board: "سبا اقتصادي بورډ",
     nothing_to_show: "تر اوسه د ښودلو لپاره هیڅ شی نشته",
     no_posts: "No Posts To Show",
     posts: "پوسټونه",
@@ -263,7 +264,8 @@ let languages = new LocalizedStrings({
     kankor_guide: "د کانکور لارښود", 
     kankor_registration_date : "د کانکور د نوم لیکني نیټه", 
     enrolled : "اختصاصي", 
-    general: "عمومي"
+    general: "عمومي",
+    activity: "فعالیتونه",
   }
 });
 

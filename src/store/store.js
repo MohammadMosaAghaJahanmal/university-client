@@ -82,6 +82,7 @@ let globalState = {
     values: [],
     strategicplanes: [],
     councilsandcommittees: [],
+    activities: [],
     academicprograms: [],
 };
 let actions = {};

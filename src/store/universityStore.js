@@ -84,6 +84,7 @@ const universityStore = () =>
     values: [],
     strategicplanes: [],
     structures: [],
+    activities: [],
     semesterfees: [],
     councilsandcommittees: [],
     academicprograms: [],

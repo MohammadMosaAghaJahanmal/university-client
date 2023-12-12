@@ -259,6 +259,18 @@ const Navbar = (props) =>
       ],
     },
     {
+      order: 8,
+      name: language.saba_economical_board, 
+      mainLink: undefined,
+      links: [
+        {name: language.a_aims, link: "/seb/strategic_aim"},
+        {name: language.structure, link: "/seb/structure"},
+        {name: language.strategic_plane, link: "/seb/strategic_plane"},
+        {name: language.activity, link: "/seb/activity"},
+        {name: language.your_opinion, link: "/seb/your_opinion"},
+      ],
+    },
+    {
       order: 9,
       name: language.online_library, 
       mainLink: '/library', 
@@ -267,11 +279,6 @@ const Navbar = (props) =>
       order: 10,
       name: language.news, 
       mainLink: '/news', 
-    },
-    {
-      order: 8,
-      name: language.economical_advisory, 
-      mainLink: "/economical_advisory"
     },
     {
       order: 11,
