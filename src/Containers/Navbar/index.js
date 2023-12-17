@@ -272,8 +272,18 @@ const Navbar = (props) =>
     },
     {
       order: 9,
-      name: language.online_library, 
-      mainLink: '/library', 
+      name: language.saba_library, 
+      mainLink: undefined,       
+      links: [
+        {name: language.online_library, link: "/library/online_library"},
+        {name: language.digital_library, link: "/library/digital_library"},
+        {name: language.offline_library, link: "/library/offline_library"},
+        {name: language.procedure, link: "/library/procedure"},
+        {name: language.study_statistic, link: "/library/study_statistic"},
+        {name: language.progressive_plan, link: "/library/progressive_plan"},
+        {name: language.achievements, link: "/library/achievements"},
+        {name: language.your_opinion, link: "/library/your_opinion"},
+      ],
     },
     {
       order: 10,

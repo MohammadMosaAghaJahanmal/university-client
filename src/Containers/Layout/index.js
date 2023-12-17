@@ -69,6 +69,12 @@ const KankorRegistrationDate = lazy(() => import('../KankorRegistrationDate'));
 const Enrolled = lazy(() => import('../Enrolled'));
 const General = lazy(() => import('../General'));
 const Activity = lazy(() => import('../Activity'));
+const OnlineLibrary = lazy(() => import('../OnlineLibrary'));
+const DigitalLibrary = lazy(() => import('../DigitalLibrary'));
+const StudyStatistic = lazy(() => import('../StudyStatistic'));
+const Procedure = lazy(() => import('../Procedure'));
+const ProgressivePlan = lazy(() => import('../ProgressivePlan'));
+const OfflineLibrary = lazy(() => import('../OfflineLibrary'));
 
 const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
 
@@ -125,6 +131,12 @@ class Layout extends PureComponent
         {screen: '/posts/:type/:id', Component: Post},
         {screen: '/contact', Component: Contact},
         {screen: '/library', Component: Library},
+        {screen: '/library/online_library', Component: OnlineLibrary},
+        {screen: '/library/digital_library', Component: DigitalLibrary},
+        {screen: '/library/study_statistic', Component: StudyStatistic},
+        {screen: '/library/procedure', Component: Procedure},
+        {screen: '/library/offline_library', Component: OfflineLibrary},
+        {screen: '/library/progressive_plan', Component: ProgressivePlan},
         {screen: '/news', Component: News},
         {screen: '/job_opportunity', Component: JobOpportunity},
         {screen: '/economical_advisory', Component: EconomicalAdvisory},

@@ -84,6 +84,11 @@ let globalState = {
     councilsandcommittees: [],
     activities: [],
     academicprograms: [],
+    onlinelibraries: [],
+    offlinelibraries: [], 
+    studystatistics: [], 
+    procedures: [],
+    progressiveplans: [],
 };
 let actions = {};
 let listeners = [];

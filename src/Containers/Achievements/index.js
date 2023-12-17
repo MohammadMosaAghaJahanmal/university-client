@@ -108,17 +108,6 @@ const Achievements  = (props) =>
                   </div>
                 ))}
               </div>
-              <SideBar
-                    links={[
-                      {name: language.our_vission_and_mission, link: "/about/vission_mission"}, 
-                      {name: language.values, link: "/about/values"},
-                      {name: language.years_plane, link: "/about/strategic_plane"}, 
-                      {name: language.achievements, link: "/about/achievements"}, 
-                      {name: language.academic_programs, link: "/about/academic_programs"}, 
-                      {name: language.your_opinion, link: "/about/your_opinion"},
-                      {name: language.contact, link: "/contact", },
-                    ]}
-                  />
             </div>
             { pagination.max > 1 &&
               <Pagination

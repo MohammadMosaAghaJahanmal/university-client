@@ -50,7 +50,7 @@ let languages = new LocalizedStrings({
       penalties: "Penalties",
 
 
-    online_library: "Online Library",
+    saba_library: "Saba Library",
     news: "News",
     job_opportunity: "Job Opportunity",
     kankor: "Kankor",
@@ -130,6 +130,12 @@ let languages = new LocalizedStrings({
     enrolled : "Enrolled", 
     general: "General",
     activity: "Activities",
+    online_library : "Online Library",
+    digital_library: "Digital Library",
+    offline_library : "Offline Library",
+    procedure: "Procedure",
+    study_statistic: "Study Statistics",
+    progressive_plan:"Progressive Plan"
   },
   ps:{
     home: "کور",
@@ -182,7 +188,7 @@ let languages = new LocalizedStrings({
       penalties: "د ډسپلین خلاف کړنې او مجازات",
 
 
-    online_library: "سبا کتابتون",
+    saba_library: "سبا کتابتون",
     news: "خبرونه",
     contact: "اړیکه",
     job_opportunity: "کاري فرصت",
@@ -266,6 +272,12 @@ let languages = new LocalizedStrings({
     enrolled : "اختصاصي", 
     general: "عمومي",
     activity: "فعالیتونه",
+    online_library : "انلاین کتابتون",
+    digital_library: "ډیجیټل کتابتونه",
+    offline_library : "حضوري کتابتونه",
+    procedure: "طرزالعمل",
+    study_statistic: "مطالعه کوونکو احصائیه",
+    progressive_plan:"انکشافي پلان"
   }
 });
 

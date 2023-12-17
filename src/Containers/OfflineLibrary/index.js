@@ -12,7 +12,7 @@ import Loader from "../../Components/Loader";
 import SweetAlert from "../../Components/SweetAlert";
 import Pagination from "../../Components/Pagination";
 
-const PDC = (props) =>
+const OfflineLibrary = (props) =>
 {
 
   const [globalState, dispatch] = useStore();
@@ -23,9 +23,9 @@ const PDC = (props) =>
     value: 1,
     show: 6,
   });
-  const {heros, pdcposts} = globalState;
+  const {heros, offlinelibraries} = globalState;
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "a_pdc")?.imagePath || "")).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "offline_library")?.imagePath || "")).href;
   const navigate = useNavigate();
 
   const postHandler = (type, id) =>
@@ -37,15 +37,15 @@ const PDC = (props) =>
     
     (async() => {
       try {
-          if(pdcposts.length <= 0)
+          if(offlinelibraries.length <= 0)
           {
             setIsLoading(true);
-            const response = await fetch(serverPath('/pdc_post'));
+            const response = await fetch(serverPath('/offline_library'));
             const objData = await response.json();
             if(objData.status === "success")
             {
               const data = objData.data;
-              dispatch('setData', {type: "pdcposts", data: data})
+              dispatch('setData', {type: "offlinelibraries", data: data})
             }
             setIsLoading(false);
           }
@@ -59,36 +59,36 @@ const PDC = (props) =>
   useEffect(() => {
     setPagination(prev => ({
       ...prev,
-      max: Math.ceil(pdcposts.length / pagination.show),
+      max: Math.ceil(offlinelibraries.length / pagination.show),
       value: 1
     }))
-  }, [pdcposts]);
+  }, [offlinelibraries]);
 
 
 
   return (
     <div className={styles.cb}>
-      <SmallHero title={language.a_pdc} image={myHero} isRTL={isRTL} bgAnimation={true}/>
+      <SmallHero title={language.offline_library} image={myHero} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.cbw, "w-controller"].join(" ")}>
         {
          isLoading ? 
          <Loader message="Loading Data..." />
          :
         <div className={styles.contentWrapper}>
-          {pdcposts.length > 0 ? 
+          {offlinelibraries.length > 0 ? 
           <>
             <Title 
-              title={language.a_pdc}
+              title={language.offline_library}
               className={styles.title}
             />
 
             <div className={styles.cards}>
               {
-                pdcposts.length <= 0 ?
+                offlinelibraries.length <= 0 ?
                 <p>{language.no_posts}</p>
                 :
-                pdcposts.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(pdcPost => (
-                <div className={styles.card} onClick={()=> postHandler("a_pdc", pdcPost._id)} key={pdcPost._id}>
+                offlinelibraries.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(pdcPost => (
+                <div className={styles.card} onClick={()=> postHandler("offline_library", pdcPost._id)} key={pdcPost._id}>
                   <ImagesViewer 
                     images={pdcPost.images.map(pdcImage => (serverPath(pdcImage.imagePath)))} 
                     className={styles.img}
@@ -131,4 +131,4 @@ const PDC = (props) =>
 
 
 
-export default PDC;
+export default OfflineLibrary;

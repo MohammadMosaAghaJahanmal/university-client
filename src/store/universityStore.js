@@ -88,7 +88,13 @@ const universityStore = () =>
     semesterfees: [],
     councilsandcommittees: [],
     academicprograms: [],
-    });
+    digitallibraries: [],
+    onlinelibraries: [],
+    procedures: [],
+    offlinelibraries: [], 
+    progressiveplans: [],
+    studystatistics: [], 
+  });
   
   return initState({
     initialState, 
