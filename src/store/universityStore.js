@@ -19,7 +19,7 @@ const universityStore = () =>
     academiccalendars: [],
     acapacitybuildings: [],
     achievements: [],
-    general: [],
+    generals: [],
     acouncilscommittees: [],
     aggrements: [],
     amanualpolicies: [],

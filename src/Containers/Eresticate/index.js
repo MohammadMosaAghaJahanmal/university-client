@@ -8,26 +8,26 @@ import useStore from "../../store/store";
 import Loader from "../../Components/Loader";
 import SweetAlert from "../../Components/SweetAlert";
 
-const General = (props) =>
+const Eresticate = (props) =>
 {
   const [globalState, dispatch] = useStore();
 
-  const {heros, generals} = globalState;
+  const {heros, eresticates} = globalState;
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     (async() => {
       try {
 
-        if(generals.length <= 0)
+        if(eresticates.length <= 0)
         {
           setIsLoading(true);
-          const response = await fetch(serverPath('/general'));
+          const response = await fetch(serverPath('/eresticate'));
           const objData = await response.json();
           if(objData.status === "success")
           {
             const data = objData.data;
-            dispatch('setData', {type: "generals", data: data})
+            dispatch('setData', {type: "eresticates", data: data})
           }
           setIsLoading(false);
         }
@@ -40,19 +40,19 @@ const General = (props) =>
   }, [])
   
   const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "general")?.imagePath || "")).href;
+  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "eresticate")?.imagePath || "")).href;
 
   return (
     <div className={styles.container}>
-      <SmallHero title={language.general} image={myHero}  bgAnimation={true}/>
+      <SmallHero title={language.eresticate} image={myHero}  bgAnimation={true}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
       {
          isLoading ? 
          <Loader message="Loading Data..." />
          :
         <div className={styles.contentWrapper}>
-        {generals?.length > 0 ?
-            generals.map((per, index) => (
+        {eresticates?.length > 0 ?
+            eresticates.map((per, index) => (
           <div className={styles.wrapper}>
             <div className={styles.content}>
               <Text className={styles.text}>
@@ -73,4 +73,4 @@ const General = (props) =>
 
 
 
-export default General;
+export default Eresticate;

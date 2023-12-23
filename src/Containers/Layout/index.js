@@ -78,6 +78,17 @@ const OfflineLibrary = lazy(() => import('../OfflineLibrary'));
 const StudentsEngagement = lazy(() => import('../StudentsEngagement'));
 const StudentsExperience = lazy(() => import('../StudentsExperience'));
 const ToursOfStudent = lazy(() => import('../ToursOfStudent'));
+const Tajil = lazy(() => import('../Tajil'));
+const Deprived = lazy(() => import('../Deprived'));
+const Chance = lazy(() => import('../Chance'));
+const ReEnrollment = lazy(() => import('../ReEnrollment'));
+const Eresticate = lazy(() => import('../Eresticate'));
+const Transformation = lazy(() => import('../Transformation'));
+const Repeat = lazy(() => import('../Repeat'));
+const Graduate = lazy(() => import('../Graduate'));
+const EmployedStudent = lazy(() => import('../EmployedStudent'));
+const GraduatedStudentsStatistic = lazy(() => import('../GraduatedStudentsStatistic'));
+const CounselingCenter = lazy(() => import('../CounselingCenter'));
 
 const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
 
@@ -219,6 +230,17 @@ class Layout extends PureComponent
         {screen: '/students/students_engagement', Component: StudentsEngagement},
         {screen: '/students/students_experience', Component: StudentsExperience},
         {screen: '/students/tours_of_student', Component: ToursOfStudent},
+        {screen: '/students/tajil', Component: Tajil},
+        {screen: '/students/deprived', Component: Deprived},
+        {screen: '/students/chance', Component: Chance},
+        {screen: '/students/re_enrollment', Component: ReEnrollment},
+        {screen: '/students/eresticate', Component: Eresticate},
+        {screen: '/students/transformation', Component: Transformation},
+        {screen: '/students/repeat', Component: Repeat},
+        {screen: '/students/graduate', Component: Graduate},
+        {screen: '/students/employed_student', Component: EmployedStudent},
+        {screen: '/students/graduated_students_statistic', Component: GraduatedStudentsStatistic},
+        {screen: '/students/counseling_center', Component: CounselingCenter},
         {screen: '/academic/c_curriculum', Component: C_Curriculum},
         {screen: '/academic/c_organizational_structure', Component: C_OrgStructure},
         {screen: '/academic/c_aggrements', Component: C_Aggrements},

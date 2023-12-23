@@ -7,6 +7,7 @@ let globalState = {
     administrativestaffs: [],
     offlineenrollmentrequirements: [],
     enrolled: [],
+    generals: [],
     annualprofessionaldevelopmentplans: [],
     aaims: [],
     aannualprograms: [],
