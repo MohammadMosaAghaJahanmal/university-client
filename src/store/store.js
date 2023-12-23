@@ -89,6 +89,21 @@ let globalState = {
     studystatistics: [], 
     procedures: [],
     progressiveplans: [],
+    studentsengagements:[],
+    studentsexperiences: [],
+    toursofstudents: [],
+    studentsstatistics: [],
+    tajils : [],
+    depriveds: [],
+    chances: [],
+    reenrollments: [],
+    eresticates: [],
+    transformations: [],
+    repeats: [],
+    graduates: [],
+    graduatedstudentsstatistics: [],
+    employedstudents: [],
+    counselingcenters: [],
 };
 let actions = {};
 let listeners = [];

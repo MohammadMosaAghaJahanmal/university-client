@@ -36,6 +36,8 @@ const CapacityBuildingPost = (props) =>
       {type:'research_papers_and_publications', storePath: "researchpapersandpublications", route: "research_papers_and_publication"},
       {type:'accreditation', storePath: "accrs", route: "accr"},
       {type:'offline_library', storePath: "offlinelibraries", route: "offline_library"},
+      {type:'tours_of_student', storePath: "toursofstudents", route: "tours_of_student"},
+
   ];
   
     const [isLoading, setIsLoading] = useState(false);

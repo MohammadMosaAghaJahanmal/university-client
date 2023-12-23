@@ -75,6 +75,9 @@ const StudyStatistic = lazy(() => import('../StudyStatistic'));
 const Procedure = lazy(() => import('../Procedure'));
 const ProgressivePlan = lazy(() => import('../ProgressivePlan'));
 const OfflineLibrary = lazy(() => import('../OfflineLibrary'));
+const StudentsEngagement = lazy(() => import('../StudentsEngagement'));
+const StudentsExperience = lazy(() => import('../StudentsExperience'));
+const ToursOfStudent = lazy(() => import('../ToursOfStudent'));
 
 const CapacityBuildingPost = lazy(() => import('../CapacityBuildingPost'));
 
@@ -213,6 +216,9 @@ class Layout extends PureComponent
         // {screen: '/pdc/aims', Component: PDC_Aims},
         // {screen: '/pdc/structure', Component: PDC_Structure},
 
+        {screen: '/students/students_engagement', Component: StudentsEngagement},
+        {screen: '/students/students_experience', Component: StudentsExperience},
+        {screen: '/students/tours_of_student', Component: ToursOfStudent},
         {screen: '/academic/c_curriculum', Component: C_Curriculum},
         {screen: '/academic/c_organizational_structure', Component: C_OrgStructure},
         {screen: '/academic/c_aggrements', Component: C_Aggrements},

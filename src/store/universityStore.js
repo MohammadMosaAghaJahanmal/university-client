@@ -94,6 +94,21 @@ const universityStore = () =>
     offlinelibraries: [], 
     progressiveplans: [],
     studystatistics: [], 
+    studentsengagements:[],
+    studentsexperiences: [],
+    toursofstudents: [],
+    studentsstatistics: [],
+    tajils : [],
+    depriveds: [],
+    chances: [],
+    reenrollments: [],
+    eresticates: [],
+    transformations: [],
+    repeats: [],
+    graduates: [],
+    graduatedstudentsstatistics: [],
+    employedstudents: [],
+    counselingcenters: [],
   });
   
   return initState({
