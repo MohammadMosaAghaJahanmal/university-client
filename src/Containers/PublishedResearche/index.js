@@ -18,7 +18,7 @@ const PublishedResearche = (props) =>
 
   return (
     <div className={styles.container}>
-      <SmallHero title={language.strategic_aims} image={myHero}  bgAnimation={true}/>
+      <SmallHero title={language.published_researche} image={myHero}  bgAnimation={true}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
         {publishedresearches?.length > 0 ?
