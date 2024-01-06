@@ -18,7 +18,7 @@ const UnderProcessResearche = (props) =>
 
   return (
     <div className={styles.container}>
-      <SmallHero title={language.strategic_aims} image={myHero}  bgAnimation={true}/>
+      <SmallHero title={language.under_process_researche} image={myHero}  bgAnimation={true}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
         <div className={styles.contentWrapper}>
         {underprocessresearches?.length > 0 ?
