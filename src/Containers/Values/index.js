@@ -17,7 +17,7 @@ const Values = (props) =>
   const [isLoading, setIsLoading] = useState(false);
   
   const {heros, values} = globalState;
-  const [valueData, setValueData] = useState(values.filter(perField => perField.type == id));
+  const [valueData, setValueData] = useState([]);
 
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = serverPath((heros?.find(hero => hero.type === "value")?.imagePath) || "");
@@ -25,7 +25,7 @@ const Values = (props) =>
   useEffect(() => {
     (async() => {
       try {
-        if(values.length <= 0)
+        if(values?.length <= 0)
         {
           setIsLoading(true);
           const response = await fetch(serverPath('/value'));
@@ -37,14 +37,15 @@ const Values = (props) =>
             dispatch('setData', {type: "values", data: data})
           }
           setIsLoading(false);
+        }else
+        {
+          setValueData(values.filter(perField => perField.type == id))
         }
       } catch (err) {
         setIsLoading(false);
         return SweetAlert('error', err.message);
       }
     })()
-
-
   }, [id])
 
   return (

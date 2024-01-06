@@ -7,15 +7,44 @@ import Text from "../../Components/Text";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import { useParams } from "react-router-dom";
+import SweetAlert from "../../Components/SweetAlert";
+import Loader from "../../Components/Loader";
 const Structure = (props) =>
 {
   const {id} = useParams();
-  const [globalState] = useStore();
+  const [globalState, dispatch] = useStore();
 
   const {heros, structures} = globalState;
 
+  const [structure, setStructure] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
-  const structure = structures.find(per => per.type === id);
+  useEffect(() => {
+    (async() => {
+      try {
+        if(structures?.length <= 0)
+        {
+          setIsLoading(true);
+          const response = await fetch(serverPath('/structure'));
+          const objData = await response.json();
+          if(objData.status === "success")
+          {
+            const data = objData.data;
+            setStructure(data.find(per => per.type === id))
+            dispatch('setData', {type: "structures", data: data})
+          }
+          setIsLoading(false);
+        }else
+        {
+          setStructure(structures.find(per => per.type === id))
+        }
+      } catch (err) {
+        setIsLoading(false);
+        return SweetAlert('error', err.message);
+      }
+    })()
+  }, [id])
+
 
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "structure")?.imagePath || "")).href;
@@ -24,6 +53,9 @@ const Structure = (props) =>
       <SmallHero title={language.structure} image={myHero} isRTL={isRTL}/>
       <div className={[styles.osw, "w-controller"].join(" ")}>
         {
+          isLoading ? 
+          <Loader message="Loading Data..." />
+          :
           structure?.title ?
         <>
           <div className={styles.contentWrapper}>

@@ -7,47 +7,72 @@ import SideBar from "../../Components/SidaBar";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import { useParams } from "react-router-dom";
+import SweetAlert from "../../Components/SweetAlert";
+import Loader from "../../Components/Loader";
 
 const StratigicAim = (props) =>
 {
   const {id} = useParams()
-  const [globalState] = useStore();
+  const [globalState, dispatch] = useStore();
 
   const {heros, stratigicaims} = globalState;
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "stratigicaims")?.imagePath || "")).href;
+
+  useEffect(() => {
+    (async() => {
+      try {
+        if(stratigicaims?.length <= 0)
+        {
+          setIsLoading(true);
+          const response = await fetch(serverPath('/strategic_aim'));
+          const objData = await response.json();
+          if(objData.status === "success")
+          {
+            const data = objData.data;
+            setData(data.filter(perField => perField.type == id))
+            dispatch('setData', {type: "stratigicaims", data: data})
+          }
+          setIsLoading(false);
+        }else
+        {
+          setData(stratigicaims.filter(perField => perField.type == id))
+        }
+      } catch (err) {
+        setIsLoading(false);
+        return SweetAlert('error', err.message);
+      }
+    })()
+  }, [id])
 
   return (
     <div className={styles.container}>
       <SmallHero title={language.strategic_aims} image={myHero}  bgAnimation={true}/>
       <div className={[styles.cw, "w-controller"].join(" ")}>
+      {
+          isLoading ? 
+          <Loader message="Loading Data..." />
+          :
         <div className={styles.contentWrapper}>
-        {stratigicaims?.length > 0 ?
-            stratigicaims.map((stratigicaim, index) => stratigicaim.type === id ? (
           <div className={styles.wrapper}>
             <div className={styles.content}>
-              <Text className={styles.text}>
-                <div className={styles.textData} dangerouslySetInnerHTML={{__html: stratigicaim[isRTL ? "pDescription" : "description"]}}></div>
-              </Text>
+            {data?.length > 0 ?
+                data.map((stratigicaim, index) => (
+
+                  <Text className={styles.text} key={index}>
+                    <div className={styles.textData} dangerouslySetInnerHTML={{__html: stratigicaim[isRTL ? "pDescription" : "description"]}}></div>
+                  </Text>
+              ))
+              :
+              <p className="msg">{language.nothing_to_show}</p>
+              }
             </div>
-            <SideBar
-              links={[
-                {name: language.a_aims, link: "/academic/a_aims"}, 
-                {name: language.a_self_assesment, link: "/academic/a_self_assesment"},
-                {name: language.a_annual_program_monitoring, link: "/academic/a_annual_program_monitoring"},
-                {name: language.a_councils_committees, link: "/academic/a_councils_committees"},
-                {name: language.a_manual_policies, link: "/academic/a_manual_policies"},
-                {name: language.a_capacity_building, link: "/academic/a_capacity_building"},
-                {name: language.accreditation, link: "/academic/accreditation"},
-              ]}
-              />
           </div>
-          ): null)
-          :
-          <p className="msg">{language.nothing_to_show}</p>
-          }
         </div>
+      }
       </div>
     </div>
   )
