@@ -42,7 +42,7 @@ const Library = (props) =>
 
   const searchHandler = async () =>
   {
-    if(isLoading || books.find(book => book[findBook.searchBy] === findBook.searchBook) || !login || !token || !student?._id)
+    if(isLoading || books.find(book => book[findBook.searchBy] === findBook.searchBook))
       return;
     if(findBook.searchBook.length <= "" || findBook.searchBy.length <= 0)
       return SweetAlert("info", "Please Fill All The inputs");
@@ -83,14 +83,8 @@ const Library = (props) =>
           <Loader message="Fetching Books..." className={styles.loader} />
         )}
         <div className={styles.libraryTitle}>
-          {login && token && student?._id
-          ?
           <p>You can search Book by it's name or id</p>
-          :
-          <p>Please Login To Your Portal Account</p>
-        }
         </div>
-        {login && token && student?._id ?
         <div className={styles.libraryContent}>
           <div className={styles.libraryInputs}>
               <MaterialInput
@@ -152,16 +146,6 @@ const Library = (props) =>
           }
           </div>
         </div>
-        :
-        <div className={styles.inputGroupBtn}>
-          <Button label="Login To Portal" onClick={() => {
-            navigate('/students/student_portal')
-          }} 
-            style={{maxWidth: '400px' , margin: "20px auto", justifySelf: "center", display: "block"}}
-          />
-        </div>
-        }
-        
       </div>
     </div>
   )

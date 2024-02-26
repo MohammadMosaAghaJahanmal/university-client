@@ -11,7 +11,7 @@ const Home = (props) =>
   return (
     <div className={styles.home}>
       <Hero />
-      <ChancellorMSG />
+      {/* <ChancellorMSG /> */}
       <News />
       <Feature />
     </div>

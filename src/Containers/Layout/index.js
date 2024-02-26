@@ -145,7 +145,7 @@ class Layout extends PureComponent
         {screen: '/posts/:type/:id', Component: Post},
         {screen: '/contact', Component: Contact},
         {screen: '/library', Component: Library},
-        {screen: '/library/online_library', Component: OnlineLibrary},
+        {screen: '/library/online_library', Component: Library},
         {screen: '/library/digital_library', Component: DigitalLibrary},
         {screen: '/library/study_statistic', Component: StudyStatistic},
         {screen: '/library/procedure', Component: Procedure},
