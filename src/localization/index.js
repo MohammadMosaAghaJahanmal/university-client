@@ -76,7 +76,7 @@ let languages = new LocalizedStrings({
     yourDocuments: "Your Documents",
     sabaStudentsPortal: "Saba University Students Portal",
     logOut: "LogOut",
-    graduated_date: "Graduated Date",
+    graduated_date: "Alumni Date",
     menu: "MENU",
     saba_foundation: "Saba Foundation",
     vission: "Vission",
@@ -147,10 +147,11 @@ let languages = new LocalizedStrings({
     eresticate: "Eresticate",
     transformation: "Transformation",
     repeat: "Repeat",
-    graduate: "Graduates",
-    graduated_students_statistic: "Graduated Students Statistics",
+    graduate: "Alumni",
+    graduated_students_statistic: "Alumni Statistics",
     employed_student: "Employed Students",
     counseling_center: "Counseling Center",
+    pdc_student: "Students"
   },
   ps:{
     home: "کور",
@@ -193,6 +194,7 @@ let languages = new LocalizedStrings({
       research_publications: "نشر سوې څېړنې",
       
     // Students
+    pdc_student: "محصلان",
     student: "محصلان",
       student_portal: "د محصل معلومات",
       eligibility_criteria: "د داخلې شرائط",
@@ -275,7 +277,7 @@ let languages = new LocalizedStrings({
     annual_professional_development_plan: "کلنی مسلکي پرمختیایی پلان",
     seminars_courses_workshop: "سیمینارونه ورکشاپونه کورسونه ",
     teacher: "استادان",
-    administrative_staff: "اداري کارمندان",
+    administrative_staff: "اداري او خدماتی کارمندان",
     society: "ټولنه",
     periodic_program_review: "دورئی بیاکتنه",
     internal_accreditation: "داخلی اعتبار اخیستنه",

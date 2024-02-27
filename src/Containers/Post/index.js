@@ -28,6 +28,7 @@ const Post = (props) =>
     labs: "lab",
     pdcstudents: "pdc_student",
     administrativestaffs: "administrative_staff",
+    publishedresearches: "published_researche",
     societies: "society",
   }
 
@@ -103,7 +104,7 @@ const Post = (props) =>
 
   return (
     <div className={styles.post} >
-      <SmallHero title={language[type]} image={myHero} isRTL={isRTL} bgAnimation={true}/>
+      <SmallHero title={language[allowTypes[type]]} image={myHero} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.postWrapper, "w-controller"].join(" ")}>
       {isLoading ? 
         <Loader message="Please Wait..." />

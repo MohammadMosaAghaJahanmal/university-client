@@ -9,7 +9,7 @@ import useStore from "../../store/store";
 import Loader from "../../Components/Loader";
 import { useParams } from "react-router-dom";
 import languages from "../../localization";
-import SideBar from "../../Components/SidaBar";
+
 const PoliciesAndProcedures = (props) =>
 {
   const {id} = useParams();

@@ -23,7 +23,8 @@ const PDC = (props) =>
     value: 1,
     show: 6,
   });
-  const {heros, pdcposts} = globalState;
+  const {heros, pdcposts, pdcstaticks} = globalState;
+  let pdcstatick = pdcstaticks[0] || {};
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "a_pdc")?.imagePath || "")).href;
   const navigate = useNavigate();
@@ -65,6 +66,8 @@ const PDC = (props) =>
   }, [pdcposts]);
 
 
+  console.log(pdcstatick)
+
 
   return (
     <div className={styles.cb}>
@@ -81,6 +84,13 @@ const PDC = (props) =>
               title={language.a_pdc}
               className={styles.title}
             />
+
+            {
+              pdcstatick.imagePath &&
+            <div className={styles.sImg}>
+              <img src={serverPath(pdcstatick.imagePath)} />
+            </div>
+            }
 
             <div className={styles.cards}>
               {

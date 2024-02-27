@@ -1,24 +1,29 @@
+
 import React, {useEffect, useState} from "react";
 import styles from './style.module.css';
 import SmallHero from '../../Components/SmallHero';
 import language from '../../localization';
-import Text from "../../Components/Text";
+import Title from '../../Components/Title';
+import SweetAlert from "../../Components/SweetAlert";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import Loader from "../../Components/Loader";
-import SweetAlert from "../../Components/SweetAlert";
+import languages from "../../localization";
+
 
 const Tajil = (props) =>
 {
   const [globalState, dispatch] = useStore();
+  const [isLoading, setIsLoading] = useState(false);
 
   const {heros, tajils} = globalState;
-  const [isLoading, setIsLoading] = useState(false);
+
+  const isRTL = (language.getLanguage() === 'ps');
+  const myHero = serverPath((heros?.find(hero => hero.type === "tajil")?.imagePath) || "");
 
   useEffect(() => {
     (async() => {
       try {
-
         if(tajils.length <= 0)
         {
           setIsLoading(true);
@@ -31,46 +36,45 @@ const Tajil = (props) =>
           }
           setIsLoading(false);
         }
-
-      } catch (error) {
+      } catch (err) {
         setIsLoading(false);
-        return SweetAlert('error', error.message);
+        return SweetAlert('error', err.message);
       }
     })()
+
+
   }, [])
-  
-  const isRTL = (language.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "tajil")?.imagePath || "")).href;
 
   return (
-    <div className={styles.container}>
-      <SmallHero title={language.tajil} image={myHero}  bgAnimation={true}/>
-      <div className={[styles.cw, "w-controller"].join(" ")}>
-      {
-         isLoading ? 
-         <Loader message="Loading Data..." />
-         :
-        <div className={styles.contentWrapper}>
-        {tajils?.length > 0 ?
-            tajils.map((per, index) => (
-          <div className={styles.wrapper}>
-            <div className={styles.content}>
-              <Text className={styles.text}>
-                <div className={styles.textData} dangerouslySetInnerHTML={{__html: per[isRTL ? "pDescription" : "description"]}}></div>
-              </Text>
-            </div>
-          </div>
-          ))
+    <div className={styles.strategicAim}>
+      <SmallHero title={language.tajil} image={myHero} isRTL={isRTL}/>
+      <div className={[styles.saw, "w-controller"].join(" ")}>
+        <div className={styles.wrapper}>
+          {
+          isLoading ? 
+          <Loader message="Loading Data..." />
           :
-          <p className="msg">{language.nothing_to_show}</p>
+          <div className={styles.contentWrapper}>
+            <Title 
+              text={language.tajil}
+            />
+            {tajils.length > 0 ?
+            tajils.map(perField => (
+              <div className={styles.stratigic} key={perField._id}>
+                <div dangerouslySetInnerHTML={{__html: perField[isRTL ? "pDescription" : 'description']}} className={styles.ach}></div>
+                <a href={serverPath(perField.filePath)} download={"tajils.pdf"} target="_blank" className={styles.fileLink}>{languages.downloadPlanFile}</a>
+              </div>
+            ))
+            :
+            <p className="msg">{language.nothing_to_show}</p>
+            }
+          </div>
           }
         </div>
-        }
       </div>
     </div>
   )
-} 
-
+}
 
 
 export default Tajil;

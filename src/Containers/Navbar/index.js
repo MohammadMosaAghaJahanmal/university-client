@@ -293,7 +293,6 @@ const Navbar = (props) =>
       mainLink: undefined,       
       links: [
         {name: language.online_library, link: "/library/online_library"},
-        {name: language.digital_library, link: "/library/digital_library"},
         {name: language.offline_library, link: "/library/offline_library"},
         {name: language.procedure, link: "/library/procedure"},
         {name: language.study_statistic, link: "/library/study_statistic"},
