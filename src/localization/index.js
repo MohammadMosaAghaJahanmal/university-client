@@ -148,10 +148,19 @@ let languages = new LocalizedStrings({
     transformation: "Transformation",
     repeat: "Repeat",
     graduate: "Alumni",
+    cs_graduate: "CS Alumni",
+    eco_graduate: "ECO Alumni",
     graduated_students_statistic: "Alumni Statistics",
     employed_student: "Employed Students",
     counseling_center: "Counseling Center",
-    pdc_student: "Students"
+    pdc_student: "Students",
+    cs: "Computer Science",
+    eco: "Economy",
+    email: "Email",
+    phone: "Phone",
+    job: "Job",
+    startDate: "Start Date",
+    endDate: "End Date",
   },
   ps:{
     home: "کور",
@@ -307,9 +316,18 @@ let languages = new LocalizedStrings({
     transformation: "تبدیلی",
     repeat: "ریپیټ",
     graduate: "فارغان",
+    cs_graduate: "فارغان",
+    eco_graduate: "فارغان",
     graduated_students_statistic: "دفارغ  محصلانو احصائیه",
     employed_student: "پرکار ګمارل سوي",
     counseling_center: "مشورتي مرکز",
+    cs: "کمپیوټرساینس",
+    eco: "اقتصاد",
+    email: "ایمیل",
+    phone: "شمیره",
+    job: "دنده",
+    startDate: "شروع نیټه",
+    endDate: "ختم نیټه"
   }
 });
 

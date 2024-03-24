@@ -1,0 +1,176 @@
+.post
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+  background-color: #dff9fb;
+}
+.postWrapper
+{
+  margin-top: 20px;
+  display: grid;
+  padding: 10px;
+  row-gap: 10px;
+}
+
+.mainPost
+{
+  display: grid;
+  grid-template-columns: minmax(auto, 200px) 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+  border: 2px solid rgba(0, 128, 214, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.postTitle
+{
+  font-size: 35px;
+  width: 60%;
+}
+
+.postImage
+{
+  width: 100%;
+}
+
+.postImage img
+{
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.postContent
+{
+  margin: 0 auto;
+}
+
+.postDesc
+{
+  line-height: 22px;
+  grid-column: 1 / 3;
+  font-size: 14px;
+
+}
+.postDate
+{
+  margin-bottom: 20px;
+}
+.postFields
+{
+  display: grid;
+  row-gap: 1px;
+
+}
+
+.field
+{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  column-gap: 7px;
+  background-color: rgba(0, 128, 214, 0.1);
+  border-radius: 5px;
+  padding: 0 5px;
+}
+.fieldKey
+{
+  font-weight: 600;
+  /* font-size: 18px; */
+  color: #0080d6;
+}
+.fieldValue
+{
+  /* font-size: 18px; */
+  /* color: #3e4958; */
+  color: #002060;
+  font-weight: 600;
+}
+
+@media all and (max-width: 1366px) {
+
+  .postWrapper
+  {
+    max-width: 1024px !important;
+  }
+  
+  .mainPost
+  {
+    row-gap: 10px;
+  }
+
+}
+
+@media all and (max-width: 992px) {
+
+  .postWrapper
+  {
+    padding: 20px;
+  }
+  .postTitle
+  {
+    font-size: 22px;
+  }
+  .mainPost
+  {
+    padding: 5px;
+  }
+
+}
+
+@media all and (max-width: 768px) {
+  .postWrapper
+  {
+    padding: 10px;
+  }
+  .postTitle
+  {
+    font-size: 20px;
+    width: 85%;
+  }
+  .postContent
+  {
+    grid-template-columns: auto;
+    row-gap: 30px;
+  }
+
+}
+
+@media all and (max-width: 425px) {
+  .postWrapper
+  {
+    padding: 5px;
+  }
+  .postTitle
+  {
+    font-size: 20px;
+    width: 100%;
+  }
+  .postContent
+  {
+    grid-template-columns: auto;
+    row-gap: 15px;
+  }
+  .postWrapper
+  {
+    padding: 3px;
+  }
+  .mainPost
+  {
+    display: block;
+  }
+  .postDesc
+  {
+    margin-top: 10px;
+  }
+}

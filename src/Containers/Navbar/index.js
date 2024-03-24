@@ -260,8 +260,11 @@ const Navbar = (props) =>
           {name: language.transformation, link: "/students/transformation"},
           {name: language.repeat, link: "/students/repeat"},
         ]},
+        {name: language.graduate, isTitle: true, subLinks: [
+          {name: language.cs, link: "/alumni/cs"},
+          {name: language.eco, link: "/alumni/eco"},
+        ]},
         {name: language.policies_and_procedures, link: "/students/policies_and_procedure"},
-        {name: language.graduate, link: "/students/graduate"}, 
         {name: language.graduated_students_statistic, link: "/students/graduated_students_statistic"}, 
         {name: language.employed_student, link: "/students/employed_student"}, 
         {name: language.job_opportunity, link: "/job_opportunity"},

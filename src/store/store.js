@@ -105,6 +105,7 @@ let globalState = {
     graduatedstudentsstatistics: [],
     employedstudents: [],
     counselingcenters: [],
+    alumni:[]
 };
 let actions = {};
 let listeners = [];

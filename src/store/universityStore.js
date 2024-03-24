@@ -109,6 +109,7 @@ const universityStore = () =>
     graduatedstudentsstatistics: [],
     employedstudents: [],
     counselingcenters: [],
+    alumni:[]
   });
   
   return initState({

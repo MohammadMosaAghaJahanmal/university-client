@@ -603,6 +603,7 @@
 
   .mobileDropDown
   {
+    max-width: 340px;
     width: 100%;
     display: grid;
     position: fixed;

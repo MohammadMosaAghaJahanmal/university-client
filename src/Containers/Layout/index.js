@@ -100,6 +100,8 @@ const PDCStudent = lazy(() => import('../PDCStudent'));
 const PDC_VissionMission = lazy(() => import('../PDC_VissionMission'));
 const PDC_Structure = lazy(() => import('../PDC_Structure'));
 const PDC_Aims = lazy(() => import('../PDC_Aims'));
+const Alumni = lazy(() => import('../Alumni'));
+const AlumniPost = lazy(() => import('../AlumniPost'));
 
 // ComputerScience In Academics Menu
 const C_Curriculum = lazy(() => import('../C_Curriculum'));
@@ -172,6 +174,8 @@ class Layout extends PureComponent
         {screen: '/:id/labs', Component: Labs},
         {screen: '/:id/achievements', Component: Achievements},
         {screen: '/:id/aggrements', Component: Aggrements},
+        {screen: '/alumni/:id', Component: Alumni},
+        {screen: '/students/:type/:id', Component: AlumniPost},
         {screen: '/:id/libraryinfos', Component: LibraryInfos},
         {screen: '/:id/semester_fee', Component: SemesterFee},
         {screen: '/:id/policies_and_procedure', Component: PoliciesAndProcedures},
