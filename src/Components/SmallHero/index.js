@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 
 
 function SmallHero(props) {
-    let image = (props.image && {backgroundImage: `url(${props.image})`});
+    let image = (props?.image && {backgroundImage: `url(${props?.image})`});
     let direction = (props.direction && {direction: props.direction});
     let isRTL = (props.isRTL && {transform: "rotateY(180deg)"});
     const [bgPosition, setBgPosition] = useState(props.bgPosition || {});

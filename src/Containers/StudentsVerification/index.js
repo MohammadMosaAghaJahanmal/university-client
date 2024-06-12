@@ -22,8 +22,7 @@ const StudentsVerification = (props) =>
   const {heros} = globalState;
 
   const isRTL = (languages.getLanguage() === 'ps');
-  const myHero = new URL(serverPath(heros?.find(hero => hero.type === "students_verification")?.imagePath || "")).href;
-
+  const myHero = serverPath(heros?.find(hero => hero.type === "students_verification")?.imagePath || "");
   const [studentId, setStudentId] = useState('');
   const [results, setResults] = useState([]);
   const result = results[0];
