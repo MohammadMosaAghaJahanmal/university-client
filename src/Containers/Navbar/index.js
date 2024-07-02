@@ -444,7 +444,9 @@ const Navbar = (props) =>
                             <div className={styles.mobileItem} key={(subLink.name + index)}>
                               <input type={"checkbox"} id={(subLink.name + index)}  style={{display: "none"}} className={styles.chekcBox}/>
                               <label className={[styles.mobileLink, styles.fullNested].join(" ")} htmlFor={(subLink.name + index)}>
+                                <strong>
                                 {subLink.name}
+                                </strong>
                                 <span className={styles.mobileLinkShape} style={{animationDuration: ((index + 1) * 10) + "s"}}></span>
                                 <span className={[styles.icon].join(' ')}>
                                   <ArrowDown size={20} color={"rgba(0, 157, 255, 0.5)"}/>

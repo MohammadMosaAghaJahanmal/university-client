@@ -73,28 +73,28 @@ const Footer = (props) =>
           <div className={styles.moreInfo}>
             <p className={styles.title} data-aos="fade-right" data-aos-delay={1100}>Links</p>
             <div data-aos="fade-right" data-aos-delay={1200}>
-              <NavLink to={'/kankor/admission'} className={styles.link}>
-                {languages.online_admission}
+              <NavLink to={'/job_opportunity'} className={styles.link}>
+                {languages.job_opportunity}
               </NavLink>
             </div>
             <div data-aos="fade-right" data-aos-delay={1300}>
-              <NavLink to={'/students/student_portal'} className={styles.link}>
-                {languages.student_portal}
+              <NavLink to={'/library/online_library'} className={styles.link}>
+                {languages.online_library}
               </NavLink>
             </div>
             <div data-aos="fade-right" data-aos-delay={1300}>
-              <NavLink to={'/students/students_verification'} className={styles.link}>
-                {languages.students_verification}
+              <NavLink to={'/news'} className={styles.link}>
+                {languages.news}
               </NavLink>
             </div>
             <div data-aos="fade-right" data-aos-delay={1300}>
-              <NavLink to={'/research/saba_magazine'} className={styles.link}>
+              <NavLink to={'/research/scientific_and_research_magazine'} className={styles.link}>
                 {languages.saba_magazine}
               </NavLink>
             </div>
             <div data-aos="fade-right" data-aos-delay={1300}>
-              <NavLink to={'/about/chancellor_message'} className={styles.link}>
-                {languages.chancellor_message}
+              <NavLink to={'/contact'} className={styles.link}>
+                {languages.contact}
               </NavLink>
             </div>
           </div>

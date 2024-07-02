@@ -53,12 +53,13 @@ const GraduatedStudentsStatistic = (props) =>
         <div className={styles.contentWrapper}>
         {graduatedstudentsstatistics?.length > 0 ?
             graduatedstudentsstatistics.map((per, index) => (
-          <div className={styles.wrapper}>
+          <div className={styles.wrapper} key={(index = "")}>
             <div className={styles.content}>
               <Text className={styles.text}>
                 <div className={styles.textData} dangerouslySetInnerHTML={{__html: per[isRTL ? "pDescription" : "description"]}}></div>
               </Text>
             </div>
+            <a href={serverPath(per.filePath)} download={"alumnistatistic.pdf"} target="_blank" className={styles.fileLink}>{language.downloadPlanFile}</a>
           </div>
           ))
           :

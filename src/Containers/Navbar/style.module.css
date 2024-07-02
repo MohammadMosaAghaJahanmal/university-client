@@ -330,7 +330,12 @@
   display: none;
 }
 
-
+.mobileLink strong
+{
+  position: relative;
+  display: inline-block;
+  z-index: 99;
+}
 @keyframes rotate {
   100%
   {
@@ -642,6 +647,7 @@
     font-weight: 600;
     text-decoration: none;
   }
+
 
   .mobileLink:hover,
   .mobileLink.active,
