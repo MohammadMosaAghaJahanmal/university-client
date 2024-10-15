@@ -9,6 +9,7 @@ import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import Loader from "../../Components/Loader";
 import Pagination from "../../Components/Pagination";
+import MaterialInput from "../../Components/MaterialInput";
 const Alumni = (props) =>
 {
 
@@ -17,7 +18,7 @@ const Alumni = (props) =>
   const [isLoading, setIsLoading] = useState(false);
 
   const {heros, alumni} = globalState;
-  const [almn, setAggrs] = useState(alumni.filter(perField => perField.type?.toLowerCase() === id?.toLowerCase()));
+  const [almn, setAggrs] = useState([]);
   const isRTL = (language.getLanguage() === 'ps');
   const myHero = new URL(serverPath(heros?.find(hero => hero.type === "alumni")?.imagePath || "")).href;
   const [pagination, setPagination] = useState({
@@ -26,6 +27,9 @@ const Alumni = (props) =>
     value: 1,
     show: 12,
   });
+
+
+  const [searchAlumni, setSearchAlumni] = useState("");
 
   useEffect(() => {
     
@@ -39,8 +43,8 @@ const Alumni = (props) =>
           if(objData.status === "success")
           {
             const data = objData.data;
-            setAggrs(data.filter(perField => perField.type?.toLowerCase() === id));
-            dispatch('setData', {type: "alumni", data: data})
+            setAggrs(data.reverse().filter(perField => perField.type?.toLowerCase() === id));
+            dispatch('setData', {type: "alumni", data: data?.reverse()})
           }
           setIsLoading(false);
         }
@@ -64,6 +68,23 @@ const Alumni = (props) =>
     }))
   }, [almn, id]);
 
+
+  useEffect(() => {
+    let timeout;
+    if(searchAlumni?.length >= 1)
+      {
+        timeout = setTimeout(() => {
+        setAggrs(alumni.filter(perField => perField.type?.toLowerCase() === id?.toLowerCase() && perField.registerId == searchAlumni))
+        }, 500);
+      }else
+      {
+        setAggrs(alumni?.reverse()?.filter(perField => perField.type?.toLowerCase() === id?.toLowerCase()))
+      }
+
+
+    return () => clearInterval(timeout);
+  }, [searchAlumni])
+
   const navigate = useNavigate();
 
   const clickHandler = (id) =>
@@ -80,11 +101,24 @@ const Alumni = (props) =>
          <Loader message="Loading Data..." />
          :
         <div className={styles.contentWrapper}>
-          {almn.length > 0 ?
+          {almn.length > 0 || searchAlumni.length > 0 ?
           <>
-            <Title 
-              title={language[id+"_graduate"]}
-            />
+            <div className={styles.titlebar}>
+              <Title 
+                title={language[id+"_graduate"]}
+              />
+              <div className={styles.searchBar}>
+                {/* <input className={styles.input} placeholder="Alumni ID"/> */}
+                <MaterialInput
+                    placeholder={language.searchById}
+                    id="alimniId"
+                    onChange={(e) => {
+                      setSearchAlumni(e.target.value)
+                    }}
+                    value={searchAlumni}
+                    />
+              </div>
+            </div>
             <div className={styles.cards}>
             {almn.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(almny => (
               <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler(almny._id)} key={almny._id}>

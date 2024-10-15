@@ -161,6 +161,7 @@ let languages = new LocalizedStrings({
     job: "Job",
     startDate: "Start Date",
     endDate: "End Date",
+    searchById: "Search by ID",
   },
   ps:{
     home: "کور",
@@ -327,7 +328,8 @@ let languages = new LocalizedStrings({
     phone: "شمیره",
     job: "دنده",
     startDate: "شروع نیټه",
-    endDate: "ختم نیټه"
+    endDate: "ختم نیټه",
+    searchById: "Search by ID",
   }
 });
 
