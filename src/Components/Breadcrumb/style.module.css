@@ -1,0 +1,20 @@
+.breadcrumb {
+  font-family: Calibri, sans-serif;
+  font-size: 16px;
+  color: #3e4958;
+  padding: 20px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #0080d6;
+  font-weight: bold;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb strong {
+  color: #3e4958;
+}

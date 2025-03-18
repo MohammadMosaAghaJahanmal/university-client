@@ -1,0 +1,103 @@
+.mainContainer
+{
+  padding: 40px 0;
+
+}
+.tabs {
+  display: flex;
+  border-bottom: 2px solid rgba(0, 128, 214, 0.7);
+}
+
+.heading
+{
+  margin: 0;
+  margin-bottom: 20px;
+  color: rgba(0, 128, 214, 1);
+  font-weight: normal;
+}
+
+.tab {
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s ease;
+  border: none;
+  background-color: transparent;
+  border-top: 2px solid transparent;
+}
+
+.tab:hover {
+  color: #0056b3;
+  border-top-color: rgba(0, 128, 214, 0.7);
+}
+
+.activeTab {
+  color: #0056b3;
+  border-top-color: rgba(0, 128, 214, 0.7);
+}
+
+.content {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  color: #333;
+  text-wrap-style: balance;
+
+}
+
+.mainContainer h4
+{
+  margin: 5px 0;
+  color: rgba(0, 128, 214, 1);
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.contentStyle > div
+{
+  padding: 5px;
+  transition: 300ms;
+  border-radius: 5px;
+}
+
+
+
+.contentStyle > div p
+{
+  margin-left: 10px;
+}
+
+
+
+@media all and (max-width: 425px) {
+  .tabs {
+    display: grid;
+    border-bottom: 2px solid transparent;
+  }
+  .tab {
+    border-bottom: 2px solid transparent;
+  }
+  .tab:hover {
+    border-bottom-color: rgba(0, 128, 214, 0.7);
+  }
+  .activeTab {
+    border-bottom-color: rgba(0, 128, 214, 0.7);
+  }
+
+  .content {
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 16px;
+    text-wrap-style: pretty;
+  }
+
+  .content h3 {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+  
+}

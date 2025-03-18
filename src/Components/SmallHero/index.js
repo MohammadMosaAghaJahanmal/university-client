@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import styles from './styles.module.css';
+import Breadcrumb from '../Breadcrumb';
 
 
 function SmallHero(props) {
@@ -32,11 +33,15 @@ function SmallHero(props) {
     }, [bgAnimation, bgPosition.backgroundPosition])
 
     return (
+      <>
 			<div className={[styles.hero, props.className].join(' ')} style={{...image, ...direction, ...isRTL, ...props.style, ...bgPosition}}>
         <div className="w-controller" style={{...isRTL}}>
             {props.title}
         </div>
       </div>
+      <Breadcrumb />
+      </>
+
     )
 } 
 

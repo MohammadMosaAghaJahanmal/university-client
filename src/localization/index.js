@@ -2,10 +2,12 @@
 
 let languages = new LocalizedStrings({
   en:{
+    textDirection: "ltr",
     home: "Home",
     contact: "Contact",
-    about: "About",
-      our_vission_and_mission: "Our Vission & Mission",
+    about: "About Us",
+      vission_mission: "Vission & Mission",
+      our_vission_and_mission: "Vission & Mission",
       chancellor_message: "Chancellor's Message",
       history_and_achievements: "History & Achievements",
       organizational_structure: "ORG Structure",
@@ -13,11 +15,12 @@ let languages = new LocalizedStrings({
       academic_calendar: "Academic Calendar",
       aggrements: "Aggrements",
       
-    a_pdc: "Professional Development Center",
+    a_pdc: "Professional Development",
       a_pdc_b: "Professional Development Board",
     
       
     academics_programs: "Academics Programs",
+      academics: "Academics",
       a_quality_assurance: "Quality Assurance",
         a_aims: "Aims",
         a_self_assesment: "Self Assesment",
@@ -34,6 +37,8 @@ let languages = new LocalizedStrings({
         a_aggrements: "Aggrements",
 
     research: "Research",
+      quality: "Quality",
+      research_quality: "Research & quality",
       capacity_building: "Capacity Building", 
       r_vission_mission: "Vission & Mission",
       manual_policies: "Manual & Policies",
@@ -72,6 +77,7 @@ let languages = new LocalizedStrings({
     fullName: "Full Name",
     fatherName: "Father Name",
     faculty: "Faculty",
+    faculties: "Faculties",
     id: "ID",
     yourDocuments: "Your Documents",
     sabaStudentsPortal: "Saba University Students Portal",
@@ -162,12 +168,31 @@ let languages = new LocalizedStrings({
     startDate: "Start Date",
     endDate: "End Date",
     searchById: "Search by ID",
+    board: "Board",
+    more: "More",
+    student_services: "Student Services",
+    policies_counsel: "Policies, Counsel",
+    resourses: "Resourses",
+    support_services: "Support Services",
+    enrollment_information: "Enrollment Information",
+    guidance_general: "Guidance & General Info",
+    guidelines: "Guidelines",
+    institutions: "Institutions",
+    find_out_more: "Find Out More",
+    it_information: "IT Network refers to the design, implementation, and management of computer networks for data communication. It includes networking hardware, protocols, security, and troubleshooting to ensure efficient and secure connectivity.",
+    se_information: "Software Engineering is the process of designing, developing, testing, and maintaining software applications using engineering principles. It focuses on creating reliable, scalable, and efficient software solutions to meet user and business needs.",
+    is_information: "Information Systems focus on the collection, processing, storage, and distribution of information using technology. It integrates software, hardware, and data management to support decision-making and business operations efficiently.",
+    neco_economics: "Studies the overall economic structure of a country, including production, consumption, trade, and government policies. It focuses on economic growth, inflation, employment, and fiscal management to ensure national stability and development.",
+    beco_economics: "involves the management of financial transactions, including deposits, loans, investments, and payment processing. It plays a crucial role in economic growth by providing financial services to individuals, businesses, and governments.",
+    baeco_economics: "involves planning, organizing, and managing business operations to achieve efficiency and growth. It covers areas such as finance, marketing, human resources, and strategic decision-making to ensure business success.",
+
   },
   ps:{
+    textDirection: "rtl",
     home: "کور",
     // About
     about: "زموږ په اړه",
-      our_vission_and_mission:"لرلید او رسالت",
+      vission_mission:"لرلید او رسالت",
       chancellor_message: "د رئیس پیغام",
       history_and_achievements: "لاسته راوړنې",
       organizational_structure: "اداري جوړښت",
@@ -176,9 +201,10 @@ let languages = new LocalizedStrings({
       aggrements: "هوکړه لیکونه",
 
     a_pdc: "مسلکي پرمختیایي مرکز",
-      a_pdc_b: "مسلکي پرمختیایی پورډ",
+      a_pdc_b: "مسلکي پرمختیایی بورډ",
     // Academic
     academics_programs: "علمي پروګرامونه",
+      academics: "علمي",
       a_quality_assurance: "تضمین کیفیت",
         a_aims: "اهداف",
         a_self_assesment: "ځان ارزونې اصلي او فرعي معیارونه",
@@ -196,7 +222,9 @@ let languages = new LocalizedStrings({
 
 
     // Rechearch
-    research: "څیړنیز مرکز",
+    research: "څیړنی",
+    research_quality: "Research & quality",
+    quality: "Quality",
       capacity_building: "ورکشاپونه او سمیینارونه", 
       r_vission_mission: "لرلید، رسالت او موخې",
       manual_policies: "پالیسیانې او طرزالعملونه",
@@ -241,6 +269,7 @@ let languages = new LocalizedStrings({
     fullName: "بشپړ نوم",
     fatherName: "د پلار نوم",
     faculty: "پوهنځی",
+    faculties: "پوهنځی",
     id: "آیډی",
     yourDocuments: "ستاسو اسناد",
     sabaStudentsPortal: "د سبا پوهنتون محصلینو پورټل",
@@ -249,8 +278,8 @@ let languages = new LocalizedStrings({
     menu: "مینیو",
     saba_foundation: "سبا مرستندویه بنیاد",
     structure: "جوړښت",
-    vission: "Vission",
-    mission: "Mission",
+    vission: "لرلید",
+    mission: "رسالت",
     values: "ارزښتونه",
     years_plane: "پنځه کلن ستراتیژیک پلان",
     strategic_plane: "ستراتیژیک پلان",
@@ -330,6 +359,26 @@ let languages = new LocalizedStrings({
     startDate: "شروع نیټه",
     endDate: "ختم نیټه",
     searchById: "Search by ID",
+    board: "بورډ",
+    more: "نور",
+    student_services: "زده کوونکو خدمتونه",
+    policies_counsel: "Policies, Counsel",
+    resourses: "Resourses",
+    support_services: "Support Services",
+    enrollment_information: "Enrollment Information",
+    guidance_general: "Guidance & General Info",
+    guidelines: "Guidelines",
+    institutions: "Institutions",
+    find_out_more: "نور معلومات ترلاسه کړئ",
+    it_information: "د معلوماتي ټکنالوژۍ شبکه د کمپیوټر شبکو ډیزاین، پلي کولو، او مدیریت ته اشاره کوي ترڅو د معلوماتو اړیکې یقیني کړي. دا د شبکې هارډویر، پروتوکولونه، امنیت، او د ستونزو حل شاملوي ترڅو خوندي او اغیزمن اتصال تضمین کړي.",
+    se_information: "د سافټویر انجنیرۍ د سافټویر غوښتنلیکونو د ډیزاین، پراختیا، ازموینې، او ساتنې پروسه ده چې د انجنیرۍ اصولو پراساس ترسره کیږي. دا د باوري، پراخېدونکي، او مؤثره سافټویر حلونو رامینځته کولو تمرکز لري ترڅو د کاروونکو او سوداګریزو اړتیاوو پوره کولو کې مرسته وکړي.",
+    is_information: "د معلوماتي سیستمونه د معلوماتو راټولولو، پروسس کولو، ذخیره کولو، او ویشلو تمرکز لري چې د ټیکنالوژۍ له لارې ترسره کیږي. دا د سافټویر، هارډویر، او معلوماتو مدیریت سره یوځای کیږي ترڅو د تصمیم نیولو او سوداګریزو عملیاتو ملاتړ وکړي.",
+    neco_economics: "ملي اقتصاد د یو هېواد ټولیز اقتصادي جوړښت مطالعه کوي، چې پکې تولید، مصرف، سوداګري، او دولتي پالیسۍ شاملې دي. دا د اقتصادي وده، انفلاسیون، استخدام، او مالي مدیریت تمرکز لري ترڅو د ملي ثبات او پرمختګ یقیني کړي.",
+    beco_economics: "بانکداري د مالي معاملو مدیریت ته اشاره کوي، چې پکې سپما، پورونه، پانګونه، او د تادیاتو پروسس شامل دي. دا د مالي خدماتو په برابرولو سره د افرادو، سوداګریو، او حکومتونو لپاره د اقتصادي ودې مهم رول لوبوي.",
+    baeco_economics: "د سوداګرۍ اداره د سوداګریزو عملیاتو د پلان جوړولو، تنظیم، او مدیریت پروسه ده ترڅو موثریت او وده ترلاسه کړي. دا د مالي چارو، بازار موندنې، بشري سرچینو، او ستراتیژیکو پرېکړو برخې پوښي ترڅو د سوداګرۍ بریا یقیني کړي.",
+
+
+
   }
 });
 

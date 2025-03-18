@@ -1,0 +1,72 @@
+
+.card
+{
+  padding: 20px;
+  border-radius: 3px;
+  border-bottom: 4px solid #0080d6;
+  background-color: rgba(242, 242, 242, 0.1);
+  box-shadow: 0px 1px 4px 0px rgba(35, 31, 32, 0.25);
+  transition: 300ms;
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+}
+
+.card:hover
+{
+  border-bottom: 4px solid #7ac8fc;
+  background-color: rgba(242, 242, 242, 0.05);
+  box-shadow: 0px 1px 4px 0px rgba(35, 31, 32, 0.5);
+}
+
+.title
+{
+  padding: 10px 0;
+  font-weight: 900;
+  font-size: 26px;
+  text-transform: capitalize;
+  color: #0080d6;
+}
+
+.desc
+{
+  font-size: 17px;
+  /* text-transform: uppercase; */
+  font-weight: 500;
+  color: #2f2f2f;
+  text-wrap-style: pretty;
+  margin-bottom: 20px;
+}
+.btn
+{
+  display: inline-block;
+  background-color: rgba(0, 128, 214, 0.8);
+  color: white;
+  font-size: 17px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: 300ms;
+  text-decoration: none !important;
+
+}
+
+.btn:hover
+{
+  background-color: rgba(0, 128, 214, 1);
+}
+
+
+@media all and (max-width: 768px) {
+  .title
+  {
+    font-size: 20px ;
+  }
+  .desc
+  {
+    font-size: 15px;
+  }
+}
+

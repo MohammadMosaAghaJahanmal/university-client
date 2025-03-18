@@ -128,6 +128,7 @@ const Accreditation = lazy(() => import('../Accreditation'));
 
 const SabaFoundation = lazy(() => import('../SabaFoundation'));
 const Society = lazy(() => import('../Society'));
+const Faculty = lazy(() => import('../Faculty'));
 
 
 const PageNotFound = lazy(() => import('../404'));
@@ -157,6 +158,7 @@ class Layout extends PureComponent
         {screen: '/about/chancellor_message', Component: ChancellorMessage},
         {screen: '/about/history_and_achievements', Component: HistoryAchievements},
         {screen: '/about/organizational_structure', Component: OrgStructure},
+        {screen: '/faculty/:id', Component: Faculty},
         // {screen: '/about/stratigic_aim', Component: StrategicAim},
         // {screen: '/about/academic_calendar', Component: AcademicCalendar},
         // {screen: '/about/aggrements', Component: Aggrements},
