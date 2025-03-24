@@ -97,7 +97,7 @@ const AlumniPost = (props) =>
           <div className={styles.postContent}>
             <div className={styles.mainPost}>
               <div className={styles.postImage}>
-                <img src={serverPath(mainPost.imagePath)} alt="alumni photo"/>
+                <img src={serverPath(mainPost.imagePath)} alt="alumni"/>
               </div>
               <div className={styles.postFields}>
                 <div className={styles.field}>

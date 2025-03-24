@@ -89,7 +89,7 @@ const Alumni = (props) =>
 
   const clickHandler = (id) =>
   {
-    navigate(`/students/alumni/${id}`);
+    navigate(`/students/alumni_support_services/alumni/${id}`);
   }
 
   return (
@@ -123,14 +123,14 @@ const Alumni = (props) =>
             {almn.slice((pagination.value * pagination.show) - pagination.show, (pagination.value * pagination.show)).map(almny => (
               <div className={styles.card} data-aos="fade-right" data-aos-delay={300} onClick={()=>clickHandler(almny._id)} key={almny._id}>
                 <div className={styles.img}>
-                  <img src={serverPath(almny.thumbnail)} alt="almny image" />
+                  <img src={serverPath(almny.thumbnail)} alt="almny" />
                 </div>
                 <div className={styles.textContent}>
                   <Title className={styles.title}>
-                    ID: {almny.registerId}
+                    {language.id}: {almny.registerId}
                   </Title>
                   <p>
-                    Name:<br /> {almny[isRTL ? "pFullName" : "fullName"]}
+                    {language.name}:<br /> {almny[isRTL ? "pFullName" : "fullName"]}
                   </p>
                 </div>
                 

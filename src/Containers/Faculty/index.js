@@ -46,7 +46,8 @@ const Faculty = (props) =>
       kankorguides,
       kankorregistrationdates,
       enrolled,
-      generals
+      generals,
+      academicprograms,
     } = globalState;
     const [strategicplane, setStrategicplane] = useState({})
     const [stratigicaim, setStratigicaim] = useState([])
@@ -75,6 +76,7 @@ const Faculty = (props) =>
     achievements_progress: "achievements_progress",
     enrollment_guidance: "enrollment_guidance",
     seb: "saba_economical_board",
+    about: "who_we_are",
   }
 
   
@@ -285,7 +287,7 @@ const Faculty = (props) =>
             />
           }
           { (id === "cs" || id === "eco" || id === "pdc") &&
-          <ProgramTabs 
+          <ProgramTabs
             activeTab={"vision"}
             tabsStyle={styles[id+"tabs"]}
             tabs={[
@@ -392,6 +394,42 @@ const Faculty = (props) =>
               generals: (
                 <div dangerouslySetInnerHTML={{__html:generals[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
               ),
+            }}
+          /> 
+          }
+
+          { id === "about" &&
+          <ProgramTabs
+            activeTab={"vision"}
+            tabsStyle={styles[id+"tabs"]}
+            tabs={[
+              { id: "vision", label: language.vission_mission },
+              { id: "academic_programs", label: language.academic_programs },
+              { id: "values", label: language.values },
+              // { id: "fee", label: "Fee Structure" },
+            ]}
+            content={{
+              vision: (
+                <>
+                  <div>
+                    <h4>{language.vission}</h4>
+                    <p dangerouslySetInnerHTML={{__html: visMis.vission[isRTL ? "pDescription": "description"]}}></p>
+                  </div>
+                  <div>
+                    <h4>{language.mission}</h4>
+                    <p dangerouslySetInnerHTML={{__html: visMis.mission[isRTL ? "pDescription": "description"]}}></p>
+                  </div>
+                </>
+              ),
+              academic_programs: (
+                <div dangerouslySetInnerHTML={{__html:academicprograms[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+              ),
+              values: (valueData.map((per, index) => (
+                  <div key={per._id}>
+                    <h4>{per[isRTL ? "pTitle": "title"] || language.a_aims}</h4>
+                    <div dangerouslySetInnerHTML={{__html: per[isRTL ? "pValue": "value"]}}></div>
+                  </div>
+              ))),
             }}
           /> 
           }

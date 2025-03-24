@@ -129,6 +129,7 @@ const SabaFoundation = lazy(() => import('../SabaFoundation'));
 const Society = lazy(() => import('../Society'));
 const Faculty = lazy(() => import('../Faculty'));
 const SubFaculty = lazy(() => import('../SubFaculty'));
+const Student = lazy(() => import('../Student'));
 
 
 const PageNotFound = lazy(() => import('../404'));
@@ -165,7 +166,9 @@ class Layout extends PureComponent
         {screen: '/library/:id', Component: Faculty},
         {screen: '/kankor/:id', Component: Faculty},
         {screen: '/institutions/:id', Component: Faculty},
+        {screen: '/:id/who_we_are', Component: Faculty},
         {screen: '/faculty/:id/:subtype', Component: SubFaculty},
+        {screen: '/student/:id', Component: Student},
         // {screen: '/about/stratigic_aim', Component: StrategicAim},
         // {screen: '/about/academic_calendar', Component: AcademicCalendar},
         // {screen: '/about/aggrements', Component: Aggrements},
@@ -189,7 +192,9 @@ class Layout extends PureComponent
         {screen: '/faculty/:faculty/:id/achievements', Component: Achievements},
         {screen: '/:id/aggrements', Component: Aggrements},
         {screen: '/faculty/:faculty/:id/aggrements', Component: Aggrements},
-        {screen: '/alumni/:id', Component: Alumni},
+        {screen: '/student/alumni_support_services/alumni/:id', Component: Alumni},
+        {screen: '/student/alumni_support_services/job_opportunity', Component: JobOpportunity},
+        {screen: '/students/alumni_support_services/:type/:id', Component: AlumniPost},
         {screen: '/students/:type/:id', Component: AlumniPost},
         {screen: '/:id/libraryinfos', Component: LibraryInfos},
         {screen: '/faculty/:faculty/:id/libraryinfos', Component: LibraryInfos},

@@ -156,6 +156,7 @@ let languages = new LocalizedStrings({
     students_experience: "Students Experiences",
     tours_of_student: "Academic Tours of Students",
     students_statistic: "Students Statistics",
+    statistic:"Statistics",
     tajil : "Tajil",
     deprived: "Deprived",
     chance: "Chance",
@@ -184,6 +185,7 @@ let languages = new LocalizedStrings({
     policies_counsel: "Policies, Counsel",
     resourses: "Resourses",
     support_services: "Support Services",
+    alumni_support_services: "Alumni & Support Services",
     enrollment_information: "Enrollment Information",
     guidance_general: "Guidance & General Info",
     guidelines: "Guidelines",
@@ -203,6 +205,10 @@ let languages = new LocalizedStrings({
     quality_accreditation: "Quality Assurance & Accreditation",
     achievements_progress: "Achievements & Progress",
     enrollment_guidance: "Enrollment & Guidance",
+    computer_science_alumni : "Computer Science Alumni",
+    economic_alumni : "Economic Alumni",
+    name: "Name",
+    who_we_are: "Who We Are",
 
 
   },
@@ -366,6 +372,7 @@ let languages = new LocalizedStrings({
     students_experience: "د محصلانو تجارب",
     tours_of_student: "د محصلانو علمي سیرونه",
     students_statistic: "د محصلانو احصائیه",
+    statistics:"احصائیه",
     tajil : "تاجیل",
     deprived: "محروم",
     chance: "چانس",
@@ -413,7 +420,11 @@ let languages = new LocalizedStrings({
     enrollment_guidance: "شمولیت او نوری لارښوونی",
     no_posts: "پوسټونه نشته چې وښودل شي",
     research_quality: "څیړنه او کیفیت",
-
+    alumni_support_services: "فاریغین او د ملاتړ خدمتونه",
+    computer_science_alumni : "د کمپیوټر ساینس فاریغان",
+    economic_alumni : "د اقتصا فاریغان",
+    name: "نوم",
+    who_we_are: "موږ څوک یو",
   }
 });
 

@@ -10,6 +10,8 @@ export default function Breadcrumb() {
     'faculty',
     "about",
     "kankor",
+    "student",
+
 
   ]
 
@@ -26,6 +28,9 @@ export default function Breadcrumb() {
     "national",
     "library",
     "institutions",
+    "students",
+    "alumni",
+    "about",
   ]
   
   let goBack = [
@@ -44,6 +49,7 @@ export default function Breadcrumb() {
     "research_trainings",
     "publishedresearches",
     "activity",
+    "alumni_support_services",
   ]
 
   return (
