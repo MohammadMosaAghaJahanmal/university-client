@@ -14,12 +14,6 @@ import {
   FaTrophy,
   FaChartLine,
   FaChevronDown as ArrowDown,
-  FaRegEye,
-  FaRegEyeSlash,
-  FaPlus,
-  FaDashcube,
-  FaArrowUp,
-  FaArrowCircleUp,
 } from 'react-icons/fa';
 import {IoMailUnreadSharp as Mail} from 'react-icons/io5';
 import AFG_FLAG from '../../Assets/af-flag.png';
@@ -69,9 +63,9 @@ const Navbar = (props) =>
         ]},
         {name: language.a_pdc, isTitle: true, subLinks: [
           {name: language.board, link: "/pdc/a_pdc_b"},
-          {name: language.seminars_courses_workshop, link: ""},
+          {name: language.training_about_pdc, link: "/academic/pdc/training_about_pdc"},
           {name: language.aggrements, link: "/pdc/aggrements"},
-          {name: language.guidelines, link: ""},
+          // {name: language.guidelines, link: ""},
         ]}
       ],
     },
@@ -81,16 +75,13 @@ const Navbar = (props) =>
       mainLink: undefined, 
       links: [
         {name: language.research, isTitle: true, subLinks: [
-          {name: language.research_activities, link: ""},
+          {name: language.activities_resources, link: "/research/activities_resources"},
           {name: language.research_trainings, link: "/research/research_trainings"},
-          {name: language.research_papers_and_publications, link: "/research/research_papers_and_publication"},
+          {name: language.research_papers_and_publication, link: "/research/research_papers_and_publication"},
           {name: language.aggrements, link: "/research/aggrements"},
         ]},
         {name: language.quality, isTitle: true, subLinks: [
-          {name: language.internal_accreditation, link: "/internal/accreditation"},
-          {name: language.national_accreditation, link: "/national/accreditation"},
-          {name: language.international_accreditation, link: "/international/accreditation"},
-          {name: language.more, link: ""},
+          {name: language.quality_accreditation, link: "/quality/quality_accreditation"},
         ]}
       ],
     },
@@ -111,11 +102,11 @@ const Navbar = (props) =>
         {name: language.library, isTitle: true, subLinks: [
           {name: language.online_library, link: "/library/online_library"},
           {name: language.offline_library, link: "/library/offline_library"},
-          {name: language.resourses, link: ""},
+          {name: language.achievements_progress, link: "/library/achievements_progress"},
         ]},
         {name: language.kankor, isTitle: true, subLinks: [
-          {name: language.enrollment_information, link: ""},
-          {name: language.guidance_general, link: ""},
+          {name: language.enrollment_guidance, link: "/kankor/enrollment_guidance"},
+          // {name: language.guidance_general, link: ""},
         ]},
       ],
     },
@@ -124,7 +115,7 @@ const Navbar = (props) =>
       name: language.institutions, 
       mainLink: undefined, 
       links: [
-        {name: language.saba_economical_board, link: ""}, 
+        {name: language.saba_economical_board, link: "institutions/seb"}, 
         {name: language.saba_foundation, link: "/foundation"}, 
       ], 
     },
@@ -215,17 +206,18 @@ const Navbar = (props) =>
           <div className={styles.mobileShaperRight}></div>
           <div className={styles.mobileShaperLeft}></div>
         </div>
-        <div className={[styles.navMenu, "w-controller"].join(" ")}>
+        <div className={[styles.navMenu, "w-controller", language.textDirection].join(" ")}>
           <div className={styles.logo} data-aos="fade-down-right" data-aos-delay={500} onClick={() => navigate("/")}>
             <img src={LOGO} ref={logo} alt="Page logo"/>
           </div>
-          <div className={styles.menuItems} style={{direction: language.textDirection}}>
+          <div className={[styles.menuItems].join(" ")} style={{direction: language.textDirection}}>
             {menus.map((menu, index) => (menu.mainLink) ? 
             (
               <div data-aos="fade-down-left" data-aos-delay={(index + 1) * 200} key={(menu.name + index)}>
                 <NavLink  className={({isActive}) => [styles.menuItem, isActive ? styles.active : null].join(" ")}  to={menu.mainLink || "#"}>
                   <span className={styles.menuText}>{menu.name}</span>
                   <span className={styles.shaper}></span>
+                  
                 </NavLink>
               </div>
 
@@ -250,7 +242,10 @@ const Navbar = (props) =>
                       </label>
                       <div className={styles.nestedLinks}>
                         {link.subLinks.map((subLink, indx) => (
-                          <NavLink className={({isActive}) => [styles.dropDownLink, (isActive ? styles.active : null)].join(" ")} key={(subLink.name + indx)} to={subLink.link}><span>{subLink.name}</span></NavLink>
+                          <NavLink className={({isActive}) => [styles.dropDownLink, (isActive ? styles.active : null)].join(" ")} key={(subLink.name + indx)} to={subLink.link}>
+                            {/* <span dangerouslySetInnerHTML={{__html: subLink.name?.replace("&", " and -<p style='height:10px'></p>").replace("او", " او-<p style='height:10px'></p>")}}></span> */}
+                            <span dangerouslySetInnerHTML={{__html: subLink.name?.replace("&", " and -<p style='height:10px'></p>")}}></span>
+                            </NavLink>
                         ))}
                       </div>
                     </div>

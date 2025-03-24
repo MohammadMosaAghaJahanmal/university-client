@@ -6,7 +6,6 @@ import Title from '../../Components/Title';
 import Text from '../../Components/Text';
 import {useNavigate, useParams} from 'react-router-dom';
 import ImagesViewer from "../../Components/ImagesViewer";
-import SideBar from "../../Components/SidaBar";
 import serverPath from "../../utils/serverPath";
 import useStore from "../../store/store";
 import SweetAlert from "../../Components/SweetAlert";

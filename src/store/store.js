@@ -14,7 +14,6 @@ let globalState = {
     achievements: [],
     academiccalendars: [],
     acapacitybuildings: [],
-    achievements: [],
     acouncilscommittees: [],
     aggrements: [],
     amanualpolicies: [],

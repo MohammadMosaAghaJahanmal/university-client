@@ -69,7 +69,7 @@ const Navbar = (props) =>
         ]},
         {name: language.a_pdc, isTitle: true, subLinks: [
           {name: language.board, link: "/pdc/a_pdc_b"},
-          {name: language.seminars_courses_workshop, link: ""},
+          {name: language.seminars_courses_workshop, link: "/pdc/seminars_courses_workshop"},
           {name: language.aggrements, link: "/pdc/aggrements"},
           {name: language.guidelines, link: ""},
         ]}

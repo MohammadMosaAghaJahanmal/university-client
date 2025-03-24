@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Calibri';
+  src: url('./Assets/font/calibri-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 *
 {
@@ -17,6 +23,13 @@ body {
 }
 
 
+.rtl *
+{
+
+  font-weight: 900;
+}
+
+
 .w-controller
 {
   max-width: 1366px !important;
@@ -29,6 +42,13 @@ body {
   text-align: center;
   font-size: larger;
 }
+
+
+.custom-content-style p
+{
+  margin-bottom: 15px;
+}
+
 
 
 @keyframes shaper {
@@ -59,3 +79,18 @@ body {
   }
   
 }
+
+
+@media all and (max-width: 767px) {
+  .researchtabs {
+    display: grid !important;
+    border-bottom: 2px solid transparent !important;
+  }
+  .researchtabs button {
+    border-bottom: 2px solid transparent !important;
+  }
+  .researchtabs button:hover {
+    border-bottom-color: rgba(0, 128, 214, 0.7) !important;
+  }
+}
+

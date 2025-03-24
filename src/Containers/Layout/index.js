@@ -5,7 +5,6 @@ import Loader from '../../Components/Loader';
 
 
 import styles from './style.css';
-
 // Navbar
 const Navbar = lazy(() => import('../Navbar'));
 
@@ -129,6 +128,7 @@ const Accreditation = lazy(() => import('../Accreditation'));
 const SabaFoundation = lazy(() => import('../SabaFoundation'));
 const Society = lazy(() => import('../Society'));
 const Faculty = lazy(() => import('../Faculty'));
+const SubFaculty = lazy(() => import('../SubFaculty'));
 
 
 const PageNotFound = lazy(() => import('../404'));
@@ -154,11 +154,18 @@ class Layout extends PureComponent
         {screen: '/news', Component: News},
         {screen: '/job_opportunity', Component: JobOpportunity},
         {screen: '/economical_advisory', Component: EconomicalAdvisory},
-        {screen: '/seb/activity', Component: Activity},
+        {screen: '/institutions/seb/activity', Component: Activity},
         {screen: '/about/chancellor_message', Component: ChancellorMessage},
         {screen: '/about/history_and_achievements', Component: HistoryAchievements},
         {screen: '/about/organizational_structure', Component: OrgStructure},
         {screen: '/faculty/:id', Component: Faculty},
+        {screen: '/academic/:id/training_about_pdc', Component: Faculty},
+        {screen: '/:id/activities_resources', Component: Faculty},
+        {screen: '/quality/:id', Component: Faculty},
+        {screen: '/library/:id', Component: Faculty},
+        {screen: '/kankor/:id', Component: Faculty},
+        {screen: '/institutions/:id', Component: Faculty},
+        {screen: '/faculty/:id/:subtype', Component: SubFaculty},
         // {screen: '/about/stratigic_aim', Component: StrategicAim},
         // {screen: '/about/academic_calendar', Component: AcademicCalendar},
         // {screen: '/about/aggrements', Component: Aggrements},
@@ -168,20 +175,27 @@ class Layout extends PureComponent
         {screen: '/:id/strategic_plane', Component: StrategicPlane},
         {screen: '/:id/strategic_aim', Component: StrategicAim},
         {screen: '/:id/councils_and_committees', Component: CouncilsAndCommittees},
+        {screen: '/faculty/:faculty/:id/councils_and_committees', Component: CouncilsAndCommittees},
         {screen: '/:id/your_opinion', Component: YourOpinion},
         {screen: '/:id/stratigic_aim', Component: StrategicAim},
         {screen: '/:id/academic_calendar', Component: AcademicCalendar},
         {screen: '/:id/structure', Component: Structure},
         {screen: '/:id/curriculum', Component: Curriculum},
         {screen: '/:id/labs', Component: Labs},
+        {screen: '/faculty/:faculty/:id/labs', Component: Labs},
+
         {screen: '/:id/achievements', Component: Achievements},
+        {screen: '/:id/achievements_progress/achievements', Component: Achievements},
+        {screen: '/faculty/:faculty/:id/achievements', Component: Achievements},
         {screen: '/:id/aggrements', Component: Aggrements},
+        {screen: '/faculty/:faculty/:id/aggrements', Component: Aggrements},
         {screen: '/alumni/:id', Component: Alumni},
         {screen: '/students/:type/:id', Component: AlumniPost},
         {screen: '/:id/libraryinfos', Component: LibraryInfos},
+        {screen: '/faculty/:faculty/:id/libraryinfos', Component: LibraryInfos},
         {screen: '/:id/semester_fee', Component: SemesterFee},
         {screen: '/:id/policies_and_procedure', Component: PoliciesAndProcedures},
-        {screen: '/:id/accreditation', Component: Accr},
+        {screen: '/quality/quality_accreditation/:id/accreditation', Component: Accr},
         {screen: '/research/research_papers_and_publication', Component: ResearchPapersAndPublications},
         {screen: '/research/scientific_and_research_magazine', Component: ScientificAndResearchMagazine},
         {screen: '/research/research_paper', Component: ResearchPaper},
@@ -192,6 +206,7 @@ class Layout extends PureComponent
         {screen: '/research/under_process_researche', Component: UnderProcessResearche},
         {screen: '/research/completed_researche', Component: CompletedResearche},
         {screen: '/research/published_researche', Component: PublishedResearche},
+        {screen: '/research/activities_resources/published_researche', Component: PublishedResearche},
         {screen: '/research/capacity_building', Component: CapacityBuilding},
         {screen: '/research/vission_mission', Component: R_VissionMission},
         {screen: '/research/manual_policies', Component: ManualPolicies},
@@ -223,10 +238,10 @@ class Layout extends PureComponent
         {screen: '/pdc/a_pdc_b', Component: PDC},
         {screen: '/pdc/annual_professional_development_plan', Component: AnnualProfessionalDevelopmentPlan},
         {screen: '/pdc/seminars_courses_workshop', Component: SeminarsCoursesWorkshop},
-        {screen: '/pdc/teacher', Component: Teacher},
-        {screen: '/pdc/administrative_staff', Component: AdministrativeStaff},
-        {screen: '/pdc/pdc_student', Component: PDCStudent},
-        {screen: '/pdc/society', Component: Society},
+        {screen: '/academic/pdc/training_about_pdc/teacher', Component: Teacher},
+        {screen: '/academic/pdc/training_about_pdc/administrative_staff', Component: AdministrativeStaff},
+        {screen: '/academic/pdc/training_about_pdc/pdc_student', Component: PDCStudent},
+        {screen: '/academic/pdc/training_about_pdc/society', Component: Society},
         // {screen: '/pdc/aims', Component: PDC_Aims},
         // {screen: '/pdc/structure', Component: PDC_Structure},
 

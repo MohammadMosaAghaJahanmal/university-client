@@ -34,7 +34,7 @@ const ResearchPapersAndPublications = (props) =>
 
   const clickHandler = (id) =>
   {
-    navigate(`/multipleimgs/research_papers_and_publications/${id}`);
+    navigate(`/multipleimgs/research_papers_and_publication/${id}`);
   }
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const ResearchPapersAndPublications = (props) =>
 
   return (
     <div className={styles.cb}>
-      <SmallHero title={language.research_papers_and_publications} image={myHero} isRTL={isRTL} bgAnimation={true}/>
+      <SmallHero title={language.research_papers_and_publication} image={myHero} isRTL={isRTL} bgAnimation={true}/>
       <div className={[styles.cbw, "w-controller"].join(" ")}>
       {
          isLoading ? 
@@ -85,7 +85,7 @@ const ResearchPapersAndPublications = (props) =>
           {pageData.length > 0 ? 
             <>
             <Title 
-              title={language.research_papers_and_publications}
+              title={language.research_papers_and_publication}
               className={styles.title}
             />
             <div className={styles.wrapper}>

@@ -18,7 +18,36 @@ const Faculty = (props) =>
   
   const [globalState, dispatch] = useStore(false);
   
-    const {vissions, missions, avissionmissionimages, strategicplanes, stratigicaims, structures, values, academiccalendars} = globalState;
+    const {
+      vissions, 
+      missions, 
+      avissionmissionimages, 
+      strategicplanes, 
+      stratigicaims, 
+      structures, 
+      values, 
+      academiccalendars,
+      annualprofessionaldevelopmentplans,
+      researchpapers,
+      researchguides,
+      scientificandresearchmagazines,
+      policiesandprocedures,
+      researchsupports,
+      completedresearches,
+      underprocessresearches,
+      planedresearches,
+      accreditations,
+      selfassesments,
+      periodicprogramreviews,
+      studystatistics,
+      procedures,
+      progressiveplans,
+      offlineenrollmentrequirements,
+      kankorguides,
+      kankorregistrationdates,
+      enrolled,
+      generals
+    } = globalState;
     const [strategicplane, setStrategicplane] = useState({})
     const [stratigicaim, setStratigicaim] = useState([])
     const [structure, setStructure] = useState({});
@@ -40,6 +69,12 @@ const Faculty = (props) =>
   const allowTypes = {
     cs: "cs",
     eco: "a_bba_economics",
+    pdc: "training_about_pdc",
+    research: "activities_resources",
+    quality_accreditation: "quality_accreditation",
+    achievements_progress: "achievements_progress",
+    enrollment_guidance: "enrollment_guidance",
+    seb: "saba_economical_board",
   }
 
   
@@ -54,6 +89,27 @@ const Faculty = (props) =>
       {title: language.banking, desc: language.beco_economics, navigate:`/faculty/${id}/beco`},
       {title: language.business_administration, desc: language.baeco_economics, navigate:`/faculty/${id}/baeco`},
     ],
+    pdc: [
+      {title: language.teacher, desc: language.neco_economics, navigate:`/academic/${id}/training_about_pdc/teacher`},
+      {title: language.administrative_staff, desc: language.beco_economics, navigate:`/academic/${id}/training_about_pdc/administrative_staff`},
+      {title: language.pdc_student, desc: language.baeco_economics, navigate:`/academic/${id}/training_about_pdc/pdc_student`},
+      {title: language.society, desc: language.baeco_economics, navigate:`/academic/${id}/training_about_pdc/society`},
+    ],
+    research: [
+      {title: language.published_researche, desc: language.neco_economics, navigate:`/research/activities_resources/published_researche`},
+    ],
+    quality_accreditation: [
+      {title: language.internal_accreditation, desc: language.neco_economics, navigate:`/quality/${id}/internal/accreditation`},
+      {title: language.national_accreditation, desc: language.neco_economics, navigate:`/quality/${id}/national/accreditation`},
+      {title: language.international_accreditation, desc: language.neco_economics, navigate:`/quality/${id}/international/accreditation`},
+    ],
+    achievements_progress: [
+      {title: language.internal_accreditation, desc: language.neco_economics, navigate:`/library/${id}/achievements`},
+    ],
+    seb: [
+      {title: language.activity, desc: language.neco_economics, navigate:`/institutions/${id}/activity`},
+    ],
+    
   }
 
     useEffect(() => {
@@ -68,16 +124,15 @@ const Faculty = (props) =>
           img: avissionmissionimages[0]
         }));
 
-      setStrategicplane(strategicplanes.find(per => per.type === id))
-      setStratigicaim(stratigicaims.filter(per => per.type === id))
-      setStructure(structures.find(per => per.type === id))
-      setValueData(values.filter(per => per.type === id))
-      setAcademiccalendar(academiccalendars.find(per => per.type === id))
+
+      setStrategicplane(strategicplanes.find(per => per.type === id));
+      setStratigicaim(stratigicaims.filter(per => per.type === id));
+      setStructure(structures.find(per => per.type === id));
+      setValueData(values.filter(per => per.type === id));
+      setAcademiccalendar(academiccalendars.find(per => per.type === id));
 
 
     }, [id])
-    console.log(valueData)
-
 
 
   return (
@@ -117,12 +172,124 @@ const Faculty = (props) =>
                 
               />
             }
+            {((id === "pdc") && annualprofessionaldevelopmentplans[0]?.filePath) &&
+              <Card 
+                title={language.annual_professional_development_plan}
+                desc={annualprofessionaldevelopmentplans[0][isRTL ? "pDescription": "description"]}
+                navigate={annualprofessionaldevelopmentplans[0]?.filePath}
+                isdownloadable="plans.pdf"
+                isrtl={language.textDirection}
+              />
+            }
+            {((id === "research") && researchpapers[0]?.filePath) &&
+              <Card 
+                title={language.research_paper}
+                desc={researchpapers[0][isRTL ? "pDescription": "description"]}
+                navigate={researchpapers[0]?.filePath}
+                isdownloadable="plans.pdf"
+                isrtl={language.textDirection}
+              />
+            }
+            {((id === "research") && researchguides[0]?.filePath) &&
+              <Card 
+                title={language.research_guide}
+                desc={researchguides[0][isRTL ? "pDescription": "description"]}
+                navigate={researchguides[0]?.filePath}
+                isdownloadable="plans.pdf"
+                isrtl={language.textDirection}
+              />
+            }
+            {((id === "research") && scientificandresearchmagazines[0]?.filePath) &&
+              <Card 
+                title={language.scientific_and_research_magazine}
+                desc={scientificandresearchmagazines[0][isRTL ? "pDescription": "description"]}
+                navigate={scientificandresearchmagazines[0]?.filePath}
+                isdownloadable="plans.pdf"
+                isrtl={language.textDirection}
+              />
+            }
+            {((id === "research") && policiesandprocedures[0]?.filePath) &&
+              <Card 
+                title={language.policies_and_procedures}
+                desc={policiesandprocedures[0][isRTL ? "pDescription": "description"]}
+                navigate={policiesandprocedures[0]?.filePath}
+                isdownloadable="plans.pdf"
+                isrtl={language.textDirection}
+              />
+            }
+            {((id === "achievements_progress") && procedures[0]?.filePath) &&
+              <Card 
+                title={language.procedure}
+                desc={procedures[0][isRTL ? "pDescription": "description"]}
+                navigate={procedures[0]?.filePath}
+                isdownloadable="plans.pdf"
+                isrtl={language.textDirection}
+              />
+            }
+            {((id === "achievements_progress") && progressiveplans[0]?.filePath) &&
+              <Card 
+                title={language.progressive_plan}
+                desc={progressiveplans[0][isRTL ? "pDescription": "description"]}
+                navigate={progressiveplans[0]?.filePath}
+                isdownloadable="plans.pdf"
+                isrtl={language.textDirection}
+              />
+            }
+            {((id === "enrollment_guidance") && offlineenrollmentrequirements[0]?.filePath) &&
+              <Card 
+                title={language.offline_enrollment_requirement}
+                desc={offlineenrollmentrequirements[0][isRTL ? "pDescription": "description"]}
+                navigate={offlineenrollmentrequirements[0]?.filePath}
+                isdownloadable="plans.pdf"
+                isrtl={language.textDirection}
+              />
+            }
+            {((id === "enrollment_guidance") && kankorguides[0]?.filePath) &&
+              <Card 
+                title={language.kankor_guide}
+                desc={kankorguides[0][isRTL ? "pDescription": "description"]}
+                navigate={kankorguides[0]?.filePath}
+                isdownloadable="plans.pdf"
+                isrtl={language.textDirection}
+              />
+            }
 
           </div>
+          {id === "research" &&
+            <ProgramTabs 
+              tabsStyle={'researchtabs'}
+              activeTab="aims"
+              tabs={[
+                { id: "aims", label: language.strategic_aims },
+                { id: "support", label: language.research_support },
+                { id: "completed", label: language.completed_researche },
+                { id: "underprocess", label: language.under_process_researche },
+                { id: "planed", label: language.planed_researche },
+                // { id: "fee", label: "Fee Structure" },
+              ]}
+              content={{
+                aims: stratigicaim.map((per, index) => <CollapseSection key={per._id} title={per[isRTL ? "pTitle": "title"] || language.a_aims} description={per[isRTL ? "pDescription": "description"]} active={index <= 0 ? true : false}  />),
+                support: (
+                  <div dangerouslySetInnerHTML={{__html:researchsupports[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+                ),
+                completed: (
+                  <div dangerouslySetInnerHTML={{__html:completedresearches[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+                ),
+                underprocess: (
+                  <div dangerouslySetInnerHTML={{__html:underprocessresearches[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+                ),
+                planed: (
+                  <div dangerouslySetInnerHTML={{__html:planedresearches[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+                ),
+              }}
+            />
+          }
+          { (id === "cs" || id === "eco" || id === "pdc") &&
           <ProgramTabs 
-            activeTab="vision"
+            activeTab={"vision"}
+            tabsStyle={styles[id+"tabs"]}
             tabs={[
-              { id: "vision", label: language.our_vission_and_mission },
+              { id: "vision", label: language.vission_mission },
               { id: "aims", label: language.strategic_aims },
               { id: "values", label: language.values },
               // { id: "fee", label: "Fee Structure" },
@@ -138,7 +305,6 @@ const Faculty = (props) =>
                     <h4>{language.mission}</h4>
                     <p dangerouslySetInnerHTML={{__html: visMis.mission[isRTL ? "pDescription": "description"]}}></p>
                   </div>
-
                 </>
               ),
               aims: stratigicaim.map((per, index) => <CollapseSection key={per._id} title={per[isRTL ? "pTitle": "title"] || language.a_aims} description={per[isRTL ? "pDescription": "description"]} active={index <= 0 ? true : false}  />),
@@ -148,9 +314,89 @@ const Faculty = (props) =>
                     <div dangerouslySetInnerHTML={{__html: per[isRTL ? "pValue": "value"]}}></div>
                   </div>
               ))),
-              fee: "The fee structure varies based on the number of credits taken per semester. Scholarships and financial aid options are available for eligible students.",
             }}
-          />
+          /> 
+          }
+
+          { id === "quality_accreditation" &&
+          <ProgramTabs 
+            activeTab={"accreditations"}
+            tabsStyle={styles[id+"tabs"]}
+            tabs={[
+              { id: "accreditations", label: language.accreditation },
+              { id: "selfassesments", label: language.a_self_assesment },
+              { id: "periodicprogramreviews", label: language.periodic_program_review },
+              // { id: "fee", label: "Fee Structure" },
+            ]}
+            content={{
+              accreditations: (
+                <div dangerouslySetInnerHTML={{__html:accreditations[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+              ),
+              selfassesments: (
+                <div dangerouslySetInnerHTML={{__html:selfassesments[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+              ),
+              periodicprogramreviews: (
+                <div dangerouslySetInnerHTML={{__html:periodicprogramreviews[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+              ),
+            }}
+          /> 
+          }
+
+          { id === "seb" &&
+          <ProgramTabs 
+            activeTab={"aims"}
+            tabsStyle={styles[id+"tabs"]}
+            tabs={[
+              { id: "aims", label: language.strategic_aims },
+              // { id: "fee", label: "Fee Structure" },
+            ]}
+            content={{
+              aims: stratigicaim.map((per, index) => <CollapseSection key={per._id} title={per[isRTL ? "pTitle": "title"] || language.a_aims} description={per[isRTL ? "pDescription": "description"]} active={index <= 0 ? true : false}  />),
+            }}
+          /> 
+          }
+
+          { id === "achievements_progress" &&
+          <ProgramTabs 
+            activeTab={"studystatistics"}
+            tabsStyle={styles[id+"tabs"]}
+            tabs={[
+              { id: "studystatistics", label: language.study_statistic },
+              // { id: "fee", label: "Fee Structure" },
+            ]}
+            content={{
+              studystatistics: (
+                <div dangerouslySetInnerHTML={{__html:studystatistics[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+              ),
+            }}
+          /> 
+          }
+
+          { id === "enrollment_guidance" &&
+          <ProgramTabs 
+            activeTab={"kankorregistrationdates"}
+            tabsStyle={styles[id+"tabs"]}
+            tabs={[
+              { id: "kankorregistrationdates", label: language.kankor_registration_date },
+              { id: "enrolled", label: language.enrolled },
+              { id: "generals", label: language.general },
+              // { id: "fee", label: "Fee Structure" },
+            ]}
+            content={{
+              kankorregistrationdates: (
+                <div dangerouslySetInnerHTML={{__html:kankorregistrationdates[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+              ),
+              enrolled: (
+                <div dangerouslySetInnerHTML={{__html:enrolled[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+              ),
+              generals: (
+                <div dangerouslySetInnerHTML={{__html:generals[0]?.[isRTL ? "pDescription": "description"]}} className={"custom-content-style"}></div>
+              ),
+            }}
+          /> 
+          }
+
+
 
         </div>
         {structure?.title &&

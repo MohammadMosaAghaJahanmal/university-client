@@ -177,7 +177,7 @@ const Navbar = (props) =>
         {name: language.research_support, link: "/research/research_support"},
         {name: language.research_trainings, link: "/research/research_trainings"},
         {name: language.policies_and_procedures, link: "/research/policies_and_procedure"},
-        {name: language.research_papers_and_publications, link: "/research/research_papers_and_publication"},
+        {name: language.research_papers_and_publication, link: "/research/research_papers_and_publication"},
         {name: language.scientific_and_research_magazine, link: "/research/scientific_and_research_magazine"},
         {name: language.research_guide, link: "/research/research_guide"},
         {name: language.research_paper, link: "/research/research_paper"},

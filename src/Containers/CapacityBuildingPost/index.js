@@ -27,13 +27,13 @@ const CapacityBuildingPost = (props) =>
       {type:'a_pdc', storePath: "pdcposts", route: "pdc_post"},
       {type:'a_capacity_building', storePath: "acapacitybuildings", route: "a_capacity_building"},
       {type:'capacity_building', storePath: "capacitybuildings", route: "capacity_building"},
-      {type:'councils_and_committees', storePath: "councilsandcommittees", route: "councils_and_committees"},
+      {type:'councils_and_committees', storePath: "councilsandcommittees", route: "councils_and_committee"},
       {type:'achievements', storePath: "achievements", route: "achievement"},
       {type:'activity', storePath: "activities", route: "activity"},
       {type:'agreements', storePath: "agreements", route: "agreement"},
       {type:'libraryinfos', storePath: "libraryinfos", route: "libraryinfo"},
       {type:'research_trainings', storePath: "researchtrainings", route: "research_training"},
-      {type:'research_papers_and_publications', storePath: "researchpapersandpublications", route: "research_papers_and_publication"},
+      {type:'research_papers_and_publication', storePath: "researchpapersandpublications", route: "research_papers_and_publication"},
       {type:'accreditation', storePath: "accrs", route: "accr"},
       {type:'offline_library', storePath: "offlinelibraries", route: "offline_library"},
       {type:'tours_of_student', storePath: "toursofstudents", route: "tours_of_student"},
@@ -131,7 +131,7 @@ const CapacityBuildingPost = (props) =>
           </div>
           <div className={styles.latestPosts}>
             <p className={styles.latestTitle}>
-              Latest Posts
+              {language.latest_posts}
             </p>
             <div className={styles.cards}> 
             {(latestPosts.length > 0) && 

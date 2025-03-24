@@ -1,0 +1,156 @@
+.post
+{
+  --TextColor: #3e4958;
+  --white:#ffffff;
+  --black:#000000;
+  --green:#8ac53a;
+  --blue:#0080d6;
+  --yellow:#facc07;
+  --darkGreen:#007600;
+  --darkBlue:#002060;
+  --lightBlue:#dff9fb;
+  background-color: #dff9fb;
+}
+.postWrapper
+{
+  display: grid;
+  row-gap: 10px;
+}
+
+.mainPost
+{
+  display: grid;
+  row-gap: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.cards
+{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: center;
+}
+
+
+.osw
+{
+  display: grid;
+  position: relative;
+  padding: 5px;
+  color: #0a446b;
+  box-shadow: 0 1px 2px #0080d6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+}
+
+.contentWrapper
+{
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  margin: auto;
+  padding: 0 14px;
+}
+
+.title
+{
+  font-size: 25px !important;
+  font-weight: bold;
+  text-align: center;
+}
+.text
+{
+  text-align: center;
+}
+
+.textData
+{
+  font-size: 18px;
+  display: grid;
+  row-gap: 15px;
+  text-emphasis: none;
+}
+
+.br
+{
+  background-color: #0a446b;
+  height: 2px;
+  margin: 30px auto ;
+  width: 100%;
+  max-width: 520px;
+}
+
+.orgImage
+{
+  width: 100%;
+}
+
+.orgImage img
+{
+  width: 100%;
+  object-fit: cover;
+}
+
+@media all and (max-width: 1366px) {
+}
+
+@media all and (max-width: 992px) {
+  
+.cards
+{
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+
+}
+
+@media all and (max-width: 768px) {
+  .title
+  {
+    font-size: 18px !important;
+  }
+  .textData
+  {
+    font-size: 18px !important;
+  }
+  .cards
+  {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+@media all and (max-width: 767px) {
+  .tabs {
+    display: grid !important;
+    border-bottom: 2px solid transparent !important;
+  }
+  .tabs button {
+    border-bottom: 2px solid transparent !important;
+  }
+  .tabs button:hover {
+    border-bottom-color: rgba(0, 128, 214, 0.7) !important;
+  }
+}
+
+@media all and (max-width: 426px) {
+  .cards
+  {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media all and (max-width: 425px) {
+
+
+  .contentWrapper
+  {
+    margin: 20px auto;
+    padding: 7px;
+  }
+}
